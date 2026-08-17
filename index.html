@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NOCTURNE BOOKS</title>
+
+<style>
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #f5f8fc;
+  color: #172c4c;
+  padding-bottom: 90px;
+}
+
+header {
+  min-height: 270px;
+  padding: 38px 22px 30px;
+  text-align: center;
+  background:
+    linear-gradient(rgba(255,255,255,.88), rgba(247,250,254,.94)),
+    repeating-linear-gradient(
+      90deg,
+      transparent 0,
+      transparent 49%,
+      #ef9da2 49.5%,
+      transparent 50%
+    );
+  border-bottom: 1px solid #dce6f1;
+  position: relative;
+}
+
+header:after {
+  content: "";
+  position: absolute;
+  width: 160px;
+  height: 160px;
+  border: 2px solid #d7e5f3;
+  border-radius: 50%;
+  left: 50%;
+  top: 150px;
+  transform: translateX(-50%);
+  opacity: .7;
+}
+
+.logo {
+  font-family: Georgia, serif;
+  font-size: 43px;
+  letter-spacing: 4px;
+  font-weight: 900;
+  color: #31577f;
+  position: relative;
+  z-index: 2;
+}
+
+.logo-small {
+  letter-spacing: 10px;
+  font-weight: bold;
+  margin-top: 8px;
+  color: #5d7fa3;
+  position: relative;
+  z-index: 2;
+}
+
+.slogan {
+  margin-top: 30px;
+  font-size: 11px;
+  letter-spacing: 2px;
+  color: #6086b0;
+  position: relative;
+  z-index: 2;
+}
+
+main {
+  max-width: 700px;
+  margin: auto;
+  padding: 20px 16px;
+}
+
+.search {
+  width: 100%;
+  border: 1px solid #dfe7f1;
+  background: white;
+  padding: 15px 18px;
+  border-radius: 16px;
+  font-size: 15px;
+  outline: none;
+  box-shadow: 0 5px 20px rgba(39,73,110,.05);
+}
+
+.filters {
+  display: flex;
+  gap: 8px;
+  overflow-x: auto;
+  margin: 14px 0 25px;
+  padding-bottom: 5px;
+}
+
+.filter {
+  border: 1px solid #d9e3ef;
+  background: white;
+  color: #31577f;
+  padding: 9px 15px;
+  border-radius: 20px;
+  white-space: nowrap;
+}
+
+.filter.active {
+  background: #6f9bd0;
+  color: white;
+  border-color: #6f9bd0;
+}
+
+.section-title {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin: 25px 0 14px;
+}
+
+.section-title h2 {
+  font-size: 17px;
+  margin: 0;
+}
+
+.section-title span {
+  height: 1px;
+  flex: 1;
+  background: #d5e0ec;
+}
+
+.continue-card {
+  background: white;
+  padding: 15px;
+  border-radius: 20px;
+  display: flex;
+  gap: 15px;
+  box-shadow: 0 8px 25px rgba(39,73,110,.08);
+}
+
+.cover {
+  width: 105px;
+  height: 150px;
+  flex-shrink: 0;
+  border-radius: 12px;
+  background: linear-gradient(145deg,#e9dfe9,#dcecf7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 10px;
+  color: #496987;
+  font-family: Georgia, serif;
+  font-style: italic;
+}
+
+.book-info {
+  flex: 1;
+}
+
+.book-info h3 {
+  margin: 8px 0 4px;
+}
+
+.author {
+  color: #7a8da5;
+  font-size: 14px;
+}
+
+.tropes {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin: 12px 0;
+}
+
+.trope {
+  background: #eef4fb;
+  color: #52759a;
+  border-radius: 15px;
+  padding: 6px 9px;
+  font-size: 11px;
+}
+
+.progress {
+  height: 6px;
+  background: #e7edf4;
+  border-radius: 10px;
+  overflow: hidden;
+  margin: 14px 0;
+}
+
+.progress div {
+  width: 38%;
+  height: 100%;
+  background: #6d9bd0;
+}
+
+.read-button {
+  border: 0;
+  width: 100%;
+  background: #709bd0;
+  color: white;
+  padding: 11px;
+  border-radius: 10px;
+  font-weight: bold;
+}
+
+.books {
+  display: grid;
+  grid-template-columns: repeat(2,1fr);
+  gap: 18px;
+}
+
+.book {
+  cursor: pointer;
+}
+
+.book-cover {
+  aspect-ratio: 2 / 3;
+  border-radius: 14px;
+  background: linear-gradient(145deg,#f5dfe6,#dceaf8);
+  box-shadow: 0 7px 20px rgba(39,73,110,.10);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 18px;
+  text-align: center;
+  font-family: Georgia, serif;
+  font-size: 22px;
+  font-style: italic;
+}
+
+.book h3 {
+  font-size: 14px;
+  margin: 9px 0 3px;
+}
+
+.book p {
+  margin: 0;
+  color: #8291a5;
+  font-size: 12px;
+}
+
+nav {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(255,255,255,.96);
+  border-top: 1px solid #e0e8f1;
+  display: flex;
+  justify-content: space-around;
+  padding: 10px 3px 15px;
+  z-index: 10;
+}
+
+.nav-item {
+  text-align: center;
+  color: #8ca0b8;
+  font-size: 10px;
+  width: 20%;
+}
+
+.nav-icon {
+  font-size: 21px;
+  display: block;
+  margin-bottom: 4px;
+}
+
+.nav-item.active {
+  color: #5285c3;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <div class="logo">NOCTURNE</div>
+  <div class="logo-small">BOOKS</div>
+  <div class="slogan">YOUR NEXT OBSESSION IS HERE</div>
+</header>
+
+<main>
+
+<input
+  class="search"
+  id="search"
+  type="text"
+  placeholder="🔍 Найти книгу, автора или троп..."
+>
+
+<div class="filters">
+  <button class="filter active">Все</button>
+  <button class="filter">Романы</button>
+  <button class="filter">Хоккей</button>
+  <button class="filter">Фэнтези</button>
+  <button class="filter">Триллеры</button>
+</div>
+
+<div class="section-title">
+  <h2>ПРОДОЛЖИТЬ ЧТЕНИЕ</h2>
+  <span></span>
+</div>
+
+<div class="continue-card">
+  <div class="cover">ICEBREAKER</div>
+
+  <div class="book-info">
+    <h3>Icebreaker</h3>
+    <div class="author">Hannah Grace</div>
+
+    <div class="tropes">
+      <div class="trope">🏒 Хоккей</div>
+      <div class="trope">💗 Романтика</div>
+    </div>
+
+    <small>Глава 12 из 31 · 38%</small>
+
+    <div class="progress">
+      <div></div>
+    </div>
+
+    <button class="read-button">📖 ПРОДОЛЖИТЬ</button>
+  </div>
+</div>
+
+<div class="section-title">
+  <h2>КАТАЛОГ</h2>
+  <span></span>
+</div>
+
+<div class="books" id="books">
+
+  <div class="book"
+       data-search="icebreaker hannah grace хоккей романтика">
+    <div class="book-cover">Icebreaker</div>
+    <h3>Icebreaker</h3>
+    <p>Hannah Grace</p>
+  </div>
+
+  <div class="book"
+       data-search="twisted lies ana huang романтика он влюбился первым">
+    <div class="book-cover">Twisted Lies</div>
+    <h3>Twisted Lies</h3>
+    <p>Ana Huang</p>
+  </div>
+
+  <div class="book"
+       data-search="flawless elsie silver романтика спорт">
+    <div class="book-cover">Flawless</div>
+    <h3>Flawless</h3>
+    <p>Elsie Silver</p>
+  </div>
+
+  <div class="book"
+       data-search="love on the brain ali hazelwood романтика">
+    <div class="book-cover">Love on the Brain</div>
+    <h3>Love on the Brain</h3>
+    <p>Ali Hazelwood</p>
+  </div>
+
+</div>
+
+</main>
+
+<nav>
+  <div class="nav-item active">
+    <span class="nav-icon">⌂</span>
+    Главная
+  </div>
+
+  <div class="nav-item">
+    <span class="nav-icon">⌕</span>
+    Каталог
+  </div>
+
+  <div class="nav-item">
+    <span class="nav-icon">♡</span>
+    Библиотека
+  </div>
+
+  <div class="nav-item">
+    <span class="nav-icon">🔖</span>
+    Закладки
+  </div>
+
+  <div class="nav-item">
+    <span class="nav-icon">♙</span>
+    Профиль
+  </div>
+</nav>
+
+<script>
+const search = document.getElementById("search");
+const books = document.querySelectorAll(".book");
+
+search.addEventListener("input", function () {
+  const value = this.value.toLowerCase().trim();
+
+  books.forEach(book => {
+    const data = book.dataset.search.toLowerCase();
+
+    if (data.includes(value)) {
+      book.style.display = "block";
+    } else {
+      book.style.display = "none";
+    }
+  });
+});
+
+document.querySelectorAll(".filter").forEach(button => {
+  button.addEventListener("click", function () {
+    document.querySelectorAll(".filter")
+      .forEach(b => b.classList.remove("active"));
+
+    this.classList.add("active");
+  });
+});
+</script>
+
+</body>
+      </html>
