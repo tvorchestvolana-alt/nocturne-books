@@ -7,9 +7,7 @@
 <title>Каталог — NOCTURNE BOOKS</title>
 
 <style>
-*{
-  box-sizing:border-box;
-}
+*{box-sizing:border-box}
 
 body{
   margin:0;
@@ -187,28 +185,32 @@ nav{
   bottom:0;
   display:flex;
   justify-content:space-around;
-  background:rgba(255,255,255,.98);
+  background:#fff;
   border-top:1px solid #e0e8f1;
   padding:9px 3px calc(13px + env(safe-area-inset-bottom));
   z-index:999999;
+  box-shadow:0 -4px 18px rgba(39,73,110,.06);
 }
 
 .nav-item{
   width:20%;
-  min-height:52px;
+  min-height:54px;
   display:flex;
   flex-direction:column;
   align-items:center;
   justify-content:center;
-  text-align:center;
   text-decoration:none;
+  text-align:center;
   color:#8ca0b8;
   font-size:10px;
+  position:relative;
+  z-index:1000000;
+  touch-action:manipulation;
 }
 
 .nav-icon{
-  font-size:21px;
   display:block;
+  font-size:21px;
   margin-bottom:4px;
 }
 
@@ -224,7 +226,10 @@ nav{
 
 <div class="topbar">
 
-<a class="back" href="index.html">
+<a
+class="back"
+href="https://tvorchestvolana-alt.github.io/nocturne-books/index.html"
+>
 ←
 </a>
 
@@ -245,38 +250,23 @@ placeholder="🔍 Найти книгу, автора, серию или тро�
 
 <div class="filters">
 
-<button
-class="filter active"
-data-filter="all"
->
+<button class="filter active" data-filter="all">
 Все
 </button>
 
-<button
-class="filter"
-data-filter="хоккейный роман"
->
+<button class="filter" data-filter="хоккейный роман">
 Хоккей
 </button>
 
-<button
-class="filter"
-data-filter="он влюбляется первым"
->
+<button class="filter" data-filter="он влюбляется первым">
 Он влюбляется первым
 </button>
 
-<button
-class="filter"
-data-filter="медленное развитие отношений"
->
+<button class="filter" data-filter="медленное развитие отношений">
 Медленное развитие
 </button>
 
-<button
-class="filter"
-data-filter="бостонские рыси"
->
+<button class="filter" data-filter="бостонские рыси">
 Бостонские Рыси
 </button>
 
@@ -286,10 +276,7 @@ data-filter="бостонские рыси"
 
 <main>
 
-<div
-class="count"
-id="count"
->
+<div class="count" id="count">
 1 книга
 </div>
 
@@ -297,7 +284,7 @@ id="count"
 
 <a
 class="book"
-href="cold-baby.html"
+href="https://tvorchestvolana-alt.github.io/nocturne-books/cold-baby.html"
 data-search="холодная малышка карли робин бостонские рыси хоккейный роман профессиональный хоккеист управляющая книжным магазином от незнакомцев к влюбленным противоположности притягиваются черная кошка золотой ретривер он влюбляется первым словесные перепалки медленное развитие отношений"
 >
 
@@ -349,10 +336,7 @@ alt="Холодная малышка"
 
 </a>
 
-<div
-class="empty"
-id="empty"
->
+<div class="empty" id="empty">
 Ничего не найдено
 </div>
 
@@ -362,27 +346,42 @@ id="empty"
 
 <nav>
 
-<a class="nav-item" href="index.html">
+<a
+class="nav-item"
+href="https://tvorchestvolana-alt.github.io/nocturne-books/index.html"
+>
 <span class="nav-icon">⌂</span>
 Главная
 </a>
 
-<a class="nav-item active" href="catalog.html">
+<a
+class="nav-item active"
+href="https://tvorchestvolana-alt.github.io/nocturne-books/catalog.html"
+>
 <span class="nav-icon">⌕</span>
 Каталог
 </a>
 
-<a class="nav-item" href="library.html">
+<a
+class="nav-item"
+href="https://tvorchestvolana-alt.github.io/nocturne-books/library.html"
+>
 <span class="nav-icon">♡</span>
 Библиотека
 </a>
 
-<a class="nav-item" href="bookmarks.html">
+<a
+class="nav-item"
+href="https://tvorchestvolana-alt.github.io/nocturne-books/bookmarks.html"
+>
 <span class="nav-icon">❝</span>
 Цитаты
 </a>
 
-<a class="nav-item" href="profile.html">
+<a
+class="nav-item"
+href="https://tvorchestvolana-alt.github.io/nocturne-books/profile.html"
+>
 <span class="nav-icon">♙</span>
 Профиль
 </a>
@@ -406,47 +405,38 @@ document.getElementById("empty");
 const count =
 document.getElementById("count");
 
-let activeFilter =
-"all";
+let activeFilter = "all";
 
 function applyFilters(){
 
   const query =
-  search.value
-  .toLowerCase()
-  .trim();
+  search.value.toLowerCase().trim();
 
-  let visible=0;
+  let visible = 0;
 
-  books.forEach(
-    book=>{
+  books.forEach(book=>{
 
-      const data =
-      book.dataset.search
-      .toLowerCase();
+    const data =
+    book.dataset.search.toLowerCase();
 
-      const matchesSearch =
-      query === "" ||
-      data.includes(query);
+    const matchesSearch =
+    query === "" ||
+    data.includes(query);
 
-      const matchesFilter =
-      activeFilter === "all" ||
-      data.includes(activeFilter);
+    const matchesFilter =
+    activeFilter === "all" ||
+    data.includes(activeFilter);
 
-      if(
-        matchesSearch &&
-        matchesFilter
-      ){
+    if(matchesSearch && matchesFilter){
 
-        book.style.display="block";
-        visible++;
+      book.style.display = "block";
+      visible++;
 
-      }else{
+    }else{
 
-        book.style.display="none";
-      }
+      book.style.display = "none";
     }
-  );
+  });
 
   empty.style.display =
   visible === 0
@@ -464,8 +454,7 @@ search.addEventListener(
 applyFilters
 );
 
-filters.forEach(
-button=>{
+filters.forEach(button=>{
 
   button.addEventListener(
     "click",
