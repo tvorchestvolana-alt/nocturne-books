@@ -11,20 +11,29 @@
   box-sizing:border-box;
 }
 
-body{
+html,body{
   margin:0;
+  padding:0;
+  width:100%;
+}
+
+body{
   font-family:Arial,sans-serif;
   background:#f6f9fd;
   color:#173052;
-  padding-bottom:95px;
+  padding-bottom:110px;
 }
 
 header{
   min-height:220px;
   padding:28px 20px 24px;
   text-align:center;
+
   background:
-    linear-gradient(rgba(255,255,255,.92),rgba(247,250,254,.96)),
+    linear-gradient(
+      rgba(255,255,255,.92),
+      rgba(247,250,254,.96)
+    ),
     repeating-linear-gradient(
       90deg,
       transparent 0,
@@ -32,267 +41,422 @@ header{
       #efb1b6 49.5%,
       transparent 50%
     );
+
   border-bottom:1px solid #dce6f1;
+
   position:relative;
   overflow:hidden;
 }
 
 header:after{
   content:"";
+
   position:absolute;
+
   width:145px;
   height:145px;
+
   border:2px solid #d7e5f3;
   border-radius:50%;
+
   left:50%;
   top:120px;
+
   transform:translateX(-50%);
+
   opacity:.75;
+
+  pointer-events:none;
 }
 
 .logo{
   font-family:Georgia,serif;
+
   font-size:38px;
+  line-height:1;
+
   letter-spacing:3px;
+
   font-weight:900;
+
   color:#31577f;
+
   position:relative;
   z-index:2;
-  line-height:1;
 }
 
 .logo-small{
   letter-spacing:9px;
+
   font-weight:bold;
+
   margin-top:8px;
+
   color:#5d7fa3;
+
   position:relative;
   z-index:2;
 }
 
 .slogan{
   margin-top:24px;
+
   font-size:10px;
+
   letter-spacing:2px;
+
   color:#6086b0;
+
   position:relative;
   z-index:2;
 }
 
 main{
   max-width:700px;
+
   margin:auto;
+
   padding:20px 16px;
+
+  position:relative;
+
+  z-index:1;
 }
 
 .search{
   display:block;
+
   width:100%;
+
   text-decoration:none;
+
   border:1px solid #dfe7f1;
+
   background:white;
+
   color:#8995a5;
+
   padding:15px 18px;
+
   border-radius:16px;
+
   font-size:15px;
-  box-shadow:0 5px 20px rgba(39,73,110,.05);
+
+  box-shadow:
+  0 5px 20px rgba(39,73,110,.05);
 }
 
 .section-title{
   display:flex;
+
   align-items:center;
+
   gap:12px;
+
   margin:25px 0 14px;
 }
 
 .section-title h2{
   font-size:17px;
+
   margin:0;
+
   white-space:nowrap;
 }
 
 .section-title span{
   height:1px;
+
   flex:1;
+
   background:#d5e0ec;
 }
 
 .current-card{
   background:white;
+
   padding:15px;
+
   border-radius:20px;
+
   display:flex;
+
   gap:15px;
-  box-shadow:0 8px 25px rgba(39,73,110,.08);
+
+  box-shadow:
+  0 8px 25px rgba(39,73,110,.08);
+
+  position:relative;
+
+  z-index:1;
 }
 
 .current-cover{
   width:115px;
+
   flex-shrink:0;
 }
 
 .current-cover img{
   width:100%;
+
   aspect-ratio:2/3;
+
   object-fit:cover;
+
   border-radius:13px;
+
   display:block;
 }
 
 .current-info{
   flex:1;
+
   min-width:0;
 }
 
 .current-info h3{
   margin:5px 0 4px;
+
   font-size:19px;
 }
 
 .author{
   color:#7a8da5;
+
   font-size:13px;
 }
 
 .series{
   color:#6f89a5;
+
   font-size:11px;
+
   margin-top:5px;
 }
 
 .tropes{
   display:flex;
+
   flex-wrap:wrap;
+
   gap:6px;
+
   margin:12px 0;
 }
 
 .trope{
   background:#eef4fb;
+
   color:#52759a;
+
   border-radius:15px;
+
   padding:6px 9px;
+
   font-size:10px;
 }
 
 .progress-info{
   font-size:11px;
+
   color:#71869f;
+
   margin-top:10px;
 }
 
 .progress{
   height:6px;
+
   background:#e7edf4;
+
   border-radius:10px;
+
   overflow:hidden;
+
   margin:8px 0 12px;
 }
 
 .progress-bar{
   width:0%;
+
   height:100%;
+
   background:#6d9bd0;
 }
 
 .read-button{
   display:block;
+
   width:100%;
+
   background:#709bd0;
+
   color:white;
+
   padding:12px;
+
   border-radius:11px;
+
   font-weight:bold;
+
   font-size:13px;
+
   text-decoration:none;
+
   text-align:center;
 }
 
 .feature-card{
   display:block;
+
   text-decoration:none;
+
   color:inherit;
+
   background:white;
+
   border-radius:20px;
+
   padding:15px;
-  box-shadow:0 7px 20px rgba(39,73,110,.07);
+
+  box-shadow:
+  0 7px 20px rgba(39,73,110,.07);
+
+  position:relative;
+
+  z-index:1;
 }
 
 .feature-inner{
   display:flex;
+
   gap:15px;
+
   align-items:center;
 }
 
 .feature-cover{
   width:92px;
+
   flex-shrink:0;
 }
 
 .feature-cover img{
   width:100%;
+
   aspect-ratio:2/3;
+
   object-fit:cover;
+
   border-radius:12px;
+
   display:block;
 }
 
 .feature-text h3{
   margin:0 0 5px;
+
   font-size:17px;
 }
 
 .feature-text p{
   margin:0 0 7px;
+
   color:#8192a7;
+
   font-size:12px;
 }
 
 .series-pill{
   display:inline-block;
+
   background:#eaf2fb;
+
   color:#52779e;
+
   padding:6px 9px;
+
   border-radius:14px;
+
   font-size:10px;
 }
 
 .catalog-link{
   display:block;
+
   text-align:center;
+
   margin:20px 0 4px;
+
   padding:13px;
+
   border-radius:14px;
+
   text-decoration:none;
+
   color:#527da9;
+
   background:#eaf2fb;
+
   font-weight:bold;
 }
 
 nav{
   position:fixed;
-  bottom:0;
+
   left:0;
   right:0;
-  background:rgba(255,255,255,.97);
-  border-top:1px solid #e0e8f1;
+  bottom:0;
+
   display:flex;
+
   justify-content:space-around;
-  padding:10px 3px calc(14px + env(safe-area-inset-bottom));
-  z-index:20;
+
+  align-items:center;
+
+  background:rgba(255,255,255,.98);
+
+  border-top:1px solid #e0e8f1;
+
+  padding:
+    10px
+    3px
+    calc(14px + env(safe-area-inset-bottom));
+
+  z-index:99999;
+
+  pointer-events:auto;
+
+  box-shadow:
+  0 -4px 18px rgba(39,73,110,.05);
 }
 
 .nav-item{
-  text-align:center;
-  color:#8ca0b8;
-  font-size:10px;
+  position:relative;
+
+  z-index:100000;
+
   width:20%;
+
+  text-align:center;
+
   text-decoration:none;
+
+  color:#8ca0b8;
+
+  font-size:10px;
+
+  pointer-events:auto;
+
+  touch-action:manipulation;
 }
 
 .nav-icon{
-  font-size:21px;
   display:block;
+
+  font-size:21px;
+
   margin-bottom:4px;
 }
 
@@ -322,9 +486,13 @@ YOUR NEXT OBSESSION IS HERE
 
 <main>
 
-<a class="search" href="catalog.html">
+<a
+class="search"
+href="catalog.html"
+>
 🔍 Найти книгу, автора, серию или троп...
 </a>
+
 
 <div class="section-title">
 
@@ -336,6 +504,7 @@ YOUR NEXT OBSESSION IS HERE
 
 </div>
 
+
 <div class="current-card">
 
 <div class="current-cover">
@@ -346,6 +515,7 @@ alt="Холодная малышка"
 >
 
 </div>
+
 
 <div class="current-info">
 
@@ -361,6 +531,7 @@ alt="Холодная малышка"
 Бостонские Рыси · Книга #1
 </div>
 
+
 <div class="tropes">
 
 <span class="trope">
@@ -373,12 +544,14 @@ alt="Холодная малышка"
 
 </div>
 
+
 <div
 class="progress-info"
 id="progressInfo"
 >
 Ещё не начато
 </div>
+
 
 <div class="progress">
 
@@ -388,6 +561,7 @@ id="progressBar"
 ></div>
 
 </div>
+
 
 <a
 class="read-button"
@@ -401,6 +575,7 @@ href="reader.html"
 
 </div>
 
+
 <div class="section-title">
 
 <h2>
@@ -410,6 +585,7 @@ href="reader.html"
 <span></span>
 
 </div>
+
 
 <a
 class="feature-card"
@@ -426,6 +602,7 @@ alt="Холодная малышка"
 >
 
 </div>
+
 
 <div class="feature-text">
 
@@ -447,6 +624,7 @@ alt="Холодная малышка"
 
 </a>
 
+
 <div class="section-title">
 
 <h2>
@@ -456,6 +634,7 @@ alt="Холодная малышка"
 <span></span>
 
 </div>
+
 
 <a
 class="feature-card"
@@ -472,6 +651,7 @@ alt="Холодная малышка"
 >
 
 </div>
+
 
 <div class="feature-text">
 
@@ -493,6 +673,7 @@ alt="Холодная малышка"
 
 </a>
 
+
 <a
 class="catalog-link"
 href="catalog.html"
@@ -501,6 +682,7 @@ href="catalog.html"
 </a>
 
 </main>
+
 
 <nav>
 
@@ -517,6 +699,7 @@ href="index.html"
 
 </a>
 
+
 <a
 class="nav-item"
 href="catalog.html"
@@ -529,6 +712,7 @@ href="catalog.html"
 Каталог
 
 </a>
+
 
 <a
 class="nav-item"
@@ -543,6 +727,7 @@ href="library.html"
 
 </a>
 
+
 <a
 class="nav-item"
 href="bookmarks.html"
@@ -556,9 +741,10 @@ href="bookmarks.html"
 
 </a>
 
+
 <a
 class="nav-item"
-href="#"
+href="profile.html"
 >
 
 <span class="nav-icon">
@@ -571,6 +757,7 @@ href="#"
 
 </nav>
 
+
 <script>
 
 const POSITION_KEY =
@@ -578,6 +765,7 @@ const POSITION_KEY =
 
 const PROGRESS_KEY =
 "nocturne-cold-baby-progress";
+
 
 const readingTitle =
 document.getElementById(
@@ -599,6 +787,7 @@ document.getElementById(
 "readButton"
 );
 
+
 const savedPosition =
 localStorage.getItem(
 POSITION_KEY
@@ -610,6 +799,7 @@ localStorage.getItem(
 PROGRESS_KEY
 )
 );
+
 
 if(savedPosition){
 
@@ -625,7 +815,11 @@ savedProgress > 0
 : "Чтение начато";
 
 progressBar.style.width =
-(savedProgress > 0 ? savedProgress : 3) + "%";
+(
+savedProgress > 0
+? savedProgress
+: 3
+) + "%";
 
 }else{
 
@@ -640,6 +834,7 @@ progressInfo.textContent =
 
 progressBar.style.width =
 "0%";
+
 }
 
 </script>
