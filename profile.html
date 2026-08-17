@@ -7,23 +7,20 @@
 <title>Профиль — NOCTURNE BOOKS</title>
 
 <style>
-*{
-  box-sizing:border-box;
-}
+
+*{box-sizing:border-box}
 
 :root{
-  --bg:#f6f9fd;
-  --card:#ffffff;
+  --card:rgba(255,255,255,.92);
   --text:#173052;
   --muted:#8394a8;
   --blue:#6f9bd0;
   --blue-dark:#31577f;
-  --light-blue:#edf4fb;
+  --light-blue:linear-gradient(135deg,#edf4fb,#faebf2);
   --border:#dfe8f1;
 }
 
 body.dark{
-  --bg:#17202c;
   --card:#1f2b39;
   --text:#edf4fb;
   --muted:#a6b6c9;
@@ -33,8 +30,7 @@ body.dark{
   --border:#35485d;
 }
 
-html,
-body{
+html,body{
   margin:0;
   padding:0;
   width:100%;
@@ -42,17 +38,34 @@ body{
 
 body{
   font-family:Arial,sans-serif;
-  background:var(--bg);
   color:var(--text);
   padding-bottom:110px;
+
+  background:
+    radial-gradient(circle at 5% 12%,rgba(244,190,211,.38),transparent 25%),
+    radial-gradient(circle at 95% 30%,rgba(187,211,238,.26),transparent 27%),
+    radial-gradient(circle at 10% 65%,rgba(247,202,220,.30),transparent 29%),
+    radial-gradient(circle at 90% 85%,rgba(222,197,226,.25),transparent 27%),
+    linear-gradient(180deg,#fffafd,#fbf5f9 45%,#f4f8fc);
+
+  background-attachment:fixed;
   transition:.2s;
 }
 
+body.dark{
+  background:#17202c;
+}
+
 header{
-  background:var(--card);
+  background:rgba(255,255,255,.74);
+  backdrop-filter:blur(12px);
   border-bottom:1px solid var(--border);
   padding:26px 18px 24px;
   text-align:center;
+}
+
+body.dark header{
+  background:#1f2b39;
 }
 
 header h1{
@@ -68,10 +81,13 @@ main{
 
 .profile-card{
   background:var(--card);
+  backdrop-filter:blur(8px);
   border-radius:24px;
   padding:24px 18px;
   text-align:center;
-  box-shadow:0 8px 25px rgba(39,73,110,.07);
+  box-shadow:
+    0 8px 25px rgba(39,73,110,.07),
+    0 4px 18px rgba(219,158,187,.06);
 }
 
 .avatar{
@@ -82,13 +98,12 @@ main{
   display:flex;
   align-items:center;
   justify-content:center;
-  background:linear-gradient(145deg,#dcecff,#f5e8f0);
+  background:linear-gradient(145deg,#dcecff,#f5dce7);
   color:#31577f;
   font-family:Georgia,serif;
   font-size:34px;
   font-weight:bold;
-  border:4px solid var(--card);
-  box-shadow:0 5px 18px rgba(52,88,124,.12);
+  border:4px solid rgba(255,255,255,.9);
 }
 
 .name{
@@ -122,6 +137,7 @@ main{
 
 .stat{
   background:var(--card);
+  backdrop-filter:blur(8px);
   border-radius:18px;
   padding:17px 8px;
   text-align:center;
@@ -150,6 +166,7 @@ main{
   display:flex;
   gap:14px;
   background:var(--card);
+  backdrop-filter:blur(8px);
   padding:14px;
   border-radius:20px;
   text-decoration:none;
@@ -172,7 +189,6 @@ main{
 
 .reading-info{
   flex:1;
-  min-width:0;
 }
 
 .reading-info h2{
@@ -180,14 +196,14 @@ main{
   margin:5px 0 4px;
 }
 
-.author{
+.author,
+.series{
   color:var(--muted);
   font-size:12px;
 }
 
 .series{
   font-size:11px;
-  color:var(--muted);
   margin-top:5px;
 }
 
@@ -207,7 +223,7 @@ main{
 .progress-bar{
   height:100%;
   width:0%;
-  background:var(--blue);
+  background:linear-gradient(90deg,#6f9bd0,#d49ab5);
 }
 
 .continue{
@@ -222,7 +238,6 @@ main{
   background:var(--card);
   border-radius:20px;
   overflow:hidden;
-  box-shadow:0 7px 20px rgba(39,73,110,.05);
 }
 
 .setting{
@@ -231,7 +246,6 @@ main{
   display:flex;
   align-items:center;
   justify-content:space-between;
-  gap:10px;
   border-bottom:1px solid var(--border);
 }
 
@@ -292,9 +306,7 @@ main{
   padding:20px;
 }
 
-.modal.open{
-  display:flex;
-}
+.modal.open{display:flex}
 
 .modal-card{
   width:100%;
@@ -304,20 +316,12 @@ main{
   padding:20px;
 }
 
-.modal-card h2{
-  margin:0 0 16px;
-  font-size:18px;
-}
-
 .name-input{
   width:100%;
   border:1px solid var(--border);
-  background:var(--bg);
-  color:var(--text);
   padding:14px;
   border-radius:13px;
   font-size:16px;
-  outline:none;
 }
 
 .modal-actions{
@@ -330,19 +334,17 @@ main{
   flex:1;
   padding:12px;
   border-radius:12px;
-  font-weight:bold;
 }
 
 .save{
   border:0;
-  background:var(--blue);
+  background:#6f9bd0;
   color:white;
 }
 
 .cancel{
   border:1px solid var(--border);
-  background:var(--card);
-  color:var(--muted);
+  background:white;
 }
 
 nav{
@@ -352,10 +354,15 @@ nav{
   bottom:0;
   display:flex;
   justify-content:space-around;
-  background:var(--card);
+  background:rgba(255,255,255,.95);
+  backdrop-filter:blur(12px);
   border-top:1px solid var(--border);
   padding:9px 3px calc(13px + env(safe-area-inset-bottom));
   z-index:999999;
+}
+
+body.dark nav{
+  background:#1f2b39;
 }
 
 .nav-item{
@@ -380,6 +387,7 @@ nav{
 .nav-item.active{
   color:#5285c3;
 }
+
 </style>
 </head>
 
@@ -393,9 +401,7 @@ nav{
 
 <div class="profile-card">
 
-<div class="avatar" id="avatar">
-N
-</div>
+<div class="avatar" id="avatar">N</div>
 
 <div class="name" id="readerName">
 Читатель
@@ -440,23 +446,17 @@ href="https://tvorchestvolana-alt.github.io/nocturne-books/reader.html"
 >
 
 <div class="cover">
-
 <img
 src="file_00000000751c724682f122426a67d42d.png"
 alt="Холодная малышка"
 >
-
 </div>
 
 <div class="reading-info">
 
-<h2>
-Холодная малышка
-</h2>
+<h2>Холодная малышка</h2>
 
-<div class="author">
-Карли Робин
-</div>
+<div class="author">Карли Робин</div>
 
 <div class="series">
 Бостонские Рыси · Книга #1
@@ -488,9 +488,7 @@ alt="Холодная малышка"
 
 <div class="setting-left">
 
-<div class="setting-icon">
-☀
-</div>
+<div class="setting-icon">☀</div>
 
 <div>
 <div class="setting-title">Тема</div>
@@ -509,9 +507,7 @@ alt="Холодная малышка"
 
 <div class="setting-left">
 
-<div class="setting-icon">
-♡
-</div>
+<div class="setting-icon">♡</div>
 
 <div>
 <div class="setting-title">Моя библиотека</div>
@@ -520,12 +516,7 @@ alt="Холодная малышка"
 
 </div>
 
-<a
-href="https://tvorchestvolana-alt.github.io/nocturne-books/library.html"
-style="text-decoration:none;color:var(--blue-dark);font-size:22px;"
->
-›
-</a>
+<a href="https://tvorchestvolana-alt.github.io/nocturne-books/library.html">›</a>
 
 </div>
 
@@ -533,9 +524,7 @@ style="text-decoration:none;color:var(--blue-dark);font-size:22px;"
 
 <div class="setting-left">
 
-<div class="setting-icon">
-❝
-</div>
+<div class="setting-icon">❝</div>
 
 <div>
 <div class="setting-title">Мои цитаты</div>
@@ -544,12 +533,7 @@ style="text-decoration:none;color:var(--blue-dark);font-size:22px;"
 
 </div>
 
-<a
-href="https://tvorchestvolana-alt.github.io/nocturne-books/bookmarks.html"
-style="text-decoration:none;color:var(--blue-dark);font-size:22px;"
->
-›
-</a>
+<a href="https://tvorchestvolana-alt.github.io/nocturne-books/bookmarks.html">›</a>
 
 </div>
 
@@ -565,9 +549,7 @@ NOCTURNE BOOKS · версия 1.0
 
 <div class="modal-card">
 
-<h2>
-Как тебя зовут?
-</h2>
+<h2>Как тебя зовут?</h2>
 
 <input
 class="name-input"
@@ -579,13 +561,8 @@ placeholder="Введите имя"
 
 <div class="modal-actions">
 
-<button class="cancel" id="cancelName">
-Отмена
-</button>
-
-<button class="save" id="saveName">
-Сохранить
-</button>
+<button class="cancel" id="cancelName">Отмена</button>
+<button class="save" id="saveName">Сохранить</button>
 
 </div>
 
@@ -624,249 +601,131 @@ placeholder="Введите имя"
 
 <script>
 
-const NAME_KEY =
-"nocturne-reader-name";
-
-const LIBRARY_KEY =
-"nocturne-cold-baby-library";
-
-const PROGRESS_KEY =
-"nocturne-cold-baby-progress";
-
-const POSITION_KEY =
-"nocturne-cold-baby-position";
-
-const QUOTES_KEY =
-"nocturne-cold-baby-quotes";
-
-const THEME_KEY =
-"nocturne-profile-theme";
-
-const readerName =
-document.getElementById("readerName");
-
-const avatar =
-document.getElementById("avatar");
-
-const booksCount =
-document.getElementById("booksCount");
-
-const quotesCount =
-document.getElementById("quotesCount");
-
-const finishedCount =
-document.getElementById("finishedCount");
-
-const progressText =
-document.getElementById("progressText");
-
-const progressBar =
-document.getElementById("progressBar");
+const NAME_KEY="nocturne-reader-name";
+const LIBRARY_KEY="nocturne-cold-baby-library";
+const PROGRESS_KEY="nocturne-cold-baby-progress";
+const POSITION_KEY="nocturne-cold-baby-position";
+const QUOTES_KEY="nocturne-cold-baby-quotes";
+const THEME_KEY="nocturne-profile-theme";
 
 function loadProfile(){
 
-  const savedName =
-  localStorage.getItem(NAME_KEY) || "Читатель";
+const savedName=
+localStorage.getItem(NAME_KEY) || "Читатель";
 
-  readerName.textContent =
-  savedName;
+document.getElementById("readerName").textContent=savedName;
 
-  avatar.textContent =
-  savedName.trim().charAt(0).toUpperCase() || "N";
+document.getElementById("avatar").textContent=
+savedName.trim().charAt(0).toUpperCase() || "N";
 
-  const inLibrary =
-  localStorage.getItem(LIBRARY_KEY) === "yes";
+const inLibrary=
+localStorage.getItem(LIBRARY_KEY)==="yes";
 
-  booksCount.textContent =
-  inLibrary ? "1" : "0";
+document.getElementById("booksCount").textContent=
+inLibrary ? "1":"0";
 
-  let quotes = [];
+let quotes=[];
 
-  try{
+try{
+quotes=JSON.parse(localStorage.getItem(QUOTES_KEY)) || [];
+}catch(e){}
 
-    quotes =
-    JSON.parse(
-      localStorage.getItem(QUOTES_KEY)
-    ) || [];
+document.getElementById("quotesCount").textContent=
+quotes.length;
 
-  }catch(e){}
+const progress=
+Number(localStorage.getItem(PROGRESS_KEY)) || 0;
 
-  quotesCount.textContent =
-  quotes.length;
+document.getElementById("finishedCount").textContent=
+progress>=100 ? "1":"0";
 
-  const progress =
-  Number(
-    localStorage.getItem(PROGRESS_KEY)
-  ) || 0;
+document.getElementById("progressBar").style.width=
+Math.min(progress,100)+"%";
 
-  finishedCount.textContent =
-  progress >= 100 ? "1" : "0";
+const started=
+localStorage.getItem(POSITION_KEY);
 
-  progressBar.style.width =
-  Math.min(progress,100) + "%";
+const text=
+document.getElementById("progressText");
 
-  const started =
-  localStorage.getItem(POSITION_KEY);
+const cont=
+document.querySelector(".continue");
 
-  if(progress >= 100){
+if(progress>=100){
 
-    progressText.textContent =
-    "Книга прочитана ✓";
+text.textContent="Книга прочитана ✓";
+cont.textContent="Открыть книгу →";
 
-    document
-    .querySelector(".continue")
-    .textContent =
-    "Открыть книгу →";
+}else if(started){
 
-  }else if(started){
+text.textContent="Прочитано "+progress+"%";
+cont.textContent="Продолжить чтение →";
 
-    progressText.textContent =
-    "Прочитано " + progress + "%";
+}else{
 
-    document
-    .querySelector(".continue")
-    .textContent =
-    "Продолжить чтение →";
-
-  }else{
-
-    progressText.textContent =
-    "Ещё не начато";
-
-    document
-    .querySelector(".continue")
-    .textContent =
-    "Начать чтение →";
-  }
+text.textContent="Ещё не начато";
+cont.textContent="Начать чтение →";
 }
 
-const nameModal =
-document.getElementById("nameModal");
-
-const nameInput =
-document.getElementById("nameInput");
-
-document
-.getElementById("editName")
-.addEventListener(
-"click",
-()=>{
-
-  nameInput.value =
-  localStorage.getItem(NAME_KEY) || "";
-
-  nameModal.classList.add("open");
-
-  nameInput.focus();
 }
-);
 
-document
-.getElementById("cancelName")
-.addEventListener(
-"click",
-()=>{
+const modal=document.getElementById("nameModal");
+const input=document.getElementById("nameInput");
 
-  nameModal.classList.remove("open");
+document.getElementById("editName").onclick=()=>{
+
+input.value=
+localStorage.getItem(NAME_KEY) || "";
+
+modal.classList.add("open");
+};
+
+document.getElementById("cancelName").onclick=()=>{
+
+modal.classList.remove("open");
+};
+
+document.getElementById("saveName").onclick=()=>{
+
+const value=input.value.trim();
+
+if(value){
+localStorage.setItem(NAME_KEY,value);
 }
-);
 
-document
-.getElementById("saveName")
-.addEventListener(
-"click",
-()=>{
+modal.classList.remove("open");
 
-  const value =
-  nameInput.value.trim();
-
-  if(value){
-
-    localStorage.setItem(
-      NAME_KEY,
-      value
-    );
-  }
-
-  nameModal.classList.remove("open");
-
-  loadProfile();
-}
-);
-
-nameInput
-.addEventListener(
-"keydown",
-event=>{
-
-  if(event.key === "Enter"){
-
-    document
-    .getElementById("saveName")
-    .click();
-  }
-}
-);
+loadProfile();
+};
 
 function applyProfileTheme(){
 
-  const theme =
-  localStorage.getItem(THEME_KEY) || "light";
+const theme=
+localStorage.getItem(THEME_KEY) || "light";
 
-  if(theme === "dark"){
-
-    document.body.classList.add("dark");
-
-    document
-    .getElementById("themeButton")
-    .textContent =
-    "Светлая";
-
-  }else{
-
-    document.body.classList.remove("dark");
-
-    document
-    .getElementById("themeButton")
-    .textContent =
-    "Тёмная";
-  }
-}
-
-document
-.getElementById("themeButton")
-.addEventListener(
-"click",
-()=>{
-
-  const current =
-  localStorage.getItem(THEME_KEY) || "light";
-
-  const next =
-  current === "light"
-  ? "dark"
-  : "light";
-
-  localStorage.setItem(
-    THEME_KEY,
-    next
-  );
-
-  applyProfileTheme();
-}
+document.body.classList.toggle(
+"dark",
+theme==="dark"
 );
 
-nameModal
-.addEventListener(
-"click",
-event=>{
-
-  if(event.target === nameModal){
-
-    nameModal.classList.remove("open");
-  }
+document.getElementById("themeButton").textContent=
+theme==="dark"
+? "Светлая"
+: "Тёмная";
 }
+
+document.getElementById("themeButton").onclick=()=>{
+
+const current=
+localStorage.getItem(THEME_KEY) || "light";
+
+localStorage.setItem(
+THEME_KEY,
+current==="light" ? "dark":"light"
 );
+
+applyProfileTheme();
+};
 
 applyProfileTheme();
 loadProfile();
