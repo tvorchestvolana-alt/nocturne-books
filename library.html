@@ -7,22 +7,49 @@
 <title>Моя библиотека — NOCTURNE BOOKS</title>
 
 <style>
-*{
-  box-sizing:border-box;
-}
+*{box-sizing:border-box}
 
 body{
   margin:0;
   font-family:Arial,sans-serif;
-  background:#f6f9fd;
   color:#173052;
   padding-bottom:110px;
+
+  background:
+    radial-gradient(circle at 5% 12%,rgba(244,190,211,.38),transparent 25%),
+    radial-gradient(circle at 95% 30%,rgba(187,211,238,.26),transparent 27%),
+    radial-gradient(circle at 10% 65%,rgba(247,202,220,.30),transparent 29%),
+    radial-gradient(circle at 90% 85%,rgba(222,197,226,.25),transparent 27%),
+    linear-gradient(180deg,#fffafd,#fbf5f9 45%,#f4f8fc);
+
+  background-attachment:fixed;
+}
+
+body::before{
+  content:"♡";
+  position:fixed;
+  left:12px;
+  top:260px;
+  color:rgba(210,148,177,.18);
+  font-size:23px;
+  pointer-events:none;
+}
+
+body::after{
+  content:"✦";
+  position:fixed;
+  right:14px;
+  top:500px;
+  color:rgba(104,151,205,.15);
+  font-size:19px;
+  pointer-events:none;
 }
 
 header{
   padding:26px 18px 16px;
-  background:#fff;
-  border-bottom:1px solid #e2e9f2;
+  background:rgba(255,255,255,.74);
+  backdrop-filter:blur(12px);
+  border-bottom:1px solid rgba(221,225,235,.9);
 }
 
 h1{
@@ -38,20 +65,24 @@ main{
 }
 
 .empty{
-  background:white;
+  background:rgba(255,255,255,.90);
+  backdrop-filter:blur(8px);
   border-radius:20px;
   padding:35px 20px;
   text-align:center;
   color:#7b8fa7;
-  box-shadow:0 7px 20px rgba(39,73,110,.06);
+  box-shadow:0 8px 22px rgba(39,73,110,.06);
 }
 
 .book-card{
   display:none;
-  background:white;
+  background:rgba(255,255,255,.92);
+  backdrop-filter:blur(8px);
   border-radius:20px;
   padding:14px;
-  box-shadow:0 7px 20px rgba(39,73,110,.07);
+  box-shadow:
+    0 8px 22px rgba(39,73,110,.07),
+    0 4px 16px rgba(218,157,185,.06);
 }
 
 .book-inner{
@@ -106,13 +137,13 @@ main{
 
 .progress-bar{
   height:100%;
-  background:#6f9bd0;
+  background:linear-gradient(90deg,#6f9bd0,#d49ab5);
   width:0%;
 }
 
 .button{
   display:block;
-  background:#709bd0;
+  background:linear-gradient(135deg,#709bd0,#83a8d2);
   color:#fff;
   text-decoration:none;
   text-align:center;
@@ -128,42 +159,26 @@ nav{
   left:0;
   right:0;
   bottom:0;
-
   display:flex;
   justify-content:space-around;
-
-  background:#fff;
+  background:rgba(255,255,255,.95);
+  backdrop-filter:blur(12px);
   border-top:1px solid #e0e8f1;
-
-  padding:
-    9px
-    3px
-    calc(13px + env(safe-area-inset-bottom));
-
+  padding:9px 3px calc(13px + env(safe-area-inset-bottom));
   z-index:999999;
-
-  box-shadow:0 -4px 18px rgba(39,73,110,.06);
 }
 
 .nav-item{
   width:20%;
   min-height:54px;
-
   display:flex;
   flex-direction:column;
   align-items:center;
   justify-content:center;
-
   text-decoration:none;
   text-align:center;
-
   color:#8ca0b8;
   font-size:10px;
-
-  position:relative;
-  z-index:1000000;
-
-  touch-action:manipulation;
 }
 
 .nav-icon{
@@ -196,42 +211,28 @@ nav{
 <div class="book-inner">
 
 <div class="cover">
-
 <img
 src="file_00000000751c724682f122426a67d42d.png"
 alt="Холодная малышка"
 >
-
 </div>
 
 <div class="info">
 
-<h2>
-Холодная малышка
-</h2>
+<h2>Холодная малышка</h2>
 
-<div class="author">
-Карли Робин
-</div>
+<div class="author">Карли Робин</div>
 
 <div class="series">
 Бостонские Рыси · Книга #1
 </div>
 
-<div
-class="progress-text"
-id="progressText"
->
+<div class="progress-text" id="progressText">
 Прочитано 0%
 </div>
 
 <div class="progress">
-
-<div
-class="progress-bar"
-id="progressBar"
-></div>
-
+<div class="progress-bar" id="progressBar"></div>
 </div>
 
 <a
@@ -251,42 +252,27 @@ href="https://tvorchestvolana-alt.github.io/nocturne-books/reader.html"
 
 <nav>
 
-<a
-class="nav-item"
-href="https://tvorchestvolana-alt.github.io/nocturne-books/index.html"
->
+<a class="nav-item" href="https://tvorchestvolana-alt.github.io/nocturne-books/index.html">
 <span class="nav-icon">⌂</span>
 Главная
 </a>
 
-<a
-class="nav-item"
-href="https://tvorchestvolana-alt.github.io/nocturne-books/catalog.html"
->
+<a class="nav-item" href="https://tvorchestvolana-alt.github.io/nocturne-books/catalog.html">
 <span class="nav-icon">⌕</span>
 Каталог
 </a>
 
-<a
-class="nav-item active"
-href="https://tvorchestvolana-alt.github.io/nocturne-books/library.html"
->
+<a class="nav-item active" href="https://tvorchestvolana-alt.github.io/nocturne-books/library.html">
 <span class="nav-icon">♡</span>
 Библиотека
 </a>
 
-<a
-class="nav-item"
-href="https://tvorchestvolana-alt.github.io/nocturne-books/bookmarks.html"
->
+<a class="nav-item" href="https://tvorchestvolana-alt.github.io/nocturne-books/bookmarks.html">
 <span class="nav-icon">❝</span>
 Цитаты
 </a>
 
-<a
-class="nav-item"
-href="https://tvorchestvolana-alt.github.io/nocturne-books/profile.html"
->
+<a class="nav-item" href="https://tvorchestvolana-alt.github.io/nocturne-books/profile.html">
 <span class="nav-icon">♙</span>
 Профиль
 </a>
@@ -295,42 +281,34 @@ href="https://tvorchestvolana-alt.github.io/nocturne-books/profile.html"
 
 <script>
 
-const LIBRARY_KEY =
-"nocturne-cold-baby-library";
+const LIBRARY_KEY="nocturne-cold-baby-library";
+const PROGRESS_KEY="nocturne-cold-baby-progress";
 
-const PROGRESS_KEY =
-"nocturne-cold-baby-progress";
+const inLibrary=
+localStorage.getItem(LIBRARY_KEY)==="yes";
 
-const inLibrary =
-localStorage.getItem(LIBRARY_KEY) === "yes";
-
-const empty =
-document.getElementById("empty");
-
-const card =
-document.getElementById("bookCard");
+const empty=document.getElementById("empty");
+const card=document.getElementById("bookCard");
 
 if(inLibrary){
 
-  empty.style.display = "none";
-  card.style.display = "block";
+  empty.style.display="none";
+  card.style.display="block";
 
-  const progress =
-  Number(
-    localStorage.getItem(PROGRESS_KEY)
-  ) || 0;
+  const progress=
+  Number(localStorage.getItem(PROGRESS_KEY)) || 0;
 
   document
   .getElementById("progressText")
-  .textContent =
-  progress >= 100
+  .textContent=
+  progress>=100
   ? "Прочитано ✓"
-  : "Прочитано " + progress + "%";
+  : "Прочитано "+progress+"%";
 
   document
   .getElementById("progressBar")
-  .style.width =
-  Math.min(progress,100) + "%";
+  .style.width=
+  Math.min(progress,100)+"%";
 }
 
 </script>
