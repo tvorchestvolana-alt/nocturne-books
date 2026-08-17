@@ -2,7 +2,7 @@
 <html lang="ru">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 
 <title>NOCTURNE BOOKS</title>
 
@@ -20,11 +20,11 @@ body{
 }
 
 header{
-  min-height:235px;
-  padding:38px 20px 30px;
+  min-height:220px;
+  padding:28px 20px 24px;
   text-align:center;
   background:
-    linear-gradient(rgba(255,255,255,.90),rgba(247,250,254,.95)),
+    linear-gradient(rgba(255,255,255,.92),rgba(247,250,254,.96)),
     repeating-linear-gradient(
       90deg,
       transparent 0,
@@ -40,28 +40,29 @@ header{
 header:after{
   content:"";
   position:absolute;
-  width:150px;
-  height:150px;
+  width:145px;
+  height:145px;
   border:2px solid #d7e5f3;
   border-radius:50%;
   left:50%;
-  top:138px;
+  top:120px;
   transform:translateX(-50%);
   opacity:.75;
 }
 
 .logo{
   font-family:Georgia,serif;
-  font-size:42px;
-  letter-spacing:4px;
+  font-size:38px;
+  letter-spacing:3px;
   font-weight:900;
   color:#31577f;
   position:relative;
   z-index:2;
+  line-height:1;
 }
 
 .logo-small{
-  letter-spacing:10px;
+  letter-spacing:9px;
   font-weight:bold;
   margin-top:8px;
   color:#5d7fa3;
@@ -70,8 +71,8 @@ header:after{
 }
 
 .slogan{
-  margin-top:27px;
-  font-size:11px;
+  margin-top:24px;
+  font-size:10px;
   letter-spacing:2px;
   color:#6086b0;
   position:relative;
@@ -277,7 +278,7 @@ nav{
   border-top:1px solid #e0e8f1;
   display:flex;
   justify-content:space-around;
-  padding:10px 3px 14px;
+  padding:10px 3px calc(14px + env(safe-area-inset-bottom));
   z-index:20;
 }
 
@@ -325,7 +326,6 @@ YOUR NEXT OBSESSION IS HERE
 🔍 Найти книгу, автора, серию или троп...
 </a>
 
-
 <div class="section-title">
 
 <h2 id="readingTitle">
@@ -335,7 +335,6 @@ YOUR NEXT OBSESSION IS HERE
 <span></span>
 
 </div>
-
 
 <div class="current-card">
 
@@ -347,7 +346,6 @@ alt="Холодная малышка"
 >
 
 </div>
-
 
 <div class="current-info">
 
@@ -363,7 +361,6 @@ alt="Холодная малышка"
 Бостонские Рыси · Книга #1
 </div>
 
-
 <div class="tropes">
 
 <span class="trope">
@@ -376,14 +373,12 @@ alt="Холодная малышка"
 
 </div>
 
-
 <div
 class="progress-info"
 id="progressInfo"
 >
 Ещё не начато
 </div>
-
 
 <div class="progress">
 
@@ -393,7 +388,6 @@ id="progressBar"
 ></div>
 
 </div>
-
 
 <a
 class="read-button"
@@ -407,7 +401,6 @@ href="reader.html"
 
 </div>
 
-
 <div class="section-title">
 
 <h2>
@@ -417,7 +410,6 @@ href="reader.html"
 <span></span>
 
 </div>
-
 
 <a
 class="feature-card"
@@ -434,7 +426,6 @@ alt="Холодная малышка"
 >
 
 </div>
-
 
 <div class="feature-text">
 
@@ -456,7 +447,6 @@ alt="Холодная малышка"
 
 </a>
 
-
 <div class="section-title">
 
 <h2>
@@ -466,7 +456,6 @@ alt="Холодная малышка"
 <span></span>
 
 </div>
-
 
 <a
 class="feature-card"
@@ -483,7 +472,6 @@ alt="Холодная малышка"
 >
 
 </div>
-
 
 <div class="feature-text">
 
@@ -505,7 +493,6 @@ alt="Холодная малышка"
 
 </a>
 
-
 <a
 class="catalog-link"
 href="catalog.html"
@@ -514,7 +501,6 @@ href="catalog.html"
 </a>
 
 </main>
-
 
 <nav>
 
@@ -531,7 +517,6 @@ href="index.html"
 
 </a>
 
-
 <a
 class="nav-item"
 href="catalog.html"
@@ -545,10 +530,9 @@ href="catalog.html"
 
 </a>
 
-
 <a
 class="nav-item"
-href="#"
+href="library.html"
 >
 
 <span class="nav-icon">
@@ -559,10 +543,9 @@ href="#"
 
 </a>
 
-
 <a
 class="nav-item"
-href="#"
+href="bookmarks.html"
 >
 
 <span class="nav-icon">
@@ -572,7 +555,6 @@ href="#"
 Закладки
 
 </a>
-
 
 <a
 class="nav-item"
@@ -589,13 +571,12 @@ href="#"
 
 </nav>
 
-
 <script>
 
 const POSITION_KEY =
 "nocturne-cold-baby-position";
 
-const progressKey =
+const PROGRESS_KEY =
 "nocturne-cold-baby-progress";
 
 const readingTitle =
@@ -618,7 +599,6 @@ document.getElementById(
 "readButton"
 );
 
-
 const savedPosition =
 localStorage.getItem(
 POSITION_KEY
@@ -627,14 +607,11 @@ POSITION_KEY
 const savedProgress =
 Number(
 localStorage.getItem(
-progressKey
+PROGRESS_KEY
 )
 );
 
-
-if(
-savedPosition
-){
+if(savedPosition){
 
 readingTitle.textContent =
 "ПРОДОЛЖИТЬ ЧТЕНИЕ";
@@ -642,28 +619,13 @@ readingTitle.textContent =
 readButton.textContent =
 "📖 ПРОДОЛЖИТЬ";
 
-if(
+progressInfo.textContent =
 savedProgress > 0
-){
-
-progressInfo.textContent =
-"Прочитано " +
-savedProgress +
-"%";
+? "Прочитано " + savedProgress + "%"
+: "Чтение начато";
 
 progressBar.style.width =
-savedProgress +
-"%";
-
-}else{
-
-progressInfo.textContent =
-"Чтение начато";
-
-progressBar.style.width =
-"3%";
-
-}
+(savedProgress > 0 ? savedProgress : 3) + "%";
 
 }else{
 
@@ -678,7 +640,6 @@ progressInfo.textContent =
 
 progressBar.style.width =
 "0%";
-
 }
 
 </script>
