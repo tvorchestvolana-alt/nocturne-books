@@ -130,8 +130,14 @@ h1 {
     border-radius: 15px;
     font-weight: bold;
     font-size: 14px;
-    text-decoration: none;
     text-align: center;
+    cursor: pointer;
+}
+
+.library.active {
+    background: #edf4fb;
+    border-color: #6f9bd0;
+    color: #31577f;
 }
 
 .section {
@@ -271,9 +277,9 @@ nav {
         📖 ЧИТАТЬ
     </a>
 
-    <a class="library" href="#">
+    <button class="library" id="libraryButton">
         ♡ ДОБАВИТЬ В БИБЛИОТЕКУ
-    </a>
+    </button>
 
 </div>
 
@@ -297,9 +303,7 @@ nav {
 
 <div class="tropes">
 
-    <span class="trope">
-        🏒 Хоккейный роман
-    </span>
+    <span class="trope">🏒 Хоккейный роман</span>
 
     <span class="trope">
         📚 Профессиональный хоккеист & управляющая книжным магазином
@@ -379,12 +383,12 @@ nav {
     Каталог
 </a>
 
-<a class="nav-item" href="#">
+<a class="nav-item" href="library.html">
     <span class="nav-icon">♡</span>
     Библиотека
 </a>
 
-<a class="nav-item" href="#">
+<a class="nav-item" href="bookmarks.html">
     <span class="nav-icon">🔖</span>
     Закладки
 </a>
@@ -395,6 +399,61 @@ nav {
 </a>
 
 </nav>
+
+<script>
+
+const LIBRARY_KEY =
+"nocturne-cold-baby-library";
+
+const libraryButton =
+document.getElementById("libraryButton");
+
+function updateLibraryButton(){
+
+    const inLibrary =
+    localStorage.getItem(LIBRARY_KEY);
+
+    if(inLibrary === "yes"){
+
+        libraryButton.textContent =
+        "✓ В БИБЛИОТЕКЕ";
+
+        libraryButton.classList.add("active");
+
+    }else{
+
+        libraryButton.textContent =
+        "♡ ДОБАВИТЬ В БИБЛИОТЕКУ";
+
+        libraryButton.classList.remove("active");
+    }
+}
+
+libraryButton.addEventListener(
+"click",
+()=>{
+
+    const inLibrary =
+    localStorage.getItem(LIBRARY_KEY);
+
+    if(inLibrary === "yes"){
+
+        localStorage.removeItem(LIBRARY_KEY);
+
+    }else{
+
+        localStorage.setItem(
+            LIBRARY_KEY,
+            "yes"
+        );
+    }
+
+    updateLibraryButton();
+});
+
+updateLibraryButton();
+
+</script>
 
 </body>
 </html>
