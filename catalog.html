@@ -7,213 +7,208 @@
 <title>Каталог — NOCTURNE BOOKS</title>
 
 <style>
-*{
-  box-sizing:border-box;
+* {
+    box-sizing: border-box;
 }
 
-body{
-  margin:0;
-  font-family:Arial,sans-serif;
-  background:#f6f9fd;
-  color:#173052;
-  padding-bottom:95px;
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #f6f9fd;
+    color: #173052;
+    padding-bottom: 95px;
 }
 
-header{
-  padding:24px 18px 14px;
-  background:rgba(255,255,255,.97);
-  border-bottom:1px solid #e2e9f2;
-  position:sticky;
-  top:0;
-  z-index:10;
+header {
+    padding: 24px 18px 14px;
+    background: rgba(255,255,255,.97);
+    border-bottom: 1px solid #e2e9f2;
+    position: sticky;
+    top: 0;
+    z-index: 10;
 }
 
-.topbar{
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  margin-bottom:18px;
+.topbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 18px;
 }
 
-.back{
-  text-decoration:none;
-  color:#31577f;
-  font-size:28px;
+.back {
+    text-decoration: none;
+    color: #31577f;
+    font-size: 28px;
 }
 
-.title{
-  font-weight:800;
-  font-size:22px;
+.title {
+    font-weight: 800;
+    font-size: 22px;
 }
 
-.top-spacer{
-  width:28px;
+.search {
+    width: 100%;
+    border: 1px solid #dce6f0;
+    background: white;
+    padding: 15px 16px;
+    border-radius: 17px;
+    font-size: 15px;
+    outline: none;
 }
 
-.search{
-  width:100%;
-  border:1px solid #dce6f0;
-  background:white;
-  padding:15px 16px;
-  border-radius:17px;
-  font-size:15px;
-  outline:none;
+.filters {
+    display: flex;
+    gap: 8px;
+    overflow-x: auto;
+    padding: 14px 0 4px;
 }
 
-.filters{
-  display:flex;
-  gap:8px;
-  overflow-x:auto;
-  padding:14px 0 4px;
+.filter {
+    border: 1px solid #d7e2ed;
+    background: white;
+    color: #31577f;
+    padding: 9px 14px;
+    border-radius: 20px;
+    white-space: nowrap;
 }
 
-.filter{
-  border:1px solid #d7e2ed;
-  background:white;
-  color:#31577f;
-  padding:9px 14px;
-  border-radius:20px;
-  white-space:nowrap;
+.filter.active {
+    background: #6f9bd0;
+    color: white;
+    border-color: #6f9bd0;
 }
 
-.filter.active{
-  background:#6f9bd0;
-  color:white;
-  border-color:#6f9bd0;
+main {
+    padding: 20px 16px;
+    max-width: 700px;
+    margin: auto;
 }
 
-main{
-  padding:20px 16px;
-  max-width:700px;
-  margin:auto;
+.count {
+    font-size: 12px;
+    color: #7d90a7;
+    margin-bottom: 15px;
 }
 
-.count{
-  font-size:12px;
-  color:#7d90a7;
-  margin-bottom:15px;
+.books {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 22px 16px;
 }
 
-.books{
-  display:grid;
-  grid-template-columns:repeat(2,1fr);
-  gap:22px 16px;
+.book {
+    text-decoration: none;
+    color: inherit;
 }
 
-.book{
-  text-decoration:none;
-  color:inherit;
+.cover-wrap {
+    position: relative;
 }
 
-.cover-wrap{
-  position:relative;
+.cover {
+    width: 100%;
+    aspect-ratio: 2/3;
+    object-fit: cover;
+    border-radius: 17px;
+    box-shadow: 0 9px 24px rgba(42,70,105,.13);
+    display: block;
 }
 
-.cover{
-  width:100%;
-  aspect-ratio:2/3;
-  object-fit:cover;
-  border-radius:17px;
-  box-shadow:0 9px 24px rgba(42,70,105,.13);
-  display:block;
+.heart {
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    width: 36px;
+    height: 36px;
+    background: rgba(255,255,255,.94);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    color: #31577f;
 }
 
-.heart{
-  position:absolute;
-  right:10px;
-  top:10px;
-  width:36px;
-  height:36px;
-  background:rgba(255,255,255,.94);
-  border-radius:50%;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  font-size:20px;
-  color:#31577f;
-  box-shadow:0 3px 10px rgba(0,0,0,.08);
+.series-number {
+    position: absolute;
+    left: 10px;
+    top: 10px;
+    background: rgba(255,255,255,.94);
+    color: #52779e;
+    border-radius: 12px;
+    padding: 6px 8px;
+    font-size: 10px;
+    font-weight: bold;
 }
 
-.series-number{
-  position:absolute;
-  left:10px;
-  top:10px;
-  background:rgba(255,255,255,.94);
-  color:#52779e;
-  border-radius:12px;
-  padding:6px 8px;
-  font-size:10px;
-  font-weight:bold;
+.book h3 {
+    font-size: 15px;
+    margin: 10px 0 4px;
 }
 
-.book h3{
-  font-size:15px;
-  margin:10px 0 4px;
+.author {
+    font-size: 12px;
+    color: #8192a7;
+    margin-bottom: 5px;
 }
 
-.author{
-  font-size:12px;
-  color:#8192a7;
-  margin-bottom:5px;
+.series {
+    font-size: 11px;
+    color: #6f89a5;
+    margin-bottom: 8px;
 }
 
-.series{
-  font-size:11px;
-  color:#6f89a5;
-  margin-bottom:8px;
+.tropes {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
 }
 
-.tropes{
-  display:flex;
-  flex-wrap:wrap;
-  gap:5px;
+.trope {
+    font-size: 10px;
+    padding: 5px 8px;
+    border-radius: 13px;
+    background: #eaf2fb;
+    color: #52779e;
 }
 
-.trope{
-  font-size:10px;
-  padding:5px 8px;
-  border-radius:13px;
-  background:#eaf2fb;
-  color:#52779e;
+.empty {
+    display: none;
+    grid-column: 1/-1;
+    text-align: center;
+    padding: 60px 10px;
+    color: #8192a7;
 }
 
-.empty{
-  display:none;
-  grid-column:1/-1;
-  text-align:center;
-  padding:60px 10px;
-  color:#8192a7;
+nav {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(255,255,255,.97);
+    border-top: 1px solid #e0e8f1;
+    display: flex;
+    justify-content: space-around;
+    padding: 10px 3px 14px;
+    z-index: 20;
 }
 
-nav{
-  position:fixed;
-  bottom:0;
-  left:0;
-  right:0;
-  background:rgba(255,255,255,.97);
-  border-top:1px solid #e0e8f1;
-  display:flex;
-  justify-content:space-around;
-  padding:10px 3px 14px;
-  z-index:20;
+.nav-item {
+    text-align: center;
+    color: #8ca0b8;
+    font-size: 10px;
+    width: 20%;
+    text-decoration: none;
 }
 
-.nav-item{
-  text-align:center;
-  color:#8ca0b8;
-  font-size:10px;
-  width:20%;
-  text-decoration:none;
+.nav-icon {
+    font-size: 21px;
+    display: block;
+    margin-bottom: 4px;
 }
 
-.nav-icon{
-  font-size:21px;
-  display:block;
-  margin-bottom:4px;
-}
-
-.nav-item.active{
-  color:#5285c3;
+.nav-item.active {
+    color: #5285c3;
 }
 </style>
 </head>
@@ -222,344 +217,209 @@ nav{
 
 <header>
 
-  <div class="topbar">
-
+<div class="topbar">
     <a class="back" href="index.html">←</a>
+    <div class="title">Каталог</div>
+    <div style="width:28px"></div>
+</div>
 
-    <div class="title">
-      Каталог
-    </div>
-
-    <div class="top-spacer"></div>
-
-  </div>
-
-  <input
+<input
     id="search"
     class="search"
     type="text"
     placeholder="🔍 Найти книгу, автора, серию или троп..."
-  >
+>
 
-  <div class="filters">
+<div class="filters">
 
     <button class="filter active" data-filter="all">
-      Все
+        Все
     </button>
 
     <button class="filter" data-filter="хоккейный роман">
-      Хоккей
-    </button>
-
-    <button class="filter" data-filter="романтика">
-      Романтика
+        Хоккей
     </button>
 
     <button class="filter" data-filter="он влюбляется первым">
-      Он влюбляется первым
+        Он влюбляется первым
     </button>
 
     <button class="filter" data-filter="медленное развитие отношений">
-      Медленное развитие
+        Медленное развитие
     </button>
 
     <button class="filter" data-filter="бостонские рыси">
-      Бостонские Рыси
+        Бостонские Рыси
     </button>
 
-  </div>
+</div>
 
 </header>
-
 
 <main>
 
 <div class="count" id="count">
-1 книга
+    1 книга
 </div>
 
+<div class="books">
 
-<div class="books" id="books">
-
-  <a
+<a
     class="book"
     href="cold-baby.html"
-    data-search="
-    холодная малышка
-    карли робин
-    бостонские рыси
-    книга 1
-    хоккейный роман
-    профессиональный хоккеист
-    управляющая книжным магазином
-    от незнакомцев к влюбленным
-    противоположности притягиваются
-    черная кошка
-    золотой ретривер
-    он влюбляется первым
-    словесные перепалки
-    медленное развитие отношений
-    романтика
-    "
-  >
+    data-search="холодная малышка карли робин бостонские рыси хоккейный роман профессиональный хоккеист управляющая книжным магазином от незнакомцев к влюбленным противоположности притягиваются черная кошка золотой ретривер он влюбляется первым словесные перепалки медленное развитие отношений"
+>
 
     <div class="cover-wrap">
 
-      <img
-        class="cover"
-        src="cold-baby.png"
-        alt="Холодная малышка — Карли Робин"
-      >
+        <img
+            class="cover"
+            src="file_00000000751c724682f122426a67d42d.png"
+            alt="Холодная малышка"
+        >
 
-      <div class="heart">
-        ♡
-      </div>
+        <div class="series-number">
+            #1
+        </div>
 
-      <div class="series-number">
-        #1
-      </div>
+        <div class="heart">
+            ♡
+        </div>
 
     </div>
 
-    <h3>
-      Холодная малышка
-    </h3>
+    <h3>Холодная малышка</h3>
 
     <div class="author">
-      Карли Робин
+        Карли Робин
     </div>
 
     <div class="series">
-      Бостонские Рыси · Книга #1
+        Бостонские Рыси · Книга #1
     </div>
 
     <div class="tropes">
 
-      <span class="trope">
-        🏒 Хоккей
-      </span>
+        <span class="trope">
+            🏒 Хоккей
+        </span>
 
-      <span class="trope">
-        💙 Он влюбляется первым
-      </span>
+        <span class="trope">
+            💙 Он влюбляется первым
+        </span>
 
-      <span class="trope">
-        🌙 Медленное развитие
-      </span>
+        <span class="trope">
+            🌙 Медленное развитие
+        </span>
 
     </div>
 
-  </a>
+</a>
 
-
-  <div
-    class="empty"
-    id="empty"
-  >
+<div class="empty" id="empty">
     Ничего не найдено
-  </div>
+</div>
 
 </div>
 
 </main>
 
-
 <nav>
 
-  <a
-    class="nav-item"
-    href="index.html"
-  >
-
-    <span class="nav-icon">
-      ⌂
-    </span>
-
+<a class="nav-item" href="index.html">
+    <span class="nav-icon">⌂</span>
     Главная
+</a>
 
-  </a>
-
-
-  <a
-    class="nav-item active"
-    href="catalog.html"
-  >
-
-    <span class="nav-icon">
-      ⌕
-    </span>
-
+<a class="nav-item active" href="catalog.html">
+    <span class="nav-icon">⌕</span>
     Каталог
+</a>
 
-  </a>
-
-
-  <a
-    class="nav-item"
-    href="#"
-  >
-
-    <span class="nav-icon">
-      ♡
-    </span>
-
+<a class="nav-item" href="#">
+    <span class="nav-icon">♡</span>
     Библиотека
+</a>
 
-  </a>
-
-
-  <a
-    class="nav-item"
-    href="#"
-  >
-
-    <span class="nav-icon">
-      🔖
-    </span>
-
+<a class="nav-item" href="#">
+    <span class="nav-icon">🔖</span>
     Закладки
+</a>
 
-  </a>
-
-
-  <a
-    class="nav-item"
-    href="#"
-  >
-
-    <span class="nav-icon">
-      ♙
-    </span>
-
+<a class="nav-item" href="#">
+    <span class="nav-icon">♙</span>
     Профиль
-
-  </a>
+</a>
 
 </nav>
 
-
 <script>
 
-const search =
-document.getElementById("search");
-
-const books =
-[...document.querySelectorAll(".book")];
-
-const filters =
-document.querySelectorAll(".filter");
-
-const empty =
-document.getElementById("empty");
-
-const count =
-document.getElementById("count");
+const search = document.getElementById("search");
+const books = [...document.querySelectorAll(".book")];
+const filters = document.querySelectorAll(".filter");
+const empty = document.getElementById("empty");
+const count = document.getElementById("count");
 
 let activeFilter = "all";
 
+function applyFilters() {
 
-function wordForm(number){
+    const query = search.value.toLowerCase().trim();
 
-  if(number === 1){
-    return "книга";
-  }
+    let visible = 0;
 
-  if(number >= 2 && number <= 4){
-    return "книги";
-  }
+    books.forEach(book => {
 
-  return "книг";
+        const data = book.dataset.search.toLowerCase();
+
+        const matchesSearch =
+            query === "" || data.includes(query);
+
+        const matchesFilter =
+            activeFilter === "all" ||
+            data.includes(activeFilter);
+
+        if (matchesSearch && matchesFilter) {
+
+            book.style.display = "block";
+            visible++;
+
+        } else {
+
+            book.style.display = "none";
+
+        }
+
+    });
+
+    empty.style.display =
+        visible === 0 ? "block" : "none";
+
+    count.textContent =
+        visible === 1
+        ? "1 книга"
+        : visible + " книг";
 }
 
+search.addEventListener("input", applyFilters);
 
-function applyFilters(){
+filters.forEach(button => {
 
-  const query =
-  search.value
-  .toLowerCase()
-  .trim();
+    button.addEventListener("click", () => {
 
-  let visible = 0;
+        filters.forEach(
+            b => b.classList.remove("active")
+        );
 
+        button.classList.add("active");
 
-  books.forEach(book=>{
+        activeFilter =
+            button.dataset.filter;
 
-    const data =
-    book.dataset.search
-    .toLowerCase();
+        applyFilters();
 
-    const matchesSearch =
-    query === "" ||
-    data.includes(query);
-
-    const matchesFilter =
-    activeFilter === "all" ||
-    data.includes(activeFilter);
-
-
-    if(
-      matchesSearch &&
-      matchesFilter
-    ){
-
-      book.style.display =
-      "block";
-
-      visible++;
-
-    }
-
-    else{
-
-      book.style.display =
-      "none";
-
-    }
-
-  });
-
-
-  empty.style.display =
-  visible === 0
-  ? "block"
-  : "none";
-
-
-  count.textContent =
-  visible +
-  " " +
-  wordForm(visible);
-
-}
-
-
-search.addEventListener(
-"input",
-applyFilters
-);
-
-
-filters.forEach(button=>{
-
-  button.addEventListener(
-  "click",
-  ()=>{
-
-    filters.forEach(
-      b=>
-      b.classList.remove("active")
-    );
-
-    button.classList.add(
-      "active"
-    );
-
-    activeFilter =
-    button.dataset.filter;
-
-    applyFilters();
-
-  });
+    });
 
 });
 
