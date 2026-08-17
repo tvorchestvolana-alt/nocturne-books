@@ -37,39 +37,11 @@ header{
     linear-gradient(
       rgba(255,255,255,.93),
       rgba(247,250,254,.97)
-    ),
-    repeating-linear-gradient(
-      90deg,
-      transparent 0,
-      transparent 49%,
-      #efb1b6 49.5%,
-      transparent 50%
     );
 
   border-bottom:1px solid #dce6f1;
   position:relative;
   overflow:hidden;
-}
-
-header::after{
-  content:"";
-
-  position:absolute;
-
-  width:138px;
-  height:138px;
-
-  border:2px solid #d7e5f3;
-  border-radius:50%;
-
-  left:50%;
-  top:116px;
-
-  transform:translateX(-50%);
-
-  opacity:.75;
-
-  pointer-events:none;
 }
 
 .logo{
@@ -110,6 +82,8 @@ main{
   padding:18px 16px 30px;
 }
 
+/* ПОИСК */
+
 .search{
   display:flex;
   align-items:center;
@@ -132,6 +106,8 @@ main{
 
   box-shadow:0 5px 20px rgba(39,73,110,.05);
 }
+
+/* ЗАГОЛОВКИ */
 
 .section-title{
   display:flex;
@@ -278,7 +254,7 @@ main{
   font-weight:bold;
 }
 
-/* НОВИНКА */
+/* НОВИНКИ */
 
 .book-card{
   display:flex;
@@ -352,7 +328,7 @@ main{
   font-size:10px;
 }
 
-/* СЕРИЯ */
+/* СЕРИИ */
 
 .series-card{
   display:block;
@@ -610,8 +586,8 @@ id="progressInfo"
 
 <div
 class="progress-bar"
-id="progressBar"
-></div>
+id="progressBar">
+</div>
 
 </div>
 
@@ -914,4 +890,4 @@ if(savedPosition){
 </script>
 
 </body>
-  </html>
+</html>
