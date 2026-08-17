@@ -26,8 +26,6 @@ body{
   padding-bottom:125px;
 }
 
-/* ШАПКА */
-
 header{
   min-height:210px;
   padding:30px 20px 26px;
@@ -37,8 +35,6 @@ header{
     rgba(247,250,254,.97)
   );
   border-bottom:1px solid #dce6f1;
-  position:relative;
-  overflow:hidden;
 }
 
 .logo{
@@ -65,15 +61,11 @@ header{
   color:#6086b0;
 }
 
-/* КОНТЕНТ */
-
 main{
   max-width:700px;
   margin:auto;
   padding:18px 16px 30px;
 }
-
-/* ПОИСК */
 
 .search{
   display:flex;
@@ -87,11 +79,8 @@ main{
   text-decoration:none;
   color:#8996a7;
   font-size:14px;
-  line-height:1.3;
   box-shadow:0 5px 20px rgba(39,73,110,.05);
 }
-
-/* ЗАГОЛОВКИ */
 
 .section-title{
   display:flex;
@@ -103,7 +92,6 @@ main{
 .section-title h2{
   margin:0;
   font-size:17px;
-  line-height:1.2;
   white-space:nowrap;
 }
 
@@ -112,8 +100,6 @@ main{
   flex:1;
   background:#d5e0ec;
 }
-
-/* ПРОДОЛЖИТЬ ЧТЕНИЕ */
 
 .current-card{
   background:#fff;
@@ -145,7 +131,6 @@ main{
 .current-info h3{
   margin:4px 0 5px;
   font-size:18px;
-  line-height:1.15;
 }
 
 .author{
@@ -207,8 +192,6 @@ main{
   font-weight:bold;
 }
 
-/* НОВИНКИ */
-
 .book-card{
   display:flex;
   gap:14px;
@@ -235,7 +218,6 @@ main{
 
 .book-info{
   flex:1;
-  min-width:0;
   display:flex;
   flex-direction:column;
   justify-content:center;
@@ -257,15 +239,12 @@ main{
 }
 
 .pill{
-  display:inline-block;
   padding:6px 9px;
   background:#eaf2fb;
   color:#52779e;
   border-radius:14px;
   font-size:10px;
 }
-
-/* СЕРИИ */
 
 .series-card{
   display:block;
@@ -332,8 +311,6 @@ main{
   font-size:10px;
 }
 
-/* КАТАЛОГ */
-
 .catalog-link{
   display:block;
   margin-top:20px;
@@ -347,8 +324,6 @@ main{
   font-size:13px;
 }
 
-/* НИЖНЕЕ МЕНЮ */
-
 nav{
   position:fixed;
   left:0;
@@ -356,34 +331,33 @@ nav{
   bottom:0;
   display:flex;
   justify-content:space-around;
-  background:rgba(255,255,255,.98);
+  background:#fff;
   border-top:1px solid #e0e8f1;
-  padding:
-    9px
-    3px
-    calc(13px + env(safe-area-inset-bottom));
+  padding:9px 3px calc(13px + env(safe-area-inset-bottom));
   z-index:999999;
   box-shadow:0 -4px 18px rgba(39,73,110,.06);
 }
 
 .nav-item{
   width:20%;
-  min-height:52px;
+  min-height:54px;
   display:flex;
   flex-direction:column;
   align-items:center;
   justify-content:center;
-  text-align:center;
   text-decoration:none;
+  text-align:center;
   color:#8ca0b8;
   font-size:10px;
-  cursor:pointer;
+  position:relative;
+  z-index:1000000;
+  touch-action:manipulation;
 }
 
 .nav-icon{
   display:block;
-  margin-bottom:4px;
   font-size:21px;
+  margin-bottom:4px;
 }
 
 .nav-item.active{
@@ -411,16 +385,14 @@ YOUR NEXT OBSESSION IS HERE
 
 </header>
 
-
 <main>
 
 <a
 class="search"
-href="catalog.html"
+href="https://tvorchestvolana-alt.github.io/nocturne-books/catalog.html"
 >
 🔍&nbsp; Найти книгу, автора, серию или троп...
 </a>
-
 
 <div class="section-title">
 
@@ -432,7 +404,6 @@ href="catalog.html"
 
 </div>
 
-
 <div class="current-card">
 
 <div class="current-cover">
@@ -443,7 +414,6 @@ alt="Холодная малышка"
 >
 
 </div>
-
 
 <div class="current-info">
 
@@ -459,7 +429,6 @@ alt="Холодная малышка"
 Бостонские Рыси · Книга #1
 </div>
 
-
 <div class="tropes">
 
 <span class="trope">
@@ -472,14 +441,9 @@ alt="Холодная малышка"
 
 </div>
 
-
-<div
-class="progress-info"
-id="progressInfo"
->
+<div class="progress-info" id="progressInfo">
 Ещё не начато
 </div>
-
 
 <div class="progress">
 
@@ -490,11 +454,10 @@ id="progressBar"
 
 </div>
 
-
 <a
 class="read-button"
 id="readButton"
-href="reader.html"
+href="https://tvorchestvolana-alt.github.io/nocturne-books/reader.html"
 >
 📖 НАЧАТЬ ЧТЕНИЕ
 </a>
@@ -502,7 +465,6 @@ href="reader.html"
 </div>
 
 </div>
-
 
 <div class="section-title">
 
@@ -514,10 +476,9 @@ href="reader.html"
 
 </div>
 
-
 <a
 class="book-card"
-href="cold-baby.html"
+href="https://tvorchestvolana-alt.github.io/nocturne-books/cold-baby.html"
 >
 
 <div class="book-cover">
@@ -528,7 +489,6 @@ alt="Холодная малышка"
 >
 
 </div>
-
 
 <div class="book-info">
 
@@ -556,7 +516,6 @@ alt="Холодная малышка"
 
 </a>
 
-
 <div class="section-title">
 
 <h2>
@@ -567,10 +526,9 @@ alt="Холодная малышка"
 
 </div>
 
-
 <a
 class="series-card"
-href="cold-baby.html"
+href="https://tvorchestvolana-alt.github.io/nocturne-books/cold-baby.html"
 >
 
 <div class="series-top">
@@ -585,11 +543,9 @@ href="cold-baby.html"
 
 </div>
 
-
 <div class="series-description">
 Хоккейные романы · Карли Робин
 </div>
-
 
 <div class="series-book">
 
@@ -614,65 +570,58 @@ alt="Холодная малышка"
 
 </a>
 
-
 <a
 class="catalog-link"
-href="catalog.html"
+href="https://tvorchestvolana-alt.github.io/nocturne-books/catalog.html"
 >
 Смотреть весь каталог →
 </a>
 
 </main>
 
-
 <nav>
 
 <a
 class="nav-item active"
-href="./index.html"
+href="https://tvorchestvolana-alt.github.io/nocturne-books/index.html"
 >
 <span class="nav-icon">⌂</span>
 Главная
 </a>
 
-
 <a
 class="nav-item"
-href="./catalog.html"
+href="https://tvorchestvolana-alt.github.io/nocturne-books/catalog.html"
 >
 <span class="nav-icon">⌕</span>
 Каталог
 </a>
 
-
 <a
 class="nav-item"
-href="./library.html"
+href="https://tvorchestvolana-alt.github.io/nocturne-books/library.html"
 >
 <span class="nav-icon">♡</span>
 Библиотека
 </a>
 
-
 <a
 class="nav-item"
-href="./bookmarks.html"
+href="https://tvorchestvolana-alt.github.io/nocturne-books/bookmarks.html"
 >
 <span class="nav-icon">❝</span>
 Цитаты
 </a>
 
-
 <a
 class="nav-item"
-href="./profile.html"
+href="https://tvorchestvolana-alt.github.io/nocturne-books/profile.html"
 >
 <span class="nav-icon">♙</span>
 Профиль
 </a>
 
 </nav>
-
 
 <script>
 
@@ -682,40 +631,25 @@ const POSITION_KEY =
 const PROGRESS_KEY =
 "nocturne-cold-baby-progress";
 
-
 const readingTitle =
-document.getElementById(
-"readingTitle"
-);
+document.getElementById("readingTitle");
 
 const progressInfo =
-document.getElementById(
-"progressInfo"
-);
+document.getElementById("progressInfo");
 
 const progressBar =
-document.getElementById(
-"progressBar"
-);
+document.getElementById("progressBar");
 
 const readButton =
-document.getElementById(
-"readButton"
-);
-
+document.getElementById("readButton");
 
 const savedPosition =
-localStorage.getItem(
-POSITION_KEY
-);
+localStorage.getItem(POSITION_KEY);
 
 const savedProgress =
 Number(
-localStorage.getItem(
-PROGRESS_KEY
-)
+  localStorage.getItem(PROGRESS_KEY)
 ) || 0;
-
 
 if(savedPosition){
 
