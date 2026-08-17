@@ -16,7 +16,7 @@ body {
     font-family: Arial, sans-serif;
     background: #f6f9fd;
     color: #173052;
-    padding-bottom: 95px;
+    padding-bottom: 105px;
 }
 
 header {
@@ -120,6 +120,25 @@ h1 {
     margin-bottom: 10px;
 }
 
+.download {
+    display: block;
+    width: 100%;
+    border: 1px solid #aac2dc;
+    background: #f8fbff;
+    color: #5279a4;
+    padding: 14px;
+    border-radius: 15px;
+    font-weight: bold;
+    font-size: 14px;
+    text-decoration: none;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.download:active {
+    background: #edf4fb;
+}
+
 .library {
     display: block;
     width: 100%;
@@ -209,12 +228,12 @@ nav {
     bottom: 0;
     left: 0;
     right: 0;
-    background: rgba(255,255,255,.97);
+    background: rgba(255,255,255,.98);
     border-top: 1px solid #e0e8f1;
     display: flex;
     justify-content: space-around;
-    padding: 10px 3px 14px;
-    z-index: 30;
+    padding: 10px 3px calc(14px + env(safe-area-inset-bottom));
+    z-index: 99999;
 }
 
 .nav-item {
@@ -275,6 +294,14 @@ nav {
 
     <a class="read" href="reader.html">
         📖 ЧИТАТЬ
+    </a>
+
+    <a
+        class="download"
+        href="Холодная малышка.epub"
+        download="Холодная малышка — Карли Робин.epub"
+    >
+        ⬇️ СКАЧАТЬ EPUB
     </a>
 
     <button class="library" id="libraryButton">
@@ -389,8 +416,8 @@ nav {
 </a>
 
 <a class="nav-item" href="bookmarks.html">
-    <span class="nav-icon">🔖</span>
-    Закладки
+    <span class="nav-icon">❝</span>
+    Цитаты
 </a>
 
 <a class="nav-item" href="#">
