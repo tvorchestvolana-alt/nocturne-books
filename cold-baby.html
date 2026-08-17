@@ -225,23 +225,27 @@ nav{
   bottom:0;
   display:flex;
   justify-content:space-around;
-  background:rgba(255,255,255,.98);
+  background:#fff;
   border-top:1px solid #e0e8f1;
   padding:9px 3px calc(13px + env(safe-area-inset-bottom));
   z-index:999999;
+  box-shadow:0 -4px 18px rgba(39,73,110,.06);
 }
 
 .nav-item{
   width:20%;
-  min-height:52px;
+  min-height:54px;
   display:flex;
   flex-direction:column;
   align-items:center;
   justify-content:center;
-  text-align:center;
   text-decoration:none;
+  text-align:center;
   color:#8ca0b8;
   font-size:10px;
+  position:relative;
+  z-index:1000000;
+  touch-action:manipulation;
 }
 
 .nav-icon{
@@ -258,7 +262,7 @@ nav{
 
 <a
 class="back"
-href="catalog.html"
+href="https://tvorchestvolana-alt.github.io/nocturne-books/catalog.html"
 >
 ←
 </a>
@@ -267,9 +271,7 @@ href="catalog.html"
 NOCTURNE BOOKS
 </div>
 
-<div class="menu">
-⋯
-</div>
+<div class="menu">⋯</div>
 
 </header>
 
@@ -297,30 +299,22 @@ alt="Холодная малышка — Карли Робин"
 
 <div class="status">
 
-<span>
-🏒 Хоккейный роман
-</span>
-
-<span>
-📖 EPUB
-</span>
-
-<span>
-№1 в серии
-</span>
+<span>🏒 Хоккейный роман</span>
+<span>📖 EPUB</span>
+<span>№1 в серии</span>
 
 </div>
 
 <a
 class="read"
-href="reader.html"
+href="https://tvorchestvolana-alt.github.io/nocturne-books/reader.html"
 >
 📖 ЧИТАТЬ
 </a>
 
 <a
 class="download"
-href="Холодная малышка.epub"
+href="https://tvorchestvolana-alt.github.io/nocturne-books/Холодная малышка.epub"
 download="Холодная малышка — Карли Робин.epub"
 >
 ⬇️ СКАЧАТЬ EPUB
@@ -337,9 +331,7 @@ id="libraryButton"
 
 <div class="section">
 
-<h2>
-АННОТАЦИЯ
-</h2>
+<h2>АННОТАЦИЯ</h2>
 
 <div class="annotation">Он — сюжетный поворот, к которому она не была готова...
 
@@ -353,15 +345,11 @@ id="libraryButton"
 
 <div class="section">
 
-<h2>
-ТРОПЫ
-</h2>
+<h2>ТРОПЫ</h2>
 
 <div class="tropes">
 
-<span class="trope">
-🏒 Хоккейный роман
-</span>
+<span class="trope">🏒 Хоккейный роман</span>
 
 <span class="trope">
 📚 Профессиональный хоккеист & управляющая книжным магазином
@@ -433,27 +421,42 @@ alt="Холодная малышка"
 
 <nav>
 
-<a class="nav-item" href="index.html">
+<a
+class="nav-item"
+href="https://tvorchestvolana-alt.github.io/nocturne-books/index.html"
+>
 <span class="nav-icon">⌂</span>
 Главная
 </a>
 
-<a class="nav-item" href="catalog.html">
+<a
+class="nav-item"
+href="https://tvorchestvolana-alt.github.io/nocturne-books/catalog.html"
+>
 <span class="nav-icon">⌕</span>
 Каталог
 </a>
 
-<a class="nav-item" href="library.html">
+<a
+class="nav-item"
+href="https://tvorchestvolana-alt.github.io/nocturne-books/library.html"
+>
 <span class="nav-icon">♡</span>
 Библиотека
 </a>
 
-<a class="nav-item" href="bookmarks.html">
+<a
+class="nav-item"
+href="https://tvorchestvolana-alt.github.io/nocturne-books/bookmarks.html"
+>
 <span class="nav-icon">❝</span>
 Цитаты
 </a>
 
-<a class="nav-item" href="profile.html">
+<a
+class="nav-item"
+href="https://tvorchestvolana-alt.github.io/nocturne-books/profile.html"
+>
 <span class="nav-icon">♙</span>
 Профиль
 </a>
@@ -466,16 +469,12 @@ const LIBRARY_KEY =
 "nocturne-cold-baby-library";
 
 const libraryButton =
-document.getElementById(
-"libraryButton"
-);
+document.getElementById("libraryButton");
 
 function updateLibraryButton(){
 
   const inLibrary =
-  localStorage.getItem(
-    LIBRARY_KEY
-  );
+  localStorage.getItem(LIBRARY_KEY);
 
   if(inLibrary === "yes"){
 
@@ -503,9 +502,7 @@ libraryButton
 ()=>{
 
   const inLibrary =
-  localStorage.getItem(
-    LIBRARY_KEY
-  );
+  localStorage.getItem(LIBRARY_KEY);
 
   if(inLibrary === "yes"){
 
