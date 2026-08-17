@@ -3,10 +3,13 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>Каталог — NOCTURNE BOOKS</title>
 
 <style>
-*{box-sizing:border-box}
+*{
+  box-sizing:border-box;
+}
 
 body{
   margin:0;
@@ -17,38 +20,42 @@ body{
 }
 
 header{
-  padding:24px 18px 12px;
-  background:rgba(255,255,255,.96);
+  padding:24px 18px 14px;
+  background:rgba(255,255,255,.97);
   border-bottom:1px solid #e2e9f2;
   position:sticky;
   top:0;
-  z-index:5;
+  z-index:10;
 }
 
 .topbar{
   display:flex;
-  justify-content:space-between;
   align-items:center;
-  margin-bottom:16px;
+  justify-content:space-between;
+  margin-bottom:18px;
 }
 
 .back{
   text-decoration:none;
-  color:#335d8a;
-  font-size:25px;
+  color:#31577f;
+  font-size:28px;
 }
 
 .title{
   font-weight:800;
-  font-size:20px;
+  font-size:22px;
+}
+
+.top-spacer{
+  width:28px;
 }
 
 .search{
   width:100%;
   border:1px solid #dce6f0;
   background:white;
-  padding:14px 16px;
-  border-radius:16px;
+  padding:15px 16px;
+  border-radius:17px;
   font-size:15px;
   outline:none;
 }
@@ -76,61 +83,84 @@ header{
 }
 
 main{
-  padding:18px 16px;
+  padding:20px 16px;
   max-width:700px;
   margin:auto;
+}
+
+.count{
+  font-size:12px;
+  color:#7d90a7;
+  margin-bottom:15px;
 }
 
 .books{
   display:grid;
   grid-template-columns:repeat(2,1fr);
-  gap:20px 16px;
+  gap:22px 16px;
 }
 
 .book{
-  cursor:pointer;
+  text-decoration:none;
+  color:inherit;
+}
+
+.cover-wrap{
+  position:relative;
 }
 
 .cover{
+  width:100%;
   aspect-ratio:2/3;
-  border-radius:16px;
-  background:linear-gradient(145deg,#f6dfe7,#dfeefa);
-  box-shadow:0 7px 20px rgba(42,70,105,.10);
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  padding:18px;
-  text-align:center;
-  font-family:Georgia,serif;
-  font-size:22px;
-  font-style:italic;
-  position:relative;
+  object-fit:cover;
+  border-radius:17px;
+  box-shadow:0 9px 24px rgba(42,70,105,.13);
+  display:block;
 }
 
 .heart{
   position:absolute;
   right:10px;
   top:10px;
-  width:32px;
-  height:32px;
-  background:white;
+  width:36px;
+  height:36px;
+  background:rgba(255,255,255,.94);
   border-radius:50%;
   display:flex;
   align-items:center;
   justify-content:center;
-  font-size:18px;
+  font-size:20px;
+  color:#31577f;
   box-shadow:0 3px 10px rgba(0,0,0,.08);
 }
 
+.series-number{
+  position:absolute;
+  left:10px;
+  top:10px;
+  background:rgba(255,255,255,.94);
+  color:#52779e;
+  border-radius:12px;
+  padding:6px 8px;
+  font-size:10px;
+  font-weight:bold;
+}
+
 .book h3{
-  font-size:14px;
-  margin:9px 0 3px;
+  font-size:15px;
+  margin:10px 0 4px;
 }
 
 .author{
   font-size:12px;
   color:#8192a7;
-  margin-bottom:7px;
+  margin-bottom:5px;
+}
+
+.series{
+  font-size:11px;
+  color:#6f89a5;
+  margin-bottom:8px;
 }
 
 .tropes{
@@ -141,10 +171,18 @@ main{
 
 .trope{
   font-size:10px;
-  padding:5px 7px;
-  border-radius:12px;
+  padding:5px 8px;
+  border-radius:13px;
   background:#eaf2fb;
   color:#52779e;
+}
+
+.empty{
+  display:none;
+  grid-column:1/-1;
+  text-align:center;
+  padding:60px 10px;
+  color:#8192a7;
 }
 
 nav{
@@ -157,7 +195,7 @@ nav{
   display:flex;
   justify-content:space-around;
   padding:10px 3px 14px;
-  z-index:10;
+  z-index:20;
 }
 
 .nav-item{
@@ -177,200 +215,355 @@ nav{
 .nav-item.active{
   color:#5285c3;
 }
-
-.empty{
-  grid-column:1/-1;
-  text-align:center;
-  padding:50px 10px;
-  color:#8192a7;
-  display:none;
-}
 </style>
 </head>
 
 <body>
 
 <header>
+
   <div class="topbar">
+
     <a class="back" href="index.html">←</a>
-    <div class="title">Каталог</div>
-    <div style="width:25px"></div>
+
+    <div class="title">
+      Каталог
+    </div>
+
+    <div class="top-spacer"></div>
+
   </div>
 
   <input
     id="search"
     class="search"
     type="text"
-    placeholder="🔍 Найти книгу, автора или троп..."
+    placeholder="🔍 Найти книгу, автора, серию или троп..."
   >
 
   <div class="filters">
-    <button class="filter active" data-filter="all">Все</button>
-    <button class="filter" data-filter="романтика">Романтика</button>
-    <button class="filter" data-filter="хоккей">Хоккей</button>
-    <button class="filter" data-filter="фэнтези">Фэнтези</button>
-    <button class="filter" data-filter="триллер">Триллер</button>
-    <button class="filter" data-filter="он влюбился первым">Он влюбился первым</button>
+
+    <button class="filter active" data-filter="all">
+      Все
+    </button>
+
+    <button class="filter" data-filter="хоккейный роман">
+      Хоккей
+    </button>
+
+    <button class="filter" data-filter="романтика">
+      Романтика
+    </button>
+
+    <button class="filter" data-filter="он влюбляется первым">
+      Он влюбляется первым
+    </button>
+
+    <button class="filter" data-filter="медленное развитие отношений">
+      Медленное развитие
+    </button>
+
+    <button class="filter" data-filter="бостонские рыси">
+      Бостонские Рыси
+    </button>
+
   </div>
+
 </header>
 
+
 <main>
-  <div class="books" id="books">
 
-    <div class="book" data-search="icebreaker hannah grace хоккей романтика">
-      <div class="cover">
-        <div class="heart">♡</div>
-        Icebreaker
+<div class="count" id="count">
+1 книга
+</div>
+
+
+<div class="books" id="books">
+
+  <a
+    class="book"
+    href="cold-baby.html"
+    data-search="
+    холодная малышка
+    карли робин
+    бостонские рыси
+    книга 1
+    хоккейный роман
+    профессиональный хоккеист
+    управляющая книжным магазином
+    от незнакомцев к влюбленным
+    противоположности притягиваются
+    черная кошка
+    золотой ретривер
+    он влюбляется первым
+    словесные перепалки
+    медленное развитие отношений
+    романтика
+    "
+  >
+
+    <div class="cover-wrap">
+
+      <img
+        class="cover"
+        src="cold-baby.png"
+        alt="Холодная малышка — Карли Робин"
+      >
+
+      <div class="heart">
+        ♡
       </div>
-      <h3>Icebreaker</h3>
-      <div class="author">Hannah Grace</div>
-      <div class="tropes">
-        <span class="trope">🏒 Хоккей</span>
-        <span class="trope">💗 Романтика</span>
+
+      <div class="series-number">
+        #1
       </div>
+
     </div>
 
-    <div class="book" data-search="twisted lies ana huang романтика он влюбился первым">
-      <div class="cover">
-        <div class="heart">♡</div>
-        Twisted Lies
-      </div>
-      <h3>Twisted Lies</h3>
-      <div class="author">Ana Huang</div>
-      <div class="tropes">
-        <span class="trope">💗 Романтика</span>
-        <span class="trope">🫶 Он влюбился первым</span>
-      </div>
+    <h3>
+      Холодная малышка
+    </h3>
+
+    <div class="author">
+      Карли Робин
     </div>
 
-    <div class="book" data-search="flawless elsie silver спорт романтика">
-      <div class="cover">
-        <div class="heart">♡</div>
-        Flawless
-      </div>
-      <h3>Flawless</h3>
-      <div class="author">Elsie Silver</div>
-      <div class="tropes">
-        <span class="trope">💗 Романтика</span>
-        <span class="trope">🏅 Спорт</span>
-      </div>
+    <div class="series">
+      Бостонские Рыси · Книга #1
     </div>
 
-    <div class="book" data-search="love on the brain ali hazelwood романтика">
-      <div class="cover">
-        <div class="heart">♡</div>
-        Love on the Brain
-      </div>
-      <h3>Love on the Brain</h3>
-      <div class="author">Ali Hazelwood</div>
-      <div class="tropes">
-        <span class="trope">💗 Романтика</span>
-      </div>
+    <div class="tropes">
+
+      <span class="trope">
+        🏒 Хоккей
+      </span>
+
+      <span class="trope">
+        💙 Он влюбляется первым
+      </span>
+
+      <span class="trope">
+        🌙 Медленное развитие
+      </span>
+
     </div>
 
-    <div class="book" data-search="the dare elle kennedy романтика">
-      <div class="cover">
-        <div class="heart">♡</div>
-        The Dare
-      </div>
-      <h3>The Dare</h3>
-      <div class="author">Elle Kennedy</div>
-      <div class="tropes">
-        <span class="trope">💗 Романтика</span>
-      </div>
-    </div>
+  </a>
 
-    <div class="book" data-search="the deal elle kennedy хоккей романтика">
-      <div class="cover">
-        <div class="heart">♡</div>
-        The Deal
-      </div>
-      <h3>The Deal</h3>
-      <div class="author">Elle Kennedy</div>
-      <div class="tropes">
-        <span class="trope">🏒 Хоккей</span>
-        <span class="trope">💗 Романтика</span>
-      </div>
-    </div>
 
-    <div class="empty" id="empty">
-      Ничего не найдено
-    </div>
-
+  <div
+    class="empty"
+    id="empty"
+  >
+    Ничего не найдено
   </div>
+
+</div>
+
 </main>
 
+
 <nav>
-  <a class="nav-item" href="index.html">
-    <span class="nav-icon">⌂</span>
+
+  <a
+    class="nav-item"
+    href="index.html"
+  >
+
+    <span class="nav-icon">
+      ⌂
+    </span>
+
     Главная
+
   </a>
 
-  <a class="nav-item active" href="catalog.html">
-    <span class="nav-icon">⌕</span>
+
+  <a
+    class="nav-item active"
+    href="catalog.html"
+  >
+
+    <span class="nav-icon">
+      ⌕
+    </span>
+
     Каталог
+
   </a>
 
-  <a class="nav-item" href="#">
-    <span class="nav-icon">♡</span>
+
+  <a
+    class="nav-item"
+    href="#"
+  >
+
+    <span class="nav-icon">
+      ♡
+    </span>
+
     Библиотека
+
   </a>
 
-  <a class="nav-item" href="#">
-    <span class="nav-icon">🔖</span>
+
+  <a
+    class="nav-item"
+    href="#"
+  >
+
+    <span class="nav-icon">
+      🔖
+    </span>
+
     Закладки
+
   </a>
 
-  <a class="nav-item" href="#">
-    <span class="nav-icon">♙</span>
+
+  <a
+    class="nav-item"
+    href="#"
+  >
+
+    <span class="nav-icon">
+      ♙
+    </span>
+
     Профиль
+
   </a>
+
 </nav>
 
+
 <script>
-const search = document.getElementById("search");
-const books = [...document.querySelectorAll(".book")];
-const filters = document.querySelectorAll(".filter");
-const empty = document.getElementById("empty");
+
+const search =
+document.getElementById("search");
+
+const books =
+[...document.querySelectorAll(".book")];
+
+const filters =
+document.querySelectorAll(".filter");
+
+const empty =
+document.getElementById("empty");
+
+const count =
+document.getElementById("count");
 
 let activeFilter = "all";
 
-function applyFilters(){
-  const query = search.value.toLowerCase().trim();
-  let visible = 0;
 
-  books.forEach(book=>{
-    const data = book.dataset.search.toLowerCase();
+function wordForm(number){
 
-    const matchesSearch =
-      query === "" || data.includes(query);
+  if(number === 1){
+    return "книга";
+  }
 
-    const matchesFilter =
-      activeFilter === "all" || data.includes(activeFilter);
+  if(number >= 2 && number <= 4){
+    return "книги";
+  }
 
-    if(matchesSearch && matchesFilter){
-      book.style.display = "block";
-      visible++;
-    }else{
-      book.style.display = "none";
-    }
-  });
-
-  empty.style.display = visible === 0 ? "block" : "none";
+  return "книг";
 }
 
-search.addEventListener("input", applyFilters);
+
+function applyFilters(){
+
+  const query =
+  search.value
+  .toLowerCase()
+  .trim();
+
+  let visible = 0;
+
+
+  books.forEach(book=>{
+
+    const data =
+    book.dataset.search
+    .toLowerCase();
+
+    const matchesSearch =
+    query === "" ||
+    data.includes(query);
+
+    const matchesFilter =
+    activeFilter === "all" ||
+    data.includes(activeFilter);
+
+
+    if(
+      matchesSearch &&
+      matchesFilter
+    ){
+
+      book.style.display =
+      "block";
+
+      visible++;
+
+    }
+
+    else{
+
+      book.style.display =
+      "none";
+
+    }
+
+  });
+
+
+  empty.style.display =
+  visible === 0
+  ? "block"
+  : "none";
+
+
+  count.textContent =
+  visible +
+  " " +
+  wordForm(visible);
+
+}
+
+
+search.addEventListener(
+"input",
+applyFilters
+);
+
 
 filters.forEach(button=>{
-  button.addEventListener("click", ()=>{
-    filters.forEach(b=>b.classList.remove("active"));
-    button.classList.add("active");
 
-    activeFilter = button.dataset.filter;
+  button.addEventListener(
+  "click",
+  ()=>{
+
+    filters.forEach(
+      b=>
+      b.classList.remove("active")
+    );
+
+    button.classList.add(
+      "active"
+    );
+
+    activeFilter =
+    button.dataset.filter;
+
     applyFilters();
+
   });
+
 });
+
 </script>
 
 </body>
-                              </html>
+</html>
