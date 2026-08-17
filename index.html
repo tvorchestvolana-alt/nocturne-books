@@ -26,9 +26,10 @@ body{
   padding-bottom:125px;
 }
 
+/* ШАПКА */
+
 header{
-  min-height:210px;
-  padding:30px 20px 26px;
+  padding:30px 20px 28px;
   text-align:center;
   background:linear-gradient(
     rgba(255,255,255,.93),
@@ -61,11 +62,39 @@ header{
   color:#6086b0;
 }
 
+/* ПРИВЕТСТВИЕ */
+
+.welcome{
+  max-width:520px;
+  margin:25px auto 0;
+  padding:0 10px;
+}
+
+.welcome-title{
+  font-size:17px;
+  line-height:1.3;
+  font-weight:700;
+  color:#31577f;
+  margin-bottom:9px;
+}
+
+.welcome-text{
+  max-width:470px;
+  margin:0 auto;
+  font-size:12px;
+  line-height:1.6;
+  color:#7b8fa6;
+}
+
+/* ОСНОВНОЙ КОНТЕНТ */
+
 main{
   max-width:700px;
   margin:auto;
   padding:18px 16px 30px;
 }
+
+/* ПОИСК */
 
 .search{
   display:flex;
@@ -81,6 +110,8 @@ main{
   font-size:14px;
   box-shadow:0 5px 20px rgba(39,73,110,.05);
 }
+
+/* ЗАГОЛОВКИ РАЗДЕЛОВ */
 
 .section-title{
   display:flex;
@@ -100,6 +131,8 @@ main{
   flex:1;
   background:#d5e0ec;
 }
+
+/* ПРОДОЛЖИТЬ ЧТЕНИЕ */
 
 .current-card{
   background:#fff;
@@ -192,6 +225,8 @@ main{
   font-weight:bold;
 }
 
+/* КАРТОЧКА КНИГИ */
+
 .book-card{
   display:flex;
   gap:14px;
@@ -245,6 +280,8 @@ main{
   border-radius:14px;
   font-size:10px;
 }
+
+/* СЕРИИ */
 
 .series-card{
   display:block;
@@ -324,6 +361,8 @@ main{
   font-size:13px;
 }
 
+/* НИЖНЕЕ МЕНЮ */
+
 nav{
   position:fixed;
   left:0;
@@ -381,6 +420,20 @@ BOOKS
 
 <div class="slogan">
 YOUR NEXT OBSESSION IS HERE
+</div>
+
+<div class="welcome">
+
+  <div class="welcome-title">
+    Добро пожаловать в NOCTURNE BOOKS
+  </div>
+
+  <div class="welcome-text">
+    Твоя личная библиотека историй, от которых невозможно оторваться.
+    Выбирай книгу, сохраняй любимые цитаты и продолжай чтение
+    с того места, где остановилась.
+  </div>
+
 </div>
 
 </header>
@@ -700,4 +753,4 @@ if(savedPosition){
 </script>
 
 </body>
-  </html>
+</html>
