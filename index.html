@@ -3,298 +3,300 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>NOCTURNE BOOKS</title>
 
 <style>
-* {
-  box-sizing: border-box;
+*{
+  box-sizing:border-box;
 }
 
-body {
-  margin: 0;
-  font-family: Arial, sans-serif;
-  background: #f5f8fc;
-  color: #172c4c;
-  padding-bottom: 100px;
+body{
+  margin:0;
+  font-family:Arial,sans-serif;
+  background:#f6f9fd;
+  color:#173052;
+  padding-bottom:95px;
 }
 
-header {
-  min-height: 245px;
-  padding: 42px 22px 28px;
-  text-align: center;
+header{
+  min-height:235px;
+  padding:38px 20px 30px;
+  text-align:center;
   background:
-    linear-gradient(rgba(255,255,255,.88), rgba(247,250,254,.94)),
+    linear-gradient(rgba(255,255,255,.90),rgba(247,250,254,.95)),
     repeating-linear-gradient(
       90deg,
       transparent 0,
       transparent 49%,
-      #ef9da2 49.5%,
+      #efb1b6 49.5%,
       transparent 50%
     );
-  border-bottom: 1px solid #dce6f1;
-  position: relative;
-  overflow: hidden;
+  border-bottom:1px solid #dce6f1;
+  position:relative;
+  overflow:hidden;
 }
 
-header:after {
-  content: "";
-  position: absolute;
-  width: 150px;
-  height: 150px;
-  border: 2px solid #d7e5f3;
-  border-radius: 50%;
-  left: 50%;
-  top: 140px;
-  transform: translateX(-50%);
-  opacity: .7;
+header:after{
+  content:"";
+  position:absolute;
+  width:150px;
+  height:150px;
+  border:2px solid #d7e5f3;
+  border-radius:50%;
+  left:50%;
+  top:138px;
+  transform:translateX(-50%);
+  opacity:.75;
 }
 
-.logo {
-  font-family: Georgia, serif;
-  font-size: 43px;
-  letter-spacing: 4px;
-  font-weight: 900;
-  color: #31577f;
-  position: relative;
-  z-index: 2;
+.logo{
+  font-family:Georgia,serif;
+  font-size:42px;
+  letter-spacing:4px;
+  font-weight:900;
+  color:#31577f;
+  position:relative;
+  z-index:2;
 }
 
-.logo-small {
-  letter-spacing: 10px;
-  font-weight: bold;
-  margin-top: 8px;
-  color: #5d7fa3;
-  position: relative;
-  z-index: 2;
+.logo-small{
+  letter-spacing:10px;
+  font-weight:bold;
+  margin-top:8px;
+  color:#5d7fa3;
+  position:relative;
+  z-index:2;
 }
 
-.slogan {
-  margin-top: 28px;
-  font-size: 11px;
-  letter-spacing: 2px;
-  color: #6086b0;
-  position: relative;
-  z-index: 2;
+.slogan{
+  margin-top:27px;
+  font-size:11px;
+  letter-spacing:2px;
+  color:#6086b0;
+  position:relative;
+  z-index:2;
 }
 
-main {
-  max-width: 700px;
-  margin: auto;
-  padding: 20px 16px;
+main{
+  max-width:700px;
+  margin:auto;
+  padding:20px 16px;
 }
 
-.search {
-  display: block;
-  width: 100%;
-  text-decoration: none;
-  border: 1px solid #dfe7f1;
-  background: white;
-  color: #8995a5;
-  padding: 15px 18px;
-  border-radius: 16px;
-  font-size: 15px;
-  box-shadow: 0 5px 20px rgba(39,73,110,.05);
+.search{
+  display:block;
+  width:100%;
+  text-decoration:none;
+  border:1px solid #dfe7f1;
+  background:white;
+  color:#8995a5;
+  padding:15px 18px;
+  border-radius:16px;
+  font-size:15px;
+  box-shadow:0 5px 20px rgba(39,73,110,.05);
 }
 
-.filters {
-  display: flex;
-  gap: 8px;
-  overflow-x: auto;
-  margin: 14px 0 25px;
-  padding-bottom: 5px;
+.section-title{
+  display:flex;
+  align-items:center;
+  gap:12px;
+  margin:25px 0 14px;
 }
 
-.filter {
-  text-decoration: none;
-  border: 1px solid #d9e3ef;
-  background: white;
-  color: #31577f;
-  padding: 9px 15px;
-  border-radius: 20px;
-  white-space: nowrap;
+.section-title h2{
+  font-size:17px;
+  margin:0;
+  white-space:nowrap;
 }
 
-.filter.active {
-  background: #6f9bd0;
-  color: white;
-  border-color: #6f9bd0;
+.section-title span{
+  height:1px;
+  flex:1;
+  background:#d5e0ec;
 }
 
-.section-title {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  margin: 25px 0 14px;
+.current-card{
+  background:white;
+  padding:15px;
+  border-radius:20px;
+  display:flex;
+  gap:15px;
+  box-shadow:0 8px 25px rgba(39,73,110,.08);
 }
 
-.section-title h2 {
-  font-size: 17px;
-  margin: 0;
-  white-space: nowrap;
+.current-cover{
+  width:115px;
+  flex-shrink:0;
 }
 
-.section-title span {
-  height: 1px;
-  flex: 1;
-  background: #d5e0ec;
+.current-cover img{
+  width:100%;
+  aspect-ratio:2/3;
+  object-fit:cover;
+  border-radius:13px;
+  display:block;
 }
 
-.continue-card {
-  background: white;
-  padding: 15px;
-  border-radius: 20px;
-  display: flex;
-  gap: 15px;
-  box-shadow: 0 8px 25px rgba(39,73,110,.08);
+.current-info{
+  flex:1;
+  min-width:0;
 }
 
-.cover {
-  width: 105px;
-  height: 150px;
-  flex-shrink: 0;
-  border-radius: 12px;
-  background: linear-gradient(145deg,#f0e6ef,#dcecf7);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  padding: 10px;
-  color: #496987;
-  font-family: Georgia, serif;
-  font-style: italic;
+.current-info h3{
+  margin:5px 0 4px;
+  font-size:19px;
 }
 
-.book-info {
-  flex: 1;
-  min-width: 0;
+.author{
+  color:#7a8da5;
+  font-size:13px;
 }
 
-.book-info h3 {
-  margin: 8px 0 4px;
+.series{
+  color:#6f89a5;
+  font-size:11px;
+  margin-top:5px;
 }
 
-.author {
-  color: #7a8da5;
-  font-size: 14px;
+.tropes{
+  display:flex;
+  flex-wrap:wrap;
+  gap:6px;
+  margin:12px 0;
 }
 
-.tropes {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 6px;
-  margin: 12px 0;
+.trope{
+  background:#eef4fb;
+  color:#52759a;
+  border-radius:15px;
+  padding:6px 9px;
+  font-size:10px;
 }
 
-.trope {
-  background: #eef4fb;
-  color: #52759a;
-  border-radius: 15px;
-  padding: 6px 9px;
-  font-size: 11px;
+.progress-info{
+  font-size:11px;
+  color:#71869f;
+  margin-top:10px;
 }
 
-.progress {
-  height: 6px;
-  background: #e7edf4;
-  border-radius: 10px;
-  overflow: hidden;
-  margin: 14px 0;
+.progress{
+  height:6px;
+  background:#e7edf4;
+  border-radius:10px;
+  overflow:hidden;
+  margin:8px 0 12px;
 }
 
-.progress div {
-  width: 38%;
-  height: 100%;
-  background: #6d9bd0;
+.progress-bar{
+  width:0%;
+  height:100%;
+  background:#6d9bd0;
 }
 
-.read-button {
-  border: 0;
-  width: 100%;
-  background: #709bd0;
-  color: white;
-  padding: 11px;
-  border-radius: 10px;
-  font-weight: bold;
+.read-button{
+  display:block;
+  width:100%;
+  background:#709bd0;
+  color:white;
+  padding:12px;
+  border-radius:11px;
+  font-weight:bold;
+  font-size:13px;
+  text-decoration:none;
+  text-align:center;
 }
 
-.books {
-  display: grid;
-  grid-template-columns: repeat(2,1fr);
-  gap: 18px;
+.feature-card{
+  display:block;
+  text-decoration:none;
+  color:inherit;
+  background:white;
+  border-radius:20px;
+  padding:15px;
+  box-shadow:0 7px 20px rgba(39,73,110,.07);
 }
 
-.book {
-  text-decoration: none;
-  color: inherit;
+.feature-inner{
+  display:flex;
+  gap:15px;
+  align-items:center;
 }
 
-.book-cover {
-  aspect-ratio: 2 / 3;
-  border-radius: 14px;
-  background: linear-gradient(145deg,#f5dfe6,#dceaf8);
-  box-shadow: 0 7px 20px rgba(39,73,110,.10);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 18px;
-  text-align: center;
-  font-family: Georgia, serif;
-  font-size: 22px;
-  font-style: italic;
+.feature-cover{
+  width:92px;
+  flex-shrink:0;
 }
 
-.book h3 {
-  font-size: 14px;
-  margin: 9px 0 3px;
+.feature-cover img{
+  width:100%;
+  aspect-ratio:2/3;
+  object-fit:cover;
+  border-radius:12px;
+  display:block;
 }
 
-.book p {
-  margin: 0;
-  color: #8291a5;
-  font-size: 12px;
+.feature-text h3{
+  margin:0 0 5px;
+  font-size:17px;
 }
 
-.see-all {
-  display: block;
-  text-align: center;
-  margin: 22px 0 5px;
-  padding: 13px;
-  border-radius: 14px;
-  text-decoration: none;
-  color: #527da9;
-  background: #eaf2fb;
-  font-weight: bold;
+.feature-text p{
+  margin:0 0 7px;
+  color:#8192a7;
+  font-size:12px;
 }
 
-nav {
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  background: rgba(255,255,255,.97);
-  border-top: 1px solid #e0e8f1;
-  display: flex;
-  justify-content: space-around;
-  padding: 10px 3px 14px;
-  z-index: 10;
+.series-pill{
+  display:inline-block;
+  background:#eaf2fb;
+  color:#52779e;
+  padding:6px 9px;
+  border-radius:14px;
+  font-size:10px;
 }
 
-.nav-item {
-  text-align: center;
-  color: #8ca0b8;
-  font-size: 10px;
-  width: 20%;
-  text-decoration: none;
+.catalog-link{
+  display:block;
+  text-align:center;
+  margin:20px 0 4px;
+  padding:13px;
+  border-radius:14px;
+  text-decoration:none;
+  color:#527da9;
+  background:#eaf2fb;
+  font-weight:bold;
 }
 
-.nav-icon {
-  font-size: 21px;
-  display: block;
-  margin-bottom: 4px;
+nav{
+  position:fixed;
+  bottom:0;
+  left:0;
+  right:0;
+  background:rgba(255,255,255,.97);
+  border-top:1px solid #e0e8f1;
+  display:flex;
+  justify-content:space-around;
+  padding:10px 3px 14px;
+  z-index:20;
 }
 
-.nav-item.active {
-  color: #5285c3;
+.nav-item{
+  text-align:center;
+  color:#8ca0b8;
+  font-size:10px;
+  width:20%;
+  text-decoration:none;
+}
+
+.nav-icon{
+  font-size:21px;
+  display:block;
+  margin-bottom:4px;
+}
+
+.nav-item.active{
+  color:#5285c3;
 }
 </style>
 </head>
@@ -302,138 +304,384 @@ nav {
 <body>
 
 <header>
-  <div class="logo">NOCTURNE</div>
-  <div class="logo-small">BOOKS</div>
-  <div class="slogan">YOUR NEXT OBSESSION IS HERE</div>
+
+<div class="logo">
+NOCTURNE
+</div>
+
+<div class="logo-small">
+BOOKS
+</div>
+
+<div class="slogan">
+YOUR NEXT OBSESSION IS HERE
+</div>
+
 </header>
 
 <main>
 
 <a class="search" href="catalog.html">
-  🔍 Найти книгу, автора или троп...
+🔍 Найти книгу, автора, серию или троп...
 </a>
 
-<div class="filters">
-  <a class="filter active" href="catalog.html">Все</a>
-  <a class="filter" href="catalog.html">Романтика</a>
-  <a class="filter" href="catalog.html">Хоккей</a>
-  <a class="filter" href="catalog.html">Фэнтези</a>
-  <a class="filter" href="catalog.html">Триллеры</a>
-</div>
 
 <div class="section-title">
-  <h2>ПРОДОЛЖИТЬ ЧТЕНИЕ</h2>
-  <span></span>
-</div>
 
-<div class="continue-card">
+<h2 id="readingTitle">
+НАЧАТЬ ЧТЕНИЕ
+</h2>
 
-  <div class="cover">
-    ICEBREAKER
-  </div>
-
-  <div class="book-info">
-    <h3>Icebreaker</h3>
-
-    <div class="author">
-      Hannah Grace
-    </div>
-
-    <div class="tropes">
-      <div class="trope">🏒 Хоккей</div>
-      <div class="trope">💗 Романтика</div>
-    </div>
-
-    <small>
-      Глава 12 из 31 · 38%
-    </small>
-
-    <div class="progress">
-      <div></div>
-    </div>
-
-    <button class="read-button">
-      📖 ПРОДОЛЖИТЬ
-    </button>
-  </div>
+<span></span>
 
 </div>
+
+
+<div class="current-card">
+
+<div class="current-cover">
+
+<img
+src="file_00000000751c724682f122426a67d42d.png"
+alt="Холодная малышка"
+>
+
+</div>
+
+
+<div class="current-info">
+
+<h3>
+Холодная малышка
+</h3>
+
+<div class="author">
+Карли Робин
+</div>
+
+<div class="series">
+Бостонские Рыси · Книга #1
+</div>
+
+
+<div class="tropes">
+
+<span class="trope">
+🏒 Хоккей
+</span>
+
+<span class="trope">
+💙 Он влюбляется первым
+</span>
+
+</div>
+
+
+<div
+class="progress-info"
+id="progressInfo"
+>
+Ещё не начато
+</div>
+
+
+<div class="progress">
+
+<div
+class="progress-bar"
+id="progressBar"
+></div>
+
+</div>
+
+
+<a
+class="read-button"
+id="readButton"
+href="reader.html"
+>
+📖 НАЧАТЬ ЧТЕНИЕ
+</a>
+
+</div>
+
+</div>
+
 
 <div class="section-title">
-  <h2>НОВИНКИ</h2>
-  <span></span>
-</div>
 
-<div class="books">
+<h2>
+НОВИНКИ
+</h2>
 
-  <a class="book" href="#">
-    <div class="book-cover">
-      Icebreaker
-    </div>
-    <h3>Icebreaker</h3>
-    <p>Hannah Grace</p>
-  </a>
-
-  <a class="book" href="#">
-    <div class="book-cover">
-      Twisted Lies
-    </div>
-    <h3>Twisted Lies</h3>
-    <p>Ana Huang</p>
-  </a>
-
-  <a class="book" href="#">
-    <div class="book-cover">
-      Flawless
-    </div>
-    <h3>Flawless</h3>
-    <p>Elsie Silver</p>
-  </a>
-
-  <a class="book" href="#">
-    <div class="book-cover">
-      Love on the Brain
-    </div>
-    <h3>Love on the Brain</h3>
-    <p>Ali Hazelwood</p>
-  </a>
+<span></span>
 
 </div>
 
-<a class="see-all" href="catalog.html">
-  Смотреть весь каталог →
+
+<a
+class="feature-card"
+href="cold-baby.html"
+>
+
+<div class="feature-inner">
+
+<div class="feature-cover">
+
+<img
+src="file_00000000751c724682f122426a67d42d.png"
+alt="Холодная малышка"
+>
+
+</div>
+
+
+<div class="feature-text">
+
+<h3>
+Холодная малышка
+</h3>
+
+<p>
+Карли Робин
+</p>
+
+<span class="series-pill">
+Бостонские Рыси · #1
+</span>
+
+</div>
+
+</div>
+
+</a>
+
+
+<div class="section-title">
+
+<h2>
+СЕРИЯ «БОСТОНСКИЕ РЫСИ»
+</h2>
+
+<span></span>
+
+</div>
+
+
+<a
+class="feature-card"
+href="cold-baby.html"
+>
+
+<div class="feature-inner">
+
+<div class="feature-cover">
+
+<img
+src="file_00000000751c724682f122426a67d42d.png"
+alt="Холодная малышка"
+>
+
+</div>
+
+
+<div class="feature-text">
+
+<h3>
+Книга #1
+</h3>
+
+<p>
+Холодная малышка
+</p>
+
+<span class="series-pill">
+Открыть книгу →
+</span>
+
+</div>
+
+</div>
+
+</a>
+
+
+<a
+class="catalog-link"
+href="catalog.html"
+>
+Смотреть весь каталог →
 </a>
 
 </main>
 
+
 <nav>
 
-  <a class="nav-item active" href="index.html">
-    <span class="nav-icon">⌂</span>
-    Главная
-  </a>
+<a
+class="nav-item active"
+href="index.html"
+>
 
-  <a class="nav-item" href="catalog.html">
-    <span class="nav-icon">⌕</span>
-    Каталог
-  </a>
+<span class="nav-icon">
+⌂
+</span>
 
-  <a class="nav-item" href="#">
-    <span class="nav-icon">♡</span>
-    Библиотека
-  </a>
+Главная
 
-  <a class="nav-item" href="#">
-    <span class="nav-icon">🔖</span>
-    Закладки
-  </a>
+</a>
 
-  <a class="nav-item" href="#">
-    <span class="nav-icon">♙</span>
-    Профиль
-  </a>
+
+<a
+class="nav-item"
+href="catalog.html"
+>
+
+<span class="nav-icon">
+⌕
+</span>
+
+Каталог
+
+</a>
+
+
+<a
+class="nav-item"
+href="#"
+>
+
+<span class="nav-icon">
+♡
+</span>
+
+Библиотека
+
+</a>
+
+
+<a
+class="nav-item"
+href="#"
+>
+
+<span class="nav-icon">
+🔖
+</span>
+
+Закладки
+
+</a>
+
+
+<a
+class="nav-item"
+href="#"
+>
+
+<span class="nav-icon">
+♙
+</span>
+
+Профиль
+
+</a>
 
 </nav>
+
+
+<script>
+
+const POSITION_KEY =
+"nocturne-cold-baby-position";
+
+const progressKey =
+"nocturne-cold-baby-progress";
+
+const readingTitle =
+document.getElementById(
+"readingTitle"
+);
+
+const progressInfo =
+document.getElementById(
+"progressInfo"
+);
+
+const progressBar =
+document.getElementById(
+"progressBar"
+);
+
+const readButton =
+document.getElementById(
+"readButton"
+);
+
+
+const savedPosition =
+localStorage.getItem(
+POSITION_KEY
+);
+
+const savedProgress =
+Number(
+localStorage.getItem(
+progressKey
+)
+);
+
+
+if(
+savedPosition
+){
+
+readingTitle.textContent =
+"ПРОДОЛЖИТЬ ЧТЕНИЕ";
+
+readButton.textContent =
+"📖 ПРОДОЛЖИТЬ";
+
+if(
+savedProgress > 0
+){
+
+progressInfo.textContent =
+"Прочитано " +
+savedProgress +
+"%";
+
+progressBar.style.width =
+savedProgress +
+"%";
+
+}else{
+
+progressInfo.textContent =
+"Чтение начато";
+
+progressBar.style.width =
+"3%";
+
+}
+
+}else{
+
+readingTitle.textContent =
+"НАЧАТЬ ЧТЕНИЕ";
+
+readButton.textContent =
+"📖 НАЧАТЬ ЧТЕНИЕ";
+
+progressInfo.textContent =
+"Ещё не начато";
+
+progressBar.style.width =
+"0%";
+
+}
+
+</script>
 
 </body>
 </html>
