@@ -14,7 +14,7 @@ margin:0;
 font-family:Arial,sans-serif;
 background:#f6f9fd;
 color:#173052;
-padding-bottom:95px;
+padding-bottom:105px;
 }
 
 header{
@@ -36,68 +36,113 @@ padding:20px 16px;
 }
 
 .empty{
-background:white;
+background:#fff;
 border-radius:20px;
-padding:35px 20px;
+padding:40px 20px;
 text-align:center;
-color:#7b8fa7;
+color:#7c8fa5;
 box-shadow:0 7px 20px rgba(39,73,110,.06);
 }
 
-.bookmark-card{
+.card{
 display:none;
 background:white;
 border-radius:20px;
-padding:18px;
+padding:15px;
 box-shadow:0 7px 20px rgba(39,73,110,.07);
 }
 
-.bookmark-card h2{
+.inner{
+display:flex;
+gap:14px;
+}
+
+.cover{
+width:95px;
+flex-shrink:0;
+}
+
+.cover img{
+width:100%;
+aspect-ratio:2/3;
+object-fit:cover;
+border-radius:13px;
+}
+
+.info{
+flex:1;
+}
+
+.info h2{
 font-size:18px;
-margin:0 0 6px;
+margin:3px 0 4px;
 }
 
 .author{
 font-size:13px;
 color:#8294a8;
-margin-bottom:12px;
+}
+
+.saved{
+margin-top:12px;
+padding:10px;
+background:#eef4fb;
+border-radius:12px;
+font-size:12px;
+color:#52779e;
+}
+
+.progress{
+height:6px;
+background:#e5edf5;
+border-radius:10px;
+overflow:hidden;
+margin:10px 0;
+}
+
+.bar{
+height:100%;
+width:0%;
+background:#6f9bd0;
 }
 
 .button{
 display:block;
 background:#709bd0;
-color:#fff;
+color:white;
 text-decoration:none;
 text-align:center;
-padding:11px;
+padding:12px;
 border-radius:11px;
 font-size:12px;
 font-weight:bold;
+margin-top:10px;
 }
 
 nav{
 position:fixed;
-bottom:0;
 left:0;
 right:0;
-background:rgba(255,255,255,.97);
-border-top:1px solid #e0e8f1;
+bottom:0;
 display:flex;
 justify-content:space-around;
+background:#fff;
+border-top:1px solid #e0e8f1;
 padding:10px 3px calc(14px + env(safe-area-inset-bottom));
+z-index:99999;
 }
 
 .nav-item{
-text-align:center;
-color:#8ca0b8;
-font-size:10px;
 width:20%;
+text-align:center;
 text-decoration:none;
+font-size:10px;
+color:#8ca0b8;
 }
 
 .nav-icon{
-font-size:21px;
 display:block;
+font-size:21px;
 margin-bottom:4px;
 }
 
@@ -116,10 +161,22 @@ color:#5285c3;
 <main>
 
 <div class="empty" id="empty">
-Закладок пока нет.
+Закладок пока нет.<br><br>
+Нажми 🔖 в читалке, чтобы сохранить нужное место.
 </div>
 
-<div class="bookmark-card" id="bookmarkCard">
+<div class="card" id="card">
+
+<div class="inner">
+
+<div class="cover">
+<img
+src="file_00000000751c724682f122426a67d42d.png"
+alt="Холодная малышка"
+>
+</div>
+
+<div class="info">
 
 <h2>Холодная малышка</h2>
 
@@ -127,9 +184,24 @@ color:#5285c3;
 Карли Робин
 </div>
 
-<a class="button" href="reader.html">
+<div class="saved" id="savedText">
+Сохранённое место
+</div>
+
+<div class="progress">
+<div class="bar" id="progressBar"></div>
+</div>
+
+<a
+class="button"
+href="reader.html?bookmark=1"
+>
 🔖 ОТКРЫТЬ ЗАКЛАДКУ
 </a>
+
+</div>
+
+</div>
 
 </div>
 
@@ -166,16 +238,37 @@ color:#5285c3;
 
 <script>
 
-const BOOKMARK_KEY =
+const BOOKMARK_CFI =
 "nocturne-cold-baby-bookmark";
 
+const BOOKMARK_PROGRESS =
+"nocturne-cold-baby-bookmark-progress";
+
+const BOOKMARK_PAGE =
+"nocturne-cold-baby-bookmark-page";
+
 const bookmark =
-localStorage.getItem(BOOKMARK_KEY);
+localStorage.getItem(BOOKMARK_CFI);
 
 if(bookmark){
 
 document.getElementById("empty").style.display="none";
-document.getElementById("bookmarkCard").style.display="block";
+document.getElementById("card").style.display="block";
+
+const progress =
+Number(
+localStorage.getItem(BOOKMARK_PROGRESS)
+) || 0;
+
+const page =
+localStorage.getItem(BOOKMARK_PAGE)
+|| "Сохранённое место";
+
+document.getElementById("savedText").textContent =
+page + " · " + progress + "%";
+
+document.getElementById("progressBar").style.width =
+progress + "%";
 
 }
 
