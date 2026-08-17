@@ -472,9 +472,9 @@ id="quotesCount"
 
 <div
 class="stat-number"
-id="progressCount"
+id="finishedCount"
 >
-0%
+0
 </div>
 
 <div class="stat-label">
@@ -551,7 +551,6 @@ id="progressBar"
 
 
 <div class="settings">
-
 
 <div class="setting">
 
@@ -794,9 +793,9 @@ document.getElementById(
 "quotesCount"
 );
 
-const progressCount =
+const finishedCount =
 document.getElementById(
-"progressCount"
+"finishedCount"
 );
 
 const progressText =
@@ -860,11 +859,22 @@ PROGRESS_KEY
 )
 ) || 0;
 
-progressCount.textContent =
-progress + "%";
+
+/* СЧИТАЕМ КОЛИЧЕСТВО ДОЧИТАННЫХ КНИГ */
+
+const finishedBooks =
+progress >= 100
+? 1
+: 0;
+
+finishedCount.textContent =
+finishedBooks;
+
+
+/* ПРОГРЕСС КОНКРЕТНОЙ КНИГИ ОСТАЁТСЯ В БЛОКЕ "СЕЙЧАС ЧИТАЮ" */
 
 progressBar.style.width =
-progress + "%";
+Math.min(progress,100) + "%";
 
 
 const started =
@@ -872,17 +882,37 @@ localStorage.getItem(
 POSITION_KEY
 );
 
-if(started){
+if(progress >= 100){
+
+progressText.textContent =
+"Книга прочитана ✓";
+
+document
+.querySelector(".continue")
+.textContent =
+"Открыть книгу →";
+
+}else if(started){
 
 progressText.textContent =
 "Прочитано " +
 progress +
 "%";
 
+document
+.querySelector(".continue")
+.textContent =
+"Продолжить чтение →";
+
 }else{
 
 progressText.textContent =
 "Ещё не начато";
+
+document
+.querySelector(".continue")
+.textContent =
+"Начать чтение →";
 
 }
 
