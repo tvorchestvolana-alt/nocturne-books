@@ -4,150 +4,160 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 
-<title>Закладки — NOCTURNE BOOKS</title>
+<title>Цитаты — NOCTURNE BOOKS</title>
 
 <style>
-*{box-sizing:border-box}
+*{
+  box-sizing:border-box;
+}
 
 body{
-margin:0;
-font-family:Arial,sans-serif;
-background:#f6f9fd;
-color:#173052;
-padding-bottom:105px;
+  margin:0;
+  font-family:Arial,sans-serif;
+  background:#f6f9fd;
+  color:#173052;
+  padding-bottom:105px;
 }
 
 header{
-padding:26px 18px 16px;
-background:#fff;
-border-bottom:1px solid #e2e9f2;
+  padding:26px 18px 16px;
+  background:#fff;
+  border-bottom:1px solid #e2e9f2;
 }
 
 h1{
-margin:0;
-font-size:24px;
-text-align:center;
+  margin:0;
+  text-align:center;
+  font-size:24px;
+}
+
+.subtitle{
+  text-align:center;
+  font-size:12px;
+  color:#8192a7;
+  margin-top:6px;
 }
 
 main{
-max-width:700px;
-margin:auto;
-padding:20px 16px;
+  max-width:700px;
+  margin:auto;
+  padding:20px 16px;
 }
 
 .empty{
-background:#fff;
-border-radius:20px;
-padding:40px 20px;
-text-align:center;
-color:#7c8fa5;
-box-shadow:0 7px 20px rgba(39,73,110,.06);
+  background:white;
+  border-radius:20px;
+  padding:40px 20px;
+  text-align:center;
+  color:#7b8fa7;
+  box-shadow:0 7px 20px rgba(39,73,110,.06);
 }
 
-.card{
-display:none;
-background:white;
-border-radius:20px;
-padding:15px;
-box-shadow:0 7px 20px rgba(39,73,110,.07);
+.quote-card{
+  background:white;
+  border-radius:20px;
+  padding:17px;
+  margin-bottom:14px;
+  box-shadow:0 7px 20px rgba(39,73,110,.07);
 }
 
-.inner{
-display:flex;
-gap:14px;
+.book-line{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  margin-bottom:12px;
 }
 
 .cover{
-width:95px;
-flex-shrink:0;
+  width:42px;
+  height:62px;
+  object-fit:cover;
+  border-radius:7px;
 }
 
-.cover img{
-width:100%;
-aspect-ratio:2/3;
-object-fit:cover;
-border-radius:13px;
-}
-
-.info{
-flex:1;
-}
-
-.info h2{
-font-size:18px;
-margin:3px 0 4px;
+.book-name{
+  font-size:13px;
+  font-weight:bold;
 }
 
 .author{
-font-size:13px;
-color:#8294a8;
+  font-size:11px;
+  color:#8192a7;
+  margin-top:3px;
 }
 
-.saved{
-margin-top:12px;
-padding:10px;
-background:#eef4fb;
-border-radius:12px;
-font-size:12px;
-color:#52779e;
+.quote{
+  font-family:Georgia,serif;
+  font-size:15px;
+  line-height:1.6;
+  color:#31465f;
+  padding:14px;
+  background:#f3f7fc;
+  border-radius:14px;
 }
 
-.progress{
-height:6px;
-background:#e5edf5;
-border-radius:10px;
-overflow:hidden;
-margin:10px 0;
+.meta{
+  font-size:11px;
+  color:#7890aa;
+  margin-top:10px;
 }
 
-.bar{
-height:100%;
-width:0%;
-background:#6f9bd0;
+.actions{
+  display:flex;
+  gap:8px;
+  margin-top:12px;
 }
 
-.button{
-display:block;
-background:#709bd0;
-color:white;
-text-decoration:none;
-text-align:center;
-padding:12px;
-border-radius:11px;
-font-size:12px;
-font-weight:bold;
-margin-top:10px;
+.open{
+  flex:1;
+  display:block;
+  background:#709bd0;
+  color:white;
+  text-decoration:none;
+  text-align:center;
+  padding:11px;
+  border-radius:11px;
+  font-size:11px;
+  font-weight:bold;
+}
+
+.delete{
+  border:1px solid #d9e4ef;
+  background:white;
+  color:#7890aa;
+  border-radius:11px;
+  padding:0 14px;
 }
 
 nav{
-position:fixed;
-left:0;
-right:0;
-bottom:0;
-display:flex;
-justify-content:space-around;
-background:#fff;
-border-top:1px solid #e0e8f1;
-padding:10px 3px calc(14px + env(safe-area-inset-bottom));
-z-index:99999;
+  position:fixed;
+  left:0;
+  right:0;
+  bottom:0;
+  display:flex;
+  justify-content:space-around;
+  background:#fff;
+  border-top:1px solid #e0e8f1;
+  padding:10px 3px calc(14px + env(safe-area-inset-bottom));
+  z-index:99999;
 }
 
 .nav-item{
-width:20%;
-text-align:center;
-text-decoration:none;
-font-size:10px;
-color:#8ca0b8;
+  width:20%;
+  text-align:center;
+  text-decoration:none;
+  font-size:10px;
+  color:#8ca0b8;
 }
 
 .nav-icon{
-display:block;
-font-size:21px;
-margin-bottom:4px;
+  display:block;
+  font-size:21px;
+  margin-bottom:4px;
 }
 
 .nav-item.active{
-color:#5285c3;
+  color:#5285c3;
 }
 </style>
 </head>
@@ -155,55 +165,28 @@ color:#5285c3;
 <body>
 
 <header>
-<h1>Закладки</h1>
+
+<h1>
+Цитаты
+</h1>
+
+<div class="subtitle">
+Сохранённые фрагменты из книг
+</div>
+
 </header>
 
 <main>
 
-<div class="empty" id="empty">
-Закладок пока нет.<br><br>
-Нажми 🔖 в читалке, чтобы сохранить нужное место.
-</div>
-
-<div class="card" id="card">
-
-<div class="inner">
-
-<div class="cover">
-<img
-src="file_00000000751c724682f122426a67d42d.png"
-alt="Холодная малышка"
+<div
+class="empty"
+id="empty"
 >
+Пока нет сохранённых цитат.<br><br>
+Выдели текст в читалке и нажми «Сохранить цитату».
 </div>
 
-<div class="info">
-
-<h2>Холодная малышка</h2>
-
-<div class="author">
-Карли Робин
-</div>
-
-<div class="saved" id="savedText">
-Сохранённое место
-</div>
-
-<div class="progress">
-<div class="bar" id="progressBar"></div>
-</div>
-
-<a
-class="button"
-href="reader.html?bookmark=1"
->
-🔖 ОТКРЫТЬ ЗАКЛАДКУ
-</a>
-
-</div>
-
-</div>
-
-</div>
+<div id="quotes"></div>
 
 </main>
 
@@ -225,8 +208,8 @@ href="reader.html?bookmark=1"
 </a>
 
 <a class="nav-item active" href="bookmarks.html">
-<span class="nav-icon">🔖</span>
-Закладки
+<span class="nav-icon">❝</span>
+Цитаты
 </a>
 
 <a class="nav-item" href="#">
@@ -238,39 +221,163 @@ href="reader.html?bookmark=1"
 
 <script>
 
-const BOOKMARK_CFI =
-"nocturne-cold-baby-bookmark";
+const QUOTES_KEY =
+"nocturne-cold-baby-quotes";
 
-const BOOKMARK_PROGRESS =
-"nocturne-cold-baby-bookmark-progress";
+function getQuotes(){
 
-const BOOKMARK_PAGE =
-"nocturne-cold-baby-bookmark-page";
+  try{
 
-const bookmark =
-localStorage.getItem(BOOKMARK_CFI);
+    return JSON.parse(
+      localStorage.getItem(
+        QUOTES_KEY
+      )
+    ) || [];
 
-if(bookmark){
+  }catch(e){
 
-document.getElementById("empty").style.display="none";
-document.getElementById("card").style.display="block";
-
-const progress =
-Number(
-localStorage.getItem(BOOKMARK_PROGRESS)
-) || 0;
-
-const page =
-localStorage.getItem(BOOKMARK_PAGE)
-|| "Сохранённое место";
-
-document.getElementById("savedText").textContent =
-page + " · " + progress + "%";
-
-document.getElementById("progressBar").style.width =
-progress + "%";
-
+    return [];
+  }
 }
+
+function saveQuotes(quotes){
+
+  localStorage.setItem(
+    QUOTES_KEY,
+    JSON.stringify(quotes)
+  );
+}
+
+function render(){
+
+  const quotes =
+  getQuotes();
+
+  const container =
+  document.getElementById(
+    "quotes"
+  );
+
+  const empty =
+  document.getElementById(
+    "empty"
+  );
+
+  container.innerHTML="";
+
+  if(quotes.length === 0){
+
+    empty.style.display="block";
+    return;
+  }
+
+  empty.style.display="none";
+
+  quotes.forEach(
+    quote=>{
+
+      const card =
+      document.createElement(
+        "div"
+      );
+
+      card.className =
+      "quote-card";
+
+      const safeText =
+      quote.text
+      .replace(/&/g,"&amp;")
+      .replace(/</g,"&lt;")
+      .replace(/>/g,"&gt;");
+
+      card.innerHTML = `
+
+<div class="book-line">
+
+<img
+class="cover"
+src="file_00000000751c724682f122426a67d42d.png"
+alt="Холодная малышка"
+>
+
+<div>
+
+<div class="book-name">
+Холодная малышка
+</div>
+
+<div class="author">
+Карли Робин
+</div>
+
+</div>
+
+</div>
+
+<div class="quote">
+«${safeText}»
+</div>
+
+<div class="meta">
+${quote.progress || 0}% книги
+</div>
+
+<div class="actions">
+
+<a
+class="open"
+href="reader.html?quote=${quote.id}"
+>
+ПЕРЕЙТИ К ЦИТАТЕ
+</a>
+
+<button
+class="delete"
+data-id="${quote.id}"
+>
+Удалить
+</button>
+
+</div>
+
+`;
+
+      container.appendChild(
+        card
+      );
+    }
+  );
+
+  document
+  .querySelectorAll(
+    ".delete"
+  )
+  .forEach(
+    button=>{
+
+      button.onclick = ()=>{
+
+        const id =
+        String(
+          button.dataset.id
+        );
+
+        const updated =
+        getQuotes()
+        .filter(
+          quote =>
+          String(quote.id) !== id
+        );
+
+        saveQuotes(updated);
+
+        render();
+      };
+    }
+  );
+}
+
+render();
 
 </script>
 
