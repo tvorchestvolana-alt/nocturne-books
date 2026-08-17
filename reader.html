@@ -422,191 +422,111 @@ body.dark .settings-buttons button{
   <span>Карли Робин</span>
 </div>
 
-<button class="menu-button" id="settingsButton">
-•••
-</button>
+<button class="menu-button" id="settingsButton">•••</button>
 
 </header>
-
 
 <div class="toolbar">
 
 <button class="tool" id="tocButton">☰</button>
-
 <button class="tool" id="smallerFont">A−</button>
-
 <button class="tool" id="biggerFont">A+</button>
-
 <button class="tool" id="themeButton">☀</button>
-
 <button class="tool" id="bookmarkButton">♡</button>
 
 </div>
-
 
 <div class="viewer-wrap">
 
 <div id="viewer"></div>
 
 <div class="tap-zone" id="leftZone"></div>
-
 <div class="tap-zone" id="rightZone"></div>
 
 <div class="loading" id="loading">
-
-<div class="spinner"></div>
-
-<div>
-Открываю книгу...
+  <div class="spinner"></div>
+  <div>Открываю книгу...</div>
 </div>
 
 </div>
-
-</div>
-
 
 <div class="bottom">
 
 <div class="progress-row">
 
 <div class="progress">
-<div class="progress-bar" id="progressBar"></div>
+  <div class="progress-bar" id="progressBar"></div>
 </div>
 
-<div class="percent" id="percent">
-0%
-</div>
+<div class="percent" id="percent">0%</div>
 
 </div>
-
 
 <div class="nav-controls">
 
-<button
-class="nav-button"
-id="prev"
-aria-label="Предыдущая страница"
->
-‹
-</button>
-
+<button class="nav-button" id="prev">‹</button>
 
 <div class="center-info">
-
-<div
-class="chapter-info"
-id="chapterInfo"
->
-Загрузка...
+  <div class="chapter-info" id="chapterInfo">
+    Загрузка...
+  </div>
+  <div class="hint">
+    тап слева / справа
+  </div>
 </div>
 
-<div class="hint">
-тап слева / справа
-</div>
-
-</div>
-
-
-<button
-class="nav-button"
-id="next"
-aria-label="Следующая страница"
->
-›
-</button>
+<button class="nav-button" id="next">›</button>
 
 </div>
 
 </div>
 
 </div>
-
 
 <div class="panel" id="tocPanel">
 
 <div class="panel-content">
 
 <div class="panel-header">
-
-<h2>
-Содержание
-</h2>
-
-<button
-class="close"
-data-close="tocPanel"
->
-×
-</button>
-
+  <h2>Содержание</h2>
+  <button class="close" data-close="tocPanel">×</button>
 </div>
 
 <div id="toc">
-Загрузка содержания...
+  Загрузка содержания...
 </div>
 
 </div>
 
 </div>
-
 
 <div class="panel" id="settingsPanel">
 
 <div class="panel-content">
 
 <div class="panel-header">
-
-<h2>
-Настройки чтения
-</h2>
-
-<button
-class="close"
-data-close="settingsPanel"
->
-×
-</button>
-
+  <h2>Настройки чтения</h2>
+  <button class="close" data-close="settingsPanel">×</button>
 </div>
-
 
 <div class="settings-row">
 
-<span>
-Размер текста
-</span>
+<span>Размер текста</span>
 
 <div class="settings-buttons">
-
-<button id="fontMinus">
-A−
-</button>
-
-<button id="fontPlus">
-A+
-</button>
-
+  <button id="fontMinus">A−</button>
+  <button id="fontPlus">A+</button>
 </div>
 
 </div>
-
 
 <div class="settings-row">
 
-<span>
-Тема
-</span>
+<span>Тема</span>
 
 <div class="settings-buttons">
-
-<button id="lightTheme">
-Светлая
-</button>
-
-<button id="darkTheme">
-Тёмная
-</button>
-
+  <button id="lightTheme">Светлая</button>
+  <button id="darkTheme">Тёмная</button>
 </div>
 
 </div>
@@ -614,7 +534,6 @@ A+
 </div>
 
 </div>
-
 
 <script>
 
@@ -623,6 +542,9 @@ encodeURI("Холодная малышка.epub");
 
 const STORAGE_POSITION =
 "nocturne-cold-baby-position";
+
+const STORAGE_PROGRESS =
+"nocturne-cold-baby-progress";
 
 const STORAGE_FONT =
 "nocturne-reader-font";
@@ -633,782 +555,534 @@ const STORAGE_THEME =
 const STORAGE_BOOKMARK =
 "nocturne-cold-baby-bookmark";
 
-
 let book;
 let rendition;
 
 let fontSize =
-Number(
-localStorage.getItem(
-STORAGE_FONT
-)
-) || 100;
+Number(localStorage.getItem(STORAGE_FONT)) || 100;
 
 let currentTheme =
-localStorage.getItem(
-STORAGE_THEME
-) || "light";
-
+localStorage.getItem(STORAGE_THEME) || "light";
 
 const loading =
-document.getElementById(
-"loading"
-);
+document.getElementById("loading");
 
 const progressBar =
-document.getElementById(
-"progressBar"
-);
+document.getElementById("progressBar");
 
 const percent =
-document.getElementById(
-"percent"
-);
+document.getElementById("percent");
 
 const chapterInfo =
-document.getElementById(
-"chapterInfo"
-);
+document.getElementById("chapterInfo");
 
 const bookmarkButton =
-document.getElementById(
-"bookmarkButton"
-);
-
+document.getElementById("bookmarkButton");
 
 function applyTheme(){
 
-if(
-currentTheme === "dark"
-){
+  if(currentTheme === "dark"){
 
-document.body
-.classList
-.add("dark");
+    document.body.classList.add("dark");
 
-if(rendition){
+    if(rendition){
+      rendition.themes.override("color","#e8eef6");
+      rendition.themes.override("background","#17202c");
+    }
 
-rendition.themes.override(
-"color",
-"#e8eef6"
-);
+    document.getElementById("themeButton").textContent="☾";
 
-rendition.themes.override(
-"background",
-"#17202c"
-);
+  }else{
 
+    document.body.classList.remove("dark");
+
+    if(rendition){
+      rendition.themes.override("color","#26394e");
+      rendition.themes.override("background","#ffffff");
+    }
+
+    document.getElementById("themeButton").textContent="☀";
+  }
+
+  localStorage.setItem(STORAGE_THEME,currentTheme);
 }
-
-document
-.getElementById(
-"themeButton"
-)
-.textContent = "☾";
-
-}else{
-
-document.body
-.classList
-.remove("dark");
-
-if(rendition){
-
-rendition.themes.override(
-"color",
-"#26394e"
-);
-
-rendition.themes.override(
-"background",
-"#ffffff"
-);
-
-}
-
-document
-.getElementById(
-"themeButton"
-)
-.textContent = "☀";
-
-}
-
-localStorage.setItem(
-STORAGE_THEME,
-currentTheme
-);
-
-}
-
 
 function applyFont(){
 
-if(!rendition){
-return;
+  if(!rendition){
+    return;
+  }
+
+  rendition.themes.fontSize(fontSize+"%");
+
+  localStorage.setItem(STORAGE_FONT,fontSize);
 }
-
-rendition.themes.fontSize(
-fontSize + "%"
-);
-
-localStorage.setItem(
-STORAGE_FONT,
-fontSize
-);
-
-}
-
 
 function changeFont(amount){
 
-fontSize += amount;
+  fontSize += amount;
 
-if(fontSize < 75){
-fontSize = 75;
+  if(fontSize < 75){
+    fontSize = 75;
+  }
+
+  if(fontSize > 180){
+    fontSize = 180;
+  }
+
+  applyFont();
 }
-
-if(fontSize > 180){
-fontSize = 180;
-}
-
-applyFont();
-
-}
-
 
 async function openBook(){
 
-try{
+  try{
 
-book =
-ePub(
-EPUB_FILE
-);
+    book = ePub(EPUB_FILE);
 
-rendition =
-book.renderTo(
-"viewer",
-{
-width:"100%",
-height:"100%",
-flow:"paginated",
-spread:"none",
-manager:"default"
-}
-);
+    rendition = book.renderTo("viewer",{
+      width:"100%",
+      height:"100%",
+      flow:"paginated",
+      spread:"none",
+      manager:"default"
+    });
 
+    rendition.themes.default({
+      body:{
+        "font-family":"Georgia, 'Times New Roman', serif",
+        "line-height":"1.65",
+        "padding":"0 7%",
+        "color":"#26394e"
+      },
+      p:{
+        "line-height":"1.65"
+      }
+    });
 
-rendition.themes.default({
+    applyFont();
+    applyTheme();
 
-body:{
-"font-family":
-"Georgia, 'Times New Roman', serif",
-"line-height":"1.65",
-"padding":"0 7%",
-"color":"#26394e"
-},
+    const savedPosition =
+    localStorage.getItem(STORAGE_POSITION);
 
-p:{
-"line-height":"1.65"
-}
+    if(savedPosition){
+      await rendition.display(savedPosition);
+    }else{
+      await rendition.display();
+    }
 
-});
+    loading.style.display="none";
 
+    try{
 
-applyFont();
-applyTheme();
+      await book.locations.generate(1200);
 
+      updateLocation(
+        rendition.currentLocation()
+      );
 
-const savedPosition =
-localStorage.getItem(
-STORAGE_POSITION
-);
+    }catch(e){}
 
+    book.loaded.navigation.then(
+      navigation=>{
 
-if(savedPosition){
+        const toc =
+        document.getElementById("toc");
 
-await rendition.display(
-savedPosition
-);
+        toc.innerHTML="";
 
-}else{
+        navigation.toc.forEach(
+          item=>{
 
-await rendition.display();
+            const button =
+            document.createElement("button");
 
-}
+            button.className="toc-item";
+            button.textContent=item.label;
 
+            button.addEventListener(
+              "click",
+              async()=>{
 
-loading.style.display =
-"none";
+                await rendition.display(item.href);
 
+                closePanel("tocPanel");
+              }
+            );
 
-try{
+            toc.appendChild(button);
+          }
+        );
 
-await book.locations.generate(
-1200
-);
+      }
+    );
 
-updateLocation(
-rendition.currentLocation()
-);
+    rendition.on(
+      "relocated",
+      location=>{
 
-}catch(e){}
+        updateLocation(location);
 
+        if(
+          location &&
+          location.start &&
+          location.start.cfi
+        ){
 
-book.loaded.navigation.then(
-navigation=>{
+          localStorage.setItem(
+            STORAGE_POSITION,
+            location.start.cfi
+          );
+        }
 
-const toc =
-document.getElementById(
-"toc"
-);
+      }
+    );
 
-toc.innerHTML = "";
+  }catch(error){
 
+    console.error(error);
 
-navigation.toc.forEach(
-item=>{
-
-const button =
-document.createElement(
-"button"
-);
-
-button.className =
-"toc-item";
-
-button.textContent =
-item.label;
-
-
-button.addEventListener(
-"click",
-async()=>{
-
-await rendition.display(
-item.href
-);
-
-closePanel(
-"tocPanel"
-);
-
-}
-);
-
-
-toc.appendChild(
-button
-);
-
-}
-);
-
-}
-);
-
-
-rendition.on(
-"relocated",
-location=>{
-
-updateLocation(
-location
-);
-
-if(
-location &&
-location.start &&
-location.start.cfi
-){
-
-localStorage.setItem(
-STORAGE_POSITION,
-location.start.cfi
-);
-
+    loading.innerHTML=`
+      <div class="error">
+        <strong>Не удалось открыть EPUB.</strong><br><br>
+        Проверь, что файл «Холодная малышка.epub»
+        лежит рядом с reader.html.
+      </div>
+    `;
+  }
 }
 
+function updateLocation(location){
+
+  if(
+    !location ||
+    !location.start
+  ){
+    return;
+  }
+
+  if(location.start.displayed){
+
+    chapterInfo.textContent =
+      "Страница " +
+      location.start.displayed.page +
+      " из " +
+      location.start.displayed.total;
+  }
+
+  try{
+
+    if(
+      book.locations &&
+      location.start.cfi
+    ){
+
+      const value =
+      book.locations.percentageFromCfi(
+        location.start.cfi
+      );
+
+      if(
+        typeof value === "number" &&
+        !Number.isNaN(value)
+      ){
+
+        const p =
+        Math.round(value * 100);
+
+        progressBar.style.width =
+        p + "%";
+
+        percent.textContent =
+        p + "%";
+
+        localStorage.setItem(
+          STORAGE_PROGRESS,
+          p
+        );
+      }
+
+    }
+
+  }catch(e){}
+
+  const bookmark =
+  localStorage.getItem(
+    STORAGE_BOOKMARK
+  );
+
+  bookmarkButton.textContent =
+    bookmark === location.start.cfi
+    ? "🔖"
+    : "♡";
 }
-);
-
-
-}catch(error){
-
-console.error(
-error
-);
-
-loading.innerHTML = `
-
-<div class="error">
-
-<strong>
-Не удалось открыть EPUB.
-</strong>
-
-<br><br>
-
-Проверь, что файл
-«Холодная малышка.epub»
-лежит рядом с reader.html.
-
-</div>
-
-`;
-
-}
-
-}
-
-
-function updateLocation(
-location
-){
-
-if(
-!location ||
-!location.start
-){
-return;
-}
-
-
-if(
-location.start.displayed
-){
-
-chapterInfo.textContent =
-
-"Страница " +
-
-location.start.displayed.page +
-
-" из " +
-
-location.start.displayed.total;
-
-}
-
-
-try{
-
-if(
-book.locations &&
-location.start.cfi
-){
-
-const value =
-book.locations
-.percentageFromCfi(
-location.start.cfi
-);
-
-if(
-typeof value === "number" &&
-!Number.isNaN(value)
-){
-
-const p =
-Math.round(
-value * 100
-);
-
-progressBar.style.width =
-p + "%";
-
-percent.textContent =
-p + "%";
-
-}
-
-}
-
-}catch(e){}
-
-
-const bookmark =
-localStorage.getItem(
-STORAGE_BOOKMARK
-);
-
-bookmarkButton.textContent =
-bookmark ===
-location.start.cfi
-? "🔖"
-: "♡";
-
-}
-
 
 function nextPage(){
 
-if(rendition){
-
-rendition.next();
-
+  if(rendition){
+    rendition.next();
+  }
 }
-
-}
-
 
 function prevPage(){
 
-if(rendition){
-
-rendition.prev();
-
+  if(rendition){
+    rendition.prev();
+  }
 }
 
-}
-
-
 document
-.getElementById(
-"prev"
-)
+.getElementById("prev")
 .addEventListener(
-"click",
-prevPage
+  "click",
+  prevPage
 );
 
-
 document
-.getElementById(
-"next"
-)
+.getElementById("next")
 .addEventListener(
-"click",
-nextPage
+  "click",
+  nextPage
 );
 
-
 document
-.getElementById(
-"leftZone"
-)
+.getElementById("leftZone")
 .addEventListener(
-"click",
-prevPage
+  "click",
+  prevPage
 );
 
-
 document
-.getElementById(
-"rightZone"
-)
+.getElementById("rightZone")
 .addEventListener(
-"click",
-nextPage
+  "click",
+  nextPage
 );
 
-
 document
-.getElementById(
-"smallerFont"
-)
+.getElementById("smallerFont")
 .addEventListener(
-"click",
-()=>changeFont(-10)
+  "click",
+  ()=>changeFont(-10)
 );
 
-
 document
-.getElementById(
-"biggerFont"
-)
+.getElementById("biggerFont")
 .addEventListener(
-"click",
-()=>changeFont(10)
+  "click",
+  ()=>changeFont(10)
 );
 
-
 document
-.getElementById(
-"fontMinus"
-)
+.getElementById("fontMinus")
 .addEventListener(
-"click",
-()=>changeFont(-10)
+  "click",
+  ()=>changeFont(-10)
 );
 
-
 document
-.getElementById(
-"fontPlus"
-)
+.getElementById("fontPlus")
 .addEventListener(
-"click",
-()=>changeFont(10)
+  "click",
+  ()=>changeFont(10)
 );
 
-
 document
-.getElementById(
-"themeButton"
-)
+.getElementById("themeButton")
 .addEventListener(
-"click",
-()=>{
+  "click",
+  ()=>{
 
-currentTheme =
-currentTheme === "light"
-? "dark"
-: "light";
+    currentTheme =
+    currentTheme === "light"
+    ? "dark"
+    : "light";
 
-applyTheme();
-
-}
+    applyTheme();
+  }
 );
 
-
 document
-.getElementById(
-"lightTheme"
-)
+.getElementById("lightTheme")
 .addEventListener(
-"click",
-()=>{
+  "click",
+  ()=>{
 
-currentTheme = "light";
-
-applyTheme();
-
-}
+    currentTheme="light";
+    applyTheme();
+  }
 );
 
-
 document
-.getElementById(
-"darkTheme"
-)
+.getElementById("darkTheme")
 .addEventListener(
-"click",
-()=>{
+  "click",
+  ()=>{
 
-currentTheme = "dark";
-
-applyTheme();
-
-}
+    currentTheme="dark";
+    applyTheme();
+  }
 );
-
 
 bookmarkButton
 .addEventListener(
-"click",
-()=>{
+  "click",
+  ()=>{
 
-if(!rendition){
-return;
-}
+    if(!rendition){
+      return;
+    }
 
-const location =
-rendition.currentLocation();
+    const location =
+    rendition.currentLocation();
 
-if(
-!location ||
-!location.start ||
-!location.start.cfi
-){
-return;
-}
+    if(
+      !location ||
+      !location.start ||
+      !location.start.cfi
+    ){
+      return;
+    }
 
-const cfi =
-location.start.cfi;
+    const cfi =
+    location.start.cfi;
 
-const old =
-localStorage.getItem(
-STORAGE_BOOKMARK
+    const old =
+    localStorage.getItem(
+      STORAGE_BOOKMARK
+    );
+
+    if(old === cfi){
+
+      localStorage.removeItem(
+        STORAGE_BOOKMARK
+      );
+
+      bookmarkButton.textContent="♡";
+
+    }else{
+
+      localStorage.setItem(
+        STORAGE_BOOKMARK,
+        cfi
+      );
+
+      bookmarkButton.textContent="🔖";
+    }
+  }
 );
-
-
-if(old === cfi){
-
-localStorage.removeItem(
-STORAGE_BOOKMARK
-);
-
-bookmarkButton.textContent =
-"♡";
-
-}else{
-
-localStorage.setItem(
-STORAGE_BOOKMARK,
-cfi
-);
-
-bookmarkButton.textContent =
-"🔖";
-
-}
-
-}
-);
-
 
 document
-.getElementById(
-"tocButton"
-)
+.getElementById("tocButton")
 .addEventListener(
-"click",
-()=>openPanel(
-"tocPanel"
-)
+  "click",
+  ()=>openPanel("tocPanel")
 );
-
 
 document
-.getElementById(
-"settingsButton"
-)
+.getElementById("settingsButton")
 .addEventListener(
-"click",
-()=>openPanel(
-"settingsPanel"
-)
+  "click",
+  ()=>openPanel("settingsPanel")
 );
-
 
 function openPanel(id){
 
-document
-.getElementById(id)
-.classList
-.add("open");
-
+  document
+  .getElementById(id)
+  .classList
+  .add("open");
 }
-
 
 function closePanel(id){
 
-document
-.getElementById(id)
-.classList
-.remove("open");
-
+  document
+  .getElementById(id)
+  .classList
+  .remove("open");
 }
 
-
 document
-.querySelectorAll(
-"[data-close]"
-)
+.querySelectorAll("[data-close]")
 .forEach(
-button=>{
+  button=>{
 
-button.addEventListener(
-"click",
-()=>{
+    button.addEventListener(
+      "click",
+      ()=>{
 
-closePanel(
-button.dataset.close
+        closePanel(
+          button.dataset.close
+        );
+      }
+    );
+  }
 );
-
-}
-);
-
-}
-);
-
 
 document
-.querySelectorAll(
-".panel"
-)
+.querySelectorAll(".panel")
 .forEach(
-panel=>{
+  panel=>{
 
-panel.addEventListener(
-"click",
-event=>{
+    panel.addEventListener(
+      "click",
+      event=>{
 
-if(
-event.target === panel
-){
+        if(event.target === panel){
 
-panel.classList.remove(
-"open"
+          panel.classList.remove("open");
+        }
+
+      }
+    );
+  }
 );
 
-}
-
-}
-);
-
-}
-);
-
-
-let touchStartX = 0;
-let touchEndX = 0;
-
+let touchStartX=0;
+let touchEndX=0;
 
 document
-.getElementById(
-"viewer"
-)
+.getElementById("viewer")
 .addEventListener(
-"touchstart",
-event=>{
+  "touchstart",
+  event=>{
 
-touchStartX =
-event.changedTouches[0]
-.screenX;
+    touchStartX =
+    event.changedTouches[0].screenX;
 
-},
-{
-passive:true
-}
+  },
+  {
+    passive:true
+  }
 );
-
 
 document
-.getElementById(
-"viewer"
-)
+.getElementById("viewer")
 .addEventListener(
-"touchend",
-event=>{
+  "touchend",
+  event=>{
 
-touchEndX =
-event.changedTouches[0]
-.screenX;
+    touchEndX =
+    event.changedTouches[0].screenX;
 
-const distance =
-touchEndX -
-touchStartX;
+    const distance =
+    touchEndX - touchStartX;
 
+    if(distance > 70){
+      prevPage();
+    }
 
-if(
-distance > 70
-){
+    if(distance < -70){
+      nextPage();
+    }
 
-prevPage();
-
-}
-
-
-if(
-distance < -70
-){
-
-nextPage();
-
-}
-
-},
-{
-passive:true
-}
+  },
+  {
+    passive:true
+  }
 );
-
 
 applyTheme();
-
 openBook();
 
 </script>
