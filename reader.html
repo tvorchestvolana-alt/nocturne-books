@@ -11,365 +11,383 @@
 
 <style>
 *{
-    box-sizing:border-box;
+  box-sizing:border-box;
 }
 
-html,
-body{
-    margin:0;
-    width:100%;
-    height:100%;
-    font-family:Arial,sans-serif;
-    background:#fbfdff;
-    color:#173052;
-    overflow:hidden;
+html,body{
+  margin:0;
+  width:100%;
+  height:100%;
+  overflow:hidden;
+  font-family:Arial,sans-serif;
+  background:#fbfdff;
+  color:#173052;
 }
 
 body.dark{
-    background:#17202c;
-    color:#eef4fb;
+  background:#17202c;
+  color:#eef4fb;
 }
 
 .reader{
-    height:100vh;
-    display:flex;
-    flex-direction:column;
+  height:100vh;
+  display:flex;
+  flex-direction:column;
 }
 
 header{
-    height:64px;
-    flex-shrink:0;
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-    padding:0 15px;
-    background:rgba(255,255,255,.97);
-    border-bottom:1px solid #e2e9f2;
-    z-index:20;
+  height:62px;
+  flex-shrink:0;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:0 15px;
+  background:#fff;
+  border-bottom:1px solid #e2e9f2;
+  z-index:20;
 }
 
 body.dark header{
-    background:#1d2836;
-    border-color:#314052;
+  background:#1d2836;
+  border-color:#314052;
 }
 
 .back{
-    text-decoration:none;
-    color:#31577f;
-    font-size:28px;
+  text-decoration:none;
+  color:#31577f;
+  font-size:28px;
 }
 
 body.dark .back{
-    color:#dceafa;
+  color:#eaf3ff;
 }
 
 .book-title{
-    text-align:center;
-    min-width:0;
-    flex:1;
-    padding:0 10px;
+  text-align:center;
+  flex:1;
+  min-width:0;
 }
 
 .book-title strong{
-    display:block;
-    font-size:14px;
-    white-space:nowrap;
-    overflow:hidden;
-    text-overflow:ellipsis;
+  display:block;
+  font-size:14px;
 }
 
 .book-title span{
-    display:block;
-    font-size:10px;
-    color:#8395aa;
-    margin-top:2px;
-}
-
-body.dark .book-title span{
-    color:#9fb1c5;
+  display:block;
+  font-size:10px;
+  color:#8798ab;
+  margin-top:2px;
 }
 
 .menu-button{
-    border:0;
-    background:none;
-    color:#31577f;
-    font-size:24px;
-    padding:6px;
+  border:0;
+  background:none;
+  color:#31577f;
+  font-size:23px;
 }
 
 body.dark .menu-button{
-    color:#dceafa;
+  color:#eaf3ff;
 }
 
 .toolbar{
-    height:52px;
-    flex-shrink:0;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    gap:10px;
-    padding:7px 12px;
-    background:#fff;
-    border-bottom:1px solid #e4ebf3;
+  height:52px;
+  flex-shrink:0;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:10px;
+  background:#fff;
+  border-bottom:1px solid #e2e9f2;
 }
 
 body.dark .toolbar{
-    background:#1d2836;
-    border-color:#314052;
+  background:#1d2836;
+  border-color:#314052;
 }
 
 .tool{
-    border:1px solid #d9e4ef;
-    background:#f8fbff;
-    color:#31577f;
-    min-width:42px;
-    height:36px;
-    border-radius:12px;
-    font-size:15px;
+  width:50px;
+  height:38px;
+  border:1px solid #d9e4ef;
+  background:#f8fbff;
+  color:#31577f;
+  border-radius:13px;
+  font-size:16px;
 }
 
 body.dark .tool{
-    background:#253346;
-    border-color:#3b4c61;
-    color:#edf5ff;
+  background:#263548;
+  border-color:#405166;
+  color:#f2f7fc;
+}
+
+.viewer-wrap{
+  flex:1;
+  min-height:0;
+  position:relative;
+  overflow:hidden;
 }
 
 #viewer{
-    flex:1;
-    min-height:0;
-    width:100%;
-    position:relative;
-    background:#fff;
+  position:absolute;
+  inset:0;
+  background:#fff;
 }
 
 body.dark #viewer{
-    background:#17202c;
+  background:#17202c;
+}
+
+.tap-zone{
+  position:absolute;
+  top:0;
+  bottom:0;
+  width:32%;
+  z-index:10;
+}
+
+#leftZone{
+  left:0;
+}
+
+#rightZone{
+  right:0;
 }
 
 .loading{
-    position:absolute;
-    inset:0;
-    display:flex;
-    flex-direction:column;
-    align-items:center;
-    justify-content:center;
-    background:#fbfdff;
-    z-index:5;
-    color:#6e86a0;
-    font-size:14px;
-    gap:12px;
+  position:absolute;
+  inset:0;
+  z-index:15;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  background:#fbfdff;
+  color:#70859d;
+  gap:12px;
 }
 
 body.dark .loading{
-    background:#17202c;
-    color:#aabbd0;
+  background:#17202c;
+  color:#aabbd0;
 }
 
 .spinner{
-    width:34px;
-    height:34px;
-    border:3px solid #e1eaf4;
-    border-top-color:#6f9bd0;
-    border-radius:50%;
-    animation:spin .8s linear infinite;
+  width:34px;
+  height:34px;
+  border:3px solid #e2ebf4;
+  border-top-color:#6f9bd0;
+  border-radius:50%;
+  animation:spin .8s linear infinite;
 }
 
 @keyframes spin{
-    to{transform:rotate(360deg)}
+  to{transform:rotate(360deg)}
 }
 
 .bottom{
-    flex-shrink:0;
-    padding:8px 14px 13px;
-    background:rgba(255,255,255,.98);
-    border-top:1px solid #e0e8f1;
+  flex-shrink:0;
+  background:#fff;
+  border-top:1px solid #dfe8f1;
+  padding:9px 14px 12px;
+  z-index:25;
 }
 
 body.dark .bottom{
-    background:#1d2836;
-    border-color:#314052;
+  background:#1d2836;
+  border-color:#314052;
 }
 
-.progress-wrap{
-    display:flex;
-    align-items:center;
-    gap:10px;
-    margin-bottom:8px;
+.progress-row{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  margin-bottom:8px;
 }
 
 .progress{
-    flex:1;
-    height:5px;
-    border-radius:10px;
-    background:#e5edf5;
-    overflow:hidden;
+  flex:1;
+  height:5px;
+  background:#e4edf5;
+  border-radius:10px;
+  overflow:hidden;
 }
 
 body.dark .progress{
-    background:#35465a;
+  background:#35465a;
 }
 
 .progress-bar{
-    width:0%;
-    height:100%;
-    background:#6f9bd0;
-    transition:width .2s;
+  width:0%;
+  height:100%;
+  background:#6f9bd0;
 }
 
 .percent{
-    width:38px;
-    text-align:right;
-    font-size:11px;
-    color:#758aa4;
+  width:38px;
+  text-align:right;
+  font-size:11px;
+  color:#758aa4;
 }
 
 body.dark .percent{
-    color:#a6b6c9;
+  color:#aebdcd;
 }
 
 .nav-controls{
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
+  display:grid;
+  grid-template-columns:55px 1fr 55px;
+  align-items:center;
+  gap:10px;
 }
 
 .nav-button{
-    width:48px;
-    height:42px;
-    border:1px solid #d9e4ef;
-    background:white;
-    border-radius:50%;
-    color:#31577f;
-    font-size:20px;
+  height:46px;
+  border:1px solid #d8e3ee;
+  background:#fff;
+  border-radius:50%;
+  color:#31577f;
+  font-size:27px;
+  line-height:1;
 }
 
 body.dark .nav-button{
-    background:#253346;
-    border-color:#3b4c61;
-    color:#edf5ff;
+  background:#263548;
+  border-color:#405166;
+  color:#edf5ff;
+}
+
+.center-info{
+  text-align:center;
 }
 
 .chapter-info{
-    text-align:center;
-    font-size:11px;
-    color:#758aa4;
-    max-width:55%;
-    white-space:nowrap;
-    overflow:hidden;
-    text-overflow:ellipsis;
+  font-size:11px;
+  color:#71869f;
+  white-space:nowrap;
+  overflow:hidden;
+  text-overflow:ellipsis;
 }
 
-body.dark .chapter-info{
-    color:#a6b6c9;
+.hint{
+  font-size:9px;
+  color:#a3b0bf;
+  margin-top:3px;
+}
+
+body.dark .chapter-info,
+body.dark .hint{
+  color:#aebdcd;
 }
 
 .panel{
-    position:fixed;
-    inset:0;
-    background:rgba(26,42,60,.35);
-    z-index:50;
-    display:none;
+  position:fixed;
+  inset:0;
+  background:rgba(24,40,58,.4);
+  z-index:60;
+  display:none;
 }
 
 .panel.open{
-    display:block;
+  display:block;
 }
 
 .panel-content{
-    position:absolute;
-    bottom:0;
-    left:0;
-    right:0;
-    max-height:75vh;
-    overflow:auto;
-    background:white;
-    border-radius:24px 24px 0 0;
-    padding:18px;
+  position:absolute;
+  left:0;
+  right:0;
+  bottom:0;
+  max-height:75vh;
+  overflow:auto;
+  background:#fff;
+  border-radius:24px 24px 0 0;
+  padding:18px;
 }
 
 body.dark .panel-content{
-    background:#1d2836;
+  background:#1d2836;
 }
 
 .panel-header{
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    margin-bottom:15px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  margin-bottom:15px;
 }
 
 .panel-header h2{
-    font-size:17px;
-    margin:0;
+  margin:0;
+  font-size:17px;
 }
 
 .close{
-    border:0;
-    background:#edf4fb;
-    width:36px;
-    height:36px;
-    border-radius:50%;
-    font-size:18px;
+  width:36px;
+  height:36px;
+  border:0;
+  border-radius:50%;
+  background:#edf4fb;
+  font-size:18px;
 }
 
 body.dark .close{
-    background:#2d3b4e;
-    color:white;
+  background:#2d3b4e;
+  color:#fff;
 }
 
 .toc-item{
-    display:block;
-    width:100%;
-    text-align:left;
-    border:0;
-    border-bottom:1px solid #edf1f5;
-    background:transparent;
-    padding:13px 5px;
-    color:#294564;
-    font-size:14px;
+  width:100%;
+  border:0;
+  border-bottom:1px solid #edf1f5;
+  background:transparent;
+  text-align:left;
+  padding:13px 5px;
+  color:#294564;
+  font-size:14px;
 }
 
 body.dark .toc-item{
-    color:#e8f1fb;
-    border-color:#314052;
+  color:#e8f1fb;
+  border-color:#314052;
 }
 
 .settings-row{
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    padding:15px 0;
-    border-bottom:1px solid #edf1f5;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:14px 0;
+  border-bottom:1px solid #edf1f5;
 }
 
 body.dark .settings-row{
-    border-color:#314052;
+  border-color:#314052;
 }
 
 .settings-buttons{
-    display:flex;
-    gap:8px;
+  display:flex;
+  gap:8px;
 }
 
 .settings-buttons button{
-    border:1px solid #d9e4ef;
-    background:#f5f9fd;
-    color:#31577f;
-    border-radius:10px;
-    padding:8px 12px;
+  border:1px solid #d9e4ef;
+  background:#f5f9fd;
+  color:#31577f;
+  border-radius:10px;
+  padding:8px 11px;
 }
 
 body.dark .settings-buttons button{
-    background:#253346;
-    color:#edf5ff;
-    border-color:#3b4c61;
+  background:#263548;
+  border-color:#405166;
+  color:#edf5ff;
 }
 
 .error{
-    text-align:center;
-    padding:30px 20px;
-    color:#8c5260;
-    line-height:1.5;
+  padding:30px 20px;
+  text-align:center;
+  color:#975b67;
+  line-height:1.5;
 }
 </style>
 </head>
@@ -379,801 +397,465 @@ body.dark .settings-buttons button{
 <div class="reader">
 
 <header>
+  <a class="back" href="cold-baby.html">←</a>
 
-<a class="back" href="cold-baby.html">←</a>
+  <div class="book-title">
+    <strong>Холодная малышка</strong>
+    <span>Карли Робин</span>
+  </div>
 
-<div class="book-title">
-<strong>Холодная малышка</strong>
-<span>Карли Робин</span>
-</div>
-
-<button class="menu-button" id="settingsButton">
-•••
-</button>
-
+  <button class="menu-button" id="settingsButton">•••</button>
 </header>
 
 <div class="toolbar">
-
-<button class="tool" id="tocButton">
-☰
-</button>
-
-<button class="tool" id="smallerFont">
-A−
-</button>
-
-<button class="tool" id="biggerFont">
-A+
-</button>
-
-<button class="tool" id="themeButton">
-☀
-</button>
-
-<button class="tool" id="bookmarkButton">
-🔖
-</button>
-
+  <button class="tool" id="tocButton">☰</button>
+  <button class="tool" id="smallerFont">A−</button>
+  <button class="tool" id="biggerFont">A+</button>
+  <button class="tool" id="themeButton">☀</button>
+  <button class="tool" id="bookmarkButton">♡</button>
 </div>
 
-<div id="viewer">
+<div class="viewer-wrap">
 
-<div class="loading" id="loading">
-<div class="spinner"></div>
-<div>Открываю книгу...</div>
-</div>
+  <div id="viewer"></div>
+
+  <div class="tap-zone" id="leftZone"></div>
+  <div class="tap-zone" id="rightZone"></div>
+
+  <div class="loading" id="loading">
+    <div class="spinner"></div>
+    <div>Открываю книгу...</div>
+  </div>
 
 </div>
 
 <div class="bottom">
 
-<div class="progress-wrap">
+  <div class="progress-row">
+    <div class="progress">
+      <div class="progress-bar" id="progressBar"></div>
+    </div>
+    <div class="percent" id="percent">0%</div>
+  </div>
 
-<div class="progress">
-<div class="progress-bar" id="progressBar"></div>
-</div>
+  <div class="nav-controls">
 
-<div class="percent" id="percent">
-0%
-</div>
+    <button class="nav-button" id="prev">‹</button>
 
-</div>
+    <div class="center-info">
+      <div class="chapter-info" id="chapterInfo">
+        Загрузка...
+      </div>
+      <div class="hint">
+        тап слева / справа для перелистывания
+      </div>
+    </div>
 
-<div class="nav-controls">
+    <button class="nav-button" id="next">›</button>
 
-<button class="nav-button" id="prev">
-‹
-</button>
-
-<div class="chapter-info" id="chapterInfo">
-Загрузка...
-</div>
-
-<button class="nav-button" id="next">
-›
-</button>
+  </div>
 
 </div>
 
 </div>
-
-</div>
-
 
 <div class="panel" id="tocPanel">
+  <div class="panel-content">
 
-<div class="panel-content">
+    <div class="panel-header">
+      <h2>Содержание</h2>
+      <button class="close" data-close="tocPanel">×</button>
+    </div>
 
-<div class="panel-header">
-<h2>Содержание</h2>
-<button class="close" data-close="tocPanel">×</button>
+    <div id="toc">
+      Загрузка содержания...
+    </div>
+
+  </div>
 </div>
-
-<div id="toc">
-Загрузка содержания...
-</div>
-
-</div>
-
-</div>
-
 
 <div class="panel" id="settingsPanel">
+  <div class="panel-content">
 
-<div class="panel-content">
+    <div class="panel-header">
+      <h2>Настройки чтения</h2>
+      <button class="close" data-close="settingsPanel">×</button>
+    </div>
 
-<div class="panel-header">
-<h2>Настройки чтения</h2>
-<button class="close" data-close="settingsPanel">×</button>
+    <div class="settings-row">
+      <span>Размер текста</span>
+
+      <div class="settings-buttons">
+        <button id="fontMinus">A−</button>
+        <button id="fontPlus">A+</button>
+      </div>
+    </div>
+
+    <div class="settings-row">
+      <span>Тема</span>
+
+      <div class="settings-buttons">
+        <button id="lightTheme">Светлая</button>
+        <button id="darkTheme">Тёмная</button>
+      </div>
+    </div>
+
+  </div>
 </div>
-
-<div class="settings-row">
-
-<span>Размер текста</span>
-
-<div class="settings-buttons">
-<button id="fontMinus">A−</button>
-<button id="fontPlus">A+</button>
-</div>
-
-</div>
-
-<div class="settings-row">
-
-<span>Тема</span>
-
-<div class="settings-buttons">
-<button id="lightTheme">Светлая</button>
-<button id="darkTheme">Тёмная</button>
-</div>
-
-</div>
-
-<div class="settings-row">
-
-<span>Вернуться к книге</span>
-
-<div class="settings-buttons">
-<button onclick="location.href='cold-baby.html'">
-Карточка книги
-</button>
-</div>
-
-</div>
-
-</div>
-
-</div>
-
 
 <script>
 
-const EPUB_FILE =
-encodeURI("Холодная малышка.epub");
+const EPUB_FILE = encodeURI("Холодная малышка.epub");
 
-const STORAGE_POSITION =
-"nocturne-cold-baby-position";
-
-const STORAGE_FONT =
-"nocturne-reader-font";
-
-const STORAGE_THEME =
-"nocturne-reader-theme";
-
-const STORAGE_BOOKMARK =
-"nocturne-cold-baby-bookmark";
-
+const STORAGE_POSITION = "nocturne-cold-baby-position";
+const STORAGE_FONT = "nocturne-reader-font";
+const STORAGE_THEME = "nocturne-reader-theme";
+const STORAGE_BOOKMARK = "nocturne-cold-baby-bookmark";
 
 let book;
 let rendition;
+
 let fontSize =
 Number(localStorage.getItem(STORAGE_FONT)) || 100;
 
 let currentTheme =
 localStorage.getItem(STORAGE_THEME) || "light";
 
-
-const loading =
-document.getElementById("loading");
-
-const progressBar =
-document.getElementById("progressBar");
-
-const percent =
-document.getElementById("percent");
-
-const chapterInfo =
-document.getElementById("chapterInfo");
-
-const bookmarkButton =
-document.getElementById("bookmarkButton");
-
+const loading = document.getElementById("loading");
+const progressBar = document.getElementById("progressBar");
+const percent = document.getElementById("percent");
+const chapterInfo = document.getElementById("chapterInfo");
+const bookmarkButton = document.getElementById("bookmarkButton");
 
 function applyTheme(){
 
-if(currentTheme === "dark"){
+  if(currentTheme === "dark"){
 
-document.body.classList.add("dark");
+    document.body.classList.add("dark");
 
-if(rendition){
+    if(rendition){
+      rendition.themes.override("color","#e8eef6");
+      rendition.themes.override("background","#17202c");
+    }
 
-rendition.themes.override(
-"color",
-"#e8eef6"
-);
+    document.getElementById("themeButton").textContent="☾";
 
-rendition.themes.override(
-"background",
-"#17202c"
-);
+  }else{
 
+    document.body.classList.remove("dark");
+
+    if(rendition){
+      rendition.themes.override("color","#26394e");
+      rendition.themes.override("background","#ffffff");
+    }
+
+    document.getElementById("themeButton").textContent="☀";
+  }
+
+  localStorage.setItem(STORAGE_THEME,currentTheme);
 }
-
-document.getElementById("themeButton")
-.textContent = "☾";
-
-}else{
-
-document.body.classList.remove("dark");
-
-if(rendition){
-
-rendition.themes.override(
-"color",
-"#26394e"
-);
-
-rendition.themes.override(
-"background",
-"#ffffff"
-);
-
-}
-
-document.getElementById("themeButton")
-.textContent = "☀";
-
-}
-
-localStorage.setItem(
-STORAGE_THEME,
-currentTheme
-);
-
-}
-
 
 function applyFont(){
 
-if(!rendition) return;
+  if(!rendition) return;
 
-rendition.themes.fontSize(
-fontSize + "%"
-);
+  rendition.themes.fontSize(fontSize+"%");
 
-localStorage.setItem(
-STORAGE_FONT,
-fontSize
-);
-
+  localStorage.setItem(STORAGE_FONT,fontSize);
 }
-
 
 function changeFont(amount){
 
-fontSize += amount;
+  fontSize += amount;
 
-if(fontSize < 75){
-fontSize = 75;
+  if(fontSize < 75) fontSize = 75;
+  if(fontSize > 180) fontSize = 180;
+
+  applyFont();
 }
-
-if(fontSize > 180){
-fontSize = 180;
-}
-
-applyFont();
-
-}
-
 
 async function openBook(){
 
-try{
+  try{
 
-book = ePub(EPUB_FILE);
+    book = ePub(EPUB_FILE);
 
-rendition = book.renderTo(
-"viewer",
-{
-width:"100%",
-height:"100%",
-flow:"paginated",
-spread:"none",
-manager:"default"
+    rendition = book.renderTo("viewer",{
+      width:"100%",
+      height:"100%",
+      flow:"paginated",
+      spread:"none",
+      manager:"default"
+    });
+
+    rendition.themes.default({
+      body:{
+        "font-family":"Georgia, 'Times New Roman', serif",
+        "line-height":"1.65",
+        "padding":"0 7%",
+        "color":"#26394e"
+      },
+      p:{
+        "line-height":"1.65"
+      }
+    });
+
+    applyFont();
+    applyTheme();
+
+    const savedPosition =
+    localStorage.getItem(STORAGE_POSITION);
+
+    if(savedPosition){
+      await rendition.display(savedPosition);
+    }else{
+      await rendition.display();
+    }
+
+    loading.style.display="none";
+
+    try{
+      await book.locations.generate(1200);
+      updateLocation(rendition.currentLocation());
+    }catch(e){}
+
+    book.loaded.navigation.then(navigation=>{
+
+      const toc=document.getElementById("toc");
+      toc.innerHTML="";
+
+      navigation.toc.forEach(item=>{
+
+        const button=document.createElement("button");
+
+        button.className="toc-item";
+        button.textContent=item.label;
+
+        button.addEventListener("click",async()=>{
+
+          await rendition.display(item.href);
+          closePanel("tocPanel");
+
+        });
+
+        toc.appendChild(button);
+      });
+
+    });
+
+    rendition.on("relocated",location=>{
+
+      updateLocation(location);
+
+      if(location?.start?.cfi){
+        localStorage.setItem(
+          STORAGE_POSITION,
+          location.start.cfi
+        );
+      }
+
+    });
+
+  }catch(error){
+
+    console.error(error);
+
+    loading.innerHTML=`
+      <div class="error">
+        <strong>Не удалось открыть EPUB.</strong><br><br>
+        Проверь, что файл «Холодная малышка.epub»
+        лежит рядом с reader.html.
+      </div>
+    `;
+  }
 }
-);
-
-rendition.themes.default({
-body:{
-"font-family":
-"Georgia, 'Times New Roman', serif",
-"line-height":"1.65",
-"padding":"0 7%",
-"color":"#26394e"
-},
-p:{
-"line-height":"1.65"
-}
-});
-
-applyFont();
-applyTheme();
-
-
-const savedPosition =
-localStorage.getItem(
-STORAGE_POSITION
-);
-
-if(savedPosition){
-
-await rendition.display(
-savedPosition
-);
-
-}else{
-
-await rendition.display();
-
-}
-
-
-loading.style.display =
-"none";
-
-
-try{
-
-await book.locations.generate(
-1200
-);
-
-updateLocation(
-rendition.currentLocation()
-);
-
-}catch(e){
-
-console.log(
-"Не удалось создать процентную шкалу",
-e
-);
-
-}
-
-
-book.loaded.navigation.then(
-navigation => {
-
-const toc =
-document.getElementById("toc");
-
-toc.innerHTML = "";
-
-navigation.toc.forEach(
-item => {
-
-const button =
-document.createElement("button");
-
-button.className =
-"toc-item";
-
-button.textContent =
-item.label;
-
-button.addEventListener(
-"click",
-async ()=>{
-
-await rendition.display(
-item.href
-);
-
-closePanel(
-"tocPanel"
-);
-
-}
-);
-
-toc.appendChild(
-button
-);
-
-}
-);
-
-}
-);
-
-
-rendition.on(
-"relocated",
-location => {
-
-updateLocation(
-location
-);
-
-const cfi =
-location.start.cfi;
-
-localStorage.setItem(
-STORAGE_POSITION,
-cfi
-);
-
-}
-);
-
-
-rendition.on(
-"keyup",
-event => {
-
-if(event.key === "ArrowLeft"){
-rendition.prev();
-}
-
-if(event.key === "ArrowRight"){
-rendition.next();
-}
-
-}
-);
-
-
-}catch(error){
-
-console.error(error);
-
-loading.innerHTML = `
-<div class="error">
-<strong>Не удалось открыть EPUB.</strong><br><br>
-Проверь, что файл
-«Холодная малышка.epub»
-лежит в корне репозитория
-рядом с reader.html.
-</div>
-`;
-
-}
-
-}
-
 
 function updateLocation(location){
 
-if(
-!location ||
-!location.start
-){
-return;
+  if(!location || !location.start) return;
+
+  if(location.start.displayed){
+
+    chapterInfo.textContent =
+      "Страница " +
+      location.start.displayed.page +
+      " из " +
+      location.start.displayed.total;
+  }
+
+  try{
+
+    if(book.locations && location.start.cfi){
+
+      const value =
+      book.locations.percentageFromCfi(
+        location.start.cfi
+      );
+
+      if(typeof value==="number" && !Number.isNaN(value)){
+
+        const p=Math.round(value*100);
+
+        progressBar.style.width=p+"%";
+        percent.textContent=p+"%";
+      }
+    }
+
+  }catch(e){}
+
+  const bookmark =
+  localStorage.getItem(STORAGE_BOOKMARK);
+
+  bookmarkButton.textContent =
+    bookmark===location.start.cfi ? "🔖" : "♡";
 }
 
-
-let chapter =
-location.start.displayed;
-
-if(chapter){
-
-chapterInfo.textContent =
-"Страница " +
-chapter.page +
-" из " +
-chapter.total;
-
+function nextPage(){
+  if(rendition) rendition.next();
 }
 
-
-try{
-
-if(
-book.locations &&
-location.start.cfi
-){
-
-const value =
-book.locations.percentageFromCfi(
-location.start.cfi
-);
-
-if(
-typeof value === "number" &&
-!Number.isNaN(value)
-){
-
-const p =
-Math.round(value * 100);
-
-progressBar.style.width =
-p + "%";
-
-percent.textContent =
-p + "%";
-
+function prevPage(){
+  if(rendition) rendition.prev();
 }
-
-}
-
-}catch(e){}
-
-
-const bookmark =
-localStorage.getItem(
-STORAGE_BOOKMARK
-);
-
-if(
-bookmark &&
-bookmark ===
-location.start.cfi
-){
-
-bookmarkButton.textContent =
-"🔖";
-
-}else{
-
-bookmarkButton.textContent =
-"♡";
-
-}
-
-}
-
 
 document.getElementById("prev")
-.addEventListener(
-"click",
-()=>rendition && rendition.prev()
-);
-
+.addEventListener("click",prevPage);
 
 document.getElementById("next")
-.addEventListener(
-"click",
-()=>rendition && rendition.next()
-);
+.addEventListener("click",nextPage);
 
+document.getElementById("leftZone")
+.addEventListener("click",prevPage);
+
+document.getElementById("rightZone")
+.addEventListener("click",nextPage);
 
 document.getElementById("smallerFont")
-.addEventListener(
-"click",
-()=>changeFont(-10)
-);
-
+.addEventListener("click",()=>changeFont(-10));
 
 document.getElementById("biggerFont")
-.addEventListener(
-"click",
-()=>changeFont(10)
-);
-
+.addEventListener("click",()=>changeFont(10));
 
 document.getElementById("fontMinus")
-.addEventListener(
-"click",
-()=>changeFont(-10)
-);
-
+.addEventListener("click",()=>changeFont(-10));
 
 document.getElementById("fontPlus")
-.addEventListener(
-"click",
-()=>changeFont(10)
-);
-
+.addEventListener("click",()=>changeFont(10));
 
 document.getElementById("themeButton")
-.addEventListener(
-"click",
-()=>{
+.addEventListener("click",()=>{
 
-currentTheme =
-currentTheme === "light"
-? "dark"
-: "light";
+  currentTheme =
+    currentTheme==="light" ? "dark" : "light";
 
-applyTheme();
-
-}
-);
-
+  applyTheme();
+});
 
 document.getElementById("lightTheme")
-.addEventListener(
-"click",
-()=>{
+.addEventListener("click",()=>{
 
-currentTheme = "light";
-applyTheme();
-
-}
-);
-
+  currentTheme="light";
+  applyTheme();
+});
 
 document.getElementById("darkTheme")
-.addEventListener(
-"click",
-()=>{
+.addEventListener("click",()=>{
 
-currentTheme = "dark";
-applyTheme();
-
-}
-);
-
+  currentTheme="dark";
+  applyTheme();
+});
 
 document.getElementById("bookmarkButton")
-.addEventListener(
-"click",
-()=>{
+.addEventListener("click",()=>{
 
-if(!rendition){
-return;
-}
+  if(!rendition) return;
 
-const location =
-rendition.currentLocation();
+  const location=rendition.currentLocation();
 
-if(
-!location ||
-!location.start
-){
-return;
-}
+  if(!location?.start?.cfi) return;
 
-const cfi =
-location.start.cfi;
+  const cfi=location.start.cfi;
 
-const old =
-localStorage.getItem(
-STORAGE_BOOKMARK
-);
+  const old=
+  localStorage.getItem(STORAGE_BOOKMARK);
 
-if(old === cfi){
+  if(old===cfi){
 
-localStorage.removeItem(
-STORAGE_BOOKMARK
-);
+    localStorage.removeItem(STORAGE_BOOKMARK);
+    bookmarkButton.textContent="♡";
 
-bookmarkButton.textContent =
-"♡";
+  }else{
 
-}else{
-
-localStorage.setItem(
-STORAGE_BOOKMARK,
-cfi
-);
-
-bookmarkButton.textContent =
-"🔖";
-
-}
-
-}
-);
-
+    localStorage.setItem(STORAGE_BOOKMARK,cfi);
+    bookmarkButton.textContent="🔖";
+  }
+});
 
 document.getElementById("tocButton")
-.addEventListener(
-"click",
-()=>openPanel("tocPanel")
-);
-
+.addEventListener("click",()=>openPanel("tocPanel"));
 
 document.getElementById("settingsButton")
-.addEventListener(
-"click",
-()=>openPanel("settingsPanel")
-);
-
+.addEventListener("click",()=>openPanel("settingsPanel"));
 
 function openPanel(id){
-
-document.getElementById(id)
-.classList.add("open");
-
+  document.getElementById(id).classList.add("open");
 }
-
 
 function closePanel(id){
-
-document.getElementById(id)
-.classList.remove("open");
-
+  document.getElementById(id).classList.remove("open");
 }
 
+document.querySelectorAll("[data-close]")
+.forEach(button=>{
 
-document.querySelectorAll(
-"[data-close]"
-).forEach(
-button=>{
+  button.addEventListener("click",()=>{
+    closePanel(button.dataset.close);
+  });
 
-button.addEventListener(
-"click",
-()=>{
+});
 
-closePanel(
-button.dataset.close
-);
+document.querySelectorAll(".panel")
+.forEach(panel=>{
 
-}
-);
+  panel.addEventListener("click",event=>{
 
-}
-);
+    if(event.target===panel){
+      panel.classList.remove("open");
+    }
 
+  });
 
-document.querySelectorAll(
-".panel"
-).forEach(
-panel=>{
+});
 
-panel.addEventListener(
-"click",
-event=>{
-
-if(event.target === panel){
-
-panel.classList.remove(
-"open"
-);
-
-}
-
-}
-);
-
-}
-);
-
-
-let touchStartX = 0;
-let touchEndX = 0;
+let touchStartX=0;
+let touchEndX=0;
 
 document.getElementById("viewer")
-.addEventListener(
-"touchstart",
-event=>{
+.addEventListener("touchstart",event=>{
 
-touchStartX =
-event.changedTouches[0]
-.screenX;
+  touchStartX=
+  event.changedTouches[0].screenX;
 
-},
-{
-passive:true
-}
-);
-
+},{passive:true});
 
 document.getElementById("viewer")
-.addEventListener(
-"touchend",
-event=>{
+.addEventListener("touchend",event=>{
 
-touchEndX =
-event.changedTouches[0]
-.screenX;
+  touchEndX=
+  event.changedTouches[0].screenX;
 
-const distance =
-touchEndX - touchStartX;
+  const distance=
+  touchEndX-touchStartX;
 
-if(distance > 70){
+  if(distance>70){
+    prevPage();
+  }
 
-rendition &&
-rendition.prev();
+  if(distance<-70){
+    nextPage();
+  }
 
-}
-
-if(distance < -70){
-
-rendition &&
-rendition.next();
-
-}
-
-},
-{
-passive:true
-}
-);
-
+},{passive:true});
 
 applyTheme();
 openBook();
@@ -1181,4 +863,4 @@ openBook();
 </script>
 
 </body>
-  </html>
+</html>
