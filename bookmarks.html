@@ -16,7 +16,7 @@ body{
   font-family:Arial,sans-serif;
   background:#f6f9fd;
   color:#173052;
-  padding-bottom:105px;
+  padding-bottom:110px;
 }
 
 header{
@@ -136,14 +136,19 @@ nav{
   bottom:0;
   display:flex;
   justify-content:space-around;
-  background:#fff;
+  background:rgba(255,255,255,.98);
   border-top:1px solid #e0e8f1;
-  padding:10px 3px calc(14px + env(safe-area-inset-bottom));
-  z-index:99999;
+  padding:9px 3px calc(13px + env(safe-area-inset-bottom));
+  z-index:999999;
 }
 
 .nav-item{
   width:20%;
+  min-height:52px;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
   text-align:center;
   text-decoration:none;
   font-size:10px;
@@ -166,9 +171,7 @@ nav{
 
 <header>
 
-<h1>
-Цитаты
-</h1>
+<h1>Цитаты</h1>
 
 <div class="subtitle">
 Сохранённые фрагменты из книг
@@ -178,10 +181,7 @@ nav{
 
 <main>
 
-<div
-class="empty"
-id="empty"
->
+<div class="empty" id="empty">
 Пока нет сохранённых цитат.<br><br>
 Выдели текст в читалке и нажми «Сохранить цитату».
 </div>
@@ -212,7 +212,7 @@ id="empty"
 Цитаты
 </a>
 
-<a class="nav-item" href="#">
+<a class="nav-item" href="profile.html">
 <span class="nav-icon">♙</span>
 Профиль
 </a>
@@ -229,9 +229,7 @@ function getQuotes(){
   try{
 
     return JSON.parse(
-      localStorage.getItem(
-        QUOTES_KEY
-      )
+      localStorage.getItem(QUOTES_KEY)
     ) || [];
 
   }catch(e){
@@ -248,20 +246,25 @@ function saveQuotes(quotes){
   );
 }
 
+function escapeHTML(text){
+
+  return text
+  .replace(/&/g,"&amp;")
+  .replace(/</g,"&lt;")
+  .replace(/>/g,"&gt;")
+  .replace(/"/g,"&quot;");
+}
+
 function render(){
 
   const quotes =
   getQuotes();
 
   const container =
-  document.getElementById(
-    "quotes"
-  );
+  document.getElementById("quotes");
 
   const empty =
-  document.getElementById(
-    "empty"
-  );
+  document.getElementById("empty");
 
   container.innerHTML="";
 
@@ -277,18 +280,15 @@ function render(){
     quote=>{
 
       const card =
-      document.createElement(
-        "div"
-      );
+      document.createElement("div");
 
       card.className =
       "quote-card";
 
       const safeText =
-      quote.text
-      .replace(/&/g,"&amp;")
-      .replace(/</g,"&lt;")
-      .replace(/>/g,"&gt;");
+      escapeHTML(
+        String(quote.text || "")
+      );
 
       card.innerHTML = `
 
@@ -342,37 +342,36 @@ data-id="${quote.id}"
 
 `;
 
-      container.appendChild(
-        card
-      );
+      container.appendChild(card);
     }
   );
 
   document
-  .querySelectorAll(
-    ".delete"
-  )
+  .querySelectorAll(".delete")
   .forEach(
     button=>{
 
-      button.onclick = ()=>{
+      button.addEventListener(
+        "click",
+        ()=>{
 
-        const id =
-        String(
-          button.dataset.id
-        );
+          const id =
+          String(
+            button.dataset.id
+          );
 
-        const updated =
-        getQuotes()
-        .filter(
-          quote =>
-          String(quote.id) !== id
-        );
+          const updated =
+          getQuotes()
+          .filter(
+            quote =>
+            String(quote.id) !== id
+          );
 
-        saveQuotes(updated);
+          saveQuotes(updated);
 
-        render();
-      };
+          render();
+        }
+      );
     }
   );
 }
