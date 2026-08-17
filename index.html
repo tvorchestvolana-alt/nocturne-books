@@ -15,12 +15,12 @@ body {
   font-family: Arial, sans-serif;
   background: #f5f8fc;
   color: #172c4c;
-  padding-bottom: 90px;
+  padding-bottom: 100px;
 }
 
 header {
-  min-height: 270px;
-  padding: 38px 22px 30px;
+  min-height: 245px;
+  padding: 42px 22px 28px;
   text-align: center;
   background:
     linear-gradient(rgba(255,255,255,.88), rgba(247,250,254,.94)),
@@ -33,17 +33,18 @@ header {
     );
   border-bottom: 1px solid #dce6f1;
   position: relative;
+  overflow: hidden;
 }
 
 header:after {
   content: "";
   position: absolute;
-  width: 160px;
-  height: 160px;
+  width: 150px;
+  height: 150px;
   border: 2px solid #d7e5f3;
   border-radius: 50%;
   left: 50%;
-  top: 150px;
+  top: 140px;
   transform: translateX(-50%);
   opacity: .7;
 }
@@ -68,7 +69,7 @@ header:after {
 }
 
 .slogan {
-  margin-top: 30px;
+  margin-top: 28px;
   font-size: 11px;
   letter-spacing: 2px;
   color: #6086b0;
@@ -83,13 +84,15 @@ main {
 }
 
 .search {
+  display: block;
   width: 100%;
+  text-decoration: none;
   border: 1px solid #dfe7f1;
   background: white;
+  color: #8995a5;
   padding: 15px 18px;
   border-radius: 16px;
   font-size: 15px;
-  outline: none;
   box-shadow: 0 5px 20px rgba(39,73,110,.05);
 }
 
@@ -102,6 +105,7 @@ main {
 }
 
 .filter {
+  text-decoration: none;
   border: 1px solid #d9e3ef;
   background: white;
   color: #31577f;
@@ -126,6 +130,7 @@ main {
 .section-title h2 {
   font-size: 17px;
   margin: 0;
+  white-space: nowrap;
 }
 
 .section-title span {
@@ -148,7 +153,7 @@ main {
   height: 150px;
   flex-shrink: 0;
   border-radius: 12px;
-  background: linear-gradient(145deg,#e9dfe9,#dcecf7);
+  background: linear-gradient(145deg,#f0e6ef,#dcecf7);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -161,6 +166,7 @@ main {
 
 .book-info {
   flex: 1;
+  min-width: 0;
 }
 
 .book-info h3 {
@@ -218,7 +224,8 @@ main {
 }
 
 .book {
-  cursor: pointer;
+  text-decoration: none;
+  color: inherit;
 }
 
 .book-cover {
@@ -247,16 +254,28 @@ main {
   font-size: 12px;
 }
 
+.see-all {
+  display: block;
+  text-align: center;
+  margin: 22px 0 5px;
+  padding: 13px;
+  border-radius: 14px;
+  text-decoration: none;
+  color: #527da9;
+  background: #eaf2fb;
+  font-weight: bold;
+}
+
 nav {
   position: fixed;
   bottom: 0;
   left: 0;
   right: 0;
-  background: rgba(255,255,255,.96);
+  background: rgba(255,255,255,.97);
   border-top: 1px solid #e0e8f1;
   display: flex;
   justify-content: space-around;
-  padding: 10px 3px 15px;
+  padding: 10px 3px 14px;
   z-index: 10;
 }
 
@@ -265,6 +284,7 @@ nav {
   color: #8ca0b8;
   font-size: 10px;
   width: 20%;
+  text-decoration: none;
 }
 
 .nav-icon {
@@ -289,19 +309,16 @@ nav {
 
 <main>
 
-<input
-  class="search"
-  id="search"
-  type="text"
-  placeholder="🔍 Найти книгу, автора или троп..."
->
+<a class="search" href="catalog.html">
+  🔍 Найти книгу, автора или троп...
+</a>
 
 <div class="filters">
-  <button class="filter active">Все</button>
-  <button class="filter">Романы</button>
-  <button class="filter">Хоккей</button>
-  <button class="filter">Фэнтези</button>
-  <button class="filter">Триллеры</button>
+  <a class="filter active" href="catalog.html">Все</a>
+  <a class="filter" href="catalog.html">Романтика</a>
+  <a class="filter" href="catalog.html">Хоккей</a>
+  <a class="filter" href="catalog.html">Фэнтези</a>
+  <a class="filter" href="catalog.html">Триллеры</a>
 </div>
 
 <div class="section-title">
@@ -310,120 +327,113 @@ nav {
 </div>
 
 <div class="continue-card">
-  <div class="cover">ICEBREAKER</div>
+
+  <div class="cover">
+    ICEBREAKER
+  </div>
 
   <div class="book-info">
     <h3>Icebreaker</h3>
-    <div class="author">Hannah Grace</div>
+
+    <div class="author">
+      Hannah Grace
+    </div>
 
     <div class="tropes">
       <div class="trope">🏒 Хоккей</div>
       <div class="trope">💗 Романтика</div>
     </div>
 
-    <small>Глава 12 из 31 · 38%</small>
+    <small>
+      Глава 12 из 31 · 38%
+    </small>
 
     <div class="progress">
       <div></div>
     </div>
 
-    <button class="read-button">📖 ПРОДОЛЖИТЬ</button>
+    <button class="read-button">
+      📖 ПРОДОЛЖИТЬ
+    </button>
   </div>
+
 </div>
 
 <div class="section-title">
-  <h2>КАТАЛОГ</h2>
+  <h2>НОВИНКИ</h2>
   <span></span>
 </div>
 
-<div class="books" id="books">
+<div class="books">
 
-  <div class="book"
-       data-search="icebreaker hannah grace хоккей романтика">
-    <div class="book-cover">Icebreaker</div>
+  <a class="book" href="#">
+    <div class="book-cover">
+      Icebreaker
+    </div>
     <h3>Icebreaker</h3>
     <p>Hannah Grace</p>
-  </div>
+  </a>
 
-  <div class="book"
-       data-search="twisted lies ana huang романтика он влюбился первым">
-    <div class="book-cover">Twisted Lies</div>
+  <a class="book" href="#">
+    <div class="book-cover">
+      Twisted Lies
+    </div>
     <h3>Twisted Lies</h3>
     <p>Ana Huang</p>
-  </div>
+  </a>
 
-  <div class="book"
-       data-search="flawless elsie silver романтика спорт">
-    <div class="book-cover">Flawless</div>
+  <a class="book" href="#">
+    <div class="book-cover">
+      Flawless
+    </div>
     <h3>Flawless</h3>
     <p>Elsie Silver</p>
-  </div>
+  </a>
 
-  <div class="book"
-       data-search="love on the brain ali hazelwood романтика">
-    <div class="book-cover">Love on the Brain</div>
+  <a class="book" href="#">
+    <div class="book-cover">
+      Love on the Brain
+    </div>
     <h3>Love on the Brain</h3>
     <p>Ali Hazelwood</p>
-  </div>
+  </a>
 
 </div>
+
+<a class="see-all" href="catalog.html">
+  Смотреть весь каталог →
+</a>
 
 </main>
 
 <nav>
-  <div class="nav-item active">
+
+  <a class="nav-item active" href="index.html">
     <span class="nav-icon">⌂</span>
     Главная
-  </div>
+  </a>
 
-  <div class="nav-item">
+  <a class="nav-item" href="catalog.html">
     <span class="nav-icon">⌕</span>
     Каталог
-  </div>
+  </a>
 
-  <div class="nav-item">
+  <a class="nav-item" href="#">
     <span class="nav-icon">♡</span>
     Библиотека
-  </div>
+  </a>
 
-  <div class="nav-item">
+  <a class="nav-item" href="#">
     <span class="nav-icon">🔖</span>
     Закладки
-  </div>
+  </a>
 
-  <div class="nav-item">
+  <a class="nav-item" href="#">
     <span class="nav-icon">♙</span>
     Профиль
-  </div>
+  </a>
+
 </nav>
 
-<script>
-const search = document.getElementById("search");
-const books = document.querySelectorAll(".book");
-
-search.addEventListener("input", function () {
-  const value = this.value.toLowerCase().trim();
-
-  books.forEach(book => {
-    const data = book.dataset.search.toLowerCase();
-
-    if (data.includes(value)) {
-      book.style.display = "block";
-    } else {
-      book.style.display = "none";
-    }
-  });
-});
-
-document.querySelectorAll(".filter").forEach(button => {
-  button.addEventListener("click", function () {
-    document.querySelectorAll(".filter")
-      .forEach(b => b.classList.remove("active"));
-
-    this.classList.add("active");
-  });
-});
-</script>
-
 </body>
-      </html>
+</html>
