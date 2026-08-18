@@ -310,6 +310,7 @@ nav{
   justify-content:space-around;
   background:rgba(255,255,255,.95);
   padding:9px 3px calc(13px + env(safe-area-inset-bottom));
+  z-index:999999;
 }
 
 .nav-item{
@@ -370,44 +371,28 @@ href="https://tvorchestvolana-alt.github.io/nocturne-books/catalog.html"
 <div class="current-card">
 
 <div class="current-cover">
-
-<img
-id="currentCover"
-src="file_00000000751c724682f122426a67d42d.png"
-alt=""
->
-
+<img id="currentCover" src="" alt="">
 </div>
 
 <div class="current-info">
 
-<h3 id="currentTitle">
-Холодная малышка
-</h3>
+<h3 id="currentTitle"></h3>
 
 <div class="author">
 Карли Робин
 </div>
 
-<div class="series" id="currentSeries">
-Бостонские Рыси · Книга #1
-</div>
+<div class="series" id="currentSeries"></div>
 
 <div class="tropes" id="currentTropes"></div>
 
-<div class="progress-info" id="progressInfo">
-Прочитано 0%
-</div>
+<div class="progress-info" id="progressInfo"></div>
 
 <div class="progress">
 <div class="progress-bar" id="progressBar"></div>
 </div>
 
-<a
-class="read-button"
-id="readButton"
-href="#"
->
+<a class="read-button" id="readButton" href="#">
 📖 ПРОДОЛЖИТЬ
 </a>
 
@@ -437,10 +422,8 @@ href="#"
 </div>
 
 <div class="pills">
-
 <span class="pill">🏒 Хоккейный роман</span>
 <span class="pill">🎭 Фальшивые отношения</span>
-
 </div>
 
 </div>
@@ -462,10 +445,8 @@ href="#"
 </div>
 
 <div class="pills">
-
 <span class="pill">🏒 Хоккейный роман</span>
 <span class="pill">💙 Он влюбляется первым</span>
-
 </div>
 
 </div>
@@ -594,83 +575,116 @@ const books = {
 
 };
 
-let lastBook =
-localStorage.getItem(
-  "nocturne-last-book"
-);
+function renderLastBook(){
 
-if(!books[lastBook]){
+  let lastBook =
+  localStorage.getItem(
+    "nocturne-last-book"
+  );
 
-  if(
-    localStorage.getItem(
-      "nocturne-fire-and-ice-position"
-    )
-  ){
+  if(!books[lastBook]){
 
-    lastBook =
-    "fire-and-ice";
+    if(
+      localStorage.getItem(
+        "nocturne-fire-and-ice-position"
+      )
+    ){
 
-  }else{
+      lastBook =
+      "fire-and-ice";
 
-    lastBook =
-    "cold-baby";
+    }else{
+
+      lastBook =
+      "cold-baby";
+    }
   }
+
+  const data =
+  books[lastBook];
+
+  const progress =
+  Number(
+    localStorage.getItem(
+      data.progressKey
+    )
+  ) || 0;
+
+  document
+  .getElementById("currentCover")
+  .src =
+  data.cover;
+
+  document
+  .getElementById("currentTitle")
+  .textContent =
+  data.title;
+
+  document
+  .getElementById("currentSeries")
+  .textContent =
+  data.series;
+
+  document
+  .getElementById("progressInfo")
+  .textContent =
+  progress >= 100
+  ? "Прочитано ✓"
+  : "Прочитано " + progress + "%";
+
+  document
+  .getElementById("progressBar")
+  .style.width =
+  Math.min(progress,100) + "%";
+
+  document
+  .getElementById("readButton")
+  .href =
+  data.reader;
+
+  document
+  .getElementById("readButton")
+  .textContent =
+  progress >= 100
+  ? "📖 ОТКРЫТЬ КНИГУ"
+  : "📖 ПРОДОЛЖИТЬ";
+
+  const tropeContainer =
+  document.getElementById(
+    "currentTropes"
+  );
+
+  tropeContainer.innerHTML="";
+
+  data.tropes.forEach(
+  text=>{
+
+    const span =
+    document.createElement("span");
+
+    span.className="trope";
+    span.textContent=text;
+
+    tropeContainer.appendChild(span);
+  });
 }
 
-const data =
-books[lastBook];
+renderLastBook();
 
-const progress =
-Number(
-  localStorage.getItem(
-    data.progressKey
-  )
-) || 0;
+/* ВАЖНО:
+если браузер вернул главную из кэша,
+данные перечитываются заново
+*/
 
-document.getElementById("currentCover").src =
-data.cover;
+window.addEventListener(
+  "pageshow",
+  function(){
 
-document.getElementById("currentTitle").textContent =
-data.title;
-
-document.getElementById("currentSeries").textContent =
-data.series;
-
-document.getElementById("progressInfo").textContent =
-progress >= 100
-? "Прочитано ✓"
-: "Прочитано " + progress + "%";
-
-document.getElementById("progressBar").style.width =
-Math.min(progress,100) + "%";
-
-document.getElementById("readButton").href =
-data.reader;
-
-document.getElementById("readButton").textContent =
-progress >= 100
-? "📖 ОТКРЫТЬ КНИГУ"
-: "📖 ПРОДОЛЖИТЬ";
-
-const tropeContainer =
-document.getElementById("currentTropes");
-
-data.tropes.forEach(text=>{
-
-  const span =
-  document.createElement("span");
-
-  span.className =
-  "trope";
-
-  span.textContent =
-  text;
-
-  tropeContainer.appendChild(span);
-
-});
+    renderLastBook();
+  }
+);
 
 </script>
 
 </body>
-</html>
+  </html>
