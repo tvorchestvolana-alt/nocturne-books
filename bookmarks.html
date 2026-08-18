@@ -233,7 +233,9 @@ nav{
 
 <header>
 
-<h1>Цитаты</h1>
+<h1>
+Цитаты
+</h1>
 
 <div class="subtitle">
 Сохранённые фрагменты из книг
@@ -243,7 +245,10 @@ nav{
 
 <main>
 
-<div class="empty" id="empty">
+<div
+class="empty"
+id="empty"
+>
 Пока нет сохранённых цитат.<br><br>
 Выдели текст в читалке и нажми «Сохранить цитату».
 </div>
@@ -252,62 +257,98 @@ nav{
 
 </main>
 
+
 <nav>
 
-<a class="nav-item"
-href="https://tvorchestvolana-alt.github.io/nocturne-books/index.html">
+<a
+class="nav-item"
+href="https://tvorchestvolana-alt.github.io/nocturne-books/index.html"
+>
 <span class="nav-icon">⌂</span>
 Главная
 </a>
 
-<a class="nav-item"
-href="https://tvorchestvolana-alt.github.io/nocturne-books/catalog.html">
+<a
+class="nav-item"
+href="https://tvorchestvolana-alt.github.io/nocturne-books/catalog.html"
+>
 <span class="nav-icon">⌕</span>
 Каталог
 </a>
 
-<a class="nav-item"
-href="https://tvorchestvolana-alt.github.io/nocturne-books/library.html">
+<a
+class="nav-item"
+href="https://tvorchestvolana-alt.github.io/nocturne-books/library.html"
+>
 <span class="nav-icon">♡</span>
 Библиотека
 </a>
 
-<a class="nav-item active"
-href="https://tvorchestvolana-alt.github.io/nocturne-books/bookmarks.html">
+<a
+class="nav-item active"
+href="https://tvorchestvolana-alt.github.io/nocturne-books/bookmarks.html"
+>
 <span class="nav-icon">❝</span>
 Цитаты
 </a>
 
-<a class="nav-item"
-href="https://tvorchestvolana-alt.github.io/nocturne-books/profile.html">
+<a
+class="nav-item"
+href="https://tvorchestvolana-alt.github.io/nocturne-books/profile.html"
+>
 <span class="nav-icon">♙</span>
 Профиль
 </a>
 
 </nav>
 
+
 <script>
 
 const BOOKS = {
 
-  "cold-baby":{
-    title:"Холодная малышка",
-    author:"Карли Робин",
+  "cold-as-ice":{
+    title:
+    "Холодный как лёд",
+
+    author:
+    "Лауреа Мэттьюз",
 
     cover:
-    "file_00000000751c724682f122426a67d42d.png",
+    "file_00000000d8e471f49bd1726c3042938f.png",
 
     quotesKey:
-    "nocturne-cold-baby-quotes",
+    "nocturne-cold-as-ice-quotes",
 
     reader:
-    "https://tvorchestvolana-alt.github.io/nocturne-books/reader.html"
+    "https://tvorchestvolana-alt.github.io/nocturne-books/reader-cold-as-ice.html"
+  },
+
+
+  "say-im-wrong":{
+    title:
+    "Скажи, что я ошибаюсь",
+
+    author:
+    "Оден Хантер",
+
+    cover:
+    "file_00000000c9647243901fea32c2b541fb.png",
+
+    quotesKey:
+    "nocturne-say-im-wrong-quotes",
+
+    reader:
+    "https://tvorchestvolana-alt.github.io/nocturne-books/reader-say-im-wrong.html"
   },
 
 
   "fire-and-ice":{
-    title:"Огонь и лёд",
-    author:"Карли Робин",
+    title:
+    "Огонь и лёд",
+
+    author:
+    "Карли Робин",
 
     cover:
     "file_00000000b06c72468c564d5370a34844.png",
@@ -320,18 +361,21 @@ const BOOKS = {
   },
 
 
-  "say-im-wrong":{
-    title:"Скажи, что я ошибаюсь",
-    author:"Оден Хантер",
+  "cold-baby":{
+    title:
+    "Холодная малышка",
+
+    author:
+    "Карли Робин",
 
     cover:
-    "file_00000000c9647243901fea32c2b541fb.png",
+    "file_00000000751c724682f122426a67d42d.png",
 
     quotesKey:
-    "nocturne-say-im-wrong-quotes",
+    "nocturne-cold-baby-quotes",
 
     reader:
-    "https://tvorchestvolana-alt.github.io/nocturne-books/reader-say-im-wrong.html"
+    "https://tvorchestvolana-alt.github.io/nocturne-books/reader.html"
   }
 
 };
@@ -342,7 +386,9 @@ function getQuotes(key){
   try{
 
     return JSON.parse(
-      localStorage.getItem(key)
+      localStorage.getItem(
+        key
+      )
     ) || [];
 
   }catch(e){
@@ -359,7 +405,9 @@ function saveQuotes(
 
   localStorage.setItem(
     key,
-    JSON.stringify(quotes)
+    JSON.stringify(
+      quotes
+    )
   );
 }
 
@@ -367,7 +415,6 @@ function saveQuotes(
 function escapeHTML(text){
 
   return String(text)
-
   .replace(/&/g,"&amp;")
   .replace(/</g,"&lt;")
   .replace(/>/g,"&gt;")
@@ -377,10 +424,13 @@ function escapeHTML(text){
 
 function getAllQuotes(){
 
-  const all = [];
+  const all =
+  [];
 
 
-  Object.entries(BOOKS)
+  Object.entries(
+    BOOKS
+  )
   .forEach(
   ([bookId,book])=>{
 
@@ -397,15 +447,20 @@ function getAllQuotes(){
 
         ...quote,
 
-        bookId:bookId,
+        bookId:
+        bookId,
 
-        title:book.title,
+        title:
+        book.title,
 
-        author:book.author,
+        author:
+        book.author,
 
-        cover:book.cover,
+        cover:
+        book.cover,
 
-        reader:book.reader
+        reader:
+        book.reader
 
       });
 
@@ -416,8 +471,12 @@ function getAllQuotes(){
 
   all.sort(
     (a,b)=>
-    Number(b.id || 0) -
-    Number(a.id || 0)
+    Number(
+      b.id || 0
+    ) -
+    Number(
+      a.id || 0
+    )
   );
 
 
@@ -447,7 +506,9 @@ function render(){
   "";
 
 
-  if(quotes.length === 0){
+  if(
+    quotes.length === 0
+  ){
 
     empty.style.display =
     "block";
@@ -577,7 +638,9 @@ data-id="${quote.id}"
 
 
       const book =
-      BOOKS[bookId];
+      BOOKS[
+        bookId
+      ];
 
 
       if(!book){
@@ -591,7 +654,9 @@ data-id="${quote.id}"
       )
       .filter(
         quote =>
-        String(quote.id) !== id
+        String(
+          quote.id
+        ) !== id
       );
 
 
