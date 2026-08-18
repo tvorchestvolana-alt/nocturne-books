@@ -2503,15 +2503,69 @@ window.addEventListener(
 </script>
 <script>
 
-/* АВТОМАТИЧЕСКИЙ СЛАЙДЕР АНОНСОВ */
+<script>
+document.addEventListener("DOMContentLoaded", function () {
 
-(function(){
+  const track = document.getElementById("announcementsTrack");
 
-  /* весь код выше */
+  if (!track) {
+    return;
+  }
 
-})();
+  const slides = track.querySelectorAll(".announcement-card");
+  const dots = document.querySelectorAll(".announcement-dot");
 
+  if (slides.length < 2) {
+    return;
+  }
+
+  let current = 0;
+
+
+  function showSlide(index) {
+
+    current = index;
+
+    track.style.transform =
+      `translateX(-${current * 100}%)`;
+
+    dots.forEach((dot, i) => {
+      dot.classList.toggle(
+        "active",
+        i === current
+      );
+    });
+  }
+
+
+  function nextSlide() {
+
+    current =
+      (current + 1) % slides.length;
+
+    showSlide(current);
+  }
+
+
+  dots.forEach((dot, index) => {
+
+    dot.addEventListener("click", function () {
+
+      showSlide(index);
+
+    });
+
+  });
+
+
+  showSlide(0);
+
+  setInterval(
+    nextSlide,
+    5000
+  );
+
+});
 </script>
-
 </body>
 </html> 
