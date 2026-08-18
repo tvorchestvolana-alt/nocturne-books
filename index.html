@@ -7,9 +7,12 @@
 <title>NOCTURNE BOOKS</title>
 
 <style>
-*{box-sizing:border-box}
+*{
+  box-sizing:border-box;
+}
 
-html,body{
+html,
+body{
   margin:0;
   padding:0;
   width:100%;
@@ -30,10 +33,37 @@ body{
   background-attachment:fixed;
 }
 
+body::before{
+  content:"✦";
+  position:fixed;
+  top:180px;
+  left:14px;
+  font-size:20px;
+  color:rgba(207,145,174,.24);
+  pointer-events:none;
+}
+
+body::after{
+  content:"☾";
+  position:fixed;
+  top:410px;
+  right:14px;
+  font-size:28px;
+  color:rgba(111,155,208,.17);
+  pointer-events:none;
+}
+
 header{
+  position:relative;
   padding:30px 20px 28px;
   text-align:center;
-  background:rgba(255,255,255,.48);
+
+  background:
+    radial-gradient(circle at 10% 20%,rgba(246,196,215,.30),transparent 35%),
+    radial-gradient(circle at 90% 75%,rgba(188,214,239,.22),transparent 38%),
+    rgba(255,255,255,.48);
+
+  border-bottom:1px solid rgba(215,220,232,.72);
 }
 
 .logo{
@@ -87,11 +117,18 @@ main{
   display:flex;
   align-items:center;
   min-height:56px;
+
   background:rgba(255,255,255,.88);
+  backdrop-filter:blur(8px);
+
+  border:1px solid rgba(219,224,235,.9);
   border-radius:18px;
+
   padding:13px 16px;
+
   text-decoration:none;
   color:#8996a7;
+  font-size:14px;
 }
 
 .section-title{
@@ -110,15 +147,30 @@ main{
 .section-title span{
   height:1px;
   flex:1;
-  background:#d5e0ec;
+
+  background:
+    linear-gradient(
+      90deg,
+      #d5e0ec,
+      rgba(227,184,204,.45)
+    );
 }
+
+/* ПРОДОЛЖИТЬ ЧТЕНИЕ */
 
 .current-card{
   background:rgba(255,255,255,.92);
+  backdrop-filter:blur(8px);
+
   padding:14px;
   border-radius:22px;
+
   display:flex;
   gap:14px;
+
+  box-shadow:
+    0 10px 28px rgba(39,73,110,.07),
+    0 4px 18px rgba(220,159,188,.07);
 }
 
 .current-cover{
@@ -131,10 +183,12 @@ main{
   aspect-ratio:2/3;
   object-fit:cover;
   border-radius:14px;
+  display:block;
 }
 
 .current-info{
   flex:1;
+  min-width:0;
 }
 
 .current-info h3{
@@ -162,7 +216,14 @@ main{
 
 .trope{
   padding:5px 8px;
-  background:linear-gradient(135deg,#eef4fb,#f9edf3);
+
+  background:
+    linear-gradient(
+      135deg,
+      #eef4fb,
+      #f9edf3
+    );
+
   border-radius:14px;
   font-size:9px;
   color:#52759a;
@@ -176,7 +237,9 @@ main{
 .progress{
   height:6px;
   margin:7px 0 11px;
+
   background:#e7edf4;
+
   border-radius:10px;
   overflow:hidden;
 }
@@ -184,20 +247,39 @@ main{
 .progress-bar{
   height:100%;
   width:0%;
-  background:linear-gradient(90deg,#6d9bd0,#d49ab5);
+
+  background:
+    linear-gradient(
+      90deg,
+      #6d9bd0,
+      #d49ab5
+    );
 }
 
 .read-button{
   display:block;
+
   padding:11px;
-  background:#709bd0;
+
+  background:
+    linear-gradient(
+      135deg,
+      #709bd0,
+      #83a8d2
+    );
+
   color:white;
+
   text-decoration:none;
   text-align:center;
+
   border-radius:12px;
+
   font-size:12px;
   font-weight:bold;
 }
+
+/* НОВИНКИ */
 
 .new-books{
   display:flex;
@@ -208,15 +290,25 @@ main{
 .book-card{
   display:flex;
   gap:14px;
+
   padding:14px;
+
   background:rgba(255,255,255,.92);
+  backdrop-filter:blur(8px);
+
   border-radius:20px;
+
   text-decoration:none;
   color:inherit;
+
+  box-shadow:
+    0 8px 22px rgba(39,73,110,.06),
+    0 4px 16px rgba(221,163,190,.06);
 }
 
 .book-cover{
   width:86px;
+  flex-shrink:0;
 }
 
 .book-cover img{
@@ -224,11 +316,23 @@ main{
   aspect-ratio:2/3;
   object-fit:cover;
   border-radius:12px;
+  display:block;
+}
+
+.book-info{
+  flex:1;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
 }
 
 .book-info h3{
   margin:0 0 5px;
   font-size:17px;
+}
+
+.book-info .author{
+  margin-bottom:7px;
 }
 
 .pills{
@@ -239,24 +343,46 @@ main{
 
 .pill{
   padding:6px 9px;
-  background:linear-gradient(135deg,#eaf2fb,#f8eaf1);
+
+  background:
+    linear-gradient(
+      135deg,
+      #eaf2fb,
+      #f8eaf1
+    );
+
   border-radius:14px;
+
   font-size:10px;
   color:#52779e;
 }
 
+/* СЕРИИ */
+
 .series-card{
   display:block;
+
   padding:16px;
-  background:linear-gradient(135deg,#edf5fd,#f8f3f8);
+
+  background:
+    linear-gradient(
+      135deg,
+      rgba(237,245,253,.94),
+      rgba(251,236,244,.94)
+    );
+
   border-radius:21px;
+
   text-decoration:none;
   color:inherit;
+
+  margin-bottom:14px;
 }
 
 .series-top{
   display:flex;
   justify-content:space-between;
+  gap:12px;
 }
 
 .series-title{
@@ -266,9 +392,22 @@ main{
 
 .series-count{
   background:white;
+
   padding:6px 9px;
+
   border-radius:13px;
+
   font-size:10px;
+
+  color:#6683a1;
+}
+
+.series-description{
+  margin-top:7px;
+
+  font-size:12px;
+
+  color:#71869f;
 }
 
 .series-books{
@@ -289,42 +428,92 @@ main{
   border-radius:8px;
 }
 
-.catalog-link{
-  display:block;
-  margin-top:20px;
-  padding:13px;
-  background:linear-gradient(135deg,#eaf2fb,#f8eaf1);
-  text-align:center;
-  text-decoration:none;
-  border-radius:14px;
-  color:#527da9;
+.series-book-name{
+  font-size:14px;
   font-weight:bold;
 }
+
+.series-book-number{
+  margin-top:4px;
+  color:#7890aa;
+  font-size:10px;
+}
+
+.catalog-link{
+  display:block;
+
+  margin-top:20px;
+  padding:13px;
+
+  background:
+    linear-gradient(
+      135deg,
+      #eaf2fb,
+      #f8eaf1
+    );
+
+  text-align:center;
+
+  text-decoration:none;
+
+  border-radius:14px;
+
+  color:#527da9;
+
+  font-weight:bold;
+}
+
+/* НИЖНЕЕ МЕНЮ */
 
 nav{
   position:fixed;
   left:0;
   right:0;
   bottom:0;
+
   display:flex;
   justify-content:space-around;
+
   background:rgba(255,255,255,.95);
-  padding:9px 3px calc(13px + env(safe-area-inset-bottom));
+  backdrop-filter:blur(12px);
+
+  border-top:1px solid #e0e8f1;
+
+  padding:
+    9px
+    3px
+    calc(13px + env(safe-area-inset-bottom));
+
   z-index:999999;
 }
 
 .nav-item{
   width:20%;
+  min-height:54px;
+
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+
   text-align:center;
   text-decoration:none;
+
   color:#8ca0b8;
+
   font-size:10px;
 }
 
 .nav-icon{
   display:block;
   font-size:21px;
+  margin-bottom:4px;
 }
+
+.nav-item.active{
+  color:#5285c3;
+}
+
 </style>
 </head>
 
@@ -332,8 +521,13 @@ nav{
 
 <header>
 
-<div class="logo">NOCTURNE</div>
-<div class="logo-small">BOOKS</div>
+<div class="logo">
+NOCTURNE
+</div>
+
+<div class="logo-small">
+BOOKS
+</div>
 
 <div class="slogan">
 YOUR NEXT OBSESSION IS HERE
@@ -347,7 +541,8 @@ YOUR NEXT OBSESSION IS HERE
 
 <div class="welcome-text">
 Твоя личная библиотека историй, от которых невозможно оторваться.
-Выбирай книгу, сохраняй любимые цитаты и продолжай чтение с того места, где остановилась.
+Выбирай книгу, сохраняй любимые цитаты и продолжай чтение
+с того места, где остановилась.
 </div>
 
 </div>
@@ -364,35 +559,65 @@ href="https://tvorchestvolana-alt.github.io/nocturne-books/catalog.html"
 </a>
 
 <div class="section-title">
-<h2>ПРОДОЛЖИТЬ ЧТЕНИЕ</h2>
+
+<h2>
+ПРОДОЛЖИТЬ ЧТЕНИЕ
+</h2>
+
 <span></span>
+
 </div>
 
 <div class="current-card">
 
 <div class="current-cover">
-<img id="currentCover" src="" alt="">
+
+<img
+id="currentCover"
+src=""
+alt=""
+>
+
 </div>
 
 <div class="current-info">
 
 <h3 id="currentTitle"></h3>
 
-<div class="author">
-Карли Робин
-</div>
+<div
+class="author"
+id="currentAuthor"
+></div>
 
-<div class="series" id="currentSeries"></div>
+<div
+class="series"
+id="currentSeries"
+></div>
 
-<div class="tropes" id="currentTropes"></div>
+<div
+class="tropes"
+id="currentTropes"
+></div>
 
-<div class="progress-info" id="progressInfo"></div>
+<div
+class="progress-info"
+id="progressInfo"
+></div>
 
 <div class="progress">
-<div class="progress-bar" id="progressBar"></div>
+
+<div
+class="progress-bar"
+id="progressBar"
+></div>
+
 </div>
 
-<a class="read-button" id="readButton" href="#">
+<a
+class="read-button"
+id="readButton"
+href="#"
+>
 📖 ПРОДОЛЖИТЬ
 </a>
 
@@ -400,53 +625,154 @@ href="https://tvorchestvolana-alt.github.io/nocturne-books/catalog.html"
 
 </div>
 
+
 <div class="section-title">
-<h2>НОВИНКИ</h2>
+
+<h2>
+НОВИНКИ
+</h2>
+
 <span></span>
+
 </div>
+
 
 <div class="new-books">
 
-<a class="book-card" href="https://tvorchestvolana-alt.github.io/nocturne-books/fire-and-ice.html">
+<!-- 3 -->
+
+<a
+class="book-card"
+href="https://tvorchestvolana-alt.github.io/nocturne-books/say-im-wrong.html"
+>
 
 <div class="book-cover">
-<img src="file_00000000b06c72468c564d5370a34844.png">
+
+<img
+src="file_00000000c9647243901fea32c2b541fb.png"
+alt="Скажи, что я ошибаюсь"
+>
+
 </div>
 
 <div class="book-info">
 
-<h3>Огонь и лёд</h3>
+<h3>
+Скажи, что я ошибаюсь
+</h3>
 
 <div class="author">
-Карли Робин
+Оден Хантер
 </div>
 
 <div class="pills">
-<span class="pill">🏒 Хоккейный роман</span>
-<span class="pill">🎭 Фальшивые отношения</span>
+
+<span class="pill">
+🎓 Студенческий роман
+</span>
+
+<span class="pill">
+🔥 От неприязни до любви
+</span>
+
+<span class="pill">
+Невидимая нить · #1
+</span>
+
 </div>
 
 </div>
 
 </a>
 
-<a class="book-card" href="https://tvorchestvolana-alt.github.io/nocturne-books/cold-baby.html">
+
+<!-- 2 -->
+
+<a
+class="book-card"
+href="https://tvorchestvolana-alt.github.io/nocturne-books/fire-and-ice.html"
+>
 
 <div class="book-cover">
-<img src="file_00000000751c724682f122426a67d42d.png">
+
+<img
+src="file_00000000b06c72468c564d5370a34844.png"
+alt="Огонь и лёд"
+>
+
 </div>
 
 <div class="book-info">
 
-<h3>Холодная малышка</h3>
+<h3>
+Огонь и лёд
+</h3>
 
 <div class="author">
 Карли Робин
 </div>
 
 <div class="pills">
-<span class="pill">🏒 Хоккейный роман</span>
-<span class="pill">💙 Он влюбляется первым</span>
+
+<span class="pill">
+🏒 Хоккейный роман
+</span>
+
+<span class="pill">
+🎭 Фальшивые отношения
+</span>
+
+<span class="pill">
+Бостонские Рыси · #2
+</span>
+
+</div>
+
+</div>
+
+</a>
+
+
+<!-- 1 -->
+
+<a
+class="book-card"
+href="https://tvorchestvolana-alt.github.io/nocturne-books/cold-baby.html"
+>
+
+<div class="book-cover">
+
+<img
+src="file_00000000751c724682f122426a67d42d.png"
+alt="Холодная малышка"
+>
+
+</div>
+
+<div class="book-info">
+
+<h3>
+Холодная малышка
+</h3>
+
+<div class="author">
+Карли Робин
+</div>
+
+<div class="pills">
+
+<span class="pill">
+🏒 Хоккейный роман
+</span>
+
+<span class="pill">
+💙 Он влюбляется первым
+</span>
+
+<span class="pill">
+Бостонские Рыси · #1
+</span>
+
 </div>
 
 </div>
@@ -454,11 +780,20 @@ href="https://tvorchestvolana-alt.github.io/nocturne-books/catalog.html"
 </a>
 
 </div>
+
 
 <div class="section-title">
-<h2>СЕРИИ</h2>
+
+<h2>
+СЕРИИ
+</h2>
+
 <span></span>
+
 </div>
+
+
+<!-- БОСТОНСКИЕ РЫСИ -->
 
 <a
 class="series-card"
@@ -477,26 +812,50 @@ href="https://tvorchestvolana-alt.github.io/nocturne-books/catalog.html"
 
 </div>
 
+<div class="series-description">
+Хоккейные романы · Карли Робин
+</div>
+
 <div class="series-books">
 
 <div class="series-book">
 
-<img src="file_00000000751c724682f122426a67d42d.png">
+<img
+src="file_00000000751c724682f122426a67d42d.png"
+alt="Холодная малышка"
+>
 
 <div>
-<strong>Холодная малышка</strong><br>
-<small>Книга #1</small>
+
+<div class="series-book-name">
+Холодная малышка
+</div>
+
+<div class="series-book-number">
+Книга #1
+</div>
+
 </div>
 
 </div>
 
 <div class="series-book">
 
-<img src="file_00000000b06c72468c564d5370a34844.png">
+<img
+src="file_00000000b06c72468c564d5370a34844.png"
+alt="Огонь и лёд"
+>
 
 <div>
-<strong>Огонь и лёд</strong><br>
-<small>Книга #2</small>
+
+<div class="series-book-name">
+Огонь и лёд
+</div>
+
+<div class="series-book-number">
+Книга #2
+</div>
+
 </div>
 
 </div>
@@ -504,6 +863,58 @@ href="https://tvorchestvolana-alt.github.io/nocturne-books/catalog.html"
 </div>
 
 </a>
+
+
+<!-- НЕВИДИМАЯ НИТЬ -->
+
+<a
+class="series-card"
+href="https://tvorchestvolana-alt.github.io/nocturne-books/say-im-wrong.html"
+>
+
+<div class="series-top">
+
+<div class="series-title">
+Невидимая нить
+</div>
+
+<div class="series-count">
+1 книга
+</div>
+
+</div>
+
+<div class="series-description">
+Студенческий роман · Оден Хантер
+</div>
+
+<div class="series-books">
+
+<div class="series-book">
+
+<img
+src="file_00000000c9647243901fea32c2b541fb.png"
+alt="Скажи, что я ошибаюсь"
+>
+
+<div>
+
+<div class="series-book-name">
+Скажи, что я ошибаюсь
+</div>
+
+<div class="series-book-number">
+Книга #1
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</a>
+
 
 <a
 class="catalog-link"
@@ -514,66 +925,176 @@ href="https://tvorchestvolana-alt.github.io/nocturne-books/catalog.html"
 
 </main>
 
+
 <nav>
 
-<a class="nav-item" href="https://tvorchestvolana-alt.github.io/nocturne-books/index.html">
+<a
+class="nav-item active"
+href="https://tvorchestvolana-alt.github.io/nocturne-books/index.html"
+>
 <span class="nav-icon">⌂</span>
 Главная
 </a>
 
-<a class="nav-item" href="https://tvorchestvolana-alt.github.io/nocturne-books/catalog.html">
+<a
+class="nav-item"
+href="https://tvorchestvolana-alt.github.io/nocturne-books/catalog.html"
+>
 <span class="nav-icon">⌕</span>
 Каталог
 </a>
 
-<a class="nav-item" href="https://tvorchestvolana-alt.github.io/nocturne-books/library.html">
+<a
+class="nav-item"
+href="https://tvorchestvolana-alt.github.io/nocturne-books/library.html"
+>
 <span class="nav-icon">♡</span>
 Библиотека
 </a>
 
-<a class="nav-item" href="https://tvorchestvolana-alt.github.io/nocturne-books/bookmarks.html">
+<a
+class="nav-item"
+href="https://tvorchestvolana-alt.github.io/nocturne-books/bookmarks.html"
+>
 <span class="nav-icon">❝</span>
 Цитаты
 </a>
 
-<a class="nav-item" href="https://tvorchestvolana-alt.github.io/nocturne-books/profile.html">
+<a
+class="nav-item"
+href="https://tvorchestvolana-alt.github.io/nocturne-books/profile.html"
+>
 <span class="nav-icon">♙</span>
 Профиль
 </a>
 
 </nav>
 
+
 <script>
 
-const books = {
+const BOOKS = {
 
   "cold-baby":{
-    title:"Холодная малышка",
-    series:"Бостонские Рыси · Книга #1",
-    cover:"file_00000000751c724682f122426a67d42d.png",
-    reader:"https://tvorchestvolana-alt.github.io/nocturne-books/reader.html",
-    progressKey:"nocturne-cold-baby-progress",
-    positionKey:"nocturne-cold-baby-position",
+
+    title:
+    "Холодная малышка",
+
+    author:
+    "Карли Робин",
+
+    series:
+    "Бостонские Рыси · Книга #1",
+
+    cover:
+    "file_00000000751c724682f122426a67d42d.png",
+
+    reader:
+    "https://tvorchestvolana-alt.github.io/nocturne-books/reader.html",
+
+    progressKey:
+    "nocturne-cold-baby-progress",
+
+    positionKey:
+    "nocturne-cold-baby-position",
+
     tropes:[
       "🏒 Хоккей",
       "💙 Он влюбляется первым"
     ]
   },
 
+
   "fire-and-ice":{
-    title:"Огонь и лёд",
-    series:"Бостонские Рыси · Книга #2",
-    cover:"file_00000000b06c72468c564d5370a34844.png",
-    reader:"https://tvorchestvolana-alt.github.io/nocturne-books/reader-fire-and-ice.html",
-    progressKey:"nocturne-fire-and-ice-progress",
-    positionKey:"nocturne-fire-and-ice-position",
+
+    title:
+    "Огонь и лёд",
+
+    author:
+    "Карли Робин",
+
+    series:
+    "Бостонские Рыси · Книга #2",
+
+    cover:
+    "file_00000000b06c72468c564d5370a34844.png",
+
+    reader:
+    "https://tvorchestvolana-alt.github.io/nocturne-books/reader-fire-and-ice.html",
+
+    progressKey:
+    "nocturne-fire-and-ice-progress",
+
+    positionKey:
+    "nocturne-fire-and-ice-position",
+
     tropes:[
       "🏒 Хоккей",
       "🎭 Фальшивые отношения"
     ]
+  },
+
+
+  "say-im-wrong":{
+
+    title:
+    "Скажи, что я ошибаюсь",
+
+    author:
+    "Оден Хантер",
+
+    series:
+    "Невидимая нить · Книга #1",
+
+    cover:
+    "file_00000000c9647243901fea32c2b541fb.png",
+
+    reader:
+    "https://tvorchestvolana-alt.github.io/nocturne-books/reader-say-im-wrong.html",
+
+    progressKey:
+    "nocturne-say-im-wrong-progress",
+
+    positionKey:
+    "nocturne-say-im-wrong-position",
+
+    tropes:[
+      "🎓 Студенческий роман",
+      "🔥 От неприязни до любви"
+    ]
   }
 
 };
+
+
+function chooseFallbackBook(){
+
+  /*
+  Если по какой-то причине nocturne-last-book ещё нет,
+  ищем последнюю уже начатую книгу.
+  */
+
+  if(
+    localStorage.getItem(
+      BOOKS["say-im-wrong"].positionKey
+    )
+  ){
+
+    return "say-im-wrong";
+  }
+
+  if(
+    localStorage.getItem(
+      BOOKS["fire-and-ice"].positionKey
+    )
+  ){
+
+    return "fire-and-ice";
+  }
+
+  return "cold-baby";
+}
+
 
 function renderLastBook(){
 
@@ -582,107 +1103,177 @@ function renderLastBook(){
     "nocturne-last-book"
   );
 
-  if(!books[lastBook]){
 
-    if(
-      localStorage.getItem(
-        "nocturne-fire-and-ice-position"
-      )
-    ){
+  if(
+    !BOOKS[lastBook]
+  ){
 
-      lastBook =
-      "fire-and-ice";
-
-    }else{
-
-      lastBook =
-      "cold-baby";
-    }
+    lastBook =
+    chooseFallbackBook();
   }
 
-  const data =
-  books[lastBook];
+
+  const book =
+  BOOKS[lastBook];
+
 
   const progress =
   Number(
     localStorage.getItem(
-      data.progressKey
+      book.progressKey
     )
   ) || 0;
 
+
+  const position =
+  localStorage.getItem(
+    book.positionKey
+  );
+
+
   document
-  .getElementById("currentCover")
+  .getElementById(
+    "currentCover"
+  )
   .src =
-  data.cover;
+  book.cover;
+
 
   document
-  .getElementById("currentTitle")
+  .getElementById(
+    "currentCover"
+  )
+  .alt =
+  book.title;
+
+
+  document
+  .getElementById(
+    "currentTitle"
+  )
   .textContent =
-  data.title;
+  book.title;
+
 
   document
-  .getElementById("currentSeries")
+  .getElementById(
+    "currentAuthor"
+  )
   .textContent =
-  data.series;
+  book.author;
+
 
   document
-  .getElementById("progressInfo")
+  .getElementById(
+    "currentSeries"
+  )
   .textContent =
-  progress >= 100
-  ? "Прочитано ✓"
-  : "Прочитано " + progress + "%";
+  book.series;
+
 
   document
-  .getElementById("progressBar")
+  .getElementById(
+    "progressBar"
+  )
   .style.width =
-  Math.min(progress,100) + "%";
+  Math.min(
+    progress,
+    100
+  ) +
+  "%";
+
 
   document
-  .getElementById("readButton")
+  .getElementById(
+    "readButton"
+  )
   .href =
-  data.reader;
+  book.reader;
 
-  document
-  .getElementById("readButton")
-  .textContent =
-  progress >= 100
-  ? "📖 ОТКРЫТЬ КНИГУ"
-  : "📖 ПРОДОЛЖИТЬ";
+
+  const progressInfo =
+  document.getElementById(
+    "progressInfo"
+  );
+
+
+  const readButton =
+  document.getElementById(
+    "readButton"
+  );
+
+
+  if(progress >= 100){
+
+    progressInfo.textContent =
+    "Прочитано ✓";
+
+    readButton.textContent =
+    "📖 ОТКРЫТЬ КНИГУ";
+
+  }else if(position){
+
+    progressInfo.textContent =
+    "Прочитано " +
+    progress +
+    "%";
+
+    readButton.textContent =
+    "📖 ПРОДОЛЖИТЬ";
+
+  }else{
+
+    progressInfo.textContent =
+    "Ещё не начато";
+
+    readButton.textContent =
+    "📖 НАЧАТЬ ЧТЕНИЕ";
+  }
+
 
   const tropeContainer =
   document.getElementById(
     "currentTropes"
   );
 
-  tropeContainer.innerHTML="";
 
-  data.tropes.forEach(
+  tropeContainer.innerHTML =
+  "";
+
+
+  book.tropes.forEach(
   text=>{
 
     const span =
-    document.createElement("span");
+    document.createElement(
+      "span"
+    );
 
-    span.className="trope";
-    span.textContent=text;
+    span.className =
+    "trope";
 
-    tropeContainer.appendChild(span);
+    span.textContent =
+    text;
+
+    tropeContainer.appendChild(
+      span
+    );
+
   });
+
 }
+
 
 renderLastBook();
 
-/* ВАЖНО:
-если браузер вернул главную из кэша,
-данные перечитываются заново
-*/
 
 window.addEventListener(
-  "pageshow",
-  function(){
+"pageshow",
+()=>{
 
-    renderLastBook();
-  }
-);
+  renderLastBook();
+
+});
 
 </script>
 
