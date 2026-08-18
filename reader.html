@@ -10,12 +10,9 @@
 <script src="https://cdn.jsdelivr.net/npm/epubjs@0.3.93/dist/epub.min.js"></script>
 
 <style>
-*{
-  box-sizing:border-box;
-}
+*{box-sizing:border-box}
 
-html,
-body{
+html,body{
   margin:0;
   width:100%;
   height:100%;
@@ -390,21 +387,14 @@ body.dark .toc-item{
 
 <header>
 
-<a
-class="back"
-href="https://tvorchestvolana-alt.github.io/nocturne-books/cold-baby.html"
->
-←
-</a>
+<a class="back" href="https://tvorchestvolana-alt.github.io/nocturne-books/cold-baby.html">←</a>
 
 <div class="book-title">
 <strong>Холодная малышка</strong>
 <span>Карли Робин</span>
 </div>
 
-<button class="menu-button">
-•••
-</button>
+<button class="menu-button">•••</button>
 
 </header>
 
@@ -422,13 +412,8 @@ href="https://tvorchestvolana-alt.github.io/nocturne-books/cold-baby.html"
 <div id="viewer"></div>
 
 <div class="loading" id="loading">
-
 <div class="spinner"></div>
-
-<div>
-Открываю книгу...
-</div>
-
+<div>Открываю книгу...</div>
 </div>
 
 </div>
@@ -441,9 +426,7 @@ href="https://tvorchestvolana-alt.github.io/nocturne-books/cold-baby.html"
 <div class="progress-bar" id="progressBar"></div>
 </div>
 
-<div class="percent" id="percent">
-0%
-</div>
+<div class="percent" id="percent">0%</div>
 
 </div>
 
@@ -452,15 +435,8 @@ href="https://tvorchestvolana-alt.github.io/nocturne-books/cold-baby.html"
 <button class="nav-button" id="prev">‹</button>
 
 <div class="center-info">
-
-<div class="chapter-info" id="chapterInfo">
-Загрузка...
-</div>
-
-<div class="hint">
-выдели текст пальцем, чтобы сохранить цитату
-</div>
-
+<div class="chapter-info" id="chapterInfo">Загрузка...</div>
+<div class="hint">выдели текст пальцем, чтобы сохранить цитату</div>
 </div>
 
 <button class="nav-button" id="next">›</button>
@@ -481,9 +457,7 @@ href="https://tvorchestvolana-alt.github.io/nocturne-books/cold-baby.html"
 СОХРАНИТЬ ЦИТАТУ
 </button>
 
-<button class="quote-cancel" id="cancelQuote">
-×
-</button>
+<button class="quote-cancel" id="cancelQuote">×</button>
 
 </div>
 
@@ -495,13 +469,9 @@ href="https://tvorchestvolana-alt.github.io/nocturne-books/cold-baby.html"
 
 <div class="panel-header">
 
-<h2>
-Содержание
-</h2>
+<h2>Содержание</h2>
 
-<button class="close" data-close="tocPanel">
-×
-</button>
+<button class="close" data-close="tocPanel">×</button>
 
 </div>
 
@@ -517,6 +487,13 @@ href="https://tvorchestvolana-alt.github.io/nocturne-books/cold-baby.html"
 
 const EPUB_FILE =
 encodeURI("Холодная малышка.epub");
+
+/* СРАЗУ ЗАПОМИНАЕМ ПОСЛЕДНЮЮ ОТКРЫТУЮ КНИГУ */
+
+localStorage.setItem(
+  "nocturne-last-book",
+  "cold-baby"
+);
 
 const STORAGE_POSITION =
 "nocturne-cold-baby-position";
@@ -535,13 +512,10 @@ const STORAGE_THEME =
 
 let book;
 let rendition;
-
 let pendingQuote = null;
 
 let fontSize =
-Number(
-  localStorage.getItem(STORAGE_FONT)
-) || 100;
+Number(localStorage.getItem(STORAGE_FONT)) || 100;
 
 let currentTheme =
 localStorage.getItem(STORAGE_THEME) || "light";
@@ -564,21 +538,16 @@ document.getElementById("quotePanel");
 const quotePreview =
 document.getElementById("quotePreview");
 
-
 function getQuotes(){
 
   try{
-
     return JSON.parse(
       localStorage.getItem(QUOTES_KEY)
     ) || [];
-
   }catch(e){
-
     return [];
   }
 }
-
 
 function saveQuotes(quotes){
 
@@ -588,7 +557,6 @@ function saveQuotes(quotes){
   );
 }
 
-
 function applyTheme(){
 
   if(currentTheme === "dark"){
@@ -597,21 +565,11 @@ function applyTheme(){
 
     if(rendition){
 
-      rendition.themes.override(
-        "color",
-        "#e8eef6"
-      );
-
-      rendition.themes.override(
-        "background",
-        "#17202c"
-      );
+      rendition.themes.override("color","#e8eef6");
+      rendition.themes.override("background","#17202c");
     }
 
-    document
-    .getElementById("themeButton")
-    .textContent =
-    "☾";
+    document.getElementById("themeButton").textContent="☾";
 
   }else{
 
@@ -619,21 +577,11 @@ function applyTheme(){
 
     if(rendition){
 
-      rendition.themes.override(
-        "color",
-        "#26394e"
-      );
-
-      rendition.themes.override(
-        "background",
-        "#ffffff"
-      );
+      rendition.themes.override("color","#26394e");
+      rendition.themes.override("background","#ffffff");
     }
 
-    document
-    .getElementById("themeButton")
-    .textContent =
-    "☀";
+    document.getElementById("themeButton").textContent="☀";
   }
 
   localStorage.setItem(
@@ -642,23 +590,19 @@ function applyTheme(){
   );
 }
 
-
 function applyFont(){
 
   if(!rendition){
     return;
   }
 
-  rendition.themes.fontSize(
-    fontSize + "%"
-  );
+  rendition.themes.fontSize(fontSize+"%");
 
   localStorage.setItem(
     STORAGE_FONT,
     fontSize
   );
 }
-
 
 function changeFont(amount){
 
@@ -675,13 +619,11 @@ function changeFont(amount){
   applyFont();
 }
 
-
 async function openBook(){
 
   try{
 
-    book =
-    ePub(EPUB_FILE);
+    book = ePub(EPUB_FILE);
 
     rendition =
     book.renderTo(
@@ -698,8 +640,7 @@ async function openBook(){
     rendition.themes.default({
 
       body:{
-        "font-family":
-        "Georgia, 'Times New Roman', serif",
+        "font-family":"Georgia, 'Times New Roman', serif",
         "line-height":"1.65",
         "padding":"0 7%",
         "color":"#26394e"
@@ -710,8 +651,7 @@ async function openBook(){
       },
 
       "::selection":{
-        "background":
-        "rgba(221,161,188,.32)"
+        "background":"rgba(221,161,188,.32)"
       }
 
     });
@@ -727,12 +667,10 @@ async function openBook(){
 
     let startPosition = null;
 
-
     if(quoteId){
 
       const quote =
-      getQuotes()
-      .find(
+      getQuotes().find(
         item =>
         String(item.id) === quoteId
       );
@@ -742,7 +680,6 @@ async function openBook(){
       }
     }
 
-
     if(!startPosition){
 
       startPosition =
@@ -751,35 +688,26 @@ async function openBook(){
       );
     }
 
-
     if(startPosition){
 
-      await rendition.display(
-        startPosition
-      );
+      await rendition.display(startPosition);
 
     }else{
 
       await rendition.display();
     }
 
-
-    loading.style.display =
-    "none";
-
+    loading.style.display="none";
 
     try{
 
-      await book.locations.generate(
-        1200
-      );
+      await book.locations.generate(1200);
 
       updateLocation(
         rendition.currentLocation()
       );
 
     }catch(e){}
-
 
     book.loaded.navigation.then(
     navigation=>{
@@ -795,28 +723,18 @@ async function openBook(){
         const button =
         document.createElement("button");
 
-        button.className =
-        "toc-item";
+        button.className="toc-item";
+        button.textContent=item.label;
 
-        button.textContent =
-        item.label;
+        button.onclick=async()=>{
 
-        button.onclick =
-        async()=>{
-
-          await rendition.display(
-            item.href
-          );
-
+          await rendition.display(item.href);
           closePanel("tocPanel");
         };
 
         toc.appendChild(button);
-
       });
-
     });
-
 
     rendition.on(
       "relocated",
@@ -831,8 +749,6 @@ async function openBook(){
             location.start.cfi
           );
 
-          /* ВОТ ЭТО ГЛАВНОЕ ДОБАВЛЕНИЕ */
-
           localStorage.setItem(
             "nocturne-last-book",
             "cold-baby"
@@ -841,7 +757,6 @@ async function openBook(){
       }
     );
 
-
     rendition.on(
       "selected",
       async function(cfiRange){
@@ -849,9 +764,7 @@ async function openBook(){
         try{
 
           const range =
-          await book.getRange(
-            cfiRange
-          );
+          await book.getRange(cfiRange);
 
           const text =
           range
@@ -871,36 +784,20 @@ async function openBook(){
 
           pendingQuote = {
 
-            id:
-            Date.now(),
+            id:Date.now(),
+            text:text,
+            cfi:cfiRange,
+            progress:currentProgress,
+            book:"cold-baby",
+            bookTitle:"Холодная малышка",
+            author:"Карли Робин"
 
-            text:
-            text,
-
-            cfi:
-            cfiRange,
-
-            progress:
-            currentProgress,
-
-            book:
-            "cold-baby",
-
-            bookTitle:
-            "Холодная малышка",
-
-            author:
-            "Карли Робин"
           };
 
           quotePreview.textContent =
-          "«" +
-          text +
-          "»";
+          "«"+text+"»";
 
-          quotePanel
-          .classList
-          .add("show");
+          quotePanel.classList.add("show");
 
         }catch(e){
 
@@ -908,7 +805,6 @@ async function openBook(){
         }
       }
     );
-
 
     getQuotes().forEach(
     quote=>{
@@ -921,9 +817,7 @@ async function openBook(){
         );
 
       }catch(e){}
-
     });
-
 
   }catch(error){
 
@@ -933,7 +827,6 @@ async function openBook(){
     "<div>Не удалось открыть EPUB.</div>";
   }
 }
-
 
 function updateLocation(location){
 
@@ -958,8 +851,7 @@ function updateLocation(location){
     ){
 
       const value =
-      book.locations
-      .percentageFromCfi(
+      book.locations.percentageFromCfi(
         location.start.cfi
       );
 
@@ -969,15 +861,13 @@ function updateLocation(location){
       ){
 
         const p =
-        Math.round(
-          value * 100
-        );
+        Math.round(value*100);
 
         progressBar.style.width =
-        p + "%";
+        p+"%";
 
         percent.textContent =
-        p + "%";
+        p+"%";
 
         localStorage.setItem(
           STORAGE_PROGRESS,
@@ -989,11 +879,7 @@ function updateLocation(location){
   }catch(e){}
 }
 
-
-document
-.getElementById("saveQuote")
-.onclick =
-()=>{
+document.getElementById("saveQuote").onclick=()=>{
 
   if(!pendingQuote){
     return;
@@ -1002,9 +888,7 @@ document
   const quotes =
   getQuotes();
 
-  quotes.unshift(
-    pendingQuote
-  );
+  quotes.unshift(pendingQuote);
 
   saveQuotes(quotes);
 
@@ -1017,66 +901,38 @@ document
 
   }catch(e){}
 
-  pendingQuote =
-  null;
+  pendingQuote=null;
 
-  quotePanel
-  .classList
-  .remove("show");
+  quotePanel.classList.remove("show");
 };
 
+document.getElementById("cancelQuote").onclick=()=>{
 
-document
-.getElementById("cancelQuote")
-.onclick =
-()=>{
-
-  pendingQuote = null;
-
-  quotePanel
-  .classList
-  .remove("show");
+  pendingQuote=null;
+  quotePanel.classList.remove("show");
 };
 
-
-document
-.getElementById("prev")
-.onclick =
-()=>{
+document.getElementById("prev").onclick=()=>{
 
   if(rendition){
     rendition.prev();
   }
 };
 
-
-document
-.getElementById("next")
-.onclick =
-()=>{
+document.getElementById("next").onclick=()=>{
 
   if(rendition){
     rendition.next();
   }
 };
 
-
-document
-.getElementById("smallerFont")
-.onclick =
+document.getElementById("smallerFont").onclick=
 ()=>changeFont(-10);
 
-
-document
-.getElementById("biggerFont")
-.onclick =
+document.getElementById("biggerFont").onclick=
 ()=>changeFont(10);
 
-
-document
-.getElementById("themeButton")
-.onclick =
-()=>{
+document.getElementById("themeButton").onclick=()=>{
 
   currentTheme =
   currentTheme === "light"
@@ -1086,12 +942,8 @@ document
   applyTheme();
 };
 
-
-document
-.getElementById("tocButton")
-.onclick =
+document.getElementById("tocButton").onclick=
 ()=>openPanel("tocPanel");
-
 
 function openPanel(id){
 
@@ -1101,7 +953,6 @@ function openPanel(id){
   .add("open");
 }
 
-
 function closePanel(id){
 
   document
@@ -1110,19 +961,14 @@ function closePanel(id){
   .remove("open");
 }
 
-
 document
 .querySelectorAll("[data-close]")
 .forEach(
 button=>{
 
-  button.onclick =
-  ()=>closePanel(
-    button.dataset.close
-  );
-
+  button.onclick=
+  ()=>closePanel(button.dataset.close);
 });
-
 
 applyTheme();
 openBook();
