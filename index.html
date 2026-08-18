@@ -41,31 +41,21 @@ body{
 
 body::before{
   content:"✦";
-
   position:fixed;
-
   top:180px;
   left:14px;
-
   font-size:20px;
-
   color:rgba(207,145,174,.24);
-
   pointer-events:none;
 }
 
 body::after{
   content:"☾";
-
   position:fixed;
-
   top:410px;
   right:14px;
-
   font-size:28px;
-
   color:rgba(111,155,208,.17);
-
   pointer-events:none;
 }
 
@@ -101,62 +91,42 @@ header{
 
 .logo{
   font-family:Georgia,serif;
-
   font-size:39px;
-
   font-weight:900;
-
   letter-spacing:4px;
-
   color:#31577f;
 }
 
 .logo-small{
   margin-top:9px;
-
   letter-spacing:10px;
-
   font-size:17px;
-
   font-weight:bold;
-
   color:#5d7fa3;
 }
 
 .slogan{
   margin-top:24px;
-
   font-size:10px;
-
   letter-spacing:2px;
-
   color:#6086b0;
 }
 
 .welcome{
   max-width:520px;
-
-  margin:
-    25px
-    auto
-    0;
+  margin:25px auto 0;
 }
 
 .welcome-title{
   font-size:17px;
-
   font-weight:700;
-
   color:#31577f;
-
   margin-bottom:9px;
 }
 
 .welcome-text{
   font-size:12px;
-
   line-height:1.6;
-
   color:#7b8fa6;
 }
 
@@ -165,7 +135,6 @@ header{
 
 main{
   max-width:700px;
-
   margin:auto;
 
   padding:
@@ -176,7 +145,6 @@ main{
 
 .search{
   display:flex;
-
   align-items:center;
 
   min-height:56px;
@@ -210,9 +178,7 @@ main{
 
 .section-title{
   display:flex;
-
   align-items:center;
-
   gap:12px;
 
   margin:
@@ -223,15 +189,12 @@ main{
 
 .section-title h2{
   margin:0;
-
   font-size:17px;
-
   white-space:nowrap;
 }
 
 .section-title span{
   height:1px;
-
   flex:1;
 
   background:
@@ -273,25 +236,19 @@ main{
 
 .current-cover{
   width:105px;
-
   flex-shrink:0;
 }
 
 .current-cover img{
   width:100%;
-
   aspect-ratio:2/3;
-
   object-fit:cover;
-
   border-radius:14px;
-
   display:block;
 }
 
 .current-info{
   flex:1;
-
   min-width:0;
 }
 
@@ -306,23 +263,18 @@ main{
 
 .author{
   color:#7a8da5;
-
   font-size:12px;
 }
 
 .series{
   margin-top:5px;
-
   color:#6f89a5;
-
   font-size:11px;
 }
 
 .tropes{
   display:flex;
-
   flex-wrap:wrap;
-
   gap:5px;
 
   margin:
@@ -343,15 +295,12 @@ main{
     );
 
   border-radius:14px;
-
   font-size:9px;
-
   color:#52759a;
 }
 
 .progress-info{
   font-size:11px;
-
   color:#71869f;
 }
 
@@ -372,7 +321,6 @@ main{
 
 .progress-bar{
   height:100%;
-
   width:0%;
 
   background:
@@ -404,8 +352,503 @@ main{
   border-radius:12px;
 
   font-size:12px;
+  font-weight:bold;
+}
+
+
+/* ========================================
+   СТОИТ ПРОЧИТАТЬ
+======================================== */
+
+.featured-card{
+  position:relative;
+
+  overflow:hidden;
+
+  min-height:370px;
+
+  padding:
+    24px
+    18px
+    22px;
+
+  border-radius:26px;
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(255,255,255,.95),
+      rgba(249,237,244,.88) 48%,
+      rgba(232,242,253,.92)
+    );
+
+  box-shadow:
+    0 14px 36px rgba(45,73,106,.10),
+    0 5px 20px rgba(219,151,184,.08);
+}
+
+
+/* БОЛЬШИЕ ЦВЕТНЫЕ ПЯТНА */
+
+.featured-blob{
+  position:absolute;
+  border-radius:50%;
+  filter:blur(1px);
+  pointer-events:none;
+}
+
+.featured-blob.pink{
+  width:230px;
+  height:230px;
+
+  left:-65px;
+  top:35px;
+
+  background:
+    radial-gradient(
+      circle,
+      rgba(238,169,199,.50),
+      rgba(243,195,216,.22) 58%,
+      transparent 72%
+    );
+}
+
+.featured-blob.blue{
+  width:240px;
+  height:240px;
+
+  right:-75px;
+  top:65px;
+
+  background:
+    radial-gradient(
+      circle,
+      rgba(149,190,229,.42),
+      rgba(198,221,244,.22) 60%,
+      transparent 73%
+    );
+}
+
+
+/* ДЕКОРАТИВНАЯ ЗОНА С ОБЛОЖКОЙ */
+
+.featured-art{
+  position:relative;
+
+  min-height:235px;
+
+  display:flex;
+
+  align-items:center;
+
+  justify-content:center;
+
+  margin-bottom:10px;
+}
+
+
+/* КЛЮШКИ */
+
+.hockey-stick{
+  position:absolute;
+
+  width:8px;
+  height:205px;
+
+  border-radius:10px;
+
+  background:
+    linear-gradient(
+      180deg,
+      #759bc4,
+      #aecae6
+    );
+
+  opacity:.58;
+
+  box-shadow:
+    0 4px 10px
+    rgba(50,88,128,.12);
+
+  z-index:1;
+}
+
+.hockey-stick::after{
+  content:"";
+
+  position:absolute;
+
+  width:42px;
+  height:15px;
+
+  bottom:-2px;
+
+  background:
+    linear-gradient(
+      90deg,
+      #759bc4,
+      #aecae6
+    );
+
+  border-radius:
+    10px
+    8px
+    12px
+    5px;
+}
+
+.hockey-stick.left{
+  transform:
+    rotate(-38deg);
+
+  left:31%;
+  top:17px;
+}
+
+.hockey-stick.left::after{
+  left:-3px;
+  transform:rotate(6deg);
+}
+
+.hockey-stick.right{
+  transform:
+    rotate(38deg);
+
+  right:31%;
+  top:14px;
+
+  background:
+    linear-gradient(
+      180deg,
+      #cf8eac,
+      #edbfd1
+    );
+}
+
+.hockey-stick.right::after{
+  right:-3px;
+  left:auto;
+
+  transform:rotate(-6deg);
+
+  background:
+    linear-gradient(
+      90deg,
+      #cf8eac,
+      #edbfd1
+    );
+}
+
+
+/* ШАЙБЫ */
+
+.puck{
+  position:absolute;
+
+  width:34px;
+  height:15px;
+
+  background:
+    linear-gradient(
+      180deg,
+      #35506d,
+      #182b3f
+    );
+
+  border-radius:50%;
+
+  box-shadow:
+    0 7px 10px
+    rgba(37,54,73,.17);
+
+  z-index:2;
+}
+
+.puck.one{
+  left:15%;
+  bottom:42px;
+
+  transform:rotate(-9deg);
+}
+
+.puck.two{
+  right:14%;
+  top:55px;
+
+  width:27px;
+  height:12px;
+
+  opacity:.76;
+
+  transform:rotate(14deg);
+}
+
+.puck.three{
+  right:19%;
+  bottom:18px;
+
+  width:22px;
+  height:10px;
+
+  opacity:.55;
+
+  transform:rotate(-5deg);
+}
+
+
+/* МАЛЕНЬКИЕ ИСКРЫ */
+
+.feature-star{
+  position:absolute;
+
+  color:#d092b1;
+
+  font-size:19px;
+
+  opacity:.72;
+
+  z-index:3;
+}
+
+.feature-star.s1{
+  top:10px;
+  right:24%;
+}
+
+.feature-star.s2{
+  left:19%;
+  top:79px;
+
+  color:#7ea6d1;
+}
+
+.feature-star.s3{
+  right:16%;
+  bottom:59px;
+
+  font-size:13px;
+}
+
+
+/* ОБЛОЖКА */
+
+.featured-cover{
+  position:relative;
+
+  z-index:5;
+
+  width:145px;
+
+  transform:
+    rotate(-2deg);
+
+  filter:
+    drop-shadow(
+      0 15px 15px
+      rgba(48,69,94,.20)
+    );
+}
+
+.featured-cover img{
+  display:block;
+
+  width:100%;
+
+  aspect-ratio:2/3;
+
+  object-fit:cover;
+
+  border-radius:16px;
+}
+
+
+/* ТЕКСТ БЛОКА */
+
+.featured-content{
+  position:relative;
+
+  z-index:6;
+
+  text-align:center;
+}
+
+.featured-kicker{
+  font-size:10px;
+
+  letter-spacing:1.8px;
+
+  color:#7991ad;
+
+  text-transform:uppercase;
+}
+
+.featured-title{
+  margin:
+    6px
+    0
+    4px;
+
+  font-family:
+    Georgia,
+    serif;
+
+  font-size:24px;
+
+  font-weight:800;
+
+  color:#294b70;
+}
+
+.featured-author{
+  color:#8698ac;
+
+  font-size:12px;
+
+  margin-bottom:10px;
+}
+
+.featured-tags{
+  display:flex;
+
+  justify-content:center;
+
+  flex-wrap:wrap;
+
+  gap:6px;
+
+  margin-bottom:15px;
+}
+
+.featured-tag{
+  padding:
+    6px
+    9px;
+
+  background:
+    rgba(255,255,255,.72);
+
+  border:
+    1px solid
+    rgba(211,225,239,.8);
+
+  border-radius:15px;
+
+  color:#5f7d9c;
+
+  font-size:10px;
+}
+
+.featured-button{
+  display:inline-block;
+
+  padding:
+    11px
+    18px;
+
+  background:
+    linear-gradient(
+      135deg,
+      #709bd0,
+      #cf91ad
+    );
+
+  color:white;
+
+  text-decoration:none;
+
+  border-radius:14px;
+
+  font-size:11px;
 
   font-weight:bold;
+
+  box-shadow:
+    0 7px 18px
+    rgba(85,123,166,.16);
+}
+
+
+/* БЕГУЩАЯ ЛЕНТА */
+
+.hockey-marquee{
+  position:relative;
+
+  overflow:hidden;
+
+  margin-top:10px;
+
+  border-radius:14px;
+
+  background:
+    linear-gradient(
+      90deg,
+      #c98eab,
+      #dba0bb,
+      #7fa8d2,
+      #6694c3
+    );
+
+  box-shadow:
+    0 5px 15px
+    rgba(84,111,144,.10);
+}
+
+.hockey-marquee-track{
+  display:flex;
+
+  width:max-content;
+
+  animation:
+    hockeyScroll
+    14s
+    linear
+    infinite;
+}
+
+.hockey-marquee-group{
+  display:flex;
+
+  align-items:center;
+
+  flex-shrink:0;
+}
+
+.hockey-marquee-item{
+  padding:
+    10px
+    11px;
+
+  color:white;
+
+  white-space:nowrap;
+
+  font-size:10px;
+
+  font-weight:800;
+
+  letter-spacing:1.5px;
+}
+
+.hockey-marquee-star{
+  color:
+    rgba(255,255,255,.75);
+
+  font-size:10px;
+
+  flex-shrink:0;
+}
+
+@keyframes hockeyScroll{
+
+  from{
+    transform:
+      translateX(0);
+  }
+
+  to{
+    transform:
+      translateX(-50%);
+  }
 }
 
 
@@ -413,9 +856,7 @@ main{
 
 .new-books{
   display:flex;
-
   flex-direction:column;
-
   gap:14px;
 }
 
@@ -447,7 +888,6 @@ main{
 
 .book-cover{
   width:86px;
-
   flex-shrink:0;
 }
 
@@ -488,9 +928,7 @@ main{
 
 .pills{
   display:flex;
-
   flex-wrap:wrap;
-
   gap:5px;
 }
 
@@ -553,7 +991,6 @@ main{
 
 .series-title{
   font-size:18px;
-
   font-weight:800;
 }
 
@@ -595,25 +1032,19 @@ main{
 
 .series-book img{
   width:52px;
-
   height:78px;
-
   object-fit:cover;
-
   border-radius:8px;
 }
 
 .series-book-name{
   font-size:14px;
-
   font-weight:bold;
 }
 
 .series-book-number{
   margin-top:4px;
-
   color:#7890aa;
-
   font-size:10px;
 }
 
@@ -711,6 +1142,23 @@ nav{
   color:#5285c3;
 }
 
+
+/* ДЛЯ ЛЮДЕЙ, КОТОРЫЕ ОТКЛЮЧИЛИ АНИМАЦИИ */
+
+@media (
+  prefers-reduced-motion:
+  reduce
+){
+
+  .hockey-marquee-track{
+    animation:none;
+  }
+
+  .featured-cover{
+    transform:none;
+  }
+}
+
 </style>
 </head>
 
@@ -757,10 +1205,7 @@ href="https://tvorchestvolana-alt.github.io/nocturne-books/catalog.html"
 </a>
 
 
-<!--
-ПОКА ЧЕЛОВЕК НЕ НАЧАЛ ЧИТАТЬ,
-ЭТОТ БЛОК СКРЫТ
--->
+<!-- ПРОДОЛЖИТЬ ЧТЕНИЕ -->
 
 <div id="continueSection">
 
@@ -832,6 +1277,192 @@ href="#"
 </a>
 
 </div>
+
+</div>
+
+</div>
+
+
+<!-- ======================================
+СТОИТ ПРОЧИТАТЬ
+====================================== -->
+
+<div class="section-title">
+
+<h2>
+СТОИТ ПРОЧИТАТЬ
+</h2>
+
+<span></span>
+
+</div>
+
+
+<div class="featured-card">
+
+<div class="featured-blob pink"></div>
+<div class="featured-blob blue"></div>
+
+
+<div class="featured-art">
+
+<div class="hockey-stick left"></div>
+<div class="hockey-stick right"></div>
+
+<div class="puck one"></div>
+<div class="puck two"></div>
+<div class="puck three"></div>
+
+<div class="feature-star s1">
+✦
+</div>
+
+<div class="feature-star s2">
+✦
+</div>
+
+<div class="feature-star s3">
+✦
+</div>
+
+
+<div class="featured-cover">
+
+<img
+src="file_00000000751c724682f122426a67d42d.png"
+alt="Холодная малышка"
+>
+
+</div>
+
+</div>
+
+
+<div class="featured-content">
+
+<div class="featured-kicker">
+Бостонские Рыси · Книга #1
+</div>
+
+<div class="featured-title">
+Холодная малышка
+</div>
+
+<div class="featured-author">
+Карли Робин
+</div>
+
+
+<div class="featured-tags">
+
+<span class="featured-tag">
+🏒 Хоккейный роман
+</span>
+
+<span class="featured-tag">
+💙 Он влюбляется первым
+</span>
+
+</div>
+
+
+<a
+class="featured-button"
+href="https://tvorchestvolana-alt.github.io/nocturne-books/cold-baby.html"
+>
+ПОДРОБНЕЕ →
+</a>
+
+</div>
+
+</div>
+
+
+<!-- БЕГУЩАЯ ЛЕНТА -->
+
+<div class="hockey-marquee">
+
+<div class="hockey-marquee-track">
+
+
+<div class="hockey-marquee-group">
+
+<div class="hockey-marquee-item">
+HOCKEY ROMANCE
+</div>
+
+<div class="hockey-marquee-star">
+✦
+</div>
+
+<div class="hockey-marquee-item">
+HOCKEY ROMANCE
+</div>
+
+<div class="hockey-marquee-star">
+✦
+</div>
+
+<div class="hockey-marquee-item">
+HOCKEY ROMANCE
+</div>
+
+<div class="hockey-marquee-star">
+✦
+</div>
+
+<div class="hockey-marquee-item">
+HOCKEY ROMANCE
+</div>
+
+<div class="hockey-marquee-star">
+✦
+</div>
+
+</div>
+
+
+<!-- ДУБЛЬ ДЛЯ БЕСШОВНОГО ДВИЖЕНИЯ -->
+
+<div
+class="hockey-marquee-group"
+aria-hidden="true"
+>
+
+<div class="hockey-marquee-item">
+HOCKEY ROMANCE
+</div>
+
+<div class="hockey-marquee-star">
+✦
+</div>
+
+<div class="hockey-marquee-item">
+HOCKEY ROMANCE
+</div>
+
+<div class="hockey-marquee-star">
+✦
+</div>
+
+<div class="hockey-marquee-item">
+HOCKEY ROMANCE
+</div>
+
+<div class="hockey-marquee-star">
+✦
+</div>
+
+<div class="hockey-marquee-item">
+HOCKEY ROMANCE
+</div>
+
+<div class="hockey-marquee-star">
+✦
+</div>
+
+</div>
+
 
 </div>
 
@@ -1441,11 +2072,6 @@ function renderContinueReading(){
   );
 
 
-  /*
-  Если пользователь ещё не открывал
-  ни одну читалку — ничего не показываем.
-  */
-
   if(
     !lastBookId ||
     !BOOKS[lastBookId]
@@ -1460,12 +2086,6 @@ function renderContinueReading(){
   const book =
   BOOKS[lastBookId];
 
-
-  /*
-  Даже если somehow есть lastBook,
-  но позиция чтения отсутствует,
-  блок тоже не показываем.
-  */
 
   const position =
   localStorage.getItem(
@@ -1490,11 +2110,6 @@ function renderContinueReading(){
 renderContinueReading();
 
 
-/*
-При возвращении на главную из читалки
-перечитываем данные заново.
-*/
-
 window.addEventListener(
   "pageshow",
   ()=>{
@@ -1507,4 +2122,4 @@ window.addEventListener(
 </script>
 
 </body>
-  </html>
+</html>
