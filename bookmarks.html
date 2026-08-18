@@ -49,10 +49,8 @@ body::after{
 
 header{
   padding:26px 18px 16px;
-
   background:rgba(255,255,255,.74);
   backdrop-filter:blur(12px);
-
   border-bottom:1px solid rgba(221,225,235,.9);
 }
 
@@ -87,9 +85,7 @@ main{
 .quote-card{
   background:rgba(255,255,255,.92);
   backdrop-filter:blur(8px);
-
   border-radius:20px;
-
   padding:17px;
   margin-bottom:14px;
 
@@ -165,12 +161,10 @@ main{
     );
 
   color:white;
-
   text-decoration:none;
   text-align:center;
 
   padding:11px;
-
   border-radius:11px;
 
   font-size:11px;
@@ -187,7 +181,6 @@ main{
 
 nav{
   position:fixed;
-
   left:0;
   right:0;
   bottom:0;
@@ -240,9 +233,7 @@ nav{
 
 <header>
 
-<h1>
-Цитаты
-</h1>
+<h1>Цитаты</h1>
 
 <div class="subtitle">
 Сохранённые фрагменты из книг
@@ -252,10 +243,7 @@ nav{
 
 <main>
 
-<div
-class="empty"
-id="empty"
->
+<div class="empty" id="empty">
 Пока нет сохранённых цитат.<br><br>
 Выдели текст в читалке и нажми «Сохранить цитату».
 </div>
@@ -266,42 +254,32 @@ id="empty"
 
 <nav>
 
-<a
-class="nav-item"
-href="https://tvorchestvolana-alt.github.io/nocturne-books/index.html"
->
+<a class="nav-item"
+href="https://tvorchestvolana-alt.github.io/nocturne-books/index.html">
 <span class="nav-icon">⌂</span>
 Главная
 </a>
 
-<a
-class="nav-item"
-href="https://tvorchestvolana-alt.github.io/nocturne-books/catalog.html"
->
+<a class="nav-item"
+href="https://tvorchestvolana-alt.github.io/nocturne-books/catalog.html">
 <span class="nav-icon">⌕</span>
 Каталог
 </a>
 
-<a
-class="nav-item"
-href="https://tvorchestvolana-alt.github.io/nocturne-books/library.html"
->
+<a class="nav-item"
+href="https://tvorchestvolana-alt.github.io/nocturne-books/library.html">
 <span class="nav-icon">♡</span>
 Библиотека
 </a>
 
-<a
-class="nav-item active"
-href="https://tvorchestvolana-alt.github.io/nocturne-books/bookmarks.html"
->
+<a class="nav-item active"
+href="https://tvorchestvolana-alt.github.io/nocturne-books/bookmarks.html">
 <span class="nav-icon">❝</span>
 Цитаты
 </a>
 
-<a
-class="nav-item"
-href="https://tvorchestvolana-alt.github.io/nocturne-books/profile.html"
->
+<a class="nav-item"
+href="https://tvorchestvolana-alt.github.io/nocturne-books/profile.html">
 <span class="nav-icon">♙</span>
 Профиль
 </a>
@@ -313,12 +291,8 @@ href="https://tvorchestvolana-alt.github.io/nocturne-books/profile.html"
 const BOOKS = {
 
   "cold-baby":{
-
-    title:
-    "Холодная малышка",
-
-    author:
-    "Карли Робин",
+    title:"Холодная малышка",
+    author:"Карли Робин",
 
     cover:
     "file_00000000751c724682f122426a67d42d.png",
@@ -330,13 +304,10 @@ const BOOKS = {
     "https://tvorchestvolana-alt.github.io/nocturne-books/reader.html"
   },
 
+
   "fire-and-ice":{
-
-    title:
-    "Огонь и лёд",
-
-    author:
-    "Карли Робин",
+    title:"Огонь и лёд",
+    author:"Карли Робин",
 
     cover:
     "file_00000000b06c72468c564d5370a34844.png",
@@ -346,21 +317,32 @@ const BOOKS = {
 
     reader:
     "https://tvorchestvolana-alt.github.io/nocturne-books/reader-fire-and-ice.html"
+  },
+
+
+  "say-im-wrong":{
+    title:"Скажи, что я ошибаюсь",
+    author:"Оден Хантер",
+
+    cover:
+    "file_00000000c9647243901fea32c2b541fb.png",
+
+    quotesKey:
+    "nocturne-say-im-wrong-quotes",
+
+    reader:
+    "https://tvorchestvolana-alt.github.io/nocturne-books/reader-say-im-wrong.html"
   }
 
 };
 
 
-function getQuotes(
-key
-){
+function getQuotes(key){
 
   try{
 
     return JSON.parse(
-      localStorage.getItem(
-        key
-      )
+      localStorage.getItem(key)
     ) || [];
 
   }catch(e){
@@ -371,24 +353,21 @@ key
 
 
 function saveQuotes(
-key,
-quotes
+  key,
+  quotes
 ){
 
   localStorage.setItem(
     key,
-    JSON.stringify(
-      quotes
-    )
+    JSON.stringify(quotes)
   );
 }
 
 
-function escapeHTML(
-text
-){
+function escapeHTML(text){
 
   return String(text)
+
   .replace(/&/g,"&amp;")
   .replace(/</g,"&lt;")
   .replace(/>/g,"&gt;")
@@ -400,9 +379,8 @@ function getAllQuotes(){
 
   const all = [];
 
-  Object.entries(
-    BOOKS
-  )
+
+  Object.entries(BOOKS)
   .forEach(
   ([bookId,book])=>{
 
@@ -411,6 +389,7 @@ function getAllQuotes(){
       book.quotesKey
     );
 
+
     quotes.forEach(
     quote=>{
 
@@ -418,20 +397,15 @@ function getAllQuotes(){
 
         ...quote,
 
-        bookId:
-        bookId,
+        bookId:bookId,
 
-        title:
-        book.title,
+        title:book.title,
 
-        author:
-        book.author,
+        author:book.author,
 
-        cover:
-        book.cover,
+        cover:book.cover,
 
-        reader:
-        book.reader
+        reader:book.reader
 
       });
 
@@ -439,13 +413,6 @@ function getAllQuotes(){
 
   });
 
-
-  /*
-  Новые цитаты сверху.
-  ID у нас сделан через Date.now(),
-  поэтому можно использовать его
-  как дату создания.
-  */
 
   all.sort(
     (a,b)=>
@@ -463,10 +430,12 @@ function render(){
   const quotes =
   getAllQuotes();
 
+
   const container =
   document.getElementById(
     "quotes"
   );
+
 
   const empty =
   document.getElementById(
@@ -478,9 +447,7 @@ function render(){
   "";
 
 
-  if(
-    quotes.length === 0
-  ){
+  if(quotes.length === 0){
 
     empty.style.display =
     "block";
@@ -500,6 +467,7 @@ function render(){
     document.createElement(
       "div"
     );
+
 
     card.className =
     "quote-card";
@@ -547,13 +515,16 @@ ${escapeHTML(quote.author)}
 
 </div>
 
+
 <div class="quote">
 «${safeText}»
 </div>
 
+
 <div class="meta">
 ${progress}% книги
 </div>
+
 
 <div class="actions">
 
@@ -576,6 +547,7 @@ data-id="${quote.id}"
 
 `;
 
+
     container.appendChild(
       card
     );
@@ -597,6 +569,7 @@ data-id="${quote.id}"
       const bookId =
       button.dataset.book;
 
+
       const id =
       String(
         button.dataset.id
@@ -604,9 +577,7 @@ data-id="${quote.id}"
 
 
       const book =
-      BOOKS[
-        bookId
-      ];
+      BOOKS[bookId];
 
 
       if(!book){
@@ -620,9 +591,7 @@ data-id="${quote.id}"
       )
       .filter(
         quote =>
-        String(
-          quote.id
-        ) !== id
+        String(quote.id) !== id
       );
 
 
@@ -645,8 +614,8 @@ render();
 
 
 window.addEventListener(
-"pageshow",
-render
+  "pageshow",
+  render
 );
 
 </script>
