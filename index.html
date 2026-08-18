@@ -810,6 +810,193 @@ main{
 }
 
 
+/* АНОНСЫ */
+
+.announcements{
+  display:flex;
+  flex-direction:column;
+  gap:14px;
+}
+
+.announcement-card{
+  position:relative;
+
+  display:flex;
+  align-items:stretch;
+  gap:14px;
+
+  padding:16px;
+
+  overflow:hidden;
+
+  border-radius:22px;
+
+  background:
+    linear-gradient(
+      135deg,
+      rgba(255,255,255,.96),
+      rgba(251,238,245,.94) 48%,
+      rgba(235,244,253,.96)
+    );
+
+  box-shadow:
+    0 10px 28px rgba(39,73,110,.07),
+    0 4px 18px rgba(220,159,188,.07);
+}
+
+.announcement-card::before{
+  content:"✦";
+
+  position:absolute;
+  left:16px;
+  bottom:12px;
+
+  font-size:18px;
+
+  color:rgba(208,146,177,.22);
+
+  pointer-events:none;
+}
+
+.announcement-info{
+  flex:1;
+  min-width:0;
+
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+}
+
+.announcement-badge{
+  display:inline-block;
+
+  width:max-content;
+
+  margin-bottom:9px;
+
+  padding:6px 10px;
+
+  border-radius:14px;
+
+  background:
+    linear-gradient(
+      135deg,
+      #d690b2,
+      #77a2d1
+    );
+
+  color:white;
+
+  font-size:9px;
+  font-weight:800;
+
+  letter-spacing:1px;
+}
+
+.announcement-title{
+  margin:0 0 5px;
+
+  font-size:18px;
+
+  line-height:1.15;
+
+  color:#27496f;
+}
+
+.announcement-author{
+  margin-bottom:8px;
+
+  font-size:12px;
+
+  color:#8394a8;
+}
+
+.announcement-series{
+  margin-bottom:10px;
+
+  font-size:10px;
+
+  color:#6f89a5;
+}
+
+.announcement-tags{
+  display:flex;
+
+  flex-wrap:wrap;
+
+  gap:5px;
+
+  margin-bottom:11px;
+}
+
+.announcement-tag{
+  padding:5px 8px;
+
+  border-radius:13px;
+
+  background:
+    linear-gradient(
+      135deg,
+      #edf4fb,
+      #f9eaf1
+    );
+
+  color:#52779e;
+
+  font-size:9px;
+}
+
+.announcement-date{
+  display:inline-flex;
+
+  align-items:center;
+
+  gap:6px;
+
+  width:max-content;
+
+  padding:7px 9px;
+
+  border-radius:13px;
+
+  background:
+    rgba(255,255,255,.74);
+
+  color:#5f7d9c;
+
+  font-size:10px;
+  font-weight:bold;
+}
+
+.announcement-cover{
+  width:112px;
+
+  flex-shrink:0;
+
+  display:flex;
+
+  align-items:center;
+
+  justify-content:center;
+}
+
+.announcement-cover img{
+  width:100%;
+
+  aspect-ratio:2/3;
+
+  object-fit:cover;
+
+  display:block;
+
+  border-radius:14px;
+
+  box-shadow:
+    0 10px 22px
+    rgba(43,73,108,.17);
+}
+
+
 /* СЕРИИ */
 
 .series-card{
@@ -980,6 +1167,28 @@ nav{
   color:#5285c3;
 }
 
+
+@media(max-width:420px){
+
+  .announcement-card{
+    gap:12px;
+    padding:14px;
+  }
+
+  .announcement-cover{
+    width:105px;
+  }
+
+  .announcement-title{
+    font-size:17px;
+  }
+
+  .announcement-tag{
+    font-size:8px;
+  }
+}
+
+
 @media (
   prefers-reduced-motion:
   reduce
@@ -1041,6 +1250,8 @@ href="https://tvorchestvolana-alt.github.io/nocturne-books/catalog.html"
 🔍 Найти книгу, автора, серию или троп...
 </a>
 
+
+<!-- ПРОДОЛЖИТЬ ЧТЕНИЕ -->
 
 <div id="continueSection">
 
@@ -1118,6 +1329,8 @@ href="#"
 </div>
 
 
+<!-- СТОИТ ПРОЧИТАТЬ -->
+
 <div class="section-title">
 
 <h2>
@@ -1132,15 +1345,20 @@ href="#"
 <div class="featured-card">
 
 <div class="featured-blob pink"></div>
+
 <div class="featured-blob blue"></div>
+
 
 <div class="featured-art">
 
 <div class="hockey-stick left"></div>
+
 <div class="hockey-stick right"></div>
 
 <div class="puck one"></div>
+
 <div class="puck two"></div>
+
 <div class="puck three"></div>
 
 <div class="feature-star s1">
@@ -1208,9 +1426,12 @@ href="https://tvorchestvolana-alt.github.io/nocturne-books/cold-baby.html"
 </div>
 
 
+<!-- БЕГУЩАЯ ЛЕНТА -->
+
 <div class="hockey-marquee">
 
 <div class="hockey-marquee-track">
+
 
 <div class="hockey-marquee-group">
 
@@ -1288,10 +1509,13 @@ HOCKEY ROMANCE
 
 </div>
 
-</div>
 
 </div>
 
+</div>
+
+
+<!-- НОВИНКИ -->
 
 <div class="section-title">
 
@@ -1351,8 +1575,96 @@ alt="Перемены на лету"
 
 </a>
 
+</div>
+
+
+<!-- АНОНСЫ -->
+
+<div class="section-title">
+
+<h2>
+АНОНСЫ
+</h2>
+
+<span></span>
+
+</div>
+
+
+<div class="announcements">
+
+<div class="announcement-card">
+
+
+<div class="announcement-info">
+
+<div class="announcement-badge">
+✦ СКОРО
+</div>
+
+<h3 class="announcement-title">
+Игристые проблемы
+</h3>
+
+<div class="announcement-author">
+Ханна Грейс
+</div>
+
+<div class="announcement-series">
+В паддоке · Книга #1
+</div>
+
+
+<div class="announcement-tags">
+
+<span class="announcement-tag">
+🏢 Служебный роман
+</span>
+
+<span class="announcement-tag">
+🔄 Второй шанс
+</span>
+
+<span class="announcement-tag">
+💋 Без обязательств
+</span>
+
+<span class="announcement-tag">
+🏎️ Формула-1
+</span>
+
+<span class="announcement-tag">
+🏠 Вынужденная близость
+</span>
+
+<span class="announcement-tag">
+💗 Он влюбляется первым
+</span>
+
+</div>
+
+
+<div class="announcement-date">
+📅 РЕЛИЗ: ФЕВРАЛЬ 2027
+</div>
+
+</div>
+
+
+<div class="announcement-cover">
+
+<img
+src="file_00000000f540720a929bdd2496421ab8.png"
+alt="Игристые проблемы — Ханна Грейс"
+>
+
+</div>
+
+
+</div>
+
   </div>
-  <!-- СЕРИИ -->
+ <!-- СЕРИИ -->
 
 <div class="section-title">
 
@@ -1498,6 +1810,7 @@ href="https://tvorchestvolana-alt.github.io/nocturne-books/catalog.html"
 
 <div class="series-books">
 
+
 <div class="series-book">
 
 <img
@@ -1540,6 +1853,7 @@ alt="Огонь и лёд"
 </div>
 
 </div>
+
 
 </div>
 
@@ -1606,7 +1920,10 @@ href="https://tvorchestvolana-alt.github.io/nocturne-books/catalog.html"
 Смотреть весь каталог →
 </a>
 
+
 </main>
+
+
 <!-- НИЖНЕЕ МЕНЮ -->
 
 <nav>
@@ -1619,6 +1936,7 @@ href="https://tvorchestvolana-alt.github.io/nocturne-books/index.html"
 Главная
 </a>
 
+
 <a
 class="nav-item"
 href="https://tvorchestvolana-alt.github.io/nocturne-books/catalog.html"
@@ -1626,6 +1944,7 @@ href="https://tvorchestvolana-alt.github.io/nocturne-books/catalog.html"
 <span class="nav-icon">⌕</span>
 Каталог
 </a>
+
 
 <a
 class="nav-item"
@@ -1635,6 +1954,7 @@ href="https://tvorchestvolana-alt.github.io/nocturne-books/library.html"
 Библиотека
 </a>
 
+
 <a
 class="nav-item"
 href="https://tvorchestvolana-alt.github.io/nocturne-books/bookmarks.html"
@@ -1642,6 +1962,7 @@ href="https://tvorchestvolana-alt.github.io/nocturne-books/bookmarks.html"
 <span class="nav-icon">❝</span>
 Цитаты
 </a>
+
 
 <a
 class="nav-item"
@@ -1655,6 +1976,7 @@ href="https://tvorchestvolana-alt.github.io/nocturne-books/profile.html"
 
 
 <script>
+
 
 const BOOKS = {
 
@@ -1688,6 +2010,7 @@ const BOOKS = {
       "🏒 Хоккей",
       "💙 Он влюбляется первым"
     ]
+
   },
 
 
@@ -1720,6 +2043,7 @@ const BOOKS = {
       "🏒 Хоккей",
       "🎭 Фальшивые отношения"
     ]
+
   },
 
 
@@ -1752,6 +2076,7 @@ const BOOKS = {
       "🎓 Студенческий роман",
       "🔥 От неприязни до любви"
     ]
+
   },
 
 
@@ -1784,6 +2109,7 @@ const BOOKS = {
       "🏒 Спортивный роман",
       "💜 Хоккеист & фигуристка"
     ]
+
   },
 
 
@@ -1814,15 +2140,15 @@ const BOOKS = {
 
     tropes:[
       "🏒 Хоккейный роман",
-      "👨‍👦 Отец-одиночка",
-      "💕 От друзей к влюблённым"
+      "👨‍👦 Отец-одиночка"
     ]
+
   }
 
 };
 
 
-/* СКРЫВАЕМ БЛОК ПРОДОЛЖЕНИЯ */
+/* СКРЫВАЕМ БЛОК ПРОДОЛЖЕНИЯ ЧТЕНИЯ */
 
 function hideContinueReading(){
 
@@ -1832,6 +2158,7 @@ function hideContinueReading(){
   )
   .style.display =
   "none";
+
 }
 
 
@@ -1973,7 +2300,7 @@ function showContinueReading(
 }
 
 
-/* ОПРЕДЕЛЯЕМ ПОСЛЕДНЮЮ КНИГУ */
+/* ОПРЕДЕЛЯЕМ ПОСЛЕДНЮЮ ОТКРЫТУЮ КНИГУ */
 
 function renderContinueReading(){
 
@@ -1983,11 +2310,6 @@ function renderContinueReading(){
   );
 
 
-  /*
-  Если пользователь ещё вообще
-  ничего не читал — блок скрыт.
-  */
-
   if(
     !lastBookId ||
     !BOOKS[lastBookId]
@@ -1996,6 +2318,7 @@ function renderContinueReading(){
     hideContinueReading();
 
     return;
+
   }
 
 
@@ -2003,28 +2326,18 @@ function renderContinueReading(){
   BOOKS[lastBookId];
 
 
-  /*
-  Проверяем, существует ли
-  сохранённая позиция чтения.
-  */
-
   const position =
   localStorage.getItem(
     book.positionKey
   );
 
 
-  /*
-  Если книгу просто открыли,
-  но чтение ещё не началось,
-  блок не показываем.
-  */
-
   if(!position){
 
     hideContinueReading();
 
     return;
+
   }
 
 
@@ -2035,14 +2348,14 @@ function renderContinueReading(){
 }
 
 
-/* ПЕРВАЯ ЗАГРУЗКА */
+/* ПЕРВЫЙ ЗАПУСК */
 
 renderContinueReading();
 
 
 /*
 ПРИ ВОЗВРАЩЕНИИ ИЗ ЧИТАЛКИ
-ОБНОВЛЯЕМ ДАННЫЕ
+ОБНОВЛЯЕМ БЛОК
 */
 
 window.addEventListener(
@@ -2054,7 +2367,8 @@ window.addEventListener(
   }
 );
 
+
 </script>
 
 </body>
-</html>
+</html> 
