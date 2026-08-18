@@ -1,0 +1,809 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+
+<title>Огонь и лёд — NOCTURNE BOOKS</title>
+
+<style>
+
+*{
+  box-sizing:border-box;
+}
+
+body{
+  margin:0;
+  font-family:Arial,sans-serif;
+  color:#173052;
+  padding-bottom:110px;
+
+  background:
+    radial-gradient(
+      circle at 5% 12%,
+      rgba(244,190,211,.38),
+      transparent 25%
+    ),
+    radial-gradient(
+      circle at 95% 30%,
+      rgba(187,211,238,.26),
+      transparent 27%
+    ),
+    radial-gradient(
+      circle at 10% 65%,
+      rgba(247,202,220,.30),
+      transparent 29%
+    ),
+    radial-gradient(
+      circle at 90% 85%,
+      rgba(222,197,226,.25),
+      transparent 27%
+    ),
+    linear-gradient(
+      180deg,
+      #fffafd,
+      #fbf5f9 45%,
+      #f4f8fc
+    );
+
+  background-attachment:fixed;
+}
+
+/* ДЕКОР */
+
+body::before{
+  content:"✦";
+  position:fixed;
+  top:200px;
+  left:12px;
+  font-size:20px;
+  color:rgba(207,145,174,.18);
+  pointer-events:none;
+}
+
+body::after{
+  content:"☾";
+  position:fixed;
+  top:520px;
+  right:13px;
+  font-size:27px;
+  color:rgba(111,155,208,.15);
+  pointer-events:none;
+}
+
+/* ШАПКА */
+
+header{
+  height:64px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:0 18px;
+
+  background:rgba(255,255,255,.78);
+  backdrop-filter:blur(12px);
+
+  border-bottom:1px solid #e1e9f2;
+
+  position:sticky;
+  top:0;
+  z-index:20;
+}
+
+.back{
+  font-size:28px;
+  color:#31577f;
+  text-decoration:none;
+}
+
+.header-title{
+  font-weight:700;
+  font-size:15px;
+}
+
+.menu{
+  font-size:24px;
+  color:#31577f;
+}
+
+/* ОСНОВА */
+
+main{
+  max-width:700px;
+  margin:auto;
+  padding:24px 18px;
+}
+
+.hero{
+  text-align:center;
+}
+
+/* ОБЛОЖКА */
+
+.cover{
+  width:190px;
+  max-width:60%;
+  border-radius:18px;
+
+  box-shadow:
+    0 12px 28px rgba(43,73,108,.17),
+    0 5px 18px rgba(218,156,185,.10);
+
+  display:block;
+  margin:0 auto 22px;
+}
+
+/* СЕРИЯ */
+
+.series{
+  display:inline-block;
+
+  background:
+    linear-gradient(
+      135deg,
+      #eaf2fb,
+      #f9eaf1
+    );
+
+  color:#52779e;
+
+  border-radius:20px;
+  padding:7px 12px;
+
+  font-size:12px;
+  margin-bottom:12px;
+}
+
+/* НАЗВАНИЕ */
+
+h1{
+  font-size:28px;
+  line-height:1.15;
+  margin:4px 0 6px;
+}
+
+.author{
+  font-size:16px;
+  color:#758aa4;
+  margin-bottom:18px;
+}
+
+/* СТАТУС */
+
+.status{
+  display:flex;
+  justify-content:center;
+  flex-wrap:wrap;
+  gap:8px;
+  margin-bottom:22px;
+}
+
+.status span{
+  background:rgba(255,255,255,.88);
+
+  border:1px solid #dfe7f1;
+
+  padding:7px 10px;
+  border-radius:15px;
+
+  font-size:11px;
+  color:#56728f;
+}
+
+/* КНОПКИ */
+
+.read{
+  display:block;
+  width:100%;
+
+  background:
+    linear-gradient(
+      135deg,
+      #6f9bd0,
+      #83a8d2
+    );
+
+  color:white;
+
+  padding:15px;
+  border-radius:15px;
+
+  font-weight:bold;
+  font-size:15px;
+
+  text-decoration:none;
+  text-align:center;
+
+  margin-bottom:10px;
+
+  box-shadow:
+    0 5px 14px rgba(91,137,190,.16);
+}
+
+.download{
+  display:block;
+  width:100%;
+
+  border:1px solid #aac2dc;
+
+  background:rgba(255,255,255,.88);
+
+  color:#5279a4;
+
+  padding:14px;
+  border-radius:15px;
+
+  font-weight:bold;
+  font-size:14px;
+
+  text-decoration:none;
+  text-align:center;
+
+  margin-bottom:10px;
+}
+
+.library{
+  display:block;
+  width:100%;
+
+  border:1px solid #aac2dc;
+
+  background:rgba(255,255,255,.88);
+
+  color:#5279a4;
+
+  padding:14px;
+  border-radius:15px;
+
+  font-weight:bold;
+  font-size:14px;
+
+  text-align:center;
+
+  cursor:pointer;
+}
+
+.library.active{
+  background:
+    linear-gradient(
+      135deg,
+      #edf4fb,
+      #f8eaf1
+    );
+
+  border-color:#6f9bd0;
+  color:#31577f;
+}
+
+/* СЕКЦИИ */
+
+.section{
+  background:rgba(255,255,255,.92);
+  backdrop-filter:blur(8px);
+
+  border-radius:20px;
+
+  padding:18px;
+  margin-top:18px;
+
+  box-shadow:
+    0 7px 20px rgba(38,69,105,.05),
+    0 4px 16px rgba(218,157,185,.05);
+}
+
+.section h2{
+  margin:0 0 14px;
+  font-size:15px;
+  letter-spacing:.3px;
+}
+
+.annotation{
+  font-size:14px;
+  line-height:1.65;
+  color:#31465f;
+  white-space:pre-line;
+}
+
+/* ТРОПЫ */
+
+.tropes{
+  display:flex;
+  flex-wrap:wrap;
+  gap:8px;
+}
+
+.trope{
+  background:
+    linear-gradient(
+      135deg,
+      #edf4fb,
+      #faebf2
+    );
+
+  color:#52779e;
+
+  border-radius:18px;
+  padding:8px 11px;
+
+  font-size:12px;
+}
+
+/* БЛОК СЕРИИ */
+
+.series-list{
+  display:flex;
+  flex-direction:column;
+  gap:14px;
+}
+
+.series-card{
+  display:flex;
+  gap:14px;
+  align-items:center;
+
+  text-decoration:none;
+  color:inherit;
+
+  padding:10px;
+  border-radius:15px;
+}
+
+.series-card.link{
+  background:
+    linear-gradient(
+      135deg,
+      rgba(237,244,251,.72),
+      rgba(249,236,243,.72)
+    );
+}
+
+.series-card.current-book{
+  background:
+    linear-gradient(
+      135deg,
+      rgba(231,241,252,.95),
+      rgba(249,229,239,.92)
+    );
+
+  border:1px solid rgba(191,210,232,.7);
+}
+
+.series-cover{
+  width:65px;
+  height:98px;
+
+  border-radius:10px;
+  object-fit:cover;
+
+  flex-shrink:0;
+}
+
+.series-info{
+  flex:1;
+}
+
+.series-number{
+  font-size:11px;
+  color:#7390ae;
+  margin-bottom:3px;
+}
+
+.series-name{
+  font-weight:bold;
+  margin-bottom:4px;
+}
+
+.current{
+  font-size:11px;
+  color:#6f9bd0;
+}
+
+.open-book{
+  font-size:11px;
+  color:#7390ae;
+}
+
+/* НИЖНЕЕ МЕНЮ */
+
+nav{
+  position:fixed;
+  left:0;
+  right:0;
+  bottom:0;
+
+  display:flex;
+  justify-content:space-around;
+
+  background:rgba(255,255,255,.95);
+  backdrop-filter:blur(12px);
+
+  border-top:1px solid #e0e8f1;
+
+  padding:
+    9px
+    3px
+    calc(13px + env(safe-area-inset-bottom));
+
+  z-index:999999;
+}
+
+.nav-item{
+  width:20%;
+  min-height:54px;
+
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+
+  text-decoration:none;
+  text-align:center;
+
+  color:#8ca0b8;
+  font-size:10px;
+}
+
+.nav-icon{
+  display:block;
+  font-size:21px;
+  margin-bottom:4px;
+}
+
+</style>
+</head>
+
+<body>
+
+<header>
+
+<a
+class="back"
+href="https://tvorchestvolana-alt.github.io/nocturne-books/catalog.html"
+>
+←
+</a>
+
+<div class="header-title">
+NOCTURNE BOOKS
+</div>
+
+<div class="menu">
+⋯
+</div>
+
+</header>
+
+
+<main>
+
+<div class="hero">
+
+<img
+class="cover"
+src="file_00000000b06c72468c564d5370a34844.png"
+alt="Огонь и лёд — Карли Робин"
+>
+
+<div class="series">
+Бостонские Рыси · Книга #2
+</div>
+
+<h1>
+Огонь и лёд
+</h1>
+
+<div class="author">
+Карли Робин
+</div>
+
+
+<div class="status">
+
+<span>
+🏒 Хоккейный роман
+</span>
+
+<span>
+📖 EPUB
+</span>
+
+<span>
+№2 в серии
+</span>
+
+</div>
+
+
+<a
+class="read"
+href="https://tvorchestvolana-alt.github.io/nocturne-books/reader-fire-and-ice.html"
+>
+📖 ЧИТАТЬ
+</a>
+
+
+<a
+class="download"
+href="https://tvorchestvolana-alt.github.io/nocturne-books/%D0%9E%D0%B3%D0%BE%D0%BD%D1%8C%20%D0%B8%20%D0%BB%D1%91%D0%B4.epub"
+download="Огонь и лёд — Карли Робин.epub"
+>
+⬇️ СКАЧАТЬ EPUB
+</a>
+
+
+<button
+class="library"
+id="libraryButton"
+>
+♡ ДОБАВИТЬ В БИБЛИОТЕКУ
+</button>
+
+</div>
+
+
+<div class="section">
+
+<h2>
+АННОТАЦИЯ
+</h2>
+
+<div class="annotation">Одна фальшивая интрижка, восхитительная искра страсти и рецепт, который определенно приведет к хаосу.
+
+Кеннеди Каплан печет лучшие торты в городе, но, чтобы вывести бизнес на новый уровень, одного упорства и сливочного масла мало. Она твердо намерена воплотить свои мечты в жизнь, пусть даже все обстоятельства — и баланс на банковском счете — против нее.
+
+Кэмерон Дэвис, вратарь НХЛ и главный ворчун команды, довел искусство отгораживаться от мира до совершенства. Его вполне устраивает узкий круг общения, пока привычная жизнь не катится к чертям: в город возвращается токсичная бывшая, одноклубники изводят гиперопекой, а внимание прессы становится невыносимым.
+
+Его план выглядит безумным, но вполне рабочим: разыграть роман с Кеннеди — подругой сестры и по совместительству единственной девушкой, которую он никак не может выбросить из головы. Эта сделка обеспечит ее кондитерской необходимые финансовые вложения, а Кэмерону подарит надежный щит от притязаний бывшей и назойливых вопросов команды.
+
+Только вот соглашение, начавшееся как чистый расчет, стремительно перерастает в полуночные звонки и искры, которые невозможно отрицать. И чем глубже они погружаются в лживую игру, тем острее встает вопрос, которого оба так тщательно избегали: что, если все это уже по-настоящему?</div>
+
+</div>
+
+
+<div class="section">
+
+<h2>
+ТРОПЫ
+</h2>
+
+<div class="tropes">
+
+<span class="trope">
+🏒 Хоккейный роман
+</span>
+
+<span class="trope">
+😘 Игрок НХЛ & владелица пекарни
+</span>
+
+<span class="trope">
+😘 От незнакомцев к влюбленным
+</span>
+
+<span class="trope">
+😘 Он влюбляется первым
+</span>
+
+<span class="trope">
+😘 Ворчун & солнышко
+</span>
+
+<span class="trope">
+😘 Фальшивые отношения
+</span>
+
+<span class="trope">
+😘 Вынужденная близость
+</span>
+
+<span class="trope">
+😘 Противоположности притягиваются
+</span>
+
+<span class="trope">
+😘 Медленное развитие отношений
+</span>
+
+</div>
+
+</div>
+
+
+<div class="section">
+
+<h2>
+СЕРИЯ «БОСТОНСКИЕ РЫСИ»
+</h2>
+
+<div class="series-list">
+
+
+<a
+class="series-card link"
+href="https://tvorchestvolana-alt.github.io/nocturne-books/cold-baby.html"
+>
+
+<img
+class="series-cover"
+src="file_00000000751c724682f122426a67d42d.png"
+alt="Холодная малышка"
+>
+
+<div class="series-info">
+
+<div class="series-number">
+КНИГА #1
+</div>
+
+<div class="series-name">
+Холодная малышка
+</div>
+
+<div class="open-book">
+Перейти к книге →
+</div>
+
+</div>
+
+</a>
+
+
+<div class="series-card current-book">
+
+<img
+class="series-cover"
+src="file_00000000b06c72468c564d5370a34844.png"
+alt="Огонь и лёд"
+>
+
+<div class="series-info">
+
+<div class="series-number">
+КНИГА #2
+</div>
+
+<div class="series-name">
+Огонь и лёд
+</div>
+
+<div class="current">
+Вы здесь
+</div>
+
+</div>
+
+</div>
+
+
+</div>
+
+</div>
+
+</main>
+
+
+<nav>
+
+<a
+class="nav-item"
+href="https://tvorchestvolana-alt.github.io/nocturne-books/index.html"
+>
+<span class="nav-icon">⌂</span>
+Главная
+</a>
+
+<a
+class="nav-item"
+href="https://tvorchestvolana-alt.github.io/nocturne-books/catalog.html"
+>
+<span class="nav-icon">⌕</span>
+Каталог
+</a>
+
+<a
+class="nav-item"
+href="https://tvorchestvolana-alt.github.io/nocturne-books/library.html"
+>
+<span class="nav-icon">♡</span>
+Библиотека
+</a>
+
+<a
+class="nav-item"
+href="https://tvorchestvolana-alt.github.io/nocturne-books/bookmarks.html"
+>
+<span class="nav-icon">❝</span>
+Цитаты
+</a>
+
+<a
+class="nav-item"
+href="https://tvorchestvolana-alt.github.io/nocturne-books/profile.html"
+>
+<span class="nav-icon">♙</span>
+Профиль
+</a>
+
+</nav>
+
+
+<script>
+
+/*
+ВАЖНО:
+у второй книги СВОЙ ключ библиотеки.
+Он не связан с ключом "Холодной малышки".
+*/
+
+const LIBRARY_KEY =
+"nocturne-fire-and-ice-library";
+
+const libraryButton =
+document.getElementById(
+"libraryButton"
+);
+
+
+function updateLibraryButton(){
+
+  const inLibrary =
+  localStorage.getItem(
+    LIBRARY_KEY
+  );
+
+  if(inLibrary === "yes"){
+
+    libraryButton.textContent =
+    "✓ В БИБЛИОТЕКЕ";
+
+    libraryButton
+    .classList
+    .add("active");
+
+  }else{
+
+    libraryButton.textContent =
+    "♡ ДОБАВИТЬ В БИБЛИОТЕКУ";
+
+    libraryButton
+    .classList
+    .remove("active");
+  }
+}
+
+
+libraryButton
+.addEventListener(
+"click",
+()=>{
+
+  const inLibrary =
+  localStorage.getItem(
+    LIBRARY_KEY
+  );
+
+  if(inLibrary === "yes"){
+
+    localStorage.removeItem(
+      LIBRARY_KEY
+    );
+
+  }else{
+
+    localStorage.setItem(
+      LIBRARY_KEY,
+      "yes"
+    );
+  }
+
+  updateLibraryButton();
+
+});
+
+
+updateLibraryButton();
+
+</script>
+
+</body>
+  </html>
