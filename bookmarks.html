@@ -7,7 +7,9 @@
 <title>Цитаты — NOCTURNE BOOKS</title>
 
 <style>
-*{box-sizing:border-box}
+*{
+  box-sizing:border-box;
+}
 
 body{
   margin:0;
@@ -47,8 +49,10 @@ body::after{
 
 header{
   padding:26px 18px 16px;
+
   background:rgba(255,255,255,.74);
   backdrop-filter:blur(12px);
+
   border-bottom:1px solid rgba(221,225,235,.9);
 }
 
@@ -77,14 +81,18 @@ main{
   padding:40px 20px;
   text-align:center;
   color:#7b8fa7;
+  box-shadow:0 7px 20px rgba(39,73,110,.06);
 }
 
 .quote-card{
   background:rgba(255,255,255,.92);
   backdrop-filter:blur(8px);
+
   border-radius:20px;
+
   padding:17px;
   margin-bottom:14px;
+
   box-shadow:
     0 8px 22px rgba(39,73,110,.07),
     0 4px 16px rgba(218,157,185,.06);
@@ -120,12 +128,16 @@ main{
   font-size:15px;
   line-height:1.6;
   color:#31465f;
+
   padding:14px;
-  background:linear-gradient(
-    135deg,
-    rgba(239,246,253,.95),
-    rgba(251,238,245,.92)
-  );
+
+  background:
+    linear-gradient(
+      135deg,
+      rgba(239,246,253,.95),
+      rgba(251,238,245,.92)
+    );
+
   border-radius:14px;
 }
 
@@ -144,12 +156,23 @@ main{
 .open{
   flex:1;
   display:block;
-  background:linear-gradient(135deg,#709bd0,#83a8d2);
+
+  background:
+    linear-gradient(
+      135deg,
+      #709bd0,
+      #83a8d2
+    );
+
   color:white;
+
   text-decoration:none;
   text-align:center;
+
   padding:11px;
+
   border-radius:11px;
+
   font-size:11px;
   font-weight:bold;
 }
@@ -164,27 +187,39 @@ main{
 
 nav{
   position:fixed;
+
   left:0;
   right:0;
   bottom:0;
+
   display:flex;
   justify-content:space-around;
+
   background:rgba(255,255,255,.95);
   backdrop-filter:blur(12px);
+
   border-top:1px solid #e0e8f1;
-  padding:9px 3px calc(13px + env(safe-area-inset-bottom));
+
+  padding:
+    9px
+    3px
+    calc(13px + env(safe-area-inset-bottom));
+
   z-index:999999;
 }
 
 .nav-item{
   width:20%;
   min-height:54px;
+
   display:flex;
   flex-direction:column;
   align-items:center;
   justify-content:center;
+
   text-decoration:none;
   text-align:center;
+
   color:#8ca0b8;
   font-size:10px;
 }
@@ -205,7 +240,9 @@ nav{
 
 <header>
 
-<h1>Цитаты</h1>
+<h1>
+Цитаты
+</h1>
 
 <div class="subtitle">
 Сохранённые фрагменты из книг
@@ -215,7 +252,10 @@ nav{
 
 <main>
 
-<div class="empty" id="empty">
+<div
+class="empty"
+id="empty"
+>
 Пока нет сохранённых цитат.<br><br>
 Выдели текст в читалке и нажми «Сохранить цитату».
 </div>
@@ -226,27 +266,42 @@ nav{
 
 <nav>
 
-<a class="nav-item" href="https://tvorchestvolana-alt.github.io/nocturne-books/index.html">
+<a
+class="nav-item"
+href="https://tvorchestvolana-alt.github.io/nocturne-books/index.html"
+>
 <span class="nav-icon">⌂</span>
 Главная
 </a>
 
-<a class="nav-item" href="https://tvorchestvolana-alt.github.io/nocturne-books/catalog.html">
+<a
+class="nav-item"
+href="https://tvorchestvolana-alt.github.io/nocturne-books/catalog.html"
+>
 <span class="nav-icon">⌕</span>
 Каталог
 </a>
 
-<a class="nav-item" href="https://tvorchestvolana-alt.github.io/nocturne-books/library.html">
+<a
+class="nav-item"
+href="https://tvorchestvolana-alt.github.io/nocturne-books/library.html"
+>
 <span class="nav-icon">♡</span>
 Библиотека
 </a>
 
-<a class="nav-item active" href="https://tvorchestvolana-alt.github.io/nocturne-books/bookmarks.html">
+<a
+class="nav-item active"
+href="https://tvorchestvolana-alt.github.io/nocturne-books/bookmarks.html"
+>
 <span class="nav-icon">❝</span>
 Цитаты
 </a>
 
-<a class="nav-item" href="https://tvorchestvolana-alt.github.io/nocturne-books/profile.html">
+<a
+class="nav-item"
+href="https://tvorchestvolana-alt.github.io/nocturne-books/profile.html"
+>
 <span class="nav-icon">♙</span>
 Профиль
 </a>
@@ -255,28 +310,83 @@ nav{
 
 <script>
 
-const QUOTES_KEY="nocturne-cold-baby-quotes";
+const BOOKS = {
 
-function getQuotes(){
+  "cold-baby":{
+
+    title:
+    "Холодная малышка",
+
+    author:
+    "Карли Робин",
+
+    cover:
+    "file_00000000751c724682f122426a67d42d.png",
+
+    quotesKey:
+    "nocturne-cold-baby-quotes",
+
+    reader:
+    "https://tvorchestvolana-alt.github.io/nocturne-books/reader.html"
+  },
+
+  "fire-and-ice":{
+
+    title:
+    "Огонь и лёд",
+
+    author:
+    "Карли Робин",
+
+    cover:
+    "file_00000000b06c72468c564d5370a34844.png",
+
+    quotesKey:
+    "nocturne-fire-and-ice-quotes",
+
+    reader:
+    "https://tvorchestvolana-alt.github.io/nocturne-books/reader-fire-and-ice.html"
+  }
+
+};
+
+
+function getQuotes(
+key
+){
 
   try{
+
     return JSON.parse(
-      localStorage.getItem(QUOTES_KEY)
+      localStorage.getItem(
+        key
+      )
     ) || [];
+
   }catch(e){
+
     return [];
   }
 }
 
-function saveQuotes(quotes){
+
+function saveQuotes(
+key,
+quotes
+){
 
   localStorage.setItem(
-    QUOTES_KEY,
-    JSON.stringify(quotes)
+    key,
+    JSON.stringify(
+      quotes
+    )
   );
 }
 
-function escapeHTML(text){
+
+function escapeHTML(
+text
+){
 
   return String(text)
   .replace(/&/g,"&amp;")
@@ -285,49 +395,152 @@ function escapeHTML(text){
   .replace(/"/g,"&quot;");
 }
 
+
+function getAllQuotes(){
+
+  const all = [];
+
+  Object.entries(
+    BOOKS
+  )
+  .forEach(
+  ([bookId,book])=>{
+
+    const quotes =
+    getQuotes(
+      book.quotesKey
+    );
+
+    quotes.forEach(
+    quote=>{
+
+      all.push({
+
+        ...quote,
+
+        bookId:
+        bookId,
+
+        title:
+        book.title,
+
+        author:
+        book.author,
+
+        cover:
+        book.cover,
+
+        reader:
+        book.reader
+
+      });
+
+    });
+
+  });
+
+
+  /*
+  Новые цитаты сверху.
+  ID у нас сделан через Date.now(),
+  поэтому можно использовать его
+  как дату создания.
+  */
+
+  all.sort(
+    (a,b)=>
+    Number(b.id || 0) -
+    Number(a.id || 0)
+  );
+
+
+  return all;
+}
+
+
 function render(){
 
-  const quotes=getQuotes();
-  const container=document.getElementById("quotes");
-  const empty=document.getElementById("empty");
+  const quotes =
+  getAllQuotes();
 
-  container.innerHTML="";
+  const container =
+  document.getElementById(
+    "quotes"
+  );
 
-  if(quotes.length===0){
+  const empty =
+  document.getElementById(
+    "empty"
+  );
 
-    empty.style.display="block";
+
+  container.innerHTML =
+  "";
+
+
+  if(
+    quotes.length === 0
+  ){
+
+    empty.style.display =
+    "block";
+
     return;
   }
 
-  empty.style.display="none";
 
-  quotes.forEach(quote=>{
+  empty.style.display =
+  "none";
 
-    const card=document.createElement("div");
 
-    card.className="quote-card";
+  quotes.forEach(
+  quote=>{
 
-    const safeText=
-    escapeHTML(quote.text || "");
+    const card =
+    document.createElement(
+      "div"
+    );
 
-    card.innerHTML=`
+    card.className =
+    "quote-card";
+
+
+    const safeText =
+    escapeHTML(
+      quote.text || ""
+    );
+
+
+    const progress =
+    Number(
+      quote.progress
+    ) || 0;
+
+
+    const quoteId =
+    encodeURIComponent(
+      quote.id
+    );
+
+
+    card.innerHTML = `
 
 <div class="book-line">
 
 <img
 class="cover"
-src="file_00000000751c724682f122426a67d42d.png"
-alt="Холодная малышка"
+src="${quote.cover}"
+alt="${escapeHTML(quote.title)}"
 >
 
 <div>
 
 <div class="book-name">
-Холодная малышка
+${escapeHTML(quote.title)}
 </div>
 
 <div class="author">
-Карли Робин
+${escapeHTML(quote.author)}
 </div>
 
 </div>
@@ -339,20 +552,21 @@ alt="Холодная малышка"
 </div>
 
 <div class="meta">
-${quote.progress || 0}% книги
+${progress}% книги
 </div>
 
 <div class="actions">
 
 <a
 class="open"
-href="https://tvorchestvolana-alt.github.io/nocturne-books/reader.html?quote=${quote.id}"
+href="${quote.reader}?quote=${quoteId}"
 >
 ПЕРЕЙТИ К ЦИТАТЕ
 </a>
 
 <button
 class="delete"
+data-book="${quote.bookId}"
 data-id="${quote.id}"
 >
 Удалить
@@ -362,25 +576,62 @@ data-id="${quote.id}"
 
 `;
 
-    container.appendChild(card);
+    container.appendChild(
+      card
+    );
 
   });
 
+
   document
-  .querySelectorAll(".delete")
-  .forEach(button=>{
+  .querySelectorAll(
+    ".delete"
+  )
+  .forEach(
+  button=>{
 
-    button.addEventListener("click",()=>{
+    button.addEventListener(
+    "click",
+    ()=>{
 
-      const id=String(button.dataset.id);
+      const bookId =
+      button.dataset.book;
 
-      const updated=
-      getQuotes()
-      .filter(
-        quote=>String(quote.id)!==id
+      const id =
+      String(
+        button.dataset.id
       );
 
-      saveQuotes(updated);
+
+      const book =
+      BOOKS[
+        bookId
+      ];
+
+
+      if(!book){
+        return;
+      }
+
+
+      const updated =
+      getQuotes(
+        book.quotesKey
+      )
+      .filter(
+        quote =>
+        String(
+          quote.id
+        ) !== id
+      );
+
+
+      saveQuotes(
+        book.quotesKey,
+        updated
+      );
+
+
       render();
 
     });
@@ -389,7 +640,14 @@ data-id="${quote.id}"
 
 }
 
+
 render();
+
+
+window.addEventListener(
+"pageshow",
+render
+);
 
 </script>
 
