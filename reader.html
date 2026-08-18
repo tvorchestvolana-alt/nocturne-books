@@ -10,9 +10,12 @@
 <script src="https://cdn.jsdelivr.net/npm/epubjs@0.3.93/dist/epub.min.js"></script>
 
 <style>
-*{box-sizing:border-box}
+*{
+  box-sizing:border-box;
+}
 
-html,body{
+html,
+body{
   margin:0;
   width:100%;
   height:100%;
@@ -36,12 +39,17 @@ body.dark{
 header{
   height:62px;
   flex-shrink:0;
+
   display:flex;
   align-items:center;
   justify-content:space-between;
+
   padding:0 16px;
+
   background:#fff;
+
   border-bottom:1px solid #e2e9f2;
+
   z-index:20;
 }
 
@@ -93,12 +101,17 @@ body.dark .menu-button{
 .toolbar{
   height:52px;
   flex-shrink:0;
+
   display:flex;
   align-items:center;
   justify-content:center;
+
   gap:10px;
+
   padding:6px 10px;
+
   background:#fff;
+
   border-bottom:1px solid #e2e9f2;
 }
 
@@ -110,10 +123,15 @@ body.dark .toolbar{
 .tool{
   width:60px;
   height:38px;
+
   border:1px solid #d9e4ef;
+
   background:#f8fbff;
+
   color:#31577f;
+
   border-radius:13px;
+
   font-size:16px;
 }
 
@@ -143,13 +161,18 @@ body.dark #viewer{
 .loading{
   position:absolute;
   inset:0;
+
   z-index:15;
+
   display:flex;
   flex-direction:column;
   align-items:center;
   justify-content:center;
+
   background:#fbfdff;
+
   color:#70859d;
+
   gap:12px;
 }
 
@@ -161,22 +184,37 @@ body.dark .loading{
 .spinner{
   width:34px;
   height:34px;
+
   border:3px solid #e2ebf4;
+
   border-top-color:#6f9bd0;
+
   border-radius:50%;
+
   animation:spin .8s linear infinite;
 }
 
 @keyframes spin{
-  to{transform:rotate(360deg)}
+  to{
+    transform:rotate(360deg);
+  }
 }
 
 .bottom{
   flex-shrink:0;
+
   background:#fff;
+
   border-top:1px solid #dfe8f1;
-  padding:10px 18px calc(12px + env(safe-area-inset-bottom));
-  box-shadow:0 -4px 18px rgba(44,75,110,.07);
+
+  padding:
+    10px
+    18px
+    calc(12px + env(safe-area-inset-bottom));
+
+  box-shadow:
+    0 -4px 18px rgba(44,75,110,.07);
+
   z-index:30;
 }
 
@@ -189,14 +227,18 @@ body.dark .bottom{
   display:flex;
   align-items:center;
   gap:10px;
+
   margin-bottom:10px;
 }
 
 .progress{
   flex:1;
   height:6px;
+
   background:#e4edf5;
+
   border-radius:10px;
+
   overflow:hidden;
 }
 
@@ -207,32 +249,51 @@ body.dark .progress{
 .progress-bar{
   width:0%;
   height:100%;
-  background:linear-gradient(90deg,#6f9bd0,#d49ab5);
+
+  background:
+    linear-gradient(
+      90deg,
+      #6f9bd0,
+      #d49ab5
+    );
 }
 
 .percent{
   width:42px;
+
   text-align:right;
+
   font-size:12px;
   font-weight:bold;
+
   color:#6481a1;
 }
 
 .nav-controls{
   display:grid;
-  grid-template-columns:64px 1fr 64px;
+
+  grid-template-columns:
+    64px 1fr 64px;
+
   align-items:center;
+
   gap:12px;
 }
 
 .nav-button{
   width:58px;
   height:52px;
+
   justify-self:center;
+
   border:1px solid #b9cee3;
+
   background:#eef5fc;
+
   border-radius:18px;
+
   color:#31577f;
+
   font-size:34px;
 }
 
@@ -249,26 +310,41 @@ body.dark .nav-button{
 .chapter-info{
   font-size:12px;
   font-weight:600;
+
   color:#65809e;
 }
 
 .hint{
   font-size:9px;
+
   color:#a1afbe;
+
   margin-top:4px;
 }
 
+/* ВЫБРАННАЯ ЦИТАТА */
+
 .quote-panel{
   position:fixed;
+
   left:12px;
   right:12px;
+
   bottom:105px;
+
   z-index:100;
+
   background:white;
+
   border:1px solid #dce7f2;
+
   border-radius:18px;
-  box-shadow:0 12px 35px rgba(32,57,83,.18);
+
+  box-shadow:
+    0 12px 35px rgba(32,57,83,.18);
+
   padding:14px;
+
   display:none;
 }
 
@@ -283,10 +359,13 @@ body.dark .quote-panel{
 
 .quote-preview{
   font-family:Georgia,serif;
+
   font-size:13px;
   line-height:1.5;
+
   max-height:80px;
   overflow:hidden;
+
   margin-bottom:12px;
 }
 
@@ -297,19 +376,29 @@ body.dark .quote-panel{
 
 .quote-save{
   flex:1;
+
   border:0;
+
   background:#6f9bd0;
+
   color:white;
+
   padding:11px;
+
   border-radius:11px;
+
   font-weight:bold;
 }
 
 .quote-cancel{
   border:1px solid #d9e4ef;
+
   background:white;
+
   color:#5d7693;
+
   padding:11px 14px;
+
   border-radius:11px;
 }
 
@@ -319,11 +408,16 @@ body.dark .quote-cancel{
   color:white;
 }
 
+/* СОДЕРЖАНИЕ */
+
 .panel{
   position:fixed;
   inset:0;
+
   background:rgba(24,40,58,.4);
+
   z-index:60;
+
   display:none;
 }
 
@@ -333,14 +427,27 @@ body.dark .quote-cancel{
 
 .panel-content{
   position:absolute;
+
   left:0;
   right:0;
   bottom:0;
+
   max-height:75vh;
+
   overflow:auto;
+
   background:#fff;
-  border-radius:24px 24px 0 0;
-  padding:18px 18px calc(18px + env(safe-area-inset-bottom));
+
+  border-radius:
+    24px
+    24px
+    0
+    0;
+
+  padding:
+    18px
+    18px
+    calc(18px + env(safe-area-inset-bottom));
 }
 
 body.dark .panel-content{
@@ -351,32 +458,110 @@ body.dark .panel-content{
   display:flex;
   justify-content:space-between;
   align-items:center;
+
   margin-bottom:15px;
 }
 
 .close{
   width:36px;
   height:36px;
+
   border:0;
+
   border-radius:50%;
+
   background:#edf4fb;
+
   font-size:18px;
+}
+
+body.dark .close{
+  background:#2d3b4e;
+  color:white;
 }
 
 .toc-item{
   width:100%;
+
   border:0;
-  border-bottom:1px solid #edf1f5;
+
+  border-bottom:
+    1px solid #edf1f5;
+
   background:transparent;
+
   text-align:left;
+
   padding:13px 5px;
+
   color:#294564;
+
   font-size:14px;
 }
 
 body.dark .toc-item{
   color:#e8f1fb;
   border-color:#314052;
+}
+
+/* УВЕДОМЛЕНИЕ */
+
+.toast{
+  position:fixed;
+
+  left:50%;
+  bottom:112px;
+
+  transform:
+    translateX(-50%)
+    translateY(25px);
+
+  width:max-content;
+
+  max-width:
+    calc(100% - 32px);
+
+  background:
+    linear-gradient(
+      135deg,
+      rgba(97,137,184,.97),
+      rgba(198,131,162,.97)
+    );
+
+  color:white;
+
+  padding:
+    13px
+    17px;
+
+  border-radius:15px;
+
+  font-size:12px;
+  font-weight:bold;
+
+  text-align:center;
+
+  box-shadow:
+    0 12px 30px
+    rgba(30,48,68,.22);
+
+  opacity:0;
+
+  pointer-events:none;
+
+  transition:
+    opacity .25s ease,
+    transform .25s ease;
+
+  z-index:9999999;
+}
+
+.toast.show{
+  opacity:1;
+
+  transform:
+    translateX(-50%)
+    translateY(0);
 }
 </style>
 </head>
@@ -387,59 +572,137 @@ body.dark .toc-item{
 
 <header>
 
-<a class="back" href="https://tvorchestvolana-alt.github.io/nocturne-books/cold-baby.html">←</a>
+<a
+class="back"
+href="https://tvorchestvolana-alt.github.io/nocturne-books/cold-baby.html"
+>
+←
+</a>
 
 <div class="book-title">
-<strong>Холодная малышка</strong>
-<span>Карли Робин</span>
+
+<strong>
+Холодная малышка
+</strong>
+
+<span>
+Карли Робин
+</span>
+
 </div>
 
-<button class="menu-button">•••</button>
+<button class="menu-button">
+•••
+</button>
 
 </header>
 
 <div class="toolbar">
 
-<button class="tool" id="tocButton">☰</button>
-<button class="tool" id="smallerFont">A−</button>
-<button class="tool" id="biggerFont">A+</button>
-<button class="tool" id="themeButton">☀</button>
+<button
+class="tool"
+id="tocButton"
+>
+☰
+</button>
+
+<button
+class="tool"
+id="smallerFont"
+>
+A−
+</button>
+
+<button
+class="tool"
+id="biggerFont"
+>
+A+
+</button>
+
+<button
+class="tool"
+id="themeButton"
+>
+☀
+</button>
 
 </div>
+
 
 <div class="viewer-wrap">
 
 <div id="viewer"></div>
 
-<div class="loading" id="loading">
+<div
+class="loading"
+id="loading"
+>
+
 <div class="spinner"></div>
-<div>Открываю книгу...</div>
+
+<div>
+Открываю книгу...
 </div>
 
 </div>
+
+</div>
+
 
 <div class="bottom">
 
 <div class="progress-row">
 
 <div class="progress">
-<div class="progress-bar" id="progressBar"></div>
+
+<div
+class="progress-bar"
+id="progressBar"
+></div>
+
 </div>
 
-<div class="percent" id="percent">0%</div>
+<div
+class="percent"
+id="percent"
+>
+0%
+</div>
 
 </div>
+
 
 <div class="nav-controls">
 
-<button class="nav-button" id="prev">‹</button>
+<button
+class="nav-button"
+id="prev"
+>
+‹
+</button>
 
 <div class="center-info">
-<div class="chapter-info" id="chapterInfo">Загрузка...</div>
-<div class="hint">выдели текст пальцем, чтобы сохранить цитату</div>
+
+<div
+class="chapter-info"
+id="chapterInfo"
+>
+Загрузка...
 </div>
 
-<button class="nav-button" id="next">›</button>
+<div class="hint">
+выдели текст пальцем, чтобы сохранить цитату
+</div>
+
+</div>
+
+<button
+class="nav-button"
+id="next"
+>
+›
+</button>
 
 </div>
 
@@ -447,31 +710,57 @@ body.dark .toc-item{
 
 </div>
 
-<div class="quote-panel" id="quotePanel">
 
-<div class="quote-preview" id="quotePreview"></div>
+<div
+class="quote-panel"
+id="quotePanel"
+>
+
+<div
+class="quote-preview"
+id="quotePreview"
+></div>
 
 <div class="quote-actions">
 
-<button class="quote-save" id="saveQuote">
+<button
+class="quote-save"
+id="saveQuote"
+>
 СОХРАНИТЬ ЦИТАТУ
 </button>
 
-<button class="quote-cancel" id="cancelQuote">×</button>
+<button
+class="quote-cancel"
+id="cancelQuote"
+>
+×
+</button>
 
 </div>
 
 </div>
 
-<div class="panel" id="tocPanel">
+
+<div
+class="panel"
+id="tocPanel"
+>
 
 <div class="panel-content">
 
 <div class="panel-header">
 
-<h2>Содержание</h2>
+<h2>
+Содержание
+</h2>
 
-<button class="close" data-close="tocPanel">×</button>
+<button
+class="close"
+data-close="tocPanel"
+>
+×
+</button>
 
 </div>
 
@@ -483,17 +772,30 @@ body.dark .toc-item{
 
 </div>
 
+
+<div
+class="toast"
+id="toast"
+></div>
+
+
 <script>
 
 const EPUB_FILE =
-encodeURI("Холодная малышка.epub");
+encodeURI(
+  "Холодная малышка.epub"
+);
 
-/* СРАЗУ ЗАПОМИНАЕМ ПОСЛЕДНЮЮ ОТКРЫТУЮ КНИГУ */
+
+/* ПОСЛЕДНЯЯ ОТКРЫТАЯ КНИГА */
 
 localStorage.setItem(
   "nocturne-last-book",
   "cold-baby"
 );
+
+
+/* КЛЮЧИ КНИГИ */
 
 const STORAGE_POSITION =
 "nocturne-cold-baby-position";
@@ -504,85 +806,213 @@ const STORAGE_PROGRESS =
 const QUOTES_KEY =
 "nocturne-cold-baby-quotes";
 
+
+/* ОБЩИЕ НАСТРОЙКИ */
+
 const STORAGE_FONT =
 "nocturne-reader-font";
 
 const STORAGE_THEME =
 "nocturne-reader-theme";
 
+
 let book;
 let rendition;
-let pendingQuote = null;
+
+let pendingQuote =
+null;
+
 
 let fontSize =
-Number(localStorage.getItem(STORAGE_FONT)) || 100;
+Number(
+  localStorage.getItem(
+    STORAGE_FONT
+  )
+) || 100;
+
 
 let currentTheme =
-localStorage.getItem(STORAGE_THEME) || "light";
+localStorage.getItem(
+  STORAGE_THEME
+) || "light";
+
 
 const loading =
-document.getElementById("loading");
+document.getElementById(
+  "loading"
+);
 
 const progressBar =
-document.getElementById("progressBar");
+document.getElementById(
+  "progressBar"
+);
 
 const percent =
-document.getElementById("percent");
+document.getElementById(
+  "percent"
+);
 
 const chapterInfo =
-document.getElementById("chapterInfo");
+document.getElementById(
+  "chapterInfo"
+);
 
 const quotePanel =
-document.getElementById("quotePanel");
+document.getElementById(
+  "quotePanel"
+);
 
 const quotePreview =
-document.getElementById("quotePreview");
+document.getElementById(
+  "quotePreview"
+);
+
+const toast =
+document.getElementById(
+  "toast"
+);
+
+
+let toastTimer;
+
+
+/* УВЕДОМЛЕНИЕ */
+
+function showToast(text){
+
+  clearTimeout(
+    toastTimer
+  );
+
+
+  toast.textContent =
+  text;
+
+
+  toast.classList.add(
+    "show"
+  );
+
+
+  toastTimer =
+  setTimeout(
+    ()=>{
+
+      toast.classList.remove(
+        "show"
+      );
+
+    },
+    2500
+  );
+}
+
+
+/* ЦИТАТЫ */
 
 function getQuotes(){
 
   try{
+
     return JSON.parse(
-      localStorage.getItem(QUOTES_KEY)
+      localStorage.getItem(
+        QUOTES_KEY
+      )
     ) || [];
+
   }catch(e){
+
     return [];
   }
 }
+
 
 function saveQuotes(quotes){
 
   localStorage.setItem(
     QUOTES_KEY,
-    JSON.stringify(quotes)
+    JSON.stringify(
+      quotes
+    )
   );
 }
+
+
+/* ТЕМА */
 
 function applyTheme(){
 
   if(currentTheme === "dark"){
 
-    document.body.classList.add("dark");
+    document.body
+    .classList
+    .add(
+      "dark"
+    );
+
 
     if(rendition){
 
-      rendition.themes.override("color","#e8eef6");
-      rendition.themes.override("background","#17202c");
+      rendition
+      .themes
+      .override(
+        "color",
+        "#e8eef6"
+      );
+
+
+      rendition
+      .themes
+      .override(
+        "background",
+        "#17202c"
+      );
     }
 
-    document.getElementById("themeButton").textContent="☾";
+
+    document
+    .getElementById(
+      "themeButton"
+    )
+    .textContent =
+    "☾";
 
   }else{
 
-    document.body.classList.remove("dark");
+    document.body
+    .classList
+    .remove(
+      "dark"
+    );
+
 
     if(rendition){
 
-      rendition.themes.override("color","#26394e");
-      rendition.themes.override("background","#ffffff");
+      rendition
+      .themes
+      .override(
+        "color",
+        "#26394e"
+      );
+
+
+      rendition
+      .themes
+      .override(
+        "background",
+        "#ffffff"
+      );
     }
 
-    document.getElementById("themeButton").textContent="☀";
+
+    document
+    .getElementById(
+      "themeButton"
+    )
+    .textContent =
+    "☀";
   }
+
 
   localStorage.setItem(
     STORAGE_THEME,
@@ -590,13 +1020,22 @@ function applyTheme(){
   );
 }
 
+
+/* ШРИФТ */
+
 function applyFont(){
 
   if(!rendition){
     return;
   }
 
-  rendition.themes.fontSize(fontSize+"%");
+
+  rendition
+  .themes
+  .fontSize(
+    fontSize + "%"
+  );
+
 
   localStorage.setItem(
     STORAGE_FONT,
@@ -604,26 +1043,42 @@ function applyFont(){
   );
 }
 
+
 function changeFont(amount){
 
-  fontSize += amount;
+  fontSize +=
+  amount;
+
 
   if(fontSize < 75){
-    fontSize = 75;
+
+    fontSize =
+    75;
   }
 
+
   if(fontSize > 180){
-    fontSize = 180;
+
+    fontSize =
+    180;
   }
+
 
   applyFont();
 }
+
+
+/* ОТКРЫТИЕ КНИГИ */
 
 async function openBook(){
 
   try{
 
-    book = ePub(EPUB_FILE);
+    book =
+    ePub(
+      EPUB_FILE
+    );
+
 
     rendition =
     book.renderTo(
@@ -637,48 +1092,80 @@ async function openBook(){
       }
     );
 
-    rendition.themes.default({
+
+    rendition
+    .themes
+    .default({
 
       body:{
-        "font-family":"Georgia, 'Times New Roman', serif",
-        "line-height":"1.65",
-        "padding":"0 7%",
-        "color":"#26394e"
+        "font-family":
+        "Georgia, 'Times New Roman', serif",
+
+        "line-height":
+        "1.65",
+
+        "padding":
+        "0 7%",
+
+        "color":
+        "#26394e"
       },
 
       p:{
-        "line-height":"1.65"
+        "line-height":
+        "1.65"
       },
 
       "::selection":{
-        "background":"rgba(221,161,188,.32)"
+        "background":
+        "rgba(221,161,188,.32)"
       }
 
     });
 
+
     applyFont();
     applyTheme();
 
+
     const params =
-    new URLSearchParams(location.search);
+    new URLSearchParams(
+      location.search
+    );
+
 
     const quoteId =
-    params.get("quote");
+    params.get(
+      "quote"
+    );
 
-    let startPosition = null;
+
+    let startPosition =
+    null;
+
+
+    /* ПЕРЕХОД К ЦИТАТЕ */
 
     if(quoteId){
 
       const quote =
-      getQuotes().find(
+      getQuotes()
+      .find(
         item =>
-        String(item.id) === quoteId
+        String(item.id) ===
+        quoteId
       );
 
+
       if(quote){
-        startPosition = quote.cfi;
+
+        startPosition =
+        quote.cfi;
       }
     }
+
+
+    /* ИЛИ ПОСЛЕДНЕЕ МЕСТО */
 
     if(!startPosition){
 
@@ -688,20 +1175,31 @@ async function openBook(){
       );
     }
 
+
     if(startPosition){
 
-      await rendition.display(startPosition);
+      await rendition.display(
+        startPosition
+      );
 
     }else{
 
       await rendition.display();
     }
 
-    loading.style.display="none";
+
+    loading.style.display =
+    "none";
+
 
     try{
 
-      await book.locations.generate(1200);
+      await book
+      .locations
+      .generate(
+        1200
+      );
+
 
       updateLocation(
         rendition.currentLocation()
@@ -709,71 +1207,124 @@ async function openBook(){
 
     }catch(e){}
 
-    book.loaded.navigation.then(
+
+    /* СОДЕРЖАНИЕ */
+
+    book
+    .loaded
+    .navigation
+    .then(
     navigation=>{
 
       const toc =
-      document.getElementById("toc");
+      document.getElementById(
+        "toc"
+      );
 
-      toc.innerHTML="";
 
-      navigation.toc.forEach(
+      toc.innerHTML =
+      "";
+
+
+      navigation
+      .toc
+      .forEach(
       item=>{
 
         const button =
-        document.createElement("button");
+        document.createElement(
+          "button"
+        );
 
-        button.className="toc-item";
-        button.textContent=item.label;
 
-        button.onclick=async()=>{
+        button.className =
+        "toc-item";
 
-          await rendition.display(item.href);
-          closePanel("tocPanel");
+
+        button.textContent =
+        item.label;
+
+
+        button.onclick =
+        async()=>{
+
+          await rendition.display(
+            item.href
+          );
+
+
+          closePanel(
+            "tocPanel"
+          );
         };
 
-        toc.appendChild(button);
+
+        toc.appendChild(
+          button
+        );
+
       });
+
     });
+
+
+    /* ПОЗИЦИЯ */
 
     rendition.on(
       "relocated",
       location=>{
 
-        updateLocation(location);
+        updateLocation(
+          location
+        );
 
-        if(location?.start?.cfi){
+
+        if(
+          location?.start?.cfi
+        ){
 
           localStorage.setItem(
             STORAGE_POSITION,
             location.start.cfi
           );
 
+
           localStorage.setItem(
             "nocturne-last-book",
             "cold-baby"
           );
         }
+
       }
     );
 
+
+    /* ВЫДЕЛЕНИЕ */
+
     rendition.on(
       "selected",
-      async function(cfiRange){
+      async function(
+        cfiRange
+      ){
 
         try{
 
           const range =
-          await book.getRange(cfiRange);
+          await book.getRange(
+            cfiRange
+          );
+
 
           const text =
           range
           ? range.toString().trim()
           : "";
 
+
           if(!text){
             return;
           }
+
 
           const currentProgress =
           Number(
@@ -782,59 +1333,101 @@ async function openBook(){
             )
           ) || 0;
 
+
           pendingQuote = {
 
-            id:Date.now(),
-            text:text,
-            cfi:cfiRange,
-            progress:currentProgress,
-            book:"cold-baby",
-            bookTitle:"Холодная малышка",
-            author:"Карли Робин"
+            id:
+            Date.now(),
+
+            text:
+            text,
+
+            cfi:
+            cfiRange,
+
+            progress:
+            currentProgress,
+
+            book:
+            "cold-baby",
+
+            bookTitle:
+            "Холодная малышка",
+
+            author:
+            "Карли Робин"
 
           };
 
-          quotePreview.textContent =
-          "«"+text+"»";
 
-          quotePanel.classList.add("show");
+          quotePreview.textContent =
+          "«" +
+          text +
+          "»";
+
+
+          quotePanel
+          .classList
+          .add(
+            "show"
+          );
 
         }catch(e){
 
           console.log(e);
         }
+
       }
     );
 
-    getQuotes().forEach(
+
+    /* ПОДСВЕТКА СОХРАНЁННЫХ */
+
+    getQuotes()
+    .forEach(
     quote=>{
 
       try{
 
-        rendition.annotations.highlight(
+        rendition
+        .annotations
+        .highlight(
           quote.cfi,
           {}
         );
 
       }catch(e){}
+
     });
+
 
   }catch(error){
 
-    console.error(error);
+    console.error(
+      error
+    );
+
 
     loading.innerHTML =
     "<div>Не удалось открыть EPUB.</div>";
   }
 }
 
+
+/* ПРОГРЕСС */
+
 function updateLocation(location){
 
-  if(!location?.start){
+  if(
+    !location?.start
+  ){
     return;
   }
 
-  if(location.start.displayed){
+
+  if(
+    location.start.displayed
+  ){
 
     chapterInfo.textContent =
     "Страница " +
@@ -842,6 +1435,7 @@ function updateLocation(location){
     " из " +
     location.start.displayed.total;
   }
+
 
   try{
 
@@ -851,9 +1445,11 @@ function updateLocation(location){
     ){
 
       const value =
-      book.locations.percentageFromCfi(
+      book.locations
+      .percentageFromCfi(
         location.start.cfi
       );
+
 
       if(
         typeof value === "number" &&
@@ -861,13 +1457,21 @@ function updateLocation(location){
       ){
 
         const p =
-        Math.round(value*100);
+        Math.round(
+          value * 100
+        );
 
-        progressBar.style.width =
-        p+"%";
 
-        percent.textContent =
-        p+"%";
+        progressBar
+        .style
+        .width =
+        p + "%";
+
+
+        percent
+        .textContent =
+        p + "%";
+
 
         localStorage.setItem(
           STORAGE_PROGRESS,
@@ -879,96 +1483,208 @@ function updateLocation(location){
   }catch(e){}
 }
 
-document.getElementById("saveQuote").onclick=()=>{
+
+/* СОХРАНИТЬ ЦИТАТУ */
+
+document
+.getElementById(
+  "saveQuote"
+)
+.onclick =
+()=>{
 
   if(!pendingQuote){
     return;
   }
 
+
   const quotes =
   getQuotes();
 
-  quotes.unshift(pendingQuote);
 
-  saveQuotes(quotes);
+  quotes.unshift(
+    pendingQuote
+  );
+
+
+  saveQuotes(
+    quotes
+  );
+
 
   try{
 
-    rendition.annotations.highlight(
+    rendition
+    .annotations
+    .highlight(
       pendingQuote.cfi,
       {}
     );
 
   }catch(e){}
 
-  pendingQuote=null;
 
-  quotePanel.classList.remove("show");
+  pendingQuote =
+  null;
+
+
+  quotePanel
+  .classList
+  .remove(
+    "show"
+  );
+
+
+  showToast(
+    "✓ Цитата сохранена"
+  );
 };
 
-document.getElementById("cancelQuote").onclick=()=>{
 
-  pendingQuote=null;
-  quotePanel.classList.remove("show");
+/* ОТМЕНА */
+
+document
+.getElementById(
+  "cancelQuote"
+)
+.onclick =
+()=>{
+
+  pendingQuote =
+  null;
+
+
+  quotePanel
+  .classList
+  .remove(
+    "show"
+  );
 };
 
-document.getElementById("prev").onclick=()=>{
+
+/* ЛИСТАНИЕ */
+
+document
+.getElementById(
+  "prev"
+)
+.onclick =
+()=>{
 
   if(rendition){
+
     rendition.prev();
   }
 };
 
-document.getElementById("next").onclick=()=>{
+
+document
+.getElementById(
+  "next"
+)
+.onclick =
+()=>{
 
   if(rendition){
+
     rendition.next();
   }
 };
 
-document.getElementById("smallerFont").onclick=
-()=>changeFont(-10);
 
-document.getElementById("biggerFont").onclick=
-()=>changeFont(10);
+/* ШРИФТ */
 
-document.getElementById("themeButton").onclick=()=>{
+document
+.getElementById(
+  "smallerFont"
+)
+.onclick =
+()=>changeFont(
+  -10
+);
+
+
+document
+.getElementById(
+  "biggerFont"
+)
+.onclick =
+()=>changeFont(
+  10
+);
+
+
+/* ТЕМА */
+
+document
+.getElementById(
+  "themeButton"
+)
+.onclick =
+()=>{
 
   currentTheme =
   currentTheme === "light"
   ? "dark"
   : "light";
 
+
   applyTheme();
 };
 
-document.getElementById("tocButton").onclick=
-()=>openPanel("tocPanel");
+
+/* СОДЕРЖАНИЕ */
+
+document
+.getElementById(
+  "tocButton"
+)
+.onclick =
+()=>openPanel(
+  "tocPanel"
+);
+
 
 function openPanel(id){
 
   document
-  .getElementById(id)
+  .getElementById(
+    id
+  )
   .classList
-  .add("open");
+  .add(
+    "open"
+  );
 }
+
 
 function closePanel(id){
 
   document
-  .getElementById(id)
+  .getElementById(
+    id
+  )
   .classList
-  .remove("open");
+  .remove(
+    "open"
+  );
 }
 
+
 document
-.querySelectorAll("[data-close]")
+.querySelectorAll(
+  "[data-close]"
+)
 .forEach(
 button=>{
 
-  button.onclick=
-  ()=>closePanel(button.dataset.close);
+  button.onclick =
+  ()=>closePanel(
+    button.dataset.close
+  );
+
 });
+
 
 applyTheme();
 openBook();
@@ -976,4 +1692,4 @@ openBook();
 </script>
 
 </body>
-</html>
+  </html>
