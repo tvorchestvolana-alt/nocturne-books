@@ -7,7 +7,10 @@
 <title>Каталог — NOCTURNE BOOKS</title>
 
 <style>
-*{box-sizing:border-box}
+
+*{
+  box-sizing:border-box;
+}
 
 body{
   margin:0;
@@ -16,10 +19,10 @@ body{
   padding-bottom:110px;
 
   background:
-    radial-gradient(circle at 5% 12%,rgba(244,190,211,.38) 0%,transparent 25%),
-    radial-gradient(circle at 95% 30%,rgba(187,211,238,.26) 0%,transparent 27%),
-    radial-gradient(circle at 10% 60%,rgba(247,202,220,.30) 0%,transparent 29%),
-    radial-gradient(circle at 90% 78%,rgba(222,197,226,.25) 0%,transparent 27%),
+    radial-gradient(circle at 5% 12%,rgba(244,190,211,.38),transparent 25%),
+    radial-gradient(circle at 95% 30%,rgba(187,211,238,.26),transparent 27%),
+    radial-gradient(circle at 10% 60%,rgba(247,202,220,.30),transparent 29%),
+    radial-gradient(circle at 90% 78%,rgba(222,197,226,.25),transparent 27%),
     linear-gradient(180deg,#fffafd 0%,#fbf5f9 40%,#f7f7fc 72%,#f4f8fc 100%);
 
   background-attachment:fixed;
@@ -47,9 +50,12 @@ body::after{
 
 header{
   padding:24px 18px 14px;
+
   background:rgba(255,255,255,.72);
   backdrop-filter:blur(12px);
+
   border-bottom:1px solid rgba(220,221,233,.85);
+
   position:sticky;
   top:0;
   z-index:10;
@@ -75,12 +81,18 @@ header{
 
 .search{
   width:100%;
+
   border:1px solid rgba(216,225,237,.9);
+
   background:rgba(255,255,255,.88);
+
   padding:15px 16px;
+
   border-radius:17px;
+
   font-size:15px;
   outline:none;
+
   box-shadow:0 6px 18px rgba(82,103,132,.05);
 }
 
@@ -93,35 +105,55 @@ header{
 
 .filter{
   border:1px solid rgba(211,224,237,.9);
+
   background:rgba(255,255,255,.88);
+
   color:#31577f;
+
   padding:9px 14px;
+
   border-radius:20px;
+
   white-space:nowrap;
+
+  cursor:pointer;
 }
 
 .filter.active{
-  background:linear-gradient(135deg,#709bd0,#d49ab5);
+  background:linear-gradient(
+    135deg,
+    #709bd0,
+    #d49ab5
+  );
+
   color:white;
+
   border-color:transparent;
 }
 
 main{
   padding:20px 16px;
+
   max-width:700px;
+
   margin:auto;
 }
 
 .count{
   font-size:12px;
+
   color:#7d90a7;
+
   margin-bottom:15px;
 }
 
 .books{
   display:grid;
-  grid-template-columns:repeat(2,1fr);
-  gap:22px 16px;
+
+  grid-template-columns:
+    repeat(2,1fr);
+
+  gap:24px 16px;
 }
 
 .book{
@@ -135,57 +167,81 @@ main{
 
 .cover{
   width:100%;
+
   aspect-ratio:2/3;
+
   object-fit:cover;
+
   border-radius:17px;
+
   box-shadow:
     0 9px 24px rgba(42,70,105,.13),
     0 4px 16px rgba(217,154,184,.08);
+
   display:block;
 }
 
 .heart{
   position:absolute;
+
   right:10px;
   top:10px;
+
   width:36px;
   height:36px;
-  background:rgba(255,255,255,.92);
-  backdrop-filter:blur(6px);
+
+  background:rgba(255,255,255,.94);
+
   border-radius:50%;
+
   display:flex;
   align-items:center;
   justify-content:center;
+
   font-size:20px;
+
   color:#31577f;
 }
 
 .series-number{
   position:absolute;
+
   left:10px;
   top:10px;
-  background:rgba(255,255,255,.92);
+
+  background:rgba(255,255,255,.94);
+
   color:#52779e;
+
   border-radius:12px;
+
   padding:6px 8px;
+
   font-size:10px;
   font-weight:bold;
 }
 
 .book h3{
   font-size:15px;
+
   margin:10px 0 4px;
+
+  line-height:1.2;
 }
 
 .author{
   font-size:12px;
+
   color:#8192a7;
+
   margin-bottom:5px;
 }
 
 .series{
   font-size:11px;
+
   color:#6f89a5;
+
   margin-bottom:8px;
 }
 
@@ -197,56 +253,87 @@ main{
 
 .trope{
   font-size:10px;
+
   padding:5px 8px;
+
   border-radius:13px;
-  background:linear-gradient(135deg,#eaf2fb,#f8eaf1);
+
+  background:
+    linear-gradient(
+      135deg,
+      #eaf2fb,
+      #f8eaf1
+    );
+
   color:#52779e;
 }
 
 .empty{
   display:none;
+
   grid-column:1/-1;
+
   text-align:center;
+
   padding:60px 10px;
+
   color:#8192a7;
 }
 
 nav{
   position:fixed;
+
   left:0;
   right:0;
   bottom:0;
+
   display:flex;
+
   justify-content:space-around;
+
   background:rgba(255,255,255,.95);
+
   backdrop-filter:blur(12px);
+
   border-top:1px solid #e0e8f1;
-  padding:9px 3px calc(13px + env(safe-area-inset-bottom));
+
+  padding:
+    9px
+    3px
+    calc(13px + env(safe-area-inset-bottom));
+
   z-index:999999;
 }
 
 .nav-item{
   width:20%;
   min-height:54px;
+
   display:flex;
   flex-direction:column;
   align-items:center;
   justify-content:center;
+
   text-decoration:none;
   text-align:center;
+
   color:#8ca0b8;
+
   font-size:10px;
 }
 
 .nav-icon{
   display:block;
+
   font-size:21px;
+
   margin-bottom:4px;
 }
 
 .nav-item.active{
   color:#5285c3;
 }
+
 </style>
 </head>
 
@@ -263,11 +350,14 @@ href="https://tvorchestvolana-alt.github.io/nocturne-books/index.html"
 ←
 </a>
 
-<div class="title">Каталог</div>
+<div class="title">
+Каталог
+</div>
 
 <div style="width:28px"></div>
 
 </div>
+
 
 <input
 id="search"
@@ -276,30 +366,94 @@ type="text"
 placeholder="🔍 Найти книгу, автора, серию или троп..."
 >
 
+
 <div class="filters">
 
-<button class="filter active" data-filter="all">Все</button>
-<button class="filter" data-filter="хоккейный роман">Хоккей</button>
-<button class="filter" data-filter="он влюбляется первым">Он влюбляется первым</button>
-<button class="filter" data-filter="медленное развитие отношений">Медленное развитие</button>
-<button class="filter" data-filter="бостонские рыси">Бостонские Рыси</button>
+<button
+class="filter active"
+data-filter="all"
+>
+Все
+</button>
+
+<button
+class="filter"
+data-filter="хоккейный роман"
+>
+Хоккей
+</button>
+
+<button
+class="filter"
+data-filter="он влюбляется первым"
+>
+Он влюбляется первым
+</button>
+
+<button
+class="filter"
+data-filter="фальшивые отношения"
+>
+Фальшивые отношения
+</button>
+
+<button
+class="filter"
+data-filter="ворчун солнышко"
+>
+Ворчун & солнышко
+</button>
+
+<button
+class="filter"
+data-filter="медленное развитие отношений"
+>
+Медленное развитие
+</button>
+
+<button
+class="filter"
+data-filter="бостонские рыси"
+>
+Бостонские Рыси
+</button>
 
 </div>
 
 </header>
 
+
 <main>
 
-<div class="count" id="count">
-1 книга
+<div
+class="count"
+id="count"
+>
+2 книги
 </div>
 
+
 <div class="books">
+
+<!-- КНИГА #1 -->
 
 <a
 class="book"
 href="https://tvorchestvolana-alt.github.io/nocturne-books/cold-baby.html"
-data-search="холодная малышка карли робин бостонские рыси хоккейный роман профессиональный хоккеист управляющая книжным магазином от незнакомцев к влюбленным противоположности притягиваются черная кошка золотой ретривер он влюбляется первым словесные перепалки медленное развитие отношений"
+data-search="
+холодная малышка
+карли робин
+бостонские рыси
+хоккейный роман
+профессиональный хоккеист
+управляющая книжным магазином
+от незнакомцев к влюбленным
+противоположности притягиваются
+черная кошка золотой ретривер
+он влюбляется первым
+словесные перепалки
+медленное развитие отношений
+"
 >
 
 <div class="cover-wrap">
@@ -310,12 +464,20 @@ src="file_00000000751c724682f122426a67d42d.png"
 alt="Холодная малышка"
 >
 
-<div class="series-number">#1</div>
-<div class="heart">♡</div>
+<div class="series-number">
+#1
+</div>
+
+<div class="heart">
+♡
+</div>
 
 </div>
 
-<h3>Холодная малышка</h3>
+
+<h3>
+Холодная малышка
+</h3>
 
 <div class="author">
 Карли Робин
@@ -327,15 +489,101 @@ alt="Холодная малышка"
 
 <div class="tropes">
 
-<span class="trope">🏒 Хоккей</span>
-<span class="trope">💙 Он влюбляется первым</span>
-<span class="trope">🌙 Медленное развитие</span>
+<span class="trope">
+🏒 Хоккей
+</span>
+
+<span class="trope">
+💙 Он влюбляется первым
+</span>
+
+<span class="trope">
+🌙 Медленное развитие
+</span>
 
 </div>
 
 </a>
 
-<div class="empty" id="empty">
+
+<!-- КНИГА #2 -->
+
+<a
+class="book"
+href="https://tvorchestvolana-alt.github.io/nocturne-books/fire-and-ice.html"
+data-search="
+огонь и лёд
+огонь и лед
+карли робин
+бостонские рыси
+хоккейный роман
+игрок нхл
+владелица пекарни
+от незнакомцев к влюбленным
+он влюбляется первым
+ворчун солнышко
+ворчун и солнышко
+фальшивые отношения
+вынужденная близость
+противоположности притягиваются
+медленное развитие отношений
+"
+>
+
+<div class="cover-wrap">
+
+<img
+class="cover"
+src="file_00000000b06c72468c564d5370a34844.png"
+alt="Огонь и лёд"
+>
+
+<div class="series-number">
+#2
+</div>
+
+<div class="heart">
+♡
+</div>
+
+</div>
+
+
+<h3>
+Огонь и лёд
+</h3>
+
+<div class="author">
+Карли Робин
+</div>
+
+<div class="series">
+Бостонские Рыси · Книга #2
+</div>
+
+<div class="tropes">
+
+<span class="trope">
+🏒 Хоккей
+</span>
+
+<span class="trope">
+🎭 Фальшивые отношения
+</span>
+
+<span class="trope">
+☀️ Ворчун & солнышко
+</span>
+
+</div>
+
+</a>
+
+
+<div
+class="empty"
+id="empty"
+>
 Ничего не найдено
 </div>
 
@@ -343,104 +591,227 @@ alt="Холодная малышка"
 
 </main>
 
+
 <nav>
 
-<a class="nav-item" href="https://tvorchestvolana-alt.github.io/nocturne-books/index.html">
+<a
+class="nav-item"
+href="https://tvorchestvolana-alt.github.io/nocturne-books/index.html"
+>
 <span class="nav-icon">⌂</span>
 Главная
 </a>
 
-<a class="nav-item active" href="https://tvorchestvolana-alt.github.io/nocturne-books/catalog.html">
+<a
+class="nav-item active"
+href="https://tvorchestvolana-alt.github.io/nocturne-books/catalog.html"
+>
 <span class="nav-icon">⌕</span>
 Каталог
 </a>
 
-<a class="nav-item" href="https://tvorchestvolana-alt.github.io/nocturne-books/library.html">
+<a
+class="nav-item"
+href="https://tvorchestvolana-alt.github.io/nocturne-books/library.html"
+>
 <span class="nav-icon">♡</span>
 Библиотека
 </a>
 
-<a class="nav-item" href="https://tvorchestvolana-alt.github.io/nocturne-books/bookmarks.html">
+<a
+class="nav-item"
+href="https://tvorchestvolana-alt.github.io/nocturne-books/bookmarks.html"
+>
 <span class="nav-icon">❝</span>
 Цитаты
 </a>
 
-<a class="nav-item" href="https://tvorchestvolana-alt.github.io/nocturne-books/profile.html">
+<a
+class="nav-item"
+href="https://tvorchestvolana-alt.github.io/nocturne-books/profile.html"
+>
 <span class="nav-icon">♙</span>
 Профиль
 </a>
 
 </nav>
 
+
 <script>
 
-const search=document.getElementById("search");
-const books=[...document.querySelectorAll(".book")];
-const filters=document.querySelectorAll(".filter");
-const empty=document.getElementById("empty");
-const count=document.getElementById("count");
+const search =
+document.getElementById(
+"search"
+);
 
-let activeFilter="all";
+const books =
+[
+  ...document.querySelectorAll(
+    ".book"
+  )
+];
+
+const filters =
+document.querySelectorAll(
+".filter"
+);
+
+const empty =
+document.getElementById(
+"empty"
+);
+
+const count =
+document.getElementById(
+"count"
+);
+
+let activeFilter =
+"all";
+
+
+function normalize(text){
+
+  return text
+  .toLowerCase()
+  .replace(/ё/g,"е")
+  .replace(/&/g," ")
+  .replace(/\s+/g," ")
+  .trim();
+}
+
+
+function bookWord(number){
+
+  const mod10 =
+  number % 10;
+
+  const mod100 =
+  number % 100;
+
+  if(
+    mod10 === 1 &&
+    mod100 !== 11
+  ){
+    return "книга";
+  }
+
+  if(
+    mod10 >= 2 &&
+    mod10 <= 4 &&
+    (
+      mod100 < 12 ||
+      mod100 > 14
+    )
+  ){
+    return "книги";
+  }
+
+  return "книг";
+}
+
 
 function applyFilters(){
 
-  const query=search.value.toLowerCase().trim();
+  const query =
+  normalize(
+    search.value
+  );
 
-  let visible=0;
+  const filter =
+  normalize(
+    activeFilter
+  );
 
-  books.forEach(book=>{
+  let visible =
+  0;
 
-    const data=book.dataset.search.toLowerCase();
 
-    const matchesSearch=
-    query==="" ||
+  books.forEach(
+  book=>{
+
+    const data =
+    normalize(
+      book.dataset.search
+    );
+
+    const matchesSearch =
+    query === "" ||
     data.includes(query);
 
-    const matchesFilter=
-    activeFilter==="all" ||
-    data.includes(activeFilter);
+    const matchesFilter =
+    activeFilter === "all" ||
+    data.includes(filter);
 
-    if(matchesSearch && matchesFilter){
 
-      book.style.display="block";
+    if(
+      matchesSearch &&
+      matchesFilter
+    ){
+
+      book.style.display =
+      "block";
+
       visible++;
 
     }else{
 
-      book.style.display="none";
+      book.style.display =
+      "none";
     }
+
   });
 
-  empty.style.display=
-  visible===0
+
+  empty.style.display =
+  visible === 0
   ? "block"
   : "none";
 
-  count.textContent=
-  visible===1
-  ? "1 книга"
-  : visible+" книг";
+
+  count.textContent =
+  visible +
+  " " +
+  bookWord(visible);
+
 }
 
-search.addEventListener("input",applyFilters);
 
-filters.forEach(button=>{
+search.addEventListener(
+"input",
+applyFilters
+);
 
-  button.addEventListener("click",()=>{
+
+filters.forEach(
+button=>{
+
+  button.addEventListener(
+  "click",
+  ()=>{
 
     filters.forEach(
-      b=>b.classList.remove("active")
+      item =>
+      item.classList.remove(
+        "active"
+      )
     );
 
-    button.classList.add("active");
+    button.classList.add(
+      "active"
+    );
 
-    activeFilter=
+    activeFilter =
     button.dataset.filter;
 
     applyFilters();
+
   });
 
 });
+
+
+applyFilters();
 
 </script>
 
