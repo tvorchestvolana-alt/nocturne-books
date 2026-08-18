@@ -282,14 +282,89 @@ nav{
 
 </header>
 
+
 <main>
 
-<div class="empty" id="empty">
+<div
+class="empty"
+id="empty"
+>
 Пока здесь пусто.<br><br>
 Добавляй книги в библиотеку, чтобы быстро возвращаться к ним.
 </div>
 
+
 <div class="books">
+
+
+<!-- ПЕРЕМЕНЫ НА ЛЕТУ -->
+
+<div
+class="book-card"
+id="changesCard"
+>
+
+<div class="book-inner">
+
+<div class="cover">
+
+<img
+src="1782309759197.png"
+alt="Перемены на лету"
+>
+
+</div>
+
+<div class="info">
+
+<h2>
+Перемены на лету
+</h2>
+
+<div class="author">
+Марен Мур
+</div>
+
+<div class="series">
+Точное попадание · Книга #1
+</div>
+
+<div
+class="progress-text"
+id="changesProgressText"
+>
+Прочитано 0%
+</div>
+
+<div class="progress">
+
+<div
+class="progress-bar"
+id="changesProgressBar"
+></div>
+
+</div>
+
+<a
+class="button"
+id="changesButton"
+href="https://tvorchestvolana-alt.github.io/nocturne-books/reader-changes-on-the-fly.html"
+>
+📖 ПРОДОЛЖИТЬ
+</a>
+
+<a
+class="book-page"
+href="https://tvorchestvolana-alt.github.io/nocturne-books/changes-on-the-fly.html"
+>
+Открыть страницу книги
+</a>
+
+</div>
+
+</div>
+
+</div>
 
 
 <!-- ХОЛОДНЫЙ КАК ЛЁД -->
@@ -625,6 +700,30 @@ href="https://tvorchestvolana-alt.github.io/nocturne-books/profile.html"
 <script>
 
 const BOOKS = [
+
+{
+  libraryKey:
+  "nocturne-changes-on-the-fly-library",
+
+  positionKey:
+  "nocturne-changes-on-the-fly-position",
+
+  progressKey:
+  "nocturne-changes-on-the-fly-progress",
+
+  card:
+  "changesCard",
+
+  text:
+  "changesProgressText",
+
+  bar:
+  "changesProgressBar",
+
+  button:
+  "changesButton"
+},
+
 
 {
   libraryKey:
