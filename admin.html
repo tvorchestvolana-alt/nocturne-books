@@ -2,12 +2,11 @@
 <html lang="ru">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>Админка — NOCTURNE BOOKS</title>
 
 <style>
-
 *{
   box-sizing:border-box;
 }
@@ -25,51 +24,58 @@ body{
 }
 
 header{
-  padding:24px 18px;
+  padding:25px 18px;
   text-align:center;
-  background:rgba(255,255,255,.82);
-  backdrop-filter:blur(12px);
-  border-bottom:1px solid #e1e8f0;
+  background:rgba(255,255,255,.9);
+  border-bottom:1px solid #e4eaf1;
 }
 
 .logo{
   font-family:Georgia,serif;
-  font-size:28px;
+  font-size:30px;
   font-weight:900;
-  letter-spacing:3px;
+  letter-spacing:5px;
   color:#31577f;
 }
 
 .subtitle{
-  margin-top:6px;
+  margin-top:7px;
   font-size:11px;
-  letter-spacing:2px;
+  letter-spacing:3px;
   color:#8395a9;
 }
 
 main{
   max-width:760px;
   margin:auto;
-  padding:20px 16px;
+  padding:22px 16px;
+}
+
+.back{
+  display:inline-block;
+  margin-bottom:17px;
+  text-decoration:none;
+  color:#52779e;
+  font-size:14px;
 }
 
 .card{
-  background:rgba(255,255,255,.94);
+  background:rgba(255,255,255,.96);
   border-radius:22px;
-  padding:18px;
-  margin-bottom:18px;
-  box-shadow:0 10px 28px rgba(43,69,101,.08);
+  padding:20px;
+  margin-bottom:19px;
+  box-shadow:0 10px 30px rgba(43,69,101,.08);
 }
 
 h2{
-  margin:0 0 16px;
-  font-size:19px;
+  margin:0 0 18px;
+  font-size:20px;
 }
 
 label{
   display:block;
-  margin:13px 0 6px;
-  font-size:12px;
+  margin:14px 0 7px;
+  font-size:13px;
   font-weight:bold;
   color:#557391;
 }
@@ -79,16 +85,16 @@ textarea,
 select{
   width:100%;
   border:1px solid #dbe5ef;
-  border-radius:13px;
-  padding:12px 13px;
-  font-size:14px;
+  border-radius:14px;
+  padding:13px 14px;
+  font-size:15px;
   outline:none;
   background:#fbfdff;
   color:#173052;
 }
 
 textarea{
-  min-height:130px;
+  min-height:140px;
   resize:vertical;
 }
 
@@ -100,45 +106,66 @@ select:focus{
 
 .password-row{
   display:flex;
-  gap:8px;
+  gap:9px;
 }
 
 .password-row input{
   flex:1;
 }
 
-.save-password{
+.secondary{
   border:0;
-  border-radius:13px;
-  padding:0 14px;
+  border-radius:14px;
+  padding:0 17px;
   background:#eaf2fb;
   color:#52779e;
   font-weight:bold;
+  cursor:pointer;
+}
+
+.file-box{
+  border:1px dashed #bfcfe0;
+  border-radius:16px;
+  padding:16px;
+  background:#f9fbfe;
+}
+
+.file-box input{
+  border:0;
+  padding:0;
+  background:transparent;
+}
+
+.file-info{
+  margin-top:8px;
+  color:#8999aa;
+  font-size:11px;
 }
 
 .primary{
   width:100%;
-  margin-top:18px;
+  margin-top:20px;
   border:0;
-  border-radius:14px;
-  padding:14px;
+  border-radius:15px;
+  padding:15px;
   background:linear-gradient(135deg,#709bd0,#d49ab5);
-  color:white;
-  font-size:14px;
+  color:#fff;
+  font-size:15px;
   font-weight:bold;
   cursor:pointer;
 }
 
 .primary:disabled{
-  opacity:.55;
+  opacity:.5;
+  cursor:not-allowed;
 }
 
 .status{
   display:none;
-  margin-top:13px;
-  padding:11px 12px;
+  margin-top:14px;
+  padding:12px 13px;
   border-radius:12px;
-  font-size:12px;
+  font-size:13px;
 }
 
 .status.show{
@@ -155,27 +182,44 @@ select:focus{
   color:#a84656;
 }
 
+.status.loading{
+  background:#eef5fc;
+  color:#52779e;
+}
+
 .book-list{
   display:flex;
   flex-direction:column;
-  gap:12px;
+  gap:13px;
 }
 
 .book-item{
   display:flex;
-  gap:13px;
-  padding:13px;
-  background:#f9fbfe;
-  border:1px solid #e4ebf2;
-  border-radius:16px;
+  gap:14px;
+  padding:14px;
+  border:1px solid #e3eaf2;
+  border-radius:17px;
+  background:#fafcff;
 }
 
 .book-cover{
-  width:64px;
-  height:96px;
+  width:70px;
+  height:105px;
   object-fit:cover;
   border-radius:9px;
-  background:#edf2f7;
+  background:#eaf0f6;
+  flex-shrink:0;
+}
+
+.no-cover{
+  width:70px;
+  height:105px;
+  border-radius:9px;
+  background:#eaf0f6;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:25px;
   flex-shrink:0;
 }
 
@@ -185,24 +229,32 @@ select:focus{
 }
 
 .book-title{
+  font-size:15px;
   font-weight:800;
-  font-size:14px;
-  margin-bottom:4px;
+  margin-bottom:5px;
 }
 
 .book-author{
-  font-size:11px;
-  color:#8091a5;
-  margin-bottom:4px;
+  font-size:12px;
+  color:#8393a5;
+  margin-bottom:7px;
 }
 
 .book-category{
   display:inline-block;
-  padding:4px 7px;
-  border-radius:10px;
+  padding:5px 8px;
+  border-radius:11px;
   background:linear-gradient(135deg,#eaf2fb,#f8eaf1);
   color:#5d7d9c;
-  font-size:9px;
+  font-size:10px;
+}
+
+.epub-link{
+  display:block;
+  margin-top:9px;
+  font-size:11px;
+  color:#52779e;
+  text-decoration:none;
 }
 
 .delete{
@@ -211,7 +263,7 @@ select:focus{
   background:#fff0f2;
   color:#b94d60;
   border-radius:11px;
-  padding:8px 10px;
+  padding:9px 11px;
   font-size:11px;
   cursor:pointer;
 }
@@ -219,343 +271,541 @@ select:focus{
 .empty{
   text-align:center;
   color:#8a9aad;
-  font-size:13px;
-  padding:28px 10px;
-}
-
-.back{
-  display:inline-block;
-  margin-bottom:16px;
-  text-decoration:none;
-  color:#52779e;
+  padding:30px 10px;
   font-size:13px;
 }
 
 .small{
-  margin-top:7px;
-  font-size:10px;
-  line-height:1.4;
+  margin-top:8px;
   color:#96a4b3;
+  font-size:10px;
 }
-
 </style>
 </head>
 
 <body>
 
 <header>
-
-<div class="logo">
-NOCTURNE
-</div>
-
-<div class="subtitle">
-ADMIN PANEL
-</div>
-
+  <div class="logo">NOCTURNE</div>
+  <div class="subtitle">ADMIN PANEL</div>
 </header>
 
 <main>
 
-<a
-class="back"
-href="index.html"
->
-← Вернуться на сайт
+<a class="back" href="index.html">
+  ← Вернуться на сайт
 </a>
 
-
 <div class="card">
 
-<h2>
-🔐 Доступ
-</h2>
+  <h2>🔐 Доступ</h2>
 
-<label>
-Админ-пароль
-</label>
+  <label>Админ-пароль</label>
 
-<div class="password-row">
+  <div class="password-row">
+    <input
+      id="adminKey"
+      type="password"
+      placeholder="Введите пароль"
+    >
 
-<input
-id="adminKey"
-type="password"
-placeholder="Введите пароль"
->
+    <button
+      class="secondary"
+      id="savePassword"
+      type="button"
+    >
+      Запомнить
+    </button>
+  </div>
 
-<button
-class="save-password"
-id="savePassword"
-type="button"
->
-Запомнить
-</button>
-
-</div>
-
-<div class="small">
-Пароль сохраняется только в этом браузере.
-</div>
+  <div class="small">
+    Пароль сохраняется только в этом браузере.
+  </div>
 
 </div>
 
 
 <div class="card">
 
-<h2>
-➕ Добавить книгу
-</h2>
+  <h2>➕ Добавить книгу</h2>
 
-<label>
-Название
-</label>
+  <label>Название</label>
+  <input
+    id="title"
+    type="text"
+    placeholder="Название книги"
+  >
 
-<input
-id="title"
-type="text"
-placeholder="Например: Холодный как лёд"
->
+  <label>Автор</label>
+  <input
+    id="author"
+    type="text"
+    placeholder="Имя автора"
+  >
 
+  <label>Категория</label>
+  <select id="category">
 
-<label>
-Автор
-</label>
+    <option value="">
+      Выберите категорию
+    </option>
 
-<input
-id="author"
-type="text"
-placeholder="Например: Лауреа Мэттьюз"
->
+    <option value="Триллеры/детективы">
+      Триллеры/детективы
+    </option>
 
+    <option value="Хорроры">
+      Хорроры
+    </option>
 
-<label>
-Категория
-</label>
+    <option value="Сплаттерпанки">
+      Сплаттерпанки
+    </option>
 
-<select id="category">
+    <option value="Дарк Романы">
+      Дарк Романы
+    </option>
 
-<option value="">
-Выберите категорию
-</option>
+    <option value="Дарк Фэнтези">
+      Дарк Фэнтези
+    </option>
 
-<option value="Хоккейный роман">
-Хоккейный роман
-</option>
+    <option value="Хоккейный роман">
+      Хоккейный роман
+    </option>
 
-<option value="Спортивный роман">
-Спортивный роман
-</option>
+    <option value="Спортивный роман">
+      Спортивный роман
+    </option>
 
-<option value="Студенческий роман">
-Студенческий роман
-</option>
+  </select>
 
-<option value="Триллер">
-Триллер
-</option>
-
-<option value="Хоррор">
-Хоррор
-</option>
-
-<option value="Сплаттерпанк">
-Сплаттерпанк
-</option>
-
-<option value="Дарк роман">
-Дарк роман
-</option>
-
-<option value="Дарк фэнтези">
-Дарк фэнтези
-</option>
-
-</select>
+  <label>Аннотация</label>
+  <textarea
+    id="description"
+    placeholder="Вставьте аннотацию книги..."
+  ></textarea>
 
 
-<label>
-Аннотация
-</label>
+  <label>Обложка</label>
 
-<textarea
-id="description"
-placeholder="Вставьте аннотацию книги..."
-></textarea>
+  <div class="file-box">
 
+    <input
+      id="coverFile"
+      type="file"
+      accept=".jpg,.jpeg,.png,.webp,image/jpeg,image/png,image/webp"
+    >
 
-<label>
-Ссылка на обложку
-</label>
+    <div class="file-info">
+      JPG, JPEG, PNG или WEBP
+    </div>
 
-<input
-id="coverUrl"
-type="text"
-placeholder="Например: file_00000000....png"
->
+  </div>
 
 
-<label>
-Ссылка на EPUB
-</label>
+  <label>EPUB</label>
 
-<input
-id="bookUrl"
-type="text"
-placeholder="Например: Перемены нa лeту.epub"
->
+  <div class="file-box">
 
+    <input
+      id="bookFile"
+      type="file"
+      accept=".epub,application/epub+zip"
+    >
 
-<button
-class="primary"
-id="addBook"
-type="button"
->
-ДОБАВИТЬ КНИГУ
-</button>
+    <div class="file-info">
+      Выберите готовый файл EPUB
+    </div>
+
+  </div>
 
 
-<div
-class="status"
-id="status"
-></div>
+  <button
+    class="primary"
+    id="addBook"
+    type="button"
+  >
+    ДОБАВИТЬ КНИГУ
+  </button>
+
+  <div
+    class="status"
+    id="status"
+  ></div>
 
 </div>
 
 
 <div class="card">
 
-<h2>
-📚 Книги в базе
-</h2>
+  <h2>📚 Книги в базе</h2>
 
-<div
-class="book-list"
-id="bookList"
->
-Загрузка...
-</div>
+  <div
+    id="bookList"
+    class="book-list"
+  >
+    Загрузка...
+  </div>
 
 </div>
 
 </main>
 
+
 <script>
 
-/*
-ВАЖНО:
-ЕСЛИ ТВОЙ WORKERS.DEV АДРЕС ДРУГОЙ,
-ЗАМЕНИ ЕГО ЗДЕСЬ.
-*/
-
 const API_URL =
-"https://nocturne-books-api.tvorchestvolana.workers.dev";
+  "https://nocturne-books-api.tvorchestvolana.workers.dev";
 
 
 const adminKeyInput =
-document.getElementById(
-  "adminKey"
-);
+  document.getElementById("adminKey");
 
 const statusBox =
-document.getElementById(
-  "status"
-);
+  document.getElementById("status");
 
 const bookList =
-document.getElementById(
-  "bookList"
-);
+  document.getElementById("bookList");
 
-
-/* ПАРОЛЬ */
 
 adminKeyInput.value =
-localStorage.getItem(
-  "nocturne-admin-key"
-) || "";
+  localStorage.getItem("nocturne-admin-key") || "";
 
 
 document
-.getElementById(
-  "savePassword"
-)
-.onclick =
-()=>{
+  .getElementById("savePassword")
+  .addEventListener("click", () => {
 
-  const key =
-  adminKeyInput.value.trim();
+    const key =
+      adminKeyInput.value.trim();
 
-  if(!key){
+    if (!key) {
+      showStatus(
+        "Введите пароль.",
+        "error"
+      );
 
-    showStatus(
-      "Введите пароль.",
-      false
+      return;
+    }
+
+    localStorage.setItem(
+      "nocturne-admin-key",
+      key
     );
 
-    return;
-  }
+    showStatus(
+      "Пароль сохранён ✓",
+      "success"
+    );
 
-  localStorage.setItem(
-    "nocturne-admin-key",
-    key
-  );
-
-  showStatus(
-    "Пароль сохранён.",
-    true
-  );
-};
+  });
 
 
-/* СТАТУС */
+function showStatus(text, type) {
 
-function showStatus(
-  text,
-  success
-){
-
-  statusBox.textContent =
-  text;
+  statusBox.textContent = text;
 
   statusBox.className =
-  "status show " +
-  (
-    success
-    ? "success"
-    : "error"
-  );
-
-  setTimeout(
-    ()=>{
-      statusBox.className =
-      "status";
-    },
-    3500
-  );
+    "status show " + type;
 }
 
 
-/* ПОЛУЧИТЬ КНИГИ */
+async function uploadFile(
+  file,
+  type,
+  adminKey
+) {
 
-async function loadBooks(){
+  if (!file) {
+    return "";
+  }
 
-  bookList.innerHTML =
-  "Загрузка...";
 
-  try{
+  const extension =
+    file.name.includes(".")
+      ? file.name
+          .split(".")
+          .pop()
+          .toLowerCase()
+      : "";
 
-    const response =
+
+  const safeName =
+    type === "cover"
+      ? "cover." + extension
+      : "book.epub";
+
+
+  const response =
     await fetch(
-      API_URL + "/books"
+      API_URL +
+      "/upload?type=" +
+      type,
+      {
+        method: "POST",
+
+        headers: {
+          "X-Admin-Key":
+            adminKey,
+
+          "X-File-Name":
+            safeName,
+
+          "X-File-Type":
+            file.type ||
+            "application/octet-stream",
+
+          "Content-Type":
+            file.type ||
+            "application/octet-stream"
+        },
+
+        body: file
+      }
     );
 
-    const books =
+
+  const result =
     await response.json();
 
 
-    if(
-      !response.ok
-    ){
+  if (!response.ok) {
+    throw new Error(
+      result.error ||
+      result.details ||
+      "Ошибка загрузки файла"
+    );
+  }
+
+
+  return result.url;
+}
+
+
+document
+  .getElementById("addBook")
+  .addEventListener(
+    "click",
+    async () => {
+
+      const button =
+        document.getElementById(
+          "addBook"
+        );
+
+
+      const adminKey =
+        adminKeyInput
+          .value
+          .trim();
+
+
+      if (!adminKey) {
+
+        showStatus(
+          "Сначала введите админ-пароль.",
+          "error"
+        );
+
+        return;
+      }
+
+
+      const title =
+        document
+          .getElementById("title")
+          .value
+          .trim();
+
+
+      const author =
+        document
+          .getElementById("author")
+          .value
+          .trim();
+
+
+      const category =
+        document
+          .getElementById("category")
+          .value;
+
+
+      const description =
+        document
+          .getElementById("description")
+          .value
+          .trim();
+
+
+      const coverFile =
+        document
+          .getElementById("coverFile")
+          .files[0];
+
+
+      const bookFile =
+        document
+          .getElementById("bookFile")
+          .files[0];
+
+
+      if (
+        !title ||
+        !author ||
+        !category
+      ) {
+
+        showStatus(
+          "Заполните название, автора и категорию.",
+          "error"
+        );
+
+        return;
+      }
+
+
+      button.disabled = true;
+
+      button.textContent =
+        "ЗАГРУЖАЮ...";
+
+
+      try {
+
+        let coverUrl = "";
+        let bookUrl = "";
+
+
+        if (coverFile) {
+
+          showStatus(
+            "Загружаю обложку...",
+            "loading"
+          );
+
+          coverUrl =
+            await uploadFile(
+              coverFile,
+              "cover",
+              adminKey
+            );
+        }
+
+
+        if (bookFile) {
+
+          showStatus(
+            "Загружаю EPUB...",
+            "loading"
+          );
+
+          bookUrl =
+            await uploadFile(
+              bookFile,
+              "book",
+              adminKey
+            );
+        }
+
+
+        showStatus(
+          "Сохраняю книгу в базе...",
+          "loading"
+        );
+
+
+        const response =
+          await fetch(
+            API_URL + "/books",
+            {
+              method: "POST",
+
+              headers: {
+                "Content-Type":
+                  "application/json",
+
+                "X-Admin-Key":
+                  adminKey
+              },
+
+              body:
+                JSON.stringify({
+                  title,
+                  author,
+                  category,
+                  description,
+                  cover_url: coverUrl,
+                  book_url: bookUrl
+                })
+            }
+          );
+
+
+        const result =
+          await response.json();
+
+
+        if (!response.ok) {
+
+          throw new Error(
+            result.error ||
+            result.details ||
+            "Не удалось добавить книгу"
+          );
+        }
+
+
+        showStatus(
+          "Книга добавлена в базу ✓",
+          "success"
+        );
+
+
+        clearForm();
+
+        await loadBooks();
+
+
+      } catch (error) {
+
+        showStatus(
+          error.message,
+          "error"
+        );
+
+      } finally {
+
+        button.disabled = false;
+
+        button.textContent =
+          "ДОБАВИТЬ КНИГУ";
+      }
+
+    }
+  );
+
+
+async function loadBooks() {
+
+  bookList.innerHTML =
+    "Загрузка...";
+
+
+  try {
+
+    const response =
+      await fetch(
+        API_URL + "/books"
+      );
+
+
+    const books =
+      await response.json();
+
+
+    if (!response.ok) {
 
       throw new Error(
         books.error ||
@@ -564,391 +814,238 @@ async function loadBooks(){
     }
 
 
-    if(
+    if (
       !Array.isArray(books) ||
       books.length === 0
-    ){
+    ) {
 
       bookList.innerHTML =
-      '<div class="empty">В базе пока нет книг.</div>';
+        '<div class="empty">' +
+        'В базе пока нет книг.' +
+        '</div>';
 
       return;
     }
 
 
-    bookList.innerHTML =
-    "";
+    bookList.innerHTML = "";
 
 
-    books.forEach(
-    book=>{
+    books.forEach(book => {
 
       const item =
-      document.createElement(
-        "div"
-      );
+        document.createElement(
+          "div"
+        );
 
       item.className =
-      "book-item";
+        "book-item";
 
 
-      const cover =
-      document.createElement(
-        "img"
-      );
+      if (book.cover_url) {
 
-      cover.className =
-      "book-cover";
+        const cover =
+          document.createElement(
+            "img"
+          );
 
-      cover.src =
-      book.cover_url || "";
+        cover.className =
+          "book-cover";
 
-      cover.alt =
-      book.title || "";
+        cover.src =
+          book.cover_url;
+
+        cover.alt =
+          book.title || "";
+
+        item.appendChild(cover);
+
+      } else {
+
+        const emptyCover =
+          document.createElement(
+            "div"
+          );
+
+        emptyCover.className =
+          "no-cover";
+
+        emptyCover.textContent =
+          "📖";
+
+        item.appendChild(
+          emptyCover
+        );
+      }
 
 
       const data =
-      document.createElement(
-        "div"
-      );
+        document.createElement(
+          "div"
+        );
 
       data.className =
-      "book-data";
+        "book-data";
 
 
       const title =
-      document.createElement(
-        "div"
-      );
+        document.createElement(
+          "div"
+        );
 
       title.className =
-      "book-title";
+        "book-title";
 
       title.textContent =
-      book.title;
+        book.title;
 
 
       const author =
-      document.createElement(
-        "div"
-      );
+        document.createElement(
+          "div"
+        );
 
       author.className =
-      "book-author";
+        "book-author";
 
       author.textContent =
-      book.author;
+        book.author;
 
 
       const category =
-      document.createElement(
-        "div"
-      );
+        document.createElement(
+          "div"
+        );
 
       category.className =
-      "book-category";
+        "book-category";
 
       category.textContent =
-      book.category;
+        book.category;
 
 
-      data.appendChild(
-        title
-      );
+      data.appendChild(title);
+      data.appendChild(author);
+      data.appendChild(category);
 
-      data.appendChild(
-        author
-      );
 
-      data.appendChild(
-        category
-      );
+      if (book.book_url) {
+
+        const epub =
+          document.createElement(
+            "a"
+          );
+
+        epub.className =
+          "epub-link";
+
+        epub.href =
+          book.book_url;
+
+        epub.target =
+          "_blank";
+
+        epub.textContent =
+          "📘 Открыть EPUB";
+
+        data.appendChild(epub);
+      }
 
 
       const remove =
-      document.createElement(
-        "button"
-      );
+        document.createElement(
+          "button"
+        );
 
       remove.className =
-      "delete";
+        "delete";
 
       remove.textContent =
-      "Удалить";
+        "Удалить";
 
 
       remove.onclick =
-      ()=>deleteBook(
-        book.id,
-        book.title
-      );
+        () => deleteBook(
+          book.id,
+          book.title
+        );
 
 
-      item.appendChild(
-        cover
-      );
+      item.appendChild(data);
+      item.appendChild(remove);
 
-      item.appendChild(
-        data
-      );
-
-      item.appendChild(
-        remove
-      );
-
-
-      bookList.appendChild(
-        item
-      );
+      bookList.appendChild(item);
 
     });
 
-  }catch(error){
+
+  } catch (error) {
 
     bookList.innerHTML =
-    '<div class="empty">Ошибка: ' +
-    escapeHtml(
-      error.message
-    ) +
-    '</div>';
+      '<div class="empty">' +
+      "Ошибка: " +
+      escapeHtml(error.message) +
+      "</div>";
   }
 }
 
 
-/* ДОБАВИТЬ */
-
-document
-.getElementById(
-  "addBook"
-)
-.onclick =
-async()=>{
-
-  const button =
-  document.getElementById(
-    "addBook"
-  );
-
-
-  const adminKey =
-  adminKeyInput
-  .value
-  .trim();
-
-
-  if(!adminKey){
-
-    showStatus(
-      "Сначала введи админ-пароль.",
-      false
-    );
-
-    return;
-  }
-
-
-  const book = {
-
-    title:
-    document
-    .getElementById(
-      "title"
-    )
-    .value
-    .trim(),
-
-    author:
-    document
-    .getElementById(
-      "author"
-    )
-    .value
-    .trim(),
-
-    category:
-    document
-    .getElementById(
-      "category"
-    )
-    .value,
-
-    description:
-    document
-    .getElementById(
-      "description"
-    )
-    .value
-    .trim(),
-
-    cover_url:
-    document
-    .getElementById(
-      "coverUrl"
-    )
-    .value
-    .trim(),
-
-    book_url:
-    document
-    .getElementById(
-      "bookUrl"
-    )
-    .value
-    .trim()
-
-  };
-
-
-  if(
-    !book.title ||
-    !book.author ||
-    !book.category
-  ){
-
-    showStatus(
-      "Заполни название, автора и категорию.",
-      false
-    );
-
-    return;
-  }
-
-
-  button.disabled =
-  true;
-
-  button.textContent =
-  "ДОБАВЛЯЮ...";
-
-
-  try{
-
-    const response =
-    await fetch(
-      API_URL + "/books",
-      {
-        method:"POST",
-
-        headers:{
-          "Content-Type":
-          "application/json",
-
-          "X-Admin-Key":
-          adminKey
-        },
-
-        body:
-        JSON.stringify(
-          book
-        )
-      }
-    );
-
-
-    const result =
-    await response.json();
-
-
-    if(
-      !response.ok
-    ){
-
-      throw new Error(
-        result.error ||
-        result.details ||
-        "Не удалось добавить книгу"
-      );
-    }
-
-
-    showStatus(
-      "Книга добавлена в базу ✓",
-      true
-    );
-
-
-    clearForm();
-
-    await loadBooks();
-
-
-  }catch(error){
-
-    showStatus(
-      error.message,
-      false
-    );
-
-  }finally{
-
-    button.disabled =
-    false;
-
-    button.textContent =
-    "ДОБАВИТЬ КНИГУ";
-  }
-
-};
-
-
-/* УДАЛИТЬ */
-
 async function deleteBook(
   id,
   title
-){
+) {
 
   const adminKey =
-  adminKeyInput
-  .value
-  .trim();
+    adminKeyInput
+      .value
+      .trim();
 
 
-  if(!adminKey){
+  if (!adminKey) {
 
     showStatus(
       "Введите админ-пароль.",
-      false
+      "error"
     );
 
     return;
   }
 
 
-  if(
+  if (
     !confirm(
       'Удалить книгу "' +
       title +
       '"?'
     )
-  ){
+  ) {
     return;
   }
 
 
-  try{
+  try {
 
     const response =
-    await fetch(
-      API_URL +
-      "/books/" +
-      id,
-      {
-        method:"DELETE",
+      await fetch(
+        API_URL +
+        "/books/" +
+        id,
+        {
+          method: "DELETE",
 
-        headers:{
-          "X-Admin-Key":
-          adminKey
+          headers: {
+            "X-Admin-Key":
+              adminKey
+          }
         }
-      }
-    );
+      );
 
 
     const result =
-    await response.json();
+      await response.json();
 
 
-    if(!response.ok){
+    if (!response.ok) {
 
       throw new Error(
         result.error ||
@@ -959,83 +1056,60 @@ async function deleteBook(
 
 
     showStatus(
-      "Книга удалена.",
-      true
+      "Книга удалена ✓",
+      "success"
     );
 
 
     await loadBooks();
 
 
-  }catch(error){
+  } catch (error) {
 
     showStatus(
       error.message,
-      false
+      "error"
     );
   }
 }
 
 
-/* ОЧИСТИТЬ ФОРМУ */
-
-function clearForm(){
+function clearForm() {
 
   document
-  .getElementById(
-    "title"
-  )
-  .value =
-  "";
+    .getElementById("title")
+    .value = "";
 
   document
-  .getElementById(
-    "author"
-  )
-  .value =
-  "";
+    .getElementById("author")
+    .value = "";
 
   document
-  .getElementById(
-    "category"
-  )
-  .value =
-  "";
+    .getElementById("category")
+    .value = "";
 
   document
-  .getElementById(
-    "description"
-  )
-  .value =
-  "";
+    .getElementById("description")
+    .value = "";
 
   document
-  .getElementById(
-    "coverUrl"
-  )
-  .value =
-  "";
+    .getElementById("coverFile")
+    .value = "";
 
   document
-  .getElementById(
-    "bookUrl"
-  )
-  .value =
-  "";
+    .getElementById("bookFile")
+    .value = "";
 }
 
 
-/* БЕЗОПАСНЫЙ ТЕКСТ */
-
-function escapeHtml(text){
+function escapeHtml(text) {
 
   const div =
-  document.createElement(
-    "div"
-  );
+    document.createElement(
+      "div"
+    );
 
-  div.textContent =
-  text;
+  div.textContent = text;
 
   return div.innerHTML;
 }
@@ -1046,4 +1120,4 @@ loadBooks();
 </script>
 
 </body>
-</html>
+  </html>
