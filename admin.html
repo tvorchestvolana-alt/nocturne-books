@@ -1,0 +1,1049 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+
+<title>Админка — NOCTURNE BOOKS</title>
+
+<style>
+
+*{
+  box-sizing:border-box;
+}
+
+body{
+  margin:0;
+  font-family:Arial,sans-serif;
+  color:#173052;
+  background:
+    radial-gradient(circle at 10% 15%,rgba(244,190,211,.35),transparent 28%),
+    radial-gradient(circle at 90% 30%,rgba(187,211,238,.28),transparent 30%),
+    linear-gradient(180deg,#fffafd,#f6f8fc);
+  min-height:100vh;
+  padding-bottom:50px;
+}
+
+header{
+  padding:24px 18px;
+  text-align:center;
+  background:rgba(255,255,255,.82);
+  backdrop-filter:blur(12px);
+  border-bottom:1px solid #e1e8f0;
+}
+
+.logo{
+  font-family:Georgia,serif;
+  font-size:28px;
+  font-weight:900;
+  letter-spacing:3px;
+  color:#31577f;
+}
+
+.subtitle{
+  margin-top:6px;
+  font-size:11px;
+  letter-spacing:2px;
+  color:#8395a9;
+}
+
+main{
+  max-width:760px;
+  margin:auto;
+  padding:20px 16px;
+}
+
+.card{
+  background:rgba(255,255,255,.94);
+  border-radius:22px;
+  padding:18px;
+  margin-bottom:18px;
+  box-shadow:0 10px 28px rgba(43,69,101,.08);
+}
+
+h2{
+  margin:0 0 16px;
+  font-size:19px;
+}
+
+label{
+  display:block;
+  margin:13px 0 6px;
+  font-size:12px;
+  font-weight:bold;
+  color:#557391;
+}
+
+input,
+textarea,
+select{
+  width:100%;
+  border:1px solid #dbe5ef;
+  border-radius:13px;
+  padding:12px 13px;
+  font-size:14px;
+  outline:none;
+  background:#fbfdff;
+  color:#173052;
+}
+
+textarea{
+  min-height:130px;
+  resize:vertical;
+}
+
+input:focus,
+textarea:focus,
+select:focus{
+  border-color:#8bb0d8;
+}
+
+.password-row{
+  display:flex;
+  gap:8px;
+}
+
+.password-row input{
+  flex:1;
+}
+
+.save-password{
+  border:0;
+  border-radius:13px;
+  padding:0 14px;
+  background:#eaf2fb;
+  color:#52779e;
+  font-weight:bold;
+}
+
+.primary{
+  width:100%;
+  margin-top:18px;
+  border:0;
+  border-radius:14px;
+  padding:14px;
+  background:linear-gradient(135deg,#709bd0,#d49ab5);
+  color:white;
+  font-size:14px;
+  font-weight:bold;
+  cursor:pointer;
+}
+
+.primary:disabled{
+  opacity:.55;
+}
+
+.status{
+  display:none;
+  margin-top:13px;
+  padding:11px 12px;
+  border-radius:12px;
+  font-size:12px;
+}
+
+.status.show{
+  display:block;
+}
+
+.status.success{
+  background:#edf8f1;
+  color:#35744c;
+}
+
+.status.error{
+  background:#fff0f2;
+  color:#a84656;
+}
+
+.book-list{
+  display:flex;
+  flex-direction:column;
+  gap:12px;
+}
+
+.book-item{
+  display:flex;
+  gap:13px;
+  padding:13px;
+  background:#f9fbfe;
+  border:1px solid #e4ebf2;
+  border-radius:16px;
+}
+
+.book-cover{
+  width:64px;
+  height:96px;
+  object-fit:cover;
+  border-radius:9px;
+  background:#edf2f7;
+  flex-shrink:0;
+}
+
+.book-data{
+  flex:1;
+  min-width:0;
+}
+
+.book-title{
+  font-weight:800;
+  font-size:14px;
+  margin-bottom:4px;
+}
+
+.book-author{
+  font-size:11px;
+  color:#8091a5;
+  margin-bottom:4px;
+}
+
+.book-category{
+  display:inline-block;
+  padding:4px 7px;
+  border-radius:10px;
+  background:linear-gradient(135deg,#eaf2fb,#f8eaf1);
+  color:#5d7d9c;
+  font-size:9px;
+}
+
+.delete{
+  align-self:flex-start;
+  border:0;
+  background:#fff0f2;
+  color:#b94d60;
+  border-radius:11px;
+  padding:8px 10px;
+  font-size:11px;
+  cursor:pointer;
+}
+
+.empty{
+  text-align:center;
+  color:#8a9aad;
+  font-size:13px;
+  padding:28px 10px;
+}
+
+.back{
+  display:inline-block;
+  margin-bottom:16px;
+  text-decoration:none;
+  color:#52779e;
+  font-size:13px;
+}
+
+.small{
+  margin-top:7px;
+  font-size:10px;
+  line-height:1.4;
+  color:#96a4b3;
+}
+
+</style>
+</head>
+
+<body>
+
+<header>
+
+<div class="logo">
+NOCTURNE
+</div>
+
+<div class="subtitle">
+ADMIN PANEL
+</div>
+
+</header>
+
+<main>
+
+<a
+class="back"
+href="index.html"
+>
+← Вернуться на сайт
+</a>
+
+
+<div class="card">
+
+<h2>
+🔐 Доступ
+</h2>
+
+<label>
+Админ-пароль
+</label>
+
+<div class="password-row">
+
+<input
+id="adminKey"
+type="password"
+placeholder="Введите пароль"
+>
+
+<button
+class="save-password"
+id="savePassword"
+type="button"
+>
+Запомнить
+</button>
+
+</div>
+
+<div class="small">
+Пароль сохраняется только в этом браузере.
+</div>
+
+</div>
+
+
+<div class="card">
+
+<h2>
+➕ Добавить книгу
+</h2>
+
+<label>
+Название
+</label>
+
+<input
+id="title"
+type="text"
+placeholder="Например: Холодный как лёд"
+>
+
+
+<label>
+Автор
+</label>
+
+<input
+id="author"
+type="text"
+placeholder="Например: Лауреа Мэттьюз"
+>
+
+
+<label>
+Категория
+</label>
+
+<select id="category">
+
+<option value="">
+Выберите категорию
+</option>
+
+<option value="Хоккейный роман">
+Хоккейный роман
+</option>
+
+<option value="Спортивный роман">
+Спортивный роман
+</option>
+
+<option value="Студенческий роман">
+Студенческий роман
+</option>
+
+<option value="Триллер">
+Триллер
+</option>
+
+<option value="Хоррор">
+Хоррор
+</option>
+
+<option value="Сплаттерпанк">
+Сплаттерпанк
+</option>
+
+<option value="Дарк роман">
+Дарк роман
+</option>
+
+<option value="Дарк фэнтези">
+Дарк фэнтези
+</option>
+
+</select>
+
+
+<label>
+Аннотация
+</label>
+
+<textarea
+id="description"
+placeholder="Вставьте аннотацию книги..."
+></textarea>
+
+
+<label>
+Ссылка на обложку
+</label>
+
+<input
+id="coverUrl"
+type="text"
+placeholder="Например: file_00000000....png"
+>
+
+
+<label>
+Ссылка на EPUB
+</label>
+
+<input
+id="bookUrl"
+type="text"
+placeholder="Например: Перемены нa лeту.epub"
+>
+
+
+<button
+class="primary"
+id="addBook"
+type="button"
+>
+ДОБАВИТЬ КНИГУ
+</button>
+
+
+<div
+class="status"
+id="status"
+></div>
+
+</div>
+
+
+<div class="card">
+
+<h2>
+📚 Книги в базе
+</h2>
+
+<div
+class="book-list"
+id="bookList"
+>
+Загрузка...
+</div>
+
+</div>
+
+</main>
+
+<script>
+
+/*
+ВАЖНО:
+ЕСЛИ ТВОЙ WORKERS.DEV АДРЕС ДРУГОЙ,
+ЗАМЕНИ ЕГО ЗДЕСЬ.
+*/
+
+const API_URL =
+"https://nocturne-books-api.tvorchestvolana.workers.dev";
+
+
+const adminKeyInput =
+document.getElementById(
+  "adminKey"
+);
+
+const statusBox =
+document.getElementById(
+  "status"
+);
+
+const bookList =
+document.getElementById(
+  "bookList"
+);
+
+
+/* ПАРОЛЬ */
+
+adminKeyInput.value =
+localStorage.getItem(
+  "nocturne-admin-key"
+) || "";
+
+
+document
+.getElementById(
+  "savePassword"
+)
+.onclick =
+()=>{
+
+  const key =
+  adminKeyInput.value.trim();
+
+  if(!key){
+
+    showStatus(
+      "Введите пароль.",
+      false
+    );
+
+    return;
+  }
+
+  localStorage.setItem(
+    "nocturne-admin-key",
+    key
+  );
+
+  showStatus(
+    "Пароль сохранён.",
+    true
+  );
+};
+
+
+/* СТАТУС */
+
+function showStatus(
+  text,
+  success
+){
+
+  statusBox.textContent =
+  text;
+
+  statusBox.className =
+  "status show " +
+  (
+    success
+    ? "success"
+    : "error"
+  );
+
+  setTimeout(
+    ()=>{
+      statusBox.className =
+      "status";
+    },
+    3500
+  );
+}
+
+
+/* ПОЛУЧИТЬ КНИГИ */
+
+async function loadBooks(){
+
+  bookList.innerHTML =
+  "Загрузка...";
+
+  try{
+
+    const response =
+    await fetch(
+      API_URL + "/books"
+    );
+
+    const books =
+    await response.json();
+
+
+    if(
+      !response.ok
+    ){
+
+      throw new Error(
+        books.error ||
+        "Ошибка загрузки"
+      );
+    }
+
+
+    if(
+      !Array.isArray(books) ||
+      books.length === 0
+    ){
+
+      bookList.innerHTML =
+      '<div class="empty">В базе пока нет книг.</div>';
+
+      return;
+    }
+
+
+    bookList.innerHTML =
+    "";
+
+
+    books.forEach(
+    book=>{
+
+      const item =
+      document.createElement(
+        "div"
+      );
+
+      item.className =
+      "book-item";
+
+
+      const cover =
+      document.createElement(
+        "img"
+      );
+
+      cover.className =
+      "book-cover";
+
+      cover.src =
+      book.cover_url || "";
+
+      cover.alt =
+      book.title || "";
+
+
+      const data =
+      document.createElement(
+        "div"
+      );
+
+      data.className =
+      "book-data";
+
+
+      const title =
+      document.createElement(
+        "div"
+      );
+
+      title.className =
+      "book-title";
+
+      title.textContent =
+      book.title;
+
+
+      const author =
+      document.createElement(
+        "div"
+      );
+
+      author.className =
+      "book-author";
+
+      author.textContent =
+      book.author;
+
+
+      const category =
+      document.createElement(
+        "div"
+      );
+
+      category.className =
+      "book-category";
+
+      category.textContent =
+      book.category;
+
+
+      data.appendChild(
+        title
+      );
+
+      data.appendChild(
+        author
+      );
+
+      data.appendChild(
+        category
+      );
+
+
+      const remove =
+      document.createElement(
+        "button"
+      );
+
+      remove.className =
+      "delete";
+
+      remove.textContent =
+      "Удалить";
+
+
+      remove.onclick =
+      ()=>deleteBook(
+        book.id,
+        book.title
+      );
+
+
+      item.appendChild(
+        cover
+      );
+
+      item.appendChild(
+        data
+      );
+
+      item.appendChild(
+        remove
+      );
+
+
+      bookList.appendChild(
+        item
+      );
+
+    });
+
+  }catch(error){
+
+    bookList.innerHTML =
+    '<div class="empty">Ошибка: ' +
+    escapeHtml(
+      error.message
+    ) +
+    '</div>';
+  }
+}
+
+
+/* ДОБАВИТЬ */
+
+document
+.getElementById(
+  "addBook"
+)
+.onclick =
+async()=>{
+
+  const button =
+  document.getElementById(
+    "addBook"
+  );
+
+
+  const adminKey =
+  adminKeyInput
+  .value
+  .trim();
+
+
+  if(!adminKey){
+
+    showStatus(
+      "Сначала введи админ-пароль.",
+      false
+    );
+
+    return;
+  }
+
+
+  const book = {
+
+    title:
+    document
+    .getElementById(
+      "title"
+    )
+    .value
+    .trim(),
+
+    author:
+    document
+    .getElementById(
+      "author"
+    )
+    .value
+    .trim(),
+
+    category:
+    document
+    .getElementById(
+      "category"
+    )
+    .value,
+
+    description:
+    document
+    .getElementById(
+      "description"
+    )
+    .value
+    .trim(),
+
+    cover_url:
+    document
+    .getElementById(
+      "coverUrl"
+    )
+    .value
+    .trim(),
+
+    book_url:
+    document
+    .getElementById(
+      "bookUrl"
+    )
+    .value
+    .trim()
+
+  };
+
+
+  if(
+    !book.title ||
+    !book.author ||
+    !book.category
+  ){
+
+    showStatus(
+      "Заполни название, автора и категорию.",
+      false
+    );
+
+    return;
+  }
+
+
+  button.disabled =
+  true;
+
+  button.textContent =
+  "ДОБАВЛЯЮ...";
+
+
+  try{
+
+    const response =
+    await fetch(
+      API_URL + "/books",
+      {
+        method:"POST",
+
+        headers:{
+          "Content-Type":
+          "application/json",
+
+          "X-Admin-Key":
+          adminKey
+        },
+
+        body:
+        JSON.stringify(
+          book
+        )
+      }
+    );
+
+
+    const result =
+    await response.json();
+
+
+    if(
+      !response.ok
+    ){
+
+      throw new Error(
+        result.error ||
+        result.details ||
+        "Не удалось добавить книгу"
+      );
+    }
+
+
+    showStatus(
+      "Книга добавлена в базу ✓",
+      true
+    );
+
+
+    clearForm();
+
+    await loadBooks();
+
+
+  }catch(error){
+
+    showStatus(
+      error.message,
+      false
+    );
+
+  }finally{
+
+    button.disabled =
+    false;
+
+    button.textContent =
+    "ДОБАВИТЬ КНИГУ";
+  }
+
+};
+
+
+/* УДАЛИТЬ */
+
+async function deleteBook(
+  id,
+  title
+){
+
+  const adminKey =
+  adminKeyInput
+  .value
+  .trim();
+
+
+  if(!adminKey){
+
+    showStatus(
+      "Введите админ-пароль.",
+      false
+    );
+
+    return;
+  }
+
+
+  if(
+    !confirm(
+      'Удалить книгу "' +
+      title +
+      '"?'
+    )
+  ){
+    return;
+  }
+
+
+  try{
+
+    const response =
+    await fetch(
+      API_URL +
+      "/books/" +
+      id,
+      {
+        method:"DELETE",
+
+        headers:{
+          "X-Admin-Key":
+          adminKey
+        }
+      }
+    );
+
+
+    const result =
+    await response.json();
+
+
+    if(!response.ok){
+
+      throw new Error(
+        result.error ||
+        result.details ||
+        "Ошибка удаления"
+      );
+    }
+
+
+    showStatus(
+      "Книга удалена.",
+      true
+    );
+
+
+    await loadBooks();
+
+
+  }catch(error){
+
+    showStatus(
+      error.message,
+      false
+    );
+  }
+}
+
+
+/* ОЧИСТИТЬ ФОРМУ */
+
+function clearForm(){
+
+  document
+  .getElementById(
+    "title"
+  )
+  .value =
+  "";
+
+  document
+  .getElementById(
+    "author"
+  )
+  .value =
+  "";
+
+  document
+  .getElementById(
+    "category"
+  )
+  .value =
+  "";
+
+  document
+  .getElementById(
+    "description"
+  )
+  .value =
+  "";
+
+  document
+  .getElementById(
+    "coverUrl"
+  )
+  .value =
+  "";
+
+  document
+  .getElementById(
+    "bookUrl"
+  )
+  .value =
+  "";
+}
+
+
+/* БЕЗОПАСНЫЙ ТЕКСТ */
+
+function escapeHtml(text){
+
+  const div =
+  document.createElement(
+    "div"
+  );
+
+  div.textContent =
+  text;
+
+  return div.innerHTML;
+}
+
+
+loadBooks();
+
+</script>
+
+</body>
+</html>
