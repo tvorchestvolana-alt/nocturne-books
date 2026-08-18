@@ -53,9 +53,12 @@ header{
   align-items:center;
   justify-content:space-between;
   padding:0 18px;
+
   background:rgba(255,255,255,.78);
   backdrop-filter:blur(12px);
+
   border-bottom:1px solid #e1e9f2;
+
   position:sticky;
   top:0;
   z-index:20;
@@ -91,20 +94,32 @@ main{
   width:190px;
   max-width:60%;
   border-radius:18px;
+
   box-shadow:
     0 12px 28px rgba(43,73,108,.17),
     0 5px 18px rgba(218,156,185,.10);
+
   display:block;
   margin:0 auto 22px;
 }
 
 .series{
   display:inline-block;
-  background:linear-gradient(135deg,#eaf2fb,#f9eaf1);
+
+  background:linear-gradient(
+    135deg,
+    #eaf2fb,
+    #f9eaf1
+  );
+
   color:#52779e;
+
   border-radius:20px;
+
   padding:7px 12px;
+
   font-size:12px;
+
   margin-bottom:12px;
 }
 
@@ -130,9 +145,13 @@ h1{
 
 .status span{
   background:rgba(255,255,255,.88);
+
   border:1px solid #dfe7f1;
+
   padding:7px 10px;
+
   border-radius:15px;
+
   font-size:11px;
   color:#56728f;
 }
@@ -140,58 +159,96 @@ h1{
 .read{
   display:block;
   width:100%;
-  background:linear-gradient(135deg,#6f9bd0,#83a8d2);
+
+  background:linear-gradient(
+    135deg,
+    #6f9bd0,
+    #83a8d2
+  );
+
   color:white;
+
   padding:15px;
+
   border-radius:15px;
+
   font-weight:bold;
   font-size:15px;
+
   text-decoration:none;
   text-align:center;
+
   margin-bottom:10px;
 }
 
 .download{
   display:block;
   width:100%;
+
   border:1px solid #aac2dc;
+
   background:rgba(255,255,255,.88);
+
   color:#5279a4;
+
   padding:14px;
+
   border-radius:15px;
+
   font-weight:bold;
   font-size:14px;
+
   text-decoration:none;
   text-align:center;
+
   margin-bottom:10px;
 }
 
 .library{
   display:block;
   width:100%;
+
   border:1px solid #aac2dc;
+
   background:rgba(255,255,255,.88);
+
   color:#5279a4;
+
   padding:14px;
+
   border-radius:15px;
+
   font-weight:bold;
   font-size:14px;
+
   text-align:center;
+
   cursor:pointer;
 }
 
 .library.active{
-  background:linear-gradient(135deg,#edf4fb,#f8eaf1);
+  background:linear-gradient(
+    135deg,
+    #edf4fb,
+    #f8eaf1
+  );
+
   border-color:#6f9bd0;
+
   color:#31577f;
 }
 
 .section{
   background:rgba(255,255,255,.92);
+
   backdrop-filter:blur(8px);
+
   border-radius:20px;
+
   padding:18px;
+
   margin-top:18px;
+
   box-shadow:
     0 7px 20px rgba(38,69,105,.05),
     0 4px 16px rgba(218,157,185,.05);
@@ -205,7 +262,9 @@ h1{
 .annotation{
   font-size:14px;
   line-height:1.65;
+
   color:#31465f;
+
   white-space:pre-line;
 }
 
@@ -216,10 +275,18 @@ h1{
 }
 
 .trope{
-  background:linear-gradient(135deg,#edf4fb,#faebf2);
+  background:linear-gradient(
+    135deg,
+    #edf4fb,
+    #faebf2
+  );
+
   color:#52779e;
+
   border-radius:18px;
+
   padding:8px 11px;
+
   font-size:12px;
 }
 
@@ -227,20 +294,26 @@ h1{
   display:flex;
   gap:14px;
   align-items:center;
+
   padding:10px;
+
   border-radius:15px;
+
   background:linear-gradient(
     135deg,
     rgba(231,241,252,.95),
     rgba(249,229,239,.92)
   );
+
   border:1px solid rgba(191,210,232,.7);
 }
 
 .series-cover{
   width:65px;
   height:98px;
+
   border-radius:10px;
+
   object-fit:cover;
 }
 
@@ -259,29 +332,102 @@ h1{
   color:#6f9bd0;
 }
 
+/* ВСПЛЫВАЮЩЕЕ УВЕДОМЛЕНИЕ */
+
+.toast{
+  position:fixed;
+
+  left:50%;
+  bottom:92px;
+
+  transform:
+    translateX(-50%)
+    translateY(25px);
+
+  width:max-content;
+  max-width:calc(100% - 32px);
+
+  background:rgba(38,55,76,.96);
+
+  color:white;
+
+  padding:13px 17px;
+
+  border-radius:15px;
+
+  font-size:12px;
+  font-weight:bold;
+
+  text-align:center;
+
+  box-shadow:
+    0 12px 30px rgba(30,48,68,.22);
+
+  opacity:0;
+
+  pointer-events:none;
+
+  transition:
+    opacity .25s ease,
+    transform .25s ease;
+
+  z-index:9999999;
+}
+
+.toast.show{
+  opacity:1;
+
+  transform:
+    translateX(-50%)
+    translateY(0);
+}
+
+/* РОЗОВОЕ УВЕДОМЛЕНИЕ ПРИ ДОБАВЛЕНИИ */
+
+.toast.success{
+  background:
+    linear-gradient(
+      135deg,
+      rgba(97,137,184,.97),
+      rgba(198,131,162,.97)
+    );
+}
+
 nav{
   position:fixed;
   left:0;
   right:0;
   bottom:0;
+
   display:flex;
   justify-content:space-around;
+
   background:rgba(255,255,255,.95);
   backdrop-filter:blur(12px);
+
   border-top:1px solid #e0e8f1;
-  padding:9px 3px calc(13px + env(safe-area-inset-bottom));
+
+  padding:
+    9px
+    3px
+    calc(13px + env(safe-area-inset-bottom));
+
   z-index:999999;
 }
 
 .nav-item{
   width:20%;
   min-height:54px;
+
   display:flex;
   flex-direction:column;
   align-items:center;
   justify-content:center;
+
   text-decoration:none;
+
   color:#8ca0b8;
+
   font-size:10px;
 }
 
@@ -307,7 +453,9 @@ href="https://tvorchestvolana-alt.github.io/nocturne-books/catalog.html"
 NOCTURNE BOOKS
 </div>
 
-<div class="menu">⋯</div>
+<div class="menu">
+⋯
+</div>
 
 </header>
 
@@ -366,9 +514,12 @@ id="libraryButton"
 
 </div>
 
+
 <div class="section">
 
-<h2>АННОТАЦИЯ</h2>
+<h2>
+АННОТАЦИЯ
+</h2>
 
 <div class="annotation">Она носит свою дурную репутацию как почетную медаль. К несчастью для нее, подобный источник неприятностей — излюбленная игра этой звезды хоккея.
 
@@ -386,25 +537,55 @@ id="libraryButton"
 
 </div>
 
+
 <div class="section">
 
-<h2>ТРОПЫ</h2>
+<h2>
+ТРОПЫ
+</h2>
 
 <div class="tropes">
 
-<span class="trope">🎓 Студенческий роман</span>
-<span class="trope">🏒 Он — звездный хоккеист</span>
-<span class="trope">🩰 Она — бывшая балерина и дочь тренера</span>
-<span class="trope">💅 Стервозная главная героиня</span>
-<span class="trope">🔥 От неприязни до любви</span>
-<span class="trope">🐶 Золотой ретривер — главный герой</span>
-<span class="trope">💙 Он влюбляется первым и сильно</span>
-<span class="trope">💬 Словесные перепалки</span>
-<span class="trope">🏡 Обретенная семья</span>
+<span class="trope">
+🎓 Студенческий роман
+</span>
+
+<span class="trope">
+🏒 Он — звездный хоккеист
+</span>
+
+<span class="trope">
+🩰 Она — бывшая балерина и дочь тренера
+</span>
+
+<span class="trope">
+💅 Стервозная главная героиня
+</span>
+
+<span class="trope">
+🔥 От неприязни до любви
+</span>
+
+<span class="trope">
+🐶 Золотой ретривер — главный герой
+</span>
+
+<span class="trope">
+💙 Он влюбляется первым и сильно
+</span>
+
+<span class="trope">
+💬 Словесные перепалки
+</span>
+
+<span class="trope">
+🏡 Обретенная семья
+</span>
 
 </div>
 
 </div>
+
 
 <div class="section">
 
@@ -442,34 +623,59 @@ alt="Скажи, что я ошибаюсь"
 
 </main>
 
+
+<!-- УВЕДОМЛЕНИЕ -->
+
+<div
+class="toast"
+id="toast"
+></div>
+
+
 <nav>
 
-<a class="nav-item" href="https://tvorchestvolana-alt.github.io/nocturne-books/index.html">
+<a
+class="nav-item"
+href="https://tvorchestvolana-alt.github.io/nocturne-books/index.html"
+>
 <span class="nav-icon">⌂</span>
 Главная
 </a>
 
-<a class="nav-item" href="https://tvorchestvolana-alt.github.io/nocturne-books/catalog.html">
+<a
+class="nav-item"
+href="https://tvorchestvolana-alt.github.io/nocturne-books/catalog.html"
+>
 <span class="nav-icon">⌕</span>
 Каталог
 </a>
 
-<a class="nav-item" href="https://tvorchestvolana-alt.github.io/nocturne-books/library.html">
+<a
+class="nav-item"
+href="https://tvorchestvolana-alt.github.io/nocturne-books/library.html"
+>
 <span class="nav-icon">♡</span>
 Библиотека
 </a>
 
-<a class="nav-item" href="https://tvorchestvolana-alt.github.io/nocturne-books/bookmarks.html">
+<a
+class="nav-item"
+href="https://tvorchestvolana-alt.github.io/nocturne-books/bookmarks.html"
+>
 <span class="nav-icon">❝</span>
 Цитаты
 </a>
 
-<a class="nav-item" href="https://tvorchestvolana-alt.github.io/nocturne-books/profile.html">
+<a
+class="nav-item"
+href="https://tvorchestvolana-alt.github.io/nocturne-books/profile.html"
+>
 <span class="nav-icon">♙</span>
 Профиль
 </a>
 
 </nav>
+
 
 <script>
 
@@ -482,21 +688,91 @@ const POSITION_KEY =
 const PROGRESS_KEY =
 "nocturne-say-im-wrong-progress";
 
+
 const libraryButton =
-document.getElementById("libraryButton");
+document.getElementById(
+  "libraryButton"
+);
 
 const readButton =
-document.getElementById("readButton");
+document.getElementById(
+  "readButton"
+);
+
+const toast =
+document.getElementById(
+  "toast"
+);
+
+
+/* УВЕДОМЛЕНИЯ */
+
+let toastTimer;
+
+
+function showToast(
+  text,
+  success = false
+){
+
+  clearTimeout(
+    toastTimer
+  );
+
+
+  toast.textContent =
+  text;
+
+
+  toast.classList.remove(
+    "success"
+  );
+
+
+  if(success){
+
+    toast.classList.add(
+      "success"
+    );
+  }
+
+
+  toast.classList.add(
+    "show"
+  );
+
+
+  toastTimer =
+  setTimeout(
+    ()=>{
+
+      toast.classList.remove(
+        "show"
+      );
+
+    },
+    2500
+  );
+}
+
+
+/* КНОПКА ЧТЕНИЯ */
 
 function updateReadButton(){
 
   const position =
-  localStorage.getItem(POSITION_KEY);
+  localStorage.getItem(
+    POSITION_KEY
+  );
+
 
   const progress =
   Number(
-    localStorage.getItem(PROGRESS_KEY)
+    localStorage.getItem(
+      PROGRESS_KEY
+    )
   ) || 0;
+
 
   if(progress >= 100){
 
@@ -515,37 +791,64 @@ function updateReadButton(){
   }
 }
 
+
+/* БИБЛИОТЕКА */
+
 function updateLibraryButton(){
 
   const inLibrary =
-  localStorage.getItem(LIBRARY_KEY);
+  localStorage.getItem(
+    LIBRARY_KEY
+  );
+
 
   if(inLibrary === "yes"){
 
     libraryButton.textContent =
     "✓ В БИБЛИОТЕКЕ";
 
-    libraryButton.classList.add("active");
+
+    libraryButton
+    .classList
+    .add(
+      "active"
+    );
 
   }else{
 
     libraryButton.textContent =
     "♡ ДОБАВИТЬ В БИБЛИОТЕКУ";
 
-    libraryButton.classList.remove("active");
+
+    libraryButton
+    .classList
+    .remove(
+      "active"
+    );
   }
 }
+
 
 libraryButton.addEventListener(
 "click",
 ()=>{
 
   const inLibrary =
-  localStorage.getItem(LIBRARY_KEY);
+  localStorage.getItem(
+    LIBRARY_KEY
+  );
+
 
   if(inLibrary === "yes"){
 
-    localStorage.removeItem(LIBRARY_KEY);
+    localStorage.removeItem(
+      LIBRARY_KEY
+    );
+
+
+    showToast(
+      "Книга удалена из библиотеки"
+    );
 
   }else{
 
@@ -553,10 +856,19 @@ libraryButton.addEventListener(
       LIBRARY_KEY,
       "yes"
     );
+
+
+    showToast(
+      "✓ Книга добавлена в библиотеку",
+      true
+    );
   }
 
+
   updateLibraryButton();
+
 });
+
 
 updateReadButton();
 updateLibraryButton();
@@ -564,4 +876,4 @@ updateLibraryButton();
 </script>
 
 </body>
-  </html>
+</html>
