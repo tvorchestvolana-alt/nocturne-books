@@ -52,7 +52,6 @@ body{
     linear-gradient(180deg,#fffafd,#fbf5f9 45%,#f4f8fc);
 
   background-attachment:fixed;
-
   transition:.2s;
 }
 
@@ -160,12 +159,8 @@ main{
 
 .stats{
   display:grid;
-
-  grid-template-columns:
-    repeat(3,1fr);
-
+  grid-template-columns:repeat(3,1fr);
   gap:10px;
-
   margin-top:18px;
 }
 
@@ -198,14 +193,12 @@ main{
 
 .section-title{
   margin:28px 4px 12px;
-
   font-size:14px;
   font-weight:800;
 }
 
 .reading-card{
   display:flex;
-
   gap:14px;
 
   background:var(--card);
@@ -230,13 +223,9 @@ main{
 
 .cover img{
   width:100%;
-
   aspect-ratio:2/3;
-
   object-fit:cover;
-
   border-radius:12px;
-
   display:block;
 }
 
@@ -247,27 +236,22 @@ main{
 
 .reading-info h2{
   font-size:17px;
-
   margin:5px 0 4px;
 }
 
 .author{
   color:var(--muted);
-
   font-size:12px;
 }
 
 .series{
   font-size:11px;
-
   color:var(--muted);
-
   margin-top:5px;
 }
 
 .progress-text{
   font-size:12px;
-
   margin-top:14px;
 }
 
@@ -285,7 +269,6 @@ main{
 
 .progress-bar{
   height:100%;
-
   width:0%;
 
   background:
@@ -330,8 +313,7 @@ main{
 
   gap:10px;
 
-  border-bottom:
-    1px solid var(--border);
+  border-bottom:1px solid var(--border);
 }
 
 .setting:last-child{
@@ -371,14 +353,11 @@ main{
 }
 
 .theme-button{
-  border:
-    1px solid var(--border);
+  border:1px solid var(--border);
 
-  background:
-    var(--light-blue);
+  background:var(--light-blue);
 
-  color:
-    var(--blue-dark);
+  color:var(--blue-dark);
 
   padding:8px 11px;
 
@@ -387,19 +366,14 @@ main{
 
 .setting-link{
   text-decoration:none;
-
   color:var(--blue-dark);
-
   font-size:22px;
 }
 
 .version{
   text-align:center;
-
   color:var(--muted);
-
   font-size:10px;
-
   margin-top:24px;
 }
 
@@ -409,8 +383,7 @@ main{
 
   z-index:1000000;
 
-  background:
-    rgba(17,34,52,.38);
+  background:rgba(17,34,52,.38);
 
   display:none;
 
@@ -437,15 +410,13 @@ main{
 
 .modal-card h2{
   margin:0 0 16px;
-
   font-size:18px;
 }
 
 .name-input{
   width:100%;
 
-  border:
-    1px solid var(--border);
+  border:1px solid var(--border);
 
   background:white;
 
@@ -459,32 +430,24 @@ main{
 .modal-actions{
   display:flex;
   gap:9px;
-
   margin-top:14px;
 }
 
 .modal-actions button{
   flex:1;
-
   padding:12px;
-
   border-radius:12px;
-
   font-weight:bold;
 }
 
 .save{
   border:0;
-
   background:#6f9bd0;
-
   color:white;
 }
 
 .cancel{
-  border:
-    1px solid var(--border);
-
+  border:1px solid var(--border);
   background:white;
 }
 
@@ -498,14 +461,10 @@ nav{
   display:flex;
   justify-content:space-around;
 
-  background:
-    rgba(255,255,255,.95);
+  background:rgba(255,255,255,.95);
+  backdrop-filter:blur(12px);
 
-  backdrop-filter:
-    blur(12px);
-
-  border-top:
-    1px solid var(--border);
+  border-top:1px solid var(--border);
 
   padding:
     9px
@@ -538,9 +497,7 @@ body.dark nav{
 
 .nav-icon{
   display:block;
-
   font-size:21px;
-
   margin-bottom:4px;
 }
 
@@ -561,17 +518,11 @@ body.dark nav{
 
 <div class="profile-card">
 
-<div
-class="avatar"
-id="avatar"
->
+<div class="avatar" id="avatar">
 N
 </div>
 
-<div
-class="name"
-id="readerName"
->
+<div class="name" id="readerName">
 Читатель
 </div>
 
@@ -579,10 +530,7 @@ id="readerName"
 NOCTURNE BOOKS
 </div>
 
-<button
-class="edit-name"
-id="editName"
->
+<button class="edit-name" id="editName">
 ✎ ИЗМЕНИТЬ ИМЯ
 </button>
 
@@ -593,10 +541,7 @@ id="editName"
 
 <div class="stat">
 
-<div
-class="stat-number"
-id="booksCount"
->
+<div class="stat-number" id="booksCount">
 0
 </div>
 
@@ -609,10 +554,7 @@ id="booksCount"
 
 <div class="stat">
 
-<div
-class="stat-number"
-id="quotesCount"
->
+<div class="stat-number" id="quotesCount">
 0
 </div>
 
@@ -625,10 +567,7 @@ id="quotesCount"
 
 <div class="stat">
 
-<div
-class="stat-number"
-id="finishedCount"
->
+<div class="stat-number" id="finishedCount">
 0
 </div>
 
@@ -662,14 +601,14 @@ alt=""
 
 </div>
 
-
 <div class="reading-info">
 
 <h2 id="currentTitle"></h2>
 
-<div class="author">
-Карли Робин
-</div>
+<div
+class="author"
+id="currentAuthor"
+></div>
 
 <div
 class="series"
@@ -816,10 +755,7 @@ NOCTURNE BOOKS · версия 1.0
 </main>
 
 
-<div
-class="modal"
-id="nameModal"
->
+<div class="modal" id="nameModal">
 
 <div class="modal-card">
 
@@ -837,17 +773,11 @@ placeholder="Введите имя"
 
 <div class="modal-actions">
 
-<button
-class="cancel"
-id="cancelName"
->
+<button class="cancel" id="cancelName">
 Отмена
 </button>
 
-<button
-class="save"
-id="saveName"
->
+<button class="save" id="saveName">
 Сохранить
 </button>
 
@@ -860,42 +790,32 @@ id="saveName"
 
 <nav>
 
-<a
-class="nav-item"
-href="https://tvorchestvolana-alt.github.io/nocturne-books/index.html"
->
+<a class="nav-item"
+href="https://tvorchestvolana-alt.github.io/nocturne-books/index.html">
 <span class="nav-icon">⌂</span>
 Главная
 </a>
 
-<a
-class="nav-item"
-href="https://tvorchestvolana-alt.github.io/nocturne-books/catalog.html"
->
+<a class="nav-item"
+href="https://tvorchestvolana-alt.github.io/nocturne-books/catalog.html">
 <span class="nav-icon">⌕</span>
 Каталог
 </a>
 
-<a
-class="nav-item"
-href="https://tvorchestvolana-alt.github.io/nocturne-books/library.html"
->
+<a class="nav-item"
+href="https://tvorchestvolana-alt.github.io/nocturne-books/library.html">
 <span class="nav-icon">♡</span>
 Библиотека
 </a>
 
-<a
-class="nav-item"
-href="https://tvorchestvolana-alt.github.io/nocturne-books/bookmarks.html"
->
+<a class="nav-item"
+href="https://tvorchestvolana-alt.github.io/nocturne-books/bookmarks.html">
 <span class="nav-icon">❝</span>
 Цитаты
 </a>
 
-<a
-class="nav-item active"
-href="https://tvorchestvolana-alt.github.io/nocturne-books/profile.html"
->
+<a class="nav-item active"
+href="https://tvorchestvolana-alt.github.io/nocturne-books/profile.html">
 <span class="nav-icon">♙</span>
 Профиль
 </a>
@@ -912,82 +832,141 @@ const THEME_KEY =
 "nocturne-profile-theme";
 
 
-const books = {
+const BOOKS = {
 
-"cold-baby":{
+  "cold-baby":{
 
-  title:
-  "Холодная малышка",
+    title:
+    "Холодная малышка",
 
-  series:
-  "Бостонские Рыси · Книга #1",
+    author:
+    "Карли Робин",
 
-  cover:
-  "file_00000000751c724682f122426a67d42d.png",
+    series:
+    "Бостонские Рыси · Книга #1",
 
-  reader:
-  "https://tvorchestvolana-alt.github.io/nocturne-books/reader.html",
+    cover:
+    "file_00000000751c724682f122426a67d42d.png",
 
-  libraryKey:
-  "nocturne-cold-baby-library",
+    reader:
+    "https://tvorchestvolana-alt.github.io/nocturne-books/reader.html",
 
-  progressKey:
-  "nocturne-cold-baby-progress",
+    libraryKey:
+    "nocturne-cold-baby-library",
 
-  positionKey:
-  "nocturne-cold-baby-position",
+    progressKey:
+    "nocturne-cold-baby-progress",
 
-  quotesKey:
-  "nocturne-cold-baby-quotes"
-},
+    positionKey:
+    "nocturne-cold-baby-position",
+
+    quotesKey:
+    "nocturne-cold-baby-quotes"
+  },
 
 
-"fire-and-ice":{
+  "fire-and-ice":{
 
-  title:
-  "Огонь и лёд",
+    title:
+    "Огонь и лёд",
 
-  series:
-  "Бостонские Рыси · Книга #2",
+    author:
+    "Карли Робин",
 
-  cover:
-  "file_00000000b06c72468c564d5370a34844.png",
+    series:
+    "Бостонские Рыси · Книга #2",
 
-  reader:
-  "https://tvorchestvolana-alt.github.io/nocturne-books/reader-fire-and-ice.html",
+    cover:
+    "file_00000000b06c72468c564d5370a34844.png",
 
-  libraryKey:
-  "nocturne-fire-and-ice-library",
+    reader:
+    "https://tvorchestvolana-alt.github.io/nocturne-books/reader-fire-and-ice.html",
 
-  progressKey:
-  "nocturne-fire-and-ice-progress",
+    libraryKey:
+    "nocturne-fire-and-ice-library",
 
-  positionKey:
-  "nocturne-fire-and-ice-position",
+    progressKey:
+    "nocturne-fire-and-ice-progress",
 
-  quotesKey:
-  "nocturne-fire-and-ice-quotes"
-}
+    positionKey:
+    "nocturne-fire-and-ice-position",
+
+    quotesKey:
+    "nocturne-fire-and-ice-quotes"
+  },
+
+
+  "say-im-wrong":{
+
+    title:
+    "Скажи, что я ошибаюсь",
+
+    author:
+    "Оден Хантер",
+
+    series:
+    "Невидимая нить · Книга #1",
+
+    cover:
+    "file_00000000c9647243901fea32c2b541fb.png",
+
+    reader:
+    "https://tvorchestvolana-alt.github.io/nocturne-books/reader-say-im-wrong.html",
+
+    libraryKey:
+    "nocturne-say-im-wrong-library",
+
+    progressKey:
+    "nocturne-say-im-wrong-progress",
+
+    positionKey:
+    "nocturne-say-im-wrong-position",
+
+    quotesKey:
+    "nocturne-say-im-wrong-quotes"
+  }
 
 };
 
 
-function getArray(
-key
-){
+function getArray(key){
 
   try{
 
     return JSON.parse(
-      localStorage.getItem(
-        key
-      )
+      localStorage.getItem(key)
     ) || [];
 
   }catch(e){
 
     return [];
   }
+}
+
+
+function getFallbackBook(){
+
+  if(
+    localStorage.getItem(
+      BOOKS["say-im-wrong"].positionKey
+    )
+  ){
+
+    return "say-im-wrong";
+  }
+
+
+  if(
+    localStorage.getItem(
+      BOOKS["fire-and-ice"].positionKey
+    )
+  ){
+
+    return "fire-and-ice";
+  }
+
+
+  return "cold-baby";
 }
 
 
@@ -1020,7 +999,7 @@ function loadProfile(){
   .toUpperCase() || "N";
 
 
-  /* ОБЩАЯ СТАТИСТИКА */
+  /* СТАТИСТИКА */
 
   let libraryCount =
   0;
@@ -1032,9 +1011,7 @@ function loadProfile(){
   0;
 
 
-  Object.values(
-    books
-  )
+  Object.values(BOOKS)
   .forEach(
   book=>{
 
@@ -1102,30 +1079,15 @@ function loadProfile(){
   );
 
 
-  if(
-    !books[lastBook]
-  ){
+  if(!BOOKS[lastBook]){
 
-    if(
-      localStorage.getItem(
-        books["fire-and-ice"]
-        .positionKey
-      )
-    ){
-
-      lastBook =
-      "fire-and-ice";
-
-    }else{
-
-      lastBook =
-      "cold-baby";
-    }
+    lastBook =
+    getFallbackBook();
   }
 
 
   const book =
-  books[lastBook];
+  BOOKS[lastBook];
 
 
   const progress =
@@ -1152,10 +1114,26 @@ function loadProfile(){
 
   document
   .getElementById(
+    "currentCover"
+  )
+  .alt =
+  book.title;
+
+
+  document
+  .getElementById(
     "currentTitle"
   )
   .textContent =
   book.title;
+
+
+  document
+  .getElementById(
+    "currentAuthor"
+  )
+  .textContent =
+  book.author;
 
 
   document
@@ -1182,8 +1160,7 @@ function loadProfile(){
   Math.min(
     progress,
     100
-  ) +
-  "%";
+  ) + "%";
 
 
   if(progress >= 100){
@@ -1247,18 +1224,18 @@ function loadProfile(){
 
 const modal =
 document.getElementById(
-"nameModal"
+  "nameModal"
 );
 
 const input =
 document.getElementById(
-"nameInput"
+  "nameInput"
 );
 
 
 document
 .getElementById(
-"editName"
+  "editName"
 )
 .onclick =
 ()=>{
@@ -1278,7 +1255,7 @@ document
 
 document
 .getElementById(
-"cancelName"
+  "cancelName"
 )
 .onclick =
 ()=>{
@@ -1291,13 +1268,14 @@ document
 
 document
 .getElementById(
-"saveName"
+  "saveName"
 )
 .onclick =
 ()=>{
 
   const value =
   input.value.trim();
+
 
   if(value){
 
@@ -1307,31 +1285,31 @@ document
     );
   }
 
+
   modal.classList.remove(
     "open"
   );
+
 
   loadProfile();
 };
 
 
 input.addEventListener(
-"keydown",
-event=>{
+  "keydown",
+  event=>{
 
-  if(
-    event.key ===
-    "Enter"
-  ){
+    if(event.key === "Enter"){
 
-    document
-    .getElementById(
-      "saveName"
-    )
-    .click();
+      document
+      .getElementById(
+        "saveName"
+      )
+      .click();
+    }
+
   }
-
-});
+);
 
 
 /* ТЕМА */
@@ -1365,7 +1343,7 @@ function applyTheme(){
 
 document
 .getElementById(
-"themeButton"
+  "themeButton"
 )
 .onclick =
 ()=>{
@@ -1389,28 +1367,28 @@ document
 
 
 modal.addEventListener(
-"click",
-event=>{
+  "click",
+  event=>{
 
-  if(
-    event.target === modal
-  ){
+    if(event.target === modal){
 
-    modal.classList.remove(
-      "open"
-    );
+      modal.classList.remove(
+        "open"
+      );
+    }
+
   }
-
-});
+);
 
 
 applyTheme();
+
 loadProfile();
 
 
 window.addEventListener(
-"pageshow",
-loadProfile
+  "pageshow",
+  loadProfile
 );
 
 </script>
