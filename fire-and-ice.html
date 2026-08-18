@@ -7,7 +7,6 @@
 <title>Огонь и лёд — NOCTURNE BOOKS</title>
 
 <style>
-
 *{
   box-sizing:border-box;
 }
@@ -48,8 +47,6 @@ body::after{
   pointer-events:none;
 }
 
-/* ШАПКА */
-
 header{
   height:64px;
   display:flex;
@@ -83,8 +80,6 @@ header{
   color:#31577f;
 }
 
-/* ОСНОВА */
-
 main{
   max-width:700px;
   margin:auto;
@@ -94,8 +89,6 @@ main{
 .hero{
   text-align:center;
 }
-
-/* ОБЛОЖКА */
 
 .cover{
   width:190px;
@@ -109,8 +102,6 @@ main{
   display:block;
   margin:0 auto 22px;
 }
-
-/* СЕРИЯ */
 
 .series{
   display:inline-block;
@@ -128,8 +119,6 @@ main{
   margin-bottom:12px;
 }
 
-/* НАЗВАНИЕ */
-
 h1{
   font-size:28px;
   line-height:1.15;
@@ -141,8 +130,6 @@ h1{
   color:#758aa4;
   margin-bottom:18px;
 }
-
-/* СТАТУС */
 
 .status{
   display:flex;
@@ -160,8 +147,6 @@ h1{
   font-size:11px;
   color:#56728f;
 }
-
-/* КНОПКИ */
 
 .read{
   display:block;
@@ -230,8 +215,6 @@ h1{
   color:#31577f;
 }
 
-/* СЕКЦИИ */
-
 .section{
   background:rgba(255,255,255,.92);
   backdrop-filter:blur(8px);
@@ -258,8 +241,6 @@ h1{
   white-space:pre-line;
 }
 
-/* ТРОПЫ */
-
 .tropes{
   display:flex;
   flex-wrap:wrap;
@@ -278,8 +259,6 @@ h1{
   padding:8px 11px;
   font-size:12px;
 }
-
-/* СЕРИЯ */
 
 .series-list{
   display:flex;
@@ -348,8 +327,6 @@ h1{
   color:#7390ae;
 }
 
-/* НИЖНЕЕ МЕНЮ */
-
 nav{
   position:fixed;
   left:0;
@@ -393,7 +370,6 @@ nav{
   font-size:21px;
   margin-bottom:4px;
 }
-
 </style>
 </head>
 
@@ -443,15 +419,14 @@ alt="Огонь и лёд — Карли Робин"
 <div class="status">
 
 <span>🏒 Хоккейный роман</span>
-
 <span>📖 EPUB</span>
-
 <span>№2 в серии</span>
 
 </div>
 
 <a
 class="read"
+id="readButton"
 href="https://tvorchestvolana-alt.github.io/nocturne-books/reader-fire-and-ice.html"
 >
 📖 ЧИТАТЬ
@@ -474,8 +449,6 @@ id="libraryButton"
 
 </div>
 
-<!-- АННОТАЦИЯ -->
-
 <div class="section">
 
 <h2>
@@ -493,8 +466,6 @@ id="libraryButton"
 Только вот соглашение, начавшееся как чистый расчет, стремительно перерастает в полуночные звонки и искры, которые невозможно отрицать. И чем глубже они погружаются в лживую игру, тем острее встает вопрос, которого оба так тщательно избегали: что, если все это уже по-настоящему?</div>
 
 </div>
-
-<!-- ТРОПЫ -->
 
 <div class="section">
 
@@ -544,8 +515,6 @@ id="libraryButton"
 
 </div>
 
-<!-- СЕРИЯ -->
-
 <div class="section">
 
 <h2>
@@ -553,8 +522,6 @@ id="libraryButton"
 </h2>
 
 <div class="series-list">
-
-<!-- КНИГА 1 -->
 
 <a
 class="series-card link"
@@ -584,8 +551,6 @@ alt="Холодная малышка"
 </div>
 
 </a>
-
-<!-- КНИГА 2 -->
 
 <div class="series-card current-book">
 
@@ -621,42 +586,27 @@ alt="Огонь и лёд"
 
 <nav>
 
-<a
-class="nav-item"
-href="https://tvorchestvolana-alt.github.io/nocturne-books/index.html"
->
+<a class="nav-item" href="https://tvorchestvolana-alt.github.io/nocturne-books/index.html">
 <span class="nav-icon">⌂</span>
 Главная
 </a>
 
-<a
-class="nav-item"
-href="https://tvorchestvolana-alt.github.io/nocturne-books/catalog.html"
->
+<a class="nav-item" href="https://tvorchestvolana-alt.github.io/nocturne-books/catalog.html">
 <span class="nav-icon">⌕</span>
 Каталог
 </a>
 
-<a
-class="nav-item"
-href="https://tvorchestvolana-alt.github.io/nocturne-books/library.html"
->
+<a class="nav-item" href="https://tvorchestvolana-alt.github.io/nocturne-books/library.html">
 <span class="nav-icon">♡</span>
 Библиотека
 </a>
 
-<a
-class="nav-item"
-href="https://tvorchestvolana-alt.github.io/nocturne-books/bookmarks.html"
->
+<a class="nav-item" href="https://tvorchestvolana-alt.github.io/nocturne-books/bookmarks.html">
 <span class="nav-icon">❝</span>
 Цитаты
 </a>
 
-<a
-class="nav-item"
-href="https://tvorchestvolana-alt.github.io/nocturne-books/profile.html"
->
+<a class="nav-item" href="https://tvorchestvolana-alt.github.io/nocturne-books/profile.html">
 <span class="nav-icon">♙</span>
 Профиль
 </a>
@@ -668,14 +618,66 @@ href="https://tvorchestvolana-alt.github.io/nocturne-books/profile.html"
 const LIBRARY_KEY =
 "nocturne-fire-and-ice-library";
 
-const libraryButton =
-document.getElementById("libraryButton");
+const POSITION_KEY =
+"nocturne-fire-and-ice-position";
 
+const PROGRESS_KEY =
+"nocturne-fire-and-ice-progress";
+
+const libraryButton =
+document.getElementById(
+"libraryButton"
+);
+
+const readButton =
+document.getElementById(
+"readButton"
+);
+
+
+/* КНОПКА ЧТЕНИЯ */
+
+function updateReadButton(){
+
+  const position =
+  localStorage.getItem(
+    POSITION_KEY
+  );
+
+  const progress =
+  Number(
+    localStorage.getItem(
+      PROGRESS_KEY
+    )
+  ) || 0;
+
+
+  if(progress >= 100){
+
+    readButton.textContent =
+    "📖 ОТКРЫТЬ КНИГУ";
+
+  }else if(position){
+
+    readButton.textContent =
+    "📖 ПРОДОЛЖИТЬ ЧТЕНИЕ";
+
+  }else{
+
+    readButton.textContent =
+    "📖 ЧИТАТЬ";
+  }
+}
+
+
+/* КНОПКА БИБЛИОТЕКИ */
 
 function updateLibraryButton(){
 
   const inLibrary =
-  localStorage.getItem(LIBRARY_KEY);
+  localStorage.getItem(
+    LIBRARY_KEY
+  );
 
   if(inLibrary === "yes"){
 
@@ -684,7 +686,9 @@ function updateLibraryButton(){
 
     libraryButton
     .classList
-    .add("active");
+    .add(
+      "active"
+    );
 
   }else{
 
@@ -693,17 +697,22 @@ function updateLibraryButton(){
 
     libraryButton
     .classList
-    .remove("active");
+    .remove(
+      "active"
+    );
   }
 }
 
 
-libraryButton.addEventListener(
+libraryButton
+.addEventListener(
 "click",
 ()=>{
 
   const inLibrary =
-  localStorage.getItem(LIBRARY_KEY);
+  localStorage.getItem(
+    LIBRARY_KEY
+  );
 
   if(inLibrary === "yes"){
 
@@ -724,6 +733,7 @@ libraryButton.addEventListener(
 });
 
 
+updateReadButton();
 updateLibraryButton();
 
 </script>
