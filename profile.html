@@ -6,6 +6,8 @@
 
 <title>Профиль — NOCTURNE BOOKS</title>
 
+<link rel="stylesheet" href="theme.css">
+
 <style>
 
 *{
@@ -22,16 +24,6 @@
   --border:#dfe8f1;
 }
 
-body.dark{
-  --card:#1f2b39;
-  --text:#edf4fb;
-  --muted:#a6b6c9;
-  --blue:#7da7d8;
-  --blue-dark:#dbeafe;
-  --light-blue:#29394c;
-  --border:#35485d;
-}
-
 html,
 body{
   margin:0;
@@ -43,41 +35,28 @@ body{
   font-family:Arial,sans-serif;
   color:var(--text);
   padding-bottom:110px;
-
-  background:
-    radial-gradient(circle at 5% 12%,rgba(244,190,211,.38),transparent 25%),
-    radial-gradient(circle at 95% 30%,rgba(187,211,238,.26),transparent 27%),
-    radial-gradient(circle at 10% 65%,rgba(247,202,220,.30),transparent 29%),
-    radial-gradient(circle at 90% 85%,rgba(222,197,226,.25),transparent 27%),
-    linear-gradient(180deg,#fffafd,#fbf5f9 45%,#f4f8fc);
-
-  background-attachment:fixed;
-
-  transition:.2s;
-}
-
-body.dark{
-  background:#17202c;
+  transition:.25s;
 }
 
 header{
-  background:rgba(255,255,255,.74);
+  background:var(--card);
   backdrop-filter:blur(12px);
 
-  border-bottom:1px solid var(--border);
+  border-bottom:
+    1px solid var(--border);
 
-  padding:26px 18px 24px;
+  padding:
+    26px
+    18px
+    24px;
 
   text-align:center;
-}
-
-body.dark header{
-  background:#1f2b39;
 }
 
 header h1{
   margin:0;
   font-size:24px;
+  color:var(--title);
 }
 
 main{
@@ -86,8 +65,14 @@ main{
   padding:20px 16px;
 }
 
+
+/* ========================================
+   ПРОФИЛЬ
+======================================== */
+
 .profile-card{
   background:var(--card);
+
   backdrop-filter:blur(8px);
 
   border-radius:24px;
@@ -97,15 +82,17 @@ main{
   text-align:center;
 
   box-shadow:
-    0 8px 25px rgba(39,73,110,.07),
-    0 4px 18px rgba(219,158,187,.06);
+    0 8px 25px var(--shadow);
 }
 
 .avatar{
   width:92px;
   height:92px;
 
-  margin:0 auto 16px;
+  margin:
+    0
+    auto
+    16px;
 
   border-radius:50%;
 
@@ -116,18 +103,20 @@ main{
   background:
     linear-gradient(
       145deg,
-      #dcecff,
-      #f5dce7
+      var(--pill-blue),
+      var(--pill-pink)
     );
 
-  color:#31577f;
+  color:var(--title);
 
   font-family:Georgia,serif;
 
   font-size:34px;
   font-weight:bold;
 
-  border:4px solid rgba(255,255,255,.9);
+  border:
+    4px solid
+    var(--card);
 }
 
 .name{
@@ -135,31 +124,43 @@ main{
   font-weight:800;
 
   margin-bottom:5px;
+
+  color:var(--title);
 }
 
 .caption{
   font-size:12px;
-
   color:var(--muted);
 }
 
 .edit-name{
   margin-top:16px;
 
-  border:1px solid var(--border);
+  border:
+    1px solid
+    var(--border);
 
-  background:var(--light-blue);
+  background:
+    var(--pill-blue);
 
-  color:var(--blue-dark);
+  color:var(--title);
 
-  padding:10px 15px;
+  padding:
+    10px
+    15px;
 
   border-radius:14px;
 
   font-weight:bold;
-
   font-size:12px;
+
+  cursor:pointer;
 }
+
+
+/* ========================================
+   СТАТИСТИКА
+======================================== */
 
 .stats{
   display:grid;
@@ -174,24 +175,27 @@ main{
 
 .stat{
   background:var(--card);
+
   backdrop-filter:blur(8px);
 
   border-radius:18px;
 
-  padding:17px 8px;
+  padding:
+    17px
+    8px;
 
   text-align:center;
 
   box-shadow:
     0 6px 18px
-    rgba(39,73,110,.05);
+    var(--shadow);
 }
 
 .stat-number{
   font-size:23px;
   font-weight:800;
 
-  color:var(--blue-dark);
+  color:var(--title);
 }
 
 .stat-label{
@@ -202,6 +206,11 @@ main{
   margin-top:5px;
 }
 
+
+/* ========================================
+   ЗАГОЛОВКИ РАЗДЕЛОВ
+======================================== */
+
 .section-title{
   margin:
     28px
@@ -209,9 +218,15 @@ main{
     12px;
 
   font-size:14px;
-
   font-weight:800;
+
+  color:var(--title);
 }
+
+
+/* ========================================
+   СЕЙЧАС ЧИТАЮ
+======================================== */
 
 .reading-card{
   display:flex;
@@ -228,11 +243,11 @@ main{
 
   text-decoration:none;
 
-  color:inherit;
+  color:var(--text);
 
   box-shadow:
     0 7px 20px
-    rgba(39,73,110,.06);
+    var(--shadow);
 }
 
 .cover{
@@ -266,11 +281,12 @@ main{
     5px
     0
     4px;
+
+  color:var(--title);
 }
 
 .author{
   color:var(--muted);
-
   font-size:12px;
 }
 
@@ -286,6 +302,8 @@ main{
   font-size:12px;
 
   margin-top:14px;
+
+  color:var(--text);
 }
 
 .progress{
@@ -308,8 +326,8 @@ main{
   background:
     linear-gradient(
       90deg,
-      #6f9bd0,
-      #d49ab5
+      var(--accent),
+      var(--accent-second)
     );
 }
 
@@ -318,12 +336,16 @@ main{
 
   display:inline-block;
 
-  color:var(--blue-dark);
+  color:var(--title);
 
   font-size:11px;
-
   font-weight:bold;
 }
+
+
+/* ========================================
+   НАСТРОЙКИ
+======================================== */
 
 .settings{
   background:var(--card);
@@ -334,13 +356,15 @@ main{
 
   box-shadow:
     0 7px 20px
-    rgba(39,73,110,.05);
+    var(--shadow);
 }
 
 .setting{
   min-height:58px;
 
-  padding:13px 16px;
+  padding:
+    13px
+    16px;
 
   display:flex;
 
@@ -351,7 +375,8 @@ main{
   gap:10px;
 
   border-bottom:
-    1px solid var(--border);
+    1px solid
+    var(--border);
 }
 
 .setting:last-child{
@@ -372,19 +397,23 @@ main{
 
   border-radius:12px;
 
-  background:var(--light-blue);
+  background:
+    var(--pill-blue);
 
   display:flex;
 
   align-items:center;
 
   justify-content:center;
+
+  color:var(--title);
 }
 
 .setting-title{
   font-size:13px;
-
   font-weight:bold;
+
+  color:var(--title);
 }
 
 .setting-subtitle{
@@ -397,23 +426,27 @@ main{
 
 .theme-button{
   border:
-    1px solid var(--border);
+    1px solid
+    var(--border);
 
-  background:var(--light-blue);
+  background:
+    var(--pill-blue);
 
-  color:var(--blue-dark);
+  color:var(--title);
 
   padding:
     8px
     11px;
 
   border-radius:11px;
+
+  cursor:pointer;
 }
 
 .setting-link{
   text-decoration:none;
 
-  color:var(--blue-dark);
+  color:var(--title);
 
   font-size:22px;
 }
@@ -429,7 +462,9 @@ main{
 }
 
 
-/* МОДАЛКА */
+/* ========================================
+   МОДАЛЬНЫЕ ОКНА
+======================================== */
 
 .modal{
   position:fixed;
@@ -439,7 +474,7 @@ main{
   z-index:1000000;
 
   background:
-    rgba(17,34,52,.38);
+    rgba(17,34,52,.42);
 
   display:none;
 
@@ -464,6 +499,10 @@ main{
   border-radius:22px;
 
   padding:20px;
+
+  box-shadow:
+    0 15px 40px
+    rgba(0,0,0,.18);
 }
 
 .modal-card h2{
@@ -473,21 +512,28 @@ main{
     16px;
 
   font-size:18px;
+
+  color:var(--title);
 }
 
 .name-input{
   width:100%;
 
   border:
-    1px solid var(--border);
+    1px solid
+    var(--border);
 
-  background:white;
+  background:var(--card);
+
+  color:var(--text);
 
   padding:14px;
 
   border-radius:13px;
 
   font-size:16px;
+
+  outline:none;
 }
 
 .modal-actions{
@@ -506,25 +552,144 @@ main{
   border-radius:12px;
 
   font-weight:bold;
+
+  cursor:pointer;
 }
 
 .save{
   border:0;
 
-  background:#6f9bd0;
+  background:
+    linear-gradient(
+      135deg,
+      var(--accent),
+      var(--accent-second)
+    );
 
   color:white;
 }
 
 .cancel{
   border:
-    1px solid var(--border);
+    1px solid
+    var(--border);
 
-  background:white;
+  background:var(--card);
+
+  color:var(--text);
 }
 
 
-/* НИЖНЕЕ МЕНЮ */
+/* ========================================
+   ВЫБОР ТЕМ
+======================================== */
+
+.theme-list{
+  display:flex;
+
+  flex-direction:column;
+
+  gap:9px;
+}
+
+.theme-choice{
+  width:100%;
+
+  display:flex;
+
+  align-items:center;
+
+  gap:13px;
+
+  border:
+    1px solid
+    var(--border);
+
+  background:var(--card);
+
+  color:var(--text);
+
+  padding:13px;
+
+  border-radius:14px;
+
+  text-align:left;
+
+  cursor:pointer;
+
+  transition:.2s;
+}
+
+.theme-choice:hover{
+  transform:
+    translateY(-1px);
+}
+
+.theme-choice > span{
+  width:40px;
+  height:40px;
+
+  flex-shrink:0;
+
+  display:flex;
+
+  align-items:center;
+
+  justify-content:center;
+
+  border-radius:12px;
+
+  background:
+    var(--pill-blue);
+
+  font-size:21px;
+}
+
+.theme-choice > div{
+  display:flex;
+
+  flex-direction:column;
+
+  gap:3px;
+}
+
+.theme-choice strong{
+  font-size:13px;
+
+  color:var(--title);
+}
+
+.theme-choice small{
+  color:var(--muted);
+
+  font-size:10px;
+}
+
+.theme-choice.active{
+  border:
+    2px solid
+    var(--accent);
+
+  background:
+    var(--card-soft);
+}
+
+.theme-cancel{
+  width:100%;
+
+  margin-top:5px;
+
+  padding:12px;
+
+  border-radius:12px;
+
+  cursor:pointer;
+}
+
+
+/* ========================================
+   НИЖНЕЕ МЕНЮ
+======================================== */
 
 nav{
   position:fixed;
@@ -537,14 +702,13 @@ nav{
 
   justify-content:space-around;
 
-  background:
-    rgba(255,255,255,.95);
+  background:var(--nav);
 
-  backdrop-filter:
-    blur(12px);
+  backdrop-filter:blur(12px);
 
   border-top:
-    1px solid var(--border);
+    1px solid
+    var(--border);
 
   padding:
     9px
@@ -555,10 +719,6 @@ nav{
     );
 
   z-index:999999;
-}
-
-body.dark nav{
-  background:#1f2b39;
 }
 
 .nav-item{
@@ -578,7 +738,7 @@ body.dark nav{
 
   text-align:center;
 
-  color:#8ca0b8;
+  color:var(--muted);
 
   font-size:10px;
 }
@@ -592,16 +752,14 @@ body.dark nav{
 }
 
 .nav-item.active{
-  color:#5285c3;
+  color:var(--accent);
 }
 
 </style>
 </head>
 
 <body>
-
-
-<header>
+  <header>
 
 <h1>
 Профиль
@@ -612,6 +770,10 @@ body.dark nav{
 
 <main>
 
+
+<!-- ========================================
+     ПРОФИЛЬ
+======================================== -->
 
 <div class="profile-card">
 
@@ -636,6 +798,7 @@ NOCTURNE BOOKS
 <button
 class="edit-name"
 id="editName"
+type="button"
 >
 ✎ ИЗМЕНИТЬ ИМЯ
 </button>
@@ -643,7 +806,9 @@ id="editName"
 </div>
 
 
-<!-- СТАТИСТИКА -->
+<!-- ========================================
+     СТАТИСТИКА
+======================================== -->
 
 <div class="stats">
 
@@ -699,7 +864,9 @@ id="finishedCount"
 </div>
 
 
-<!-- СЕЙЧАС ЧИТАЮ -->
+<!-- ========================================
+     СЕЙЧАС ЧИТАЮ
+======================================== -->
 
 <div class="section-title">
 СЕЙЧАС ЧИТАЮ
@@ -711,7 +878,6 @@ class="reading-card"
 id="currentReadingCard"
 href="#"
 >
-
 
 <div class="cover">
 
@@ -770,7 +936,9 @@ id="continueText"
 </a>
 
 
-<!-- НАСТРОЙКИ -->
+<!-- ========================================
+     НАСТРОЙКИ
+======================================== -->
 
 <div class="section-title">
 НАСТРОЙКИ
@@ -780,22 +948,27 @@ id="continueText"
 <div class="settings">
 
 
+<!-- ТЕМА -->
+
 <div class="setting">
 
 <div class="setting-left">
 
 <div class="setting-icon">
-☀
+🎨
 </div>
 
 <div>
 
 <div class="setting-title">
-Тема
+Тема оформления
 </div>
 
-<div class="setting-subtitle">
-Светлая или тёмная
+<div
+class="setting-subtitle"
+id="currentThemeName"
+>
+Светлая
 </div>
 
 </div>
@@ -804,13 +977,16 @@ id="continueText"
 
 <button
 class="theme-button"
-id="themeButton"
+id="openThemePicker"
+type="button"
 >
-Тёмная
+Выбрать
 </button>
 
 </div>
 
+
+<!-- БИБЛИОТЕКА -->
 
 <div class="setting">
 
@@ -843,6 +1019,8 @@ href="https://tvorchestvolana-alt.github.io/nocturne-books/library.html"
 
 </div>
 
+
+<!-- ЦИТАТЫ -->
 
 <div class="setting">
 
@@ -880,14 +1058,176 @@ href="https://tvorchestvolana-alt.github.io/nocturne-books/bookmarks.html"
 
 
 <div class="version">
-NOCTURNE BOOKS · версия 1.0
+NOCTURNE BOOKS · версия 1.1
 </div>
 
 
 </main>
 
 
-<!-- ИЗМЕНЕНИЕ ИМЕНИ -->
+<!-- ========================================
+     МОДАЛКА ВЫБОРА ТЕМЫ
+======================================== -->
+
+<div
+class="modal"
+id="themeModal"
+>
+
+<div class="modal-card">
+
+<h2>
+Выбери тему
+</h2>
+
+
+<div class="theme-list">
+
+
+<button
+class="theme-choice"
+data-theme="light"
+type="button"
+>
+
+<span>
+☀️
+</span>
+
+<div>
+
+<strong>
+Светлая
+</strong>
+
+<small>
+Розово-голубая классика
+</small>
+
+</div>
+
+</button>
+
+
+<button
+class="theme-choice"
+data-theme="night"
+type="button"
+>
+
+<span>
+🌙
+</span>
+
+<div>
+
+<strong>
+Ночная
+</strong>
+
+<small>
+Тёмно-синяя и спокойная
+</small>
+
+</div>
+
+</button>
+
+
+<button
+class="theme-choice"
+data-theme="pink"
+type="button"
+>
+
+<span>
+🌸
+</span>
+
+<div>
+
+<strong>
+Розовая
+</strong>
+
+<small>
+Пыльно-розовая и нежная
+</small>
+
+</div>
+
+</button>
+
+
+<button
+class="theme-choice"
+data-theme="twilight"
+type="button"
+>
+
+<span>
+💜
+</span>
+
+<div>
+
+<strong>
+Сумерки
+</strong>
+
+<small>
+Лавандовая и холодная
+</small>
+
+</div>
+
+</button>
+
+
+<button
+class="theme-choice"
+data-theme="midnight"
+type="button"
+>
+
+<span>
+🖤
+</span>
+
+<div>
+
+<strong>
+Полночь
+</strong>
+
+<small>
+Графитовая и почти чёрная
+</small>
+
+</div>
+
+</button>
+
+
+<button
+class="cancel theme-cancel"
+id="closeThemePicker"
+type="button"
+>
+Закрыть
+</button>
+
+
+</div>
+
+</div>
+
+</div>
+
+
+<!-- ========================================
+     МОДАЛКА ИЗМЕНЕНИЯ ИМЕНИ
+======================================== -->
 
 <div
 class="modal"
@@ -914,6 +1254,7 @@ placeholder="Введите имя"
 <button
 class="cancel"
 id="cancelName"
+type="button"
 >
 Отмена
 </button>
@@ -921,6 +1262,7 @@ id="cancelName"
 <button
 class="save"
 id="saveName"
+type="button"
 >
 Сохранить
 </button>
@@ -932,7 +1274,9 @@ id="saveName"
 </div>
 
 
-<!-- НИЖНЕЕ МЕНЮ -->
+<!-- ========================================
+     НИЖНЕЕ МЕНЮ
+======================================== -->
 
 <nav>
 
@@ -979,13 +1323,11 @@ href="https://tvorchestvolana-alt.github.io/nocturne-books/profile.html"
 </nav>
 
 
+<script src="theme.js"></script>
+
 <script>
-
-const NAME_KEY =
+  const NAME_KEY =
 "nocturne-reader-name";
-
-const THEME_KEY =
-"nocturne-profile-theme";
 
 
 /* ========================================
@@ -1153,7 +1495,7 @@ const BOOKS = {
 
 
 /* ========================================
-   ПОЛУЧИТЬ МАССИВ
+   МАССИВ ИЗ LOCALSTORAGE
 ======================================== */
 
 function getArray(key){
@@ -1174,15 +1516,10 @@ function getArray(key){
 
 
 /* ========================================
-   РЕЗЕРВНАЯ ПОСЛЕДНЯЯ КНИГА
+   ПОСЛЕДНЯЯ НАЧАТАЯ КНИГА
 ======================================== */
 
 function getFallbackBook(){
-
-  /*
-  Ищем любую реально начатую книгу.
-  Сначала более новые.
-  */
 
   if(
     localStorage.getItem(
@@ -1191,7 +1528,6 @@ function getFallbackBook(){
       ].positionKey
     )
   ){
-
     return "changes-on-the-fly";
   }
 
@@ -1203,7 +1539,6 @@ function getFallbackBook(){
       ].positionKey
     )
   ){
-
     return "cold-as-ice";
   }
 
@@ -1215,7 +1550,6 @@ function getFallbackBook(){
       ].positionKey
     )
   ){
-
     return "say-im-wrong";
   }
 
@@ -1227,7 +1561,6 @@ function getFallbackBook(){
       ].positionKey
     )
   ){
-
     return "fire-and-ice";
   }
 
@@ -1270,9 +1603,7 @@ function loadProfile(){
   .toUpperCase() || "N";
 
 
-  /* ======================================
-     СТАТИСТИКА
-  ====================================== */
+  /* СТАТИСТИКА */
 
   let libraryCount =
   0;
@@ -1291,27 +1622,20 @@ function loadProfile(){
   book=>{
 
 
-    /* БИБЛИОТЕКА */
-
     if(
       localStorage.getItem(
         book.libraryKey
       ) === "yes"
     ){
-
       libraryCount++;
     }
 
-
-    /* ЦИТАТЫ */
 
     quoteCount +=
     getArray(
       book.quotesKey
     ).length;
 
-
-    /* ПРОЧИТАНО */
 
     const progress =
     Number(
@@ -1324,7 +1648,6 @@ function loadProfile(){
     if(
       progress >= 100
     ){
-
       finishedCount++;
     }
 
@@ -1355,9 +1678,7 @@ function loadProfile(){
   finishedCount;
 
 
-  /* ======================================
-     ПОСЛЕДНЯЯ КНИГА
-  ====================================== */
+  /* СЕЙЧАС ЧИТАЮ */
 
   let lastBook =
   localStorage.getItem(
@@ -1370,7 +1691,6 @@ function loadProfile(){
       lastBook
     ]
   ){
-
     lastBook =
     getFallbackBook();
   }
@@ -1456,8 +1776,6 @@ function loadProfile(){
   "%";
 
 
-  /* СОСТОЯНИЕ ЧТЕНИЯ */
-
   if(
     progress >= 100
   ){
@@ -1523,12 +1841,12 @@ function loadProfile(){
    ИЗМЕНЕНИЕ ИМЕНИ
 ======================================== */
 
-const modal =
+const nameModal =
 document.getElementById(
   "nameModal"
 );
 
-const input =
+const nameInput =
 document.getElementById(
   "nameInput"
 );
@@ -1541,20 +1859,20 @@ document
 .onclick =
 ()=>{
 
-  input.value =
+  nameInput.value =
   localStorage.getItem(
     NAME_KEY
   ) || "";
 
 
-  modal
+  nameModal
   .classList
   .add(
     "open"
   );
 
 
-  input.focus();
+  nameInput.focus();
 };
 
 
@@ -1565,11 +1883,12 @@ document
 .onclick =
 ()=>{
 
-  modal
+  nameModal
   .classList
   .remove(
     "open"
   );
+
 };
 
 
@@ -1581,7 +1900,9 @@ document
 ()=>{
 
   const value =
-  input.value.trim();
+  nameInput
+  .value
+  .trim();
 
 
   if(value){
@@ -1590,10 +1911,11 @@ document
       NAME_KEY,
       value
     );
+
   }
 
 
-  modal
+  nameModal
   .classList
   .remove(
     "open"
@@ -1601,10 +1923,11 @@ document
 
 
   loadProfile();
+
 };
 
 
-input.addEventListener(
+nameInput.addEventListener(
   "keydown",
   event=>{
 
@@ -1618,6 +1941,7 @@ input.addEventListener(
         "saveName"
       )
       .click();
+
     }
 
   }
@@ -1625,98 +1949,181 @@ input.addEventListener(
 
 
 /* ========================================
-   ТЕМА
+   ВЫБОР ТЕМЫ
 ======================================== */
 
-function applyTheme(){
+const themeModal =
+document.getElementById(
+  "themeModal"
+);
+
+const currentThemeName =
+document.getElementById(
+  "currentThemeName"
+);
+
+
+function updateThemeUI(){
 
   const theme =
-  localStorage.getItem(
-    THEME_KEY
-  ) || "light";
+  getNocturneTheme();
 
 
-  document.body
-  .classList
-  .toggle(
-    "dark",
-    theme === "dark"
+  currentThemeName.textContent =
+  getNocturneThemeName(
+    theme
   );
 
 
   document
-  .getElementById(
-    "themeButton"
+  .querySelectorAll(
+    ".theme-choice"
   )
-  .textContent =
-  theme === "dark"
-  ? "Светлая"
-  : "Тёмная";
+  .forEach(
+  button=>{
+
+    button.classList.toggle(
+      "active",
+      button.dataset.theme === theme
+    );
+
+  });
+
 }
 
 
 document
 .getElementById(
-  "themeButton"
+  "openThemePicker"
 )
 .onclick =
 ()=>{
 
-  const current =
-  localStorage.getItem(
-    THEME_KEY
-  ) || "light";
+  updateThemeUI();
 
 
-  localStorage.setItem(
-    THEME_KEY,
-    current === "light"
-    ? "dark"
-    : "light"
+  themeModal
+  .classList
+  .add(
+    "open"
   );
 
-
-  applyTheme();
 };
 
 
-/* КЛИК ПО ФОНУ МОДАЛКИ */
+document
+.getElementById(
+  "closeThemePicker"
+)
+.onclick =
+()=>{
 
-modal.addEventListener(
+  themeModal
+  .classList
+  .remove(
+    "open"
+  );
+
+};
+
+
+document
+.querySelectorAll(
+  ".theme-choice"
+)
+.forEach(
+button=>{
+
+  button.onclick =
+  ()=>{
+
+    const theme =
+    button.dataset.theme;
+
+
+    setNocturneTheme(
+      theme
+    );
+
+
+    updateThemeUI();
+
+  };
+
+});
+
+
+themeModal.addEventListener(
   "click",
   event=>{
 
     if(
       event.target ===
-      modal
+      themeModal
     ){
 
-      modal
+      themeModal
       .classList
       .remove(
         "open"
       );
+
     }
 
   }
 );
 
 
-/* ========================================
-   ЗАПУСК
-======================================== */
+nameModal.addEventListener(
+  "click",
+  event=>{
 
-applyTheme();
+    if(
+      event.target ===
+      nameModal
+    ){
 
-loadProfile();
+      nameModal
+      .classList
+      .remove(
+        "open"
+      );
+
+    }
+
+  }
+);
 
 
 window.addEventListener(
+  "nocturne-theme-change",
+  updateThemeUI
+);
+  /* ========================================
+   ЗАПУСК ПРОФИЛЯ
+======================================== */
+
+loadProfile();
+
+updateThemeUI();
+
+
+/* ========================================
+   ОБНОВЛЕНИЕ ПРИ ВОЗВРАЩЕНИИ НА СТРАНИЦУ
+======================================== */
+
+window.addEventListener(
   "pageshow",
-  loadProfile
+  ()=>{
+
+    loadProfile();
+
+    updateThemeUI();
+
+  }
 );
 
 </script>
 
 </body>
-  </html>
+</html>
