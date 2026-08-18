@@ -73,6 +73,7 @@ main{
 .cover{
   width:190px;
   max-width:60%;
+
   border-radius:18px;
 
   box-shadow:
@@ -95,9 +96,11 @@ main{
   color:#52779e;
 
   border-radius:20px;
+
   padding:7px 12px;
 
   font-size:12px;
+
   margin-bottom:12px;
 }
 
@@ -218,11 +221,13 @@ h1{
 
 .section{
   background:rgba(255,255,255,.92);
+
   backdrop-filter:blur(8px);
 
   border-radius:20px;
 
   padding:18px;
+
   margin-top:18px;
 
   box-shadow:
@@ -238,9 +243,7 @@ h1{
 .annotation{
   font-size:14px;
   line-height:1.65;
-
   color:#31465f;
-
   white-space:pre-line;
 }
 
@@ -329,6 +332,161 @@ h1{
   color:#6f9bd0;
 }
 
+
+/* ========================================
+   ГАЛЕРЕЯ КНИГИ
+======================================== */
+
+.gallery{
+  position:relative;
+
+  overflow:hidden;
+
+  border-radius:18px;
+
+  background:linear-gradient(
+    135deg,
+    rgba(239,246,253,.95),
+    rgba(251,238,245,.95)
+  );
+
+  box-shadow:
+    0 8px 24px rgba(47,74,105,.08);
+
+  touch-action:pan-y;
+}
+
+.gallery-track{
+  display:flex;
+
+  transition:
+    transform .45s ease;
+}
+
+.gallery-slide{
+  min-width:100%;
+
+  display:flex;
+  align-items:center;
+  justify-content:center;
+
+  background:#f5f8fc;
+}
+
+.gallery-slide img{
+  width:100%;
+
+  max-height:580px;
+
+  object-fit:contain;
+
+  display:block;
+}
+
+
+/* СТРЕЛКИ */
+
+.gallery-arrow{
+  position:absolute;
+
+  top:50%;
+
+  transform:
+    translateY(-50%);
+
+  width:42px;
+  height:42px;
+
+  border:0;
+
+  border-radius:50%;
+
+  background:rgba(255,255,255,.88);
+
+  backdrop-filter:blur(8px);
+
+  color:#31577f;
+
+  font-size:29px;
+
+  display:flex;
+  align-items:center;
+  justify-content:center;
+
+  box-shadow:
+    0 5px 15px rgba(39,63,91,.14);
+
+  z-index:4;
+
+  cursor:pointer;
+}
+
+.gallery-prev{
+  left:10px;
+}
+
+.gallery-next{
+  right:10px;
+}
+
+
+/* ТОЧКИ */
+
+.gallery-dots{
+  display:flex;
+
+  align-items:center;
+  justify-content:center;
+
+  gap:8px;
+
+  margin-top:13px;
+}
+
+.gallery-dot{
+  width:8px;
+  height:8px;
+
+  border:0;
+  padding:0;
+
+  border-radius:50%;
+
+  background:#d3dce7;
+
+  transition:
+    width .25s ease,
+    background .25s ease;
+
+  cursor:pointer;
+}
+
+.gallery-dot.active{
+  width:22px;
+
+  border-radius:8px;
+
+  background:
+    linear-gradient(
+      90deg,
+      #6f9bd0,
+      #d49ab5
+    );
+}
+
+.gallery-caption{
+  text-align:center;
+
+  font-size:10px;
+
+  color:#8a9caf;
+
+  margin-top:10px;
+
+  letter-spacing:.5px;
+}
+
+
 /* УВЕДОМЛЕНИЕ */
 
 .toast{
@@ -387,6 +545,9 @@ h1{
   );
 }
 
+
+/* НИЖНЕЕ МЕНЮ */
+
 nav{
   position:fixed;
   left:0;
@@ -429,6 +590,7 @@ nav{
   font-size:21px;
   margin-bottom:4px;
 }
+
 </style>
 </head>
 
@@ -452,6 +614,7 @@ NOCTURNE BOOKS
 </div>
 
 </header>
+
 
 <main>
 
@@ -478,10 +641,13 @@ alt="Холодная малышка — Карли Робин"
 <div class="status">
 
 <span>🏒 Хоккейный роман</span>
+
 <span>📖 EPUB</span>
+
 <span>№1 в серии</span>
 
 </div>
+
 
 <a
 class="read"
@@ -491,6 +657,7 @@ href="https://tvorchestvolana-alt.github.io/nocturne-books/reader.html"
 📖 ЧИТАТЬ
 </a>
 
+
 <a
 class="download"
 href="https://tvorchestvolana-alt.github.io/nocturne-books/%D0%A5%D0%BE%D0%BB%D0%BE%D0%B4%D0%BD%D0%B0%D1%8F%20%D0%BC%D0%B0%D0%BB%D1%8B%D1%88%D0%BA%D0%B0.epub"
@@ -498,6 +665,7 @@ download
 >
 ⬇️ СКАЧАТЬ EPUB
 </a>
+
 
 <button
 class="library"
@@ -579,6 +747,7 @@ id="libraryButton"
 
 <div class="series-list">
 
+
 <div class="series-card current-book">
 
 <img
@@ -639,6 +808,114 @@ alt="Огонь и лёд"
 
 </div>
 
+
+<!-- ======================================
+     ГАЛЕРЕЯ КНИГИ
+====================================== -->
+
+<div class="section">
+
+<h2>
+ГАЛЕРЕЯ КНИГИ
+</h2>
+
+
+<div
+class="gallery"
+id="gallery"
+>
+
+<div
+class="gallery-track"
+id="galleryTrack"
+>
+
+
+<div class="gallery-slide">
+
+<img
+src="IMG_20260616_203857_200.jpg"
+alt="Арт к книге Холодная малышка"
+>
+
+</div>
+
+
+<div class="gallery-slide">
+
+<img
+src="IMG_20260616_204012_499.jpg"
+alt="Арт к книге Холодная малышка"
+>
+
+</div>
+
+
+<div class="gallery-slide">
+
+<img
+src="IMG_20260818_124209_594.jpg"
+alt="Арт к книге Холодная малышка"
+>
+
+</div>
+
+
+</div>
+
+
+<button
+class="gallery-arrow gallery-prev"
+id="galleryPrev"
+aria-label="Предыдущий арт"
+>
+‹
+</button>
+
+
+<button
+class="gallery-arrow gallery-next"
+id="galleryNext"
+aria-label="Следующий арт"
+>
+›
+</button>
+
+</div>
+
+
+<div
+class="gallery-dots"
+id="galleryDots"
+>
+
+<button
+class="gallery-dot active"
+data-slide="0"
+aria-label="Арт 1"
+></button>
+
+<button
+class="gallery-dot"
+data-slide="1"
+aria-label="Арт 2"
+></button>
+
+<button
+class="gallery-dot"
+data-slide="2"
+aria-label="Арт 3"
+></button>
+
+</div>
+
+
+<div class="gallery-caption">
+Свайпни, чтобы посмотреть следующий арт
+</div>
+
+</div>
+
 </main>
 
 
@@ -650,37 +927,48 @@ id="toast"
 
 <nav>
 
-<a class="nav-item"
-href="https://tvorchestvolana-alt.github.io/nocturne-books/index.html">
+<a
+class="nav-item"
+href="https://tvorchestvolana-alt.github.io/nocturne-books/index.html"
+>
 <span class="nav-icon">⌂</span>
 Главная
 </a>
 
-<a class="nav-item"
-href="https://tvorchestvolana-alt.github.io/nocturne-books/catalog.html">
+<a
+class="nav-item"
+href="https://tvorchestvolana-alt.github.io/nocturne-books/catalog.html"
+>
 <span class="nav-icon">⌕</span>
 Каталог
 </a>
 
-<a class="nav-item"
-href="https://tvorchestvolana-alt.github.io/nocturne-books/library.html">
+<a
+class="nav-item"
+href="https://tvorchestvolana-alt.github.io/nocturne-books/library.html"
+>
 <span class="nav-icon">♡</span>
 Библиотека
 </a>
 
-<a class="nav-item"
-href="https://tvorchestvolana-alt.github.io/nocturne-books/bookmarks.html">
+<a
+class="nav-item"
+href="https://tvorchestvolana-alt.github.io/nocturne-books/bookmarks.html"
+>
 <span class="nav-icon">❝</span>
 Цитаты
 </a>
 
-<a class="nav-item"
-href="https://tvorchestvolana-alt.github.io/nocturne-books/profile.html">
+<a
+class="nav-item"
+href="https://tvorchestvolana-alt.github.io/nocturne-books/profile.html"
+>
 <span class="nav-icon">♙</span>
 Профиль
 </a>
 
 </nav>
+
 
 <script>
 
@@ -713,7 +1001,9 @@ document.getElementById(
 let toastTimer;
 
 
-/* УВЕДОМЛЕНИЯ */
+/* ========================================
+   УВЕДОМЛЕНИЯ
+======================================== */
 
 function showToast(
   text,
@@ -761,7 +1051,9 @@ function showToast(
 }
 
 
-/* ЧТЕНИЕ */
+/* ========================================
+   КНОПКА ЧТЕНИЯ
+======================================== */
 
 function updateReadButton(){
 
@@ -797,7 +1089,9 @@ function updateReadButton(){
 }
 
 
-/* БИБЛИОТЕКА */
+/* ========================================
+   БИБЛИОТЕКА
+======================================== */
 
 function updateLibraryButton(){
 
@@ -875,10 +1169,292 @@ libraryButton.addEventListener(
 });
 
 
+/* ========================================
+   ГАЛЕРЕЯ
+======================================== */
+
+const gallery =
+document.getElementById(
+  "gallery"
+);
+
+const galleryTrack =
+document.getElementById(
+  "galleryTrack"
+);
+
+const gallerySlides =
+[
+  ...document.querySelectorAll(
+    ".gallery-slide"
+  )
+];
+
+const galleryDots =
+[
+  ...document.querySelectorAll(
+    ".gallery-dot"
+  )
+];
+
+const galleryPrev =
+document.getElementById(
+  "galleryPrev"
+);
+
+const galleryNext =
+document.getElementById(
+  "galleryNext"
+);
+
+
+let currentSlide =
+0;
+
+let galleryTimer =
+null;
+
+let touchStartX =
+0;
+
+let touchEndX =
+0;
+
+
+/* ПОКАЗАТЬ СЛАЙД */
+
+function showSlide(index){
+
+  if(index < 0){
+
+    index =
+    gallerySlides.length - 1;
+  }
+
+
+  if(
+    index >=
+    gallerySlides.length
+  ){
+
+    index =
+    0;
+  }
+
+
+  currentSlide =
+  index;
+
+
+  galleryTrack.style.transform =
+  "translateX(-" +
+  currentSlide * 100 +
+  "%)";
+
+
+  galleryDots.forEach(
+  (dot,i)=>{
+
+    dot.classList.toggle(
+      "active",
+      i === currentSlide
+    );
+
+  });
+}
+
+
+/* СЛЕДУЮЩИЙ */
+
+function nextSlide(){
+
+  showSlide(
+    currentSlide + 1
+  );
+}
+
+
+/* ПРЕДЫДУЩИЙ */
+
+function prevSlide(){
+
+  showSlide(
+    currentSlide - 1
+  );
+}
+
+
+/* АВТОПРОКРУТКА */
+
+function startGallery(){
+
+  stopGallery();
+
+
+  galleryTimer =
+  setInterval(
+    nextSlide,
+    5000
+  );
+}
+
+
+/* ОСТАНОВКА */
+
+function stopGallery(){
+
+  if(galleryTimer){
+
+    clearInterval(
+      galleryTimer
+    );
+
+    galleryTimer =
+    null;
+  }
+}
+
+
+/* СТРЕЛКИ */
+
+galleryNext.addEventListener(
+"click",
+()=>{
+
+  nextSlide();
+
+  startGallery();
+
+});
+
+
+galleryPrev.addEventListener(
+"click",
+()=>{
+
+  prevSlide();
+
+  startGallery();
+
+});
+
+
+/* ТОЧКИ */
+
+galleryDots.forEach(
+dot=>{
+
+  dot.addEventListener(
+  "click",
+  ()=>{
+
+    showSlide(
+      Number(
+        dot.dataset.slide
+      )
+    );
+
+    startGallery();
+
+  });
+
+});
+
+
+/* СВАЙП */
+
+gallery.addEventListener(
+"touchstart",
+event=>{
+
+  touchStartX =
+  event.changedTouches[0]
+  .screenX;
+
+
+  stopGallery();
+
+},
+{
+  passive:true
+}
+);
+
+
+gallery.addEventListener(
+"touchend",
+event=>{
+
+  touchEndX =
+  event.changedTouches[0]
+  .screenX;
+
+
+  const difference =
+  touchStartX -
+  touchEndX;
+
+
+  if(
+    Math.abs(
+      difference
+    ) > 45
+  ){
+
+    if(
+      difference > 0
+    ){
+
+      nextSlide();
+
+    }else{
+
+      prevSlide();
+    }
+  }
+
+
+  startGallery();
+
+},
+{
+  passive:true
+}
+);
+
+
+/* ЕСЛИ ВКЛАДКА НЕАКТИВНА —
+   ОСТАНАВЛИВАЕМ АВТОПРОКРУТКУ */
+
+document.addEventListener(
+"visibilitychange",
+()=>{
+
+  if(
+    document.hidden
+  ){
+
+    stopGallery();
+
+  }else{
+
+    startGallery();
+  }
+
+});
+
+
+/* ЗАПУСК */
+
 updateReadButton();
+
 updateLibraryButton();
+
+showSlide(0);
+
+startGallery();
 
 </script>
 
 </body>
-</html>
+  </html>
