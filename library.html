@@ -7,7 +7,9 @@
 <title>Моя библиотека — NOCTURNE BOOKS</title>
 
 <style>
-*{box-sizing:border-box}
+*{
+  box-sizing:border-box;
+}
 
 body{
   margin:0;
@@ -47,8 +49,10 @@ body::after{
 
 header{
   padding:26px 18px 16px;
+
   background:rgba(255,255,255,.74);
   backdrop-filter:blur(12px);
+
   border-bottom:1px solid rgba(221,225,235,.9);
 }
 
@@ -56,6 +60,13 @@ h1{
   margin:0;
   font-size:24px;
   text-align:center;
+}
+
+.subtitle{
+  text-align:center;
+  margin-top:6px;
+  font-size:12px;
+  color:#8192a7;
 }
 
 main{
@@ -67,19 +78,33 @@ main{
 .empty{
   background:rgba(255,255,255,.90);
   backdrop-filter:blur(8px);
+
   border-radius:20px;
-  padding:35px 20px;
+
+  padding:40px 20px;
+
   text-align:center;
   color:#7b8fa7;
+
   box-shadow:0 8px 22px rgba(39,73,110,.06);
+}
+
+.books{
+  display:flex;
+  flex-direction:column;
+  gap:15px;
 }
 
 .book-card{
   display:none;
+
   background:rgba(255,255,255,.92);
   backdrop-filter:blur(8px);
+
   border-radius:20px;
+
   padding:14px;
+
   box-shadow:
     0 8px 22px rgba(39,73,110,.07),
     0 4px 16px rgba(218,157,185,.06);
@@ -104,6 +129,7 @@ main{
 
 .info{
   flex:1;
+  min-width:0;
 }
 
 .info h2{
@@ -129,55 +155,102 @@ main{
 
 .progress{
   height:6px;
+
   background:#e6edf5;
+
   border-radius:10px;
   overflow:hidden;
+
   margin:8px 0;
 }
 
 .progress-bar{
   height:100%;
-  background:linear-gradient(90deg,#6f9bd0,#d49ab5);
   width:0%;
+
+  background:
+    linear-gradient(
+      90deg,
+      #6f9bd0,
+      #d49ab5
+    );
 }
 
 .button{
   display:block;
-  background:linear-gradient(135deg,#709bd0,#83a8d2);
+
+  background:
+    linear-gradient(
+      135deg,
+      #709bd0,
+      #83a8d2
+    );
+
   color:#fff;
+
   text-decoration:none;
   text-align:center;
+
   padding:11px;
+
   border-radius:11px;
+
   font-size:12px;
   font-weight:bold;
+
   margin-top:10px;
+}
+
+.book-page{
+  display:block;
+  margin-top:8px;
+
+  text-align:center;
+
+  text-decoration:none;
+
+  color:#71869f;
+
+  font-size:10px;
 }
 
 nav{
   position:fixed;
+
   left:0;
   right:0;
   bottom:0;
+
   display:flex;
   justify-content:space-around;
+
   background:rgba(255,255,255,.95);
   backdrop-filter:blur(12px);
+
   border-top:1px solid #e0e8f1;
-  padding:9px 3px calc(13px + env(safe-area-inset-bottom));
+
+  padding:
+    9px
+    3px
+    calc(13px + env(safe-area-inset-bottom));
+
   z-index:999999;
 }
 
 .nav-item{
   width:20%;
   min-height:54px;
+
   display:flex;
   flex-direction:column;
   align-items:center;
   justify-content:center;
+
   text-decoration:none;
   text-align:center;
+
   color:#8ca0b8;
+
   font-size:10px;
 }
 
@@ -196,7 +269,15 @@ nav{
 <body>
 
 <header>
-<h1>Моя библиотека</h1>
+
+<h1>
+Моя библиотека
+</h1>
+
+<div class="subtitle">
+Сохранённые книги
+</div>
+
 </header>
 
 <main>
@@ -206,41 +287,143 @@ nav{
 Добавляй книги в библиотеку, чтобы быстро возвращаться к ним.
 </div>
 
-<div class="book-card" id="bookCard">
+
+<div class="books">
+
+<!-- ХОЛОДНАЯ МАЛЫШКА -->
+
+<div
+class="book-card"
+id="coldBabyCard"
+>
 
 <div class="book-inner">
 
 <div class="cover">
+
 <img
 src="file_00000000751c724682f122426a67d42d.png"
 alt="Холодная малышка"
 >
+
 </div>
 
 <div class="info">
 
-<h2>Холодная малышка</h2>
+<h2>
+Холодная малышка
+</h2>
 
-<div class="author">Карли Робин</div>
+<div class="author">
+Карли Робин
+</div>
 
 <div class="series">
 Бостонские Рыси · Книга #1
 </div>
 
-<div class="progress-text" id="progressText">
+<div
+class="progress-text"
+id="coldBabyProgressText"
+>
 Прочитано 0%
 </div>
 
 <div class="progress">
-<div class="progress-bar" id="progressBar"></div>
+
+<div
+class="progress-bar"
+id="coldBabyProgressBar"
+></div>
+
 </div>
 
 <a
 class="button"
+id="coldBabyButton"
 href="https://tvorchestvolana-alt.github.io/nocturne-books/reader.html"
 >
 📖 ПРОДОЛЖИТЬ
 </a>
+
+<a
+class="book-page"
+href="https://tvorchestvolana-alt.github.io/nocturne-books/cold-baby.html"
+>
+Открыть страницу книги
+</a>
+
+</div>
+
+</div>
+
+</div>
+
+
+<!-- ОГОНЬ И ЛЁД -->
+
+<div
+class="book-card"
+id="fireIceCard"
+>
+
+<div class="book-inner">
+
+<div class="cover">
+
+<img
+src="file_00000000b06c72468c564d5370a34844.png"
+alt="Огонь и лёд"
+>
+
+</div>
+
+<div class="info">
+
+<h2>
+Огонь и лёд
+</h2>
+
+<div class="author">
+Карли Робин
+</div>
+
+<div class="series">
+Бостонские Рыси · Книга #2
+</div>
+
+<div
+class="progress-text"
+id="fireIceProgressText"
+>
+Прочитано 0%
+</div>
+
+<div class="progress">
+
+<div
+class="progress-bar"
+id="fireIceProgressBar"
+></div>
+
+</div>
+
+<a
+class="button"
+id="fireIceButton"
+href="https://tvorchestvolana-alt.github.io/nocturne-books/reader-fire-and-ice.html"
+>
+📖 ПРОДОЛЖИТЬ
+</a>
+
+<a
+class="book-page"
+href="https://tvorchestvolana-alt.github.io/nocturne-books/fire-and-ice.html"
+>
+Открыть страницу книги
+</a>
+
+</div>
 
 </div>
 
@@ -250,66 +433,220 @@ href="https://tvorchestvolana-alt.github.io/nocturne-books/reader.html"
 
 </main>
 
+
 <nav>
 
-<a class="nav-item" href="https://tvorchestvolana-alt.github.io/nocturne-books/index.html">
+<a
+class="nav-item"
+href="https://tvorchestvolana-alt.github.io/nocturne-books/index.html"
+>
 <span class="nav-icon">⌂</span>
 Главная
 </a>
 
-<a class="nav-item" href="https://tvorchestvolana-alt.github.io/nocturne-books/catalog.html">
+<a
+class="nav-item"
+href="https://tvorchestvolana-alt.github.io/nocturne-books/catalog.html"
+>
 <span class="nav-icon">⌕</span>
 Каталог
 </a>
 
-<a class="nav-item active" href="https://tvorchestvolana-alt.github.io/nocturne-books/library.html">
+<a
+class="nav-item active"
+href="https://tvorchestvolana-alt.github.io/nocturne-books/library.html"
+>
 <span class="nav-icon">♡</span>
 Библиотека
 </a>
 
-<a class="nav-item" href="https://tvorchestvolana-alt.github.io/nocturne-books/bookmarks.html">
+<a
+class="nav-item"
+href="https://tvorchestvolana-alt.github.io/nocturne-books/bookmarks.html"
+>
 <span class="nav-icon">❝</span>
 Цитаты
 </a>
 
-<a class="nav-item" href="https://tvorchestvolana-alt.github.io/nocturne-books/profile.html">
+<a
+class="nav-item"
+href="https://tvorchestvolana-alt.github.io/nocturne-books/profile.html"
+>
 <span class="nav-icon">♙</span>
 Профиль
 </a>
 
 </nav>
 
+
 <script>
 
-const LIBRARY_KEY="nocturne-cold-baby-library";
-const PROGRESS_KEY="nocturne-cold-baby-progress";
+const books = [
 
-const inLibrary=
-localStorage.getItem(LIBRARY_KEY)==="yes";
+{
+  libraryKey:
+  "nocturne-cold-baby-library",
 
-const empty=document.getElementById("empty");
-const card=document.getElementById("bookCard");
+  positionKey:
+  "nocturne-cold-baby-position",
 
-if(inLibrary){
+  progressKey:
+  "nocturne-cold-baby-progress",
 
-  empty.style.display="none";
-  card.style.display="block";
+  card:
+  "coldBabyCard",
 
-  const progress=
-  Number(localStorage.getItem(PROGRESS_KEY)) || 0;
+  text:
+  "coldBabyProgressText",
 
-  document
-  .getElementById("progressText")
-  .textContent=
-  progress>=100
-  ? "Прочитано ✓"
-  : "Прочитано "+progress+"%";
+  bar:
+  "coldBabyProgressBar",
 
-  document
-  .getElementById("progressBar")
-  .style.width=
-  Math.min(progress,100)+"%";
+  button:
+  "coldBabyButton"
+},
+
+{
+  libraryKey:
+  "nocturne-fire-and-ice-library",
+
+  positionKey:
+  "nocturne-fire-and-ice-position",
+
+  progressKey:
+  "nocturne-fire-and-ice-progress",
+
+  card:
+  "fireIceCard",
+
+  text:
+  "fireIceProgressText",
+
+  bar:
+  "fireIceProgressBar",
+
+  button:
+  "fireIceButton"
 }
+
+];
+
+
+function loadLibrary(){
+
+  let visibleBooks = 0;
+
+  books.forEach(
+  book=>{
+
+    const inLibrary =
+    localStorage.getItem(
+      book.libraryKey
+    ) === "yes";
+
+    const card =
+    document.getElementById(
+      book.card
+    );
+
+    if(!inLibrary){
+
+      card.style.display =
+      "none";
+
+      return;
+    }
+
+
+    visibleBooks++;
+
+    card.style.display =
+    "block";
+
+
+    const progress =
+    Number(
+      localStorage.getItem(
+        book.progressKey
+      )
+    ) || 0;
+
+
+    const position =
+    localStorage.getItem(
+      book.positionKey
+    );
+
+
+    const progressText =
+    document.getElementById(
+      book.text
+    );
+
+    const progressBar =
+    document.getElementById(
+      book.bar
+    );
+
+    const button =
+    document.getElementById(
+      book.button
+    );
+
+
+    progressBar.style.width =
+    Math.min(progress,100) +
+    "%";
+
+
+    if(progress >= 100){
+
+      progressText.textContent =
+      "Прочитано ✓";
+
+      button.textContent =
+      "📖 ОТКРЫТЬ КНИГУ";
+
+    }else if(position){
+
+      progressText.textContent =
+      "Прочитано " +
+      progress +
+      "%";
+
+      button.textContent =
+      "📖 ПРОДОЛЖИТЬ";
+
+    }else{
+
+      progressText.textContent =
+      "Ещё не начато";
+
+      button.textContent =
+      "📖 НАЧАТЬ ЧТЕНИЕ";
+    }
+
+  });
+
+
+  document
+  .getElementById(
+    "empty"
+  )
+  .style.display =
+  visibleBooks === 0
+  ? "block"
+  : "none";
+}
+
+
+loadLibrary();
+
+
+window.addEventListener(
+"pageshow",
+loadLibrary
+);
 
 </script>
 
