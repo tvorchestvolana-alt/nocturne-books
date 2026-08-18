@@ -1,0 +1,326 @@
+/* ========================================
+   NOCTURNE BOOKS — ОБЩИЕ ТЕМЫ
+======================================== */
+
+:root{
+  --bg-main:#fffafd;
+  --bg-second:#f7f7fc;
+
+  --card:rgba(255,255,255,.92);
+  --card-soft:rgba(255,255,255,.78);
+
+  --text:#173052;
+  --title:#31577f;
+  --muted:#8192a7;
+
+  --accent:#709bd0;
+  --accent-second:#d49ab5;
+
+  --border:#dfe8f1;
+
+  --pill-blue:#eaf2fb;
+  --pill-pink:#f8eaf1;
+
+  --nav:rgba(255,255,255,.95);
+
+  --shadow:rgba(39,73,110,.08);
+}
+
+
+/* ========================================
+   СВЕТЛАЯ
+======================================== */
+
+html[data-theme="light"]{
+
+  --bg-main:#fffafd;
+  --bg-second:#f4f8fc;
+
+  --card:rgba(255,255,255,.92);
+  --card-soft:rgba(255,255,255,.78);
+
+  --text:#173052;
+  --title:#31577f;
+  --muted:#8192a7;
+
+  --accent:#709bd0;
+  --accent-second:#d49ab5;
+
+  --border:#dfe8f1;
+
+  --pill-blue:#eaf2fb;
+  --pill-pink:#f8eaf1;
+
+  --nav:rgba(255,255,255,.95);
+
+  --shadow:rgba(39,73,110,.08);
+}
+
+
+/* ========================================
+   НОЧНАЯ
+======================================== */
+
+html[data-theme="night"]{
+
+  --bg-main:#17202c;
+  --bg-second:#202d3d;
+
+  --card:#1f2b39;
+  --card-soft:#263647;
+
+  --text:#edf4fb;
+  --title:#dbeafe;
+  --muted:#a6b6c9;
+
+  --accent:#7da7d8;
+  --accent-second:#c48da9;
+
+  --border:#35485d;
+
+  --pill-blue:#29394c;
+  --pill-pink:#3b2d39;
+
+  --nav:rgba(31,43,57,.96);
+
+  --shadow:rgba(0,0,0,.22);
+}
+
+
+/* ========================================
+   РОЗОВАЯ
+======================================== */
+
+html[data-theme="pink"]{
+
+  --bg-main:#fff3f8;
+  --bg-second:#fbe5ef;
+
+  --card:#fffafd;
+  --card-soft:#fff4f8;
+
+  --text:#5f3650;
+  --title:#9f4f74;
+  --muted:#a77a91;
+
+  --accent:#d98bad;
+  --accent-second:#efb9d0;
+
+  --border:#efd4e0;
+
+  --pill-blue:#f8eaf2;
+  --pill-pink:#f6dce8;
+
+  --nav:rgba(255,250,253,.96);
+
+  --shadow:rgba(160,83,116,.10);
+}
+
+
+/* ========================================
+   СУМЕРКИ
+======================================== */
+
+html[data-theme="twilight"]{
+
+  --bg-main:#f6f0ff;
+  --bg-second:#ece7fa;
+
+  --card:#fbf8ff;
+  --card-soft:#f4effc;
+
+  --text:#473b63;
+  --title:#66518c;
+  --muted:#8b80a2;
+
+  --accent:#8b7bc1;
+  --accent-second:#c69bc8;
+
+  --border:#ddd5ef;
+
+  --pill-blue:#ebe8fa;
+  --pill-pink:#f3e5f2;
+
+  --nav:rgba(251,248,255,.96);
+
+  --shadow:rgba(94,78,131,.10);
+}
+
+
+/* ========================================
+   ПОЛНОЧЬ
+======================================== */
+
+html[data-theme="midnight"]{
+
+  --bg-main:#0f1117;
+  --bg-second:#171a22;
+
+  --card:#181c25;
+  --card-soft:#202631;
+
+  --text:#f1f3f7;
+  --title:#f5dbe8;
+  --muted:#9fa7b5;
+
+  --accent:#849ed0;
+  --accent-second:#d28aaa;
+
+  --border:#2c3441;
+
+  --pill-blue:#222b38;
+  --pill-pink:#33252d;
+
+  --nav:rgba(20,24,31,.97);
+
+  --shadow:rgba(0,0,0,.32);
+}
+
+
+/* ========================================
+   ОБЩИЕ ПРИМЕНЕНИЯ
+======================================== */
+
+body{
+  background:
+    linear-gradient(
+      180deg,
+      var(--bg-main),
+      var(--bg-second)
+    ) !important;
+
+  color:var(--text) !important;
+
+  transition:
+    background .25s ease,
+    color .25s ease;
+}
+
+
+header{
+  background:var(--card-soft) !important;
+  border-color:var(--border) !important;
+}
+
+
+.profile-card,
+.stat,
+.reading-card,
+.settings,
+.book-card,
+.current-card,
+.featured-card,
+.series-card,
+.announcement-card,
+.quote-card,
+.empty,
+.card{
+  background:var(--card) !important;
+
+  color:var(--text) !important;
+
+  border-color:var(--border) !important;
+
+  box-shadow:
+    0 8px 24px
+    var(--shadow) !important;
+}
+
+
+h1,
+h2,
+h3,
+.logo,
+.title,
+.book-title,
+.featured-title,
+.series-title{
+  color:var(--title) !important;
+}
+
+
+.author,
+.series,
+.subtitle,
+.caption,
+.meta,
+.progress-text,
+.stat-label,
+.setting-subtitle,
+.version{
+  color:var(--muted) !important;
+}
+
+
+.trope,
+.pill,
+.featured-tag,
+.book-category,
+.announcement-tag{
+  background:
+    linear-gradient(
+      135deg,
+      var(--pill-blue),
+      var(--pill-pink)
+    ) !important;
+
+  color:var(--title) !important;
+}
+
+
+nav{
+  background:var(--nav) !important;
+
+  border-color:var(--border) !important;
+}
+
+
+.progress{
+  background:var(--border) !important;
+}
+
+
+.progress-bar{
+  background:
+    linear-gradient(
+      90deg,
+      var(--accent),
+      var(--accent-second)
+    ) !important;
+}
+
+
+.button,
+.read-button,
+.featured-button,
+.primary,
+.open{
+  background:
+    linear-gradient(
+      135deg,
+      var(--accent),
+      var(--accent-second)
+    ) !important;
+}
+
+
+input,
+textarea,
+select{
+  background:var(--card) !important;
+
+  color:var(--text) !important;
+
+  border-color:var(--border) !important;
+}
+
+
+.setting-icon,
+.theme-button,
+.edit-name{
+  background:var(--pill-blue) !important;
+
+  color:var(--title) !important;
+
+  border-color:var(--border) !important;
+  }
