@@ -809,13 +809,21 @@ main{
   color:#52779e;
 }
 
-
-/* АНОНСЫ */
+/* ========================================
+   АНОНСЫ — АВТОМАТИЧЕСКИЙ СЛАЙДЕР
+======================================== */
 
 .announcements{
+  position:relative;
+  width:100%;
+  overflow:hidden;
+  border-radius:22px;
+}
+
+.announcements-track{
   display:flex;
-  flex-direction:column;
-  gap:14px;
+  width:100%;
+  transition:transform .65s ease;
 }
 
 .announcement-card{
@@ -824,6 +832,9 @@ main{
   display:flex;
   align-items:stretch;
   gap:14px;
+
+  min-width:100%;
+  width:100%;
 
   padding:16px;
 
@@ -996,6 +1007,48 @@ main{
     rgba(43,73,108,.17);
 }
 
+
+/* ТОЧКИ ПОД АНОНСОМ */
+
+.announcement-dots{
+  display:flex;
+
+  justify-content:center;
+
+  align-items:center;
+
+  gap:7px;
+
+  margin-top:10px;
+}
+
+.announcement-dot{
+  width:7px;
+  height:7px;
+
+  border:0;
+
+  padding:0;
+
+  border-radius:50%;
+
+  background:#ccd8e5;
+
+  transition:.3s;
+}
+
+.announcement-dot.active{
+  width:19px;
+
+  border-radius:10px;
+
+  background:
+    linear-gradient(
+      90deg,
+      #709bd0,
+      #d49ab5
+    );
+}
 
 /* СЕРИИ */
 
@@ -1591,79 +1644,158 @@ alt="Перемены на лету"
 </div>
 
 
+  <!-- АНОНСЫ -->
+
 <div class="announcements">
 
-<div class="announcement-card">
+  <div class="announcements-track" id="announcementsTrack">
 
 
-<div class="announcement-info">
+    <!-- ПЕРВАЯ КНИГА -->
 
-<div class="announcement-badge">
-✦ СКОРО
-</div>
+    <div class="announcement-card">
 
-<h3 class="announcement-title">
-Игристые проблемы
-</h3>
+      <div class="announcement-info">
 
-<div class="announcement-author">
-Ханна Грейс
-</div>
+        <div class="announcement-badge">
+          ✦ СКОРО
+        </div>
 
-<div class="announcement-series">
-В паддоке · Книга #1
-</div>
+        <h3 class="announcement-title">
+          Игристые проблемы
+        </h3>
 
+        <div class="announcement-author">
+          Ханна Грейс
+        </div>
 
-<div class="announcement-tags">
+        <div class="announcement-series">
+          В паддоке · Книга #1
+        </div>
 
-<span class="announcement-tag">
-🏢 Служебный роман
-</span>
+        <div class="announcement-tags">
 
-<span class="announcement-tag">
-🔄 Второй шанс
-</span>
+          <span class="announcement-tag">
+            🏎 Пилот Формулы-1
+          </span>
 
-<span class="announcement-tag">
-💋 Без обязательств
-</span>
+          <span class="announcement-tag">
+            💼 Служебный роман
+          </span>
 
-<span class="announcement-tag">
-🏎️ Формула-1
-</span>
+          <span class="announcement-tag">
+            💙 Он влюбляется первым
+          </span>
 
-<span class="announcement-tag">
-🏠 Вынужденная близость
-</span>
+        </div>
 
-<span class="announcement-tag">
-💗 Он влюбляется первым
-</span>
+        <div class="announcement-date">
+          📅 ФЕВРАЛЬ 2027
+        </div>
 
-</div>
+      </div>
 
 
-<div class="announcement-date">
-📅 РЕЛИЗ: ФЕВРАЛЬ 2027
-</div>
+      <div class="announcement-cover">
 
-</div>
+        <img
+          src="file_00000000f540720a929bdd2496421ab8.png"
+          alt="Игристые проблемы"
+        >
 
+      </div>
 
-<div class="announcement-cover">
-
-<img
-src="file_00000000f540720a929bdd2496421ab8.png"
-alt="Игристые проблемы — Ханна Грейс"
->
-
-</div>
+    </div>
 
 
-</div>
+
+    <!-- ВТОРАЯ КНИГА -->
+
+    <div class="announcement-card">
+
+      <div class="announcement-info">
+
+        <div class="announcement-badge">
+          ✦ СКОРО
+        </div>
+
+        <h3 class="announcement-title">
+          Выгодная позиция
+        </h3>
+
+        <div class="announcement-author">
+          Элли Мэй
+        </div>
+
+        <div class="announcement-series">
+          Одиночная книга
+        </div>
+
+        <div class="announcement-tags">
+
+          <span class="announcement-tag">
+            🎓 Студенческий роман
+          </span>
+
+          <span class="announcement-tag">
+            🤩 Фальшивые отношения
+          </span>
+
+          <span class="announcement-tag">
+            🤩 Словесные перепалки
+          </span>
+
+          <span class="announcement-tag">
+            🤩 «Научи меня»
+          </span>
+
+          <span class="announcement-tag">
+            🤩 Неожиданная любовь
+          </span>
+
+        </div>
+
+        <div class="announcement-date">
+          📅 МАРТ 2027 ГОДА
+        </div>
+
+      </div>
+
+
+      <div class="announcement-cover">
+
+        <img
+          src="file_000000004ca4720aa476cb49db0c3664.png"
+          alt="Выгодная позиция"
+        >
+
+      </div>
+
+    </div>
+
 
   </div>
+
+
+  <!-- ТОЧКИ -->
+
+  <div class="announcement-dots">
+
+    <button
+      class="announcement-dot active"
+      type="button"
+      data-slide="0"
+    ></button>
+
+    <button
+      class="announcement-dot"
+      type="button"
+      data-slide="1"
+    ></button>
+
+  </div>
+
+</div>
  <!-- СЕРИИ -->
 
 <div class="section-title">
@@ -2369,6 +2501,19 @@ window.addEventListener(
 
 
 </script>
+<script>
 
+/* АВТОМАТИЧЕСКИЙ СЛАЙДЕР АНОНСОВ */
+
+(function(){
+
+  /* весь код выше */
+
+})();
+
+</script>
+
+</body>
+</html>
 </body>
 </html> 
