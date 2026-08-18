@@ -203,6 +203,7 @@ main{
 
 .book-page{
   display:block;
+
   margin-top:8px;
 
   text-align:center;
@@ -287,8 +288,8 @@ nav{
 Добавляй книги в библиотеку, чтобы быстро возвращаться к ним.
 </div>
 
-
 <div class="books">
+
 
 <!-- ХОЛОДНАЯ МАЛЫШКА -->
 
@@ -429,6 +430,77 @@ href="https://tvorchestvolana-alt.github.io/nocturne-books/fire-and-ice.html"
 
 </div>
 
+
+<!-- СКАЖИ, ЧТО Я ОШИБАЮСЬ -->
+
+<div
+class="book-card"
+id="sayWrongCard"
+>
+
+<div class="book-inner">
+
+<div class="cover">
+
+<img
+src="file_00000000c9647243901fea32c2b541fb.png"
+alt="Скажи, что я ошибаюсь"
+>
+
+</div>
+
+<div class="info">
+
+<h2>
+Скажи, что я ошибаюсь
+</h2>
+
+<div class="author">
+Оден Хантер
+</div>
+
+<div class="series">
+Невидимая нить · Книга #1
+</div>
+
+<div
+class="progress-text"
+id="sayWrongProgressText"
+>
+Прочитано 0%
+</div>
+
+<div class="progress">
+
+<div
+class="progress-bar"
+id="sayWrongProgressBar"
+></div>
+
+</div>
+
+<a
+class="button"
+id="sayWrongButton"
+href="https://tvorchestvolana-alt.github.io/nocturne-books/reader-say-im-wrong.html"
+>
+📖 ПРОДОЛЖИТЬ
+</a>
+
+<a
+class="book-page"
+href="https://tvorchestvolana-alt.github.io/nocturne-books/say-im-wrong.html"
+>
+Открыть страницу книги
+</a>
+
+</div>
+
+</div>
+
+</div>
+
+
 </div>
 
 </main>
@@ -481,7 +553,7 @@ href="https://tvorchestvolana-alt.github.io/nocturne-books/profile.html"
 
 <script>
 
-const books = [
+const BOOKS = [
 
 {
   libraryKey:
@@ -506,6 +578,7 @@ const books = [
   "coldBabyButton"
 },
 
+
 {
   libraryKey:
   "nocturne-fire-and-ice-library",
@@ -527,6 +600,30 @@ const books = [
 
   button:
   "fireIceButton"
+},
+
+
+{
+  libraryKey:
+  "nocturne-say-im-wrong-library",
+
+  positionKey:
+  "nocturne-say-im-wrong-position",
+
+  progressKey:
+  "nocturne-say-im-wrong-progress",
+
+  card:
+  "sayWrongCard",
+
+  text:
+  "sayWrongProgressText",
+
+  bar:
+  "sayWrongProgressBar",
+
+  button:
+  "sayWrongButton"
 }
 
 ];
@@ -534,9 +631,11 @@ const books = [
 
 function loadLibrary(){
 
-  let visibleBooks = 0;
+  let visibleBooks =
+  0;
 
-  books.forEach(
+
+  BOOKS.forEach(
   book=>{
 
     const inLibrary =
@@ -544,10 +643,12 @@ function loadLibrary(){
       book.libraryKey
     ) === "yes";
 
+
     const card =
     document.getElementById(
       book.card
     );
+
 
     if(!inLibrary){
 
@@ -559,6 +660,7 @@ function loadLibrary(){
 
 
     visibleBooks++;
+
 
     card.style.display =
     "block";
@@ -583,10 +685,12 @@ function loadLibrary(){
       book.text
     );
 
+
     const progressBar =
     document.getElementById(
       book.bar
     );
+
 
     const button =
     document.getElementById(
@@ -595,7 +699,10 @@ function loadLibrary(){
 
 
     progressBar.style.width =
-    Math.min(progress,100) +
+    Math.min(
+      progress,
+      100
+    ) +
     "%";
 
 
@@ -637,6 +744,7 @@ function loadLibrary(){
   visibleBooks === 0
   ? "block"
   : "none";
+
 }
 
 
@@ -644,8 +752,8 @@ loadLibrary();
 
 
 window.addEventListener(
-"pageshow",
-loadLibrary
+  "pageshow",
+  loadLibrary
 );
 
 </script>
