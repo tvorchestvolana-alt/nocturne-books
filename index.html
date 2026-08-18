@@ -1255,7 +1255,293 @@ nav{
     transform:none;
   }
 }
+/* ========================================
+   ПЛАШКА — ЧТО СЕЙЧАС В РАБОТЕ
+======================================== */
 
+.work-status-wrap{
+  width:100%;
+  perspective:1200px;
+}
+
+.work-status-card{
+  position:relative;
+  width:100%;
+  height:235px;
+
+  transform-style:preserve-3d;
+  -webkit-transform-style:preserve-3d;
+
+  transition:
+    transform .7s
+    cubic-bezier(.2,.7,.2,1);
+
+  cursor:pointer;
+
+  -webkit-tap-highlight-color:transparent;
+}
+
+.work-status-card.flipped{
+  transform:rotateY(180deg);
+}
+
+.work-status-side{
+  position:absolute;
+  inset:0;
+
+  width:100%;
+  height:100%;
+
+  backface-visibility:hidden;
+  -webkit-backface-visibility:hidden;
+
+  border-radius:24px;
+
+  padding:20px;
+
+  overflow:hidden;
+
+  background:
+    linear-gradient(
+      135deg,
+      rgba(255,255,255,.96),
+      rgba(251,238,245,.95) 48%,
+      rgba(235,244,253,.96)
+    );
+
+  box-shadow:
+    0 10px 28px rgba(39,73,110,.08),
+    0 4px 18px rgba(220,159,188,.07);
+}
+
+.work-status-side::before{
+  content:"✦";
+
+  position:absolute;
+  right:18px;
+  top:15px;
+
+  font-size:22px;
+
+  color:rgba(110,155,207,.18);
+
+  pointer-events:none;
+}
+
+.work-status-side::after{
+  content:"☾";
+
+  position:absolute;
+  left:16px;
+  bottom:12px;
+
+  font-size:22px;
+
+  color:rgba(213,144,177,.18);
+
+  pointer-events:none;
+}
+
+.work-status-back{
+  transform:rotateY(180deg);
+  }
+  /* МАЛЕНЬКАЯ ПЛАШКА */
+
+.work-status-label{
+  display:inline-flex;
+  align-items:center;
+
+  width:max-content;
+
+  padding:6px 10px;
+
+  border-radius:14px;
+
+  background:
+    linear-gradient(
+      135deg,
+      #d690b2,
+      #77a2d1
+    );
+
+  color:white;
+
+  font-size:9px;
+  font-weight:800;
+  letter-spacing:1px;
+}
+
+
+/* ЛИЦЕВАЯ СТОРОНА */
+
+.work-status-title{
+  margin:17px 0 6px;
+
+  font-size:21px;
+  line-height:1.15;
+
+  color:#27496f;
+}
+
+.work-status-subtitle{
+  max-width:290px;
+
+  font-size:11px;
+  line-height:1.45;
+
+  color:#8192a7;
+}
+
+.work-total{
+  display:flex;
+  align-items:flex-end;
+
+  gap:9px;
+
+  margin-top:23px;
+}
+
+.work-total-number{
+  font-size:58px;
+  line-height:.85;
+
+  font-weight:900;
+
+  color:#31577f;
+}
+
+.work-total-text{
+  max-width:110px;
+
+  padding-bottom:4px;
+
+  font-size:11px;
+  line-height:1.25;
+
+  color:#6f89a5;
+}
+
+.work-status-hint{
+  margin-top:21px;
+
+  font-size:10px;
+
+  color:#91a0b1;
+}
+  /* ОБРАТНАЯ СТОРОНА */
+
+.work-back-title{
+  margin:14px 0 4px;
+
+  font-size:18px;
+
+  color:#27496f;
+}
+
+.work-back-subtitle{
+  margin-bottom:15px;
+
+  font-size:10px;
+
+  color:#8192a7;
+}
+
+.work-status-list{
+  display:flex;
+  flex-direction:column;
+
+  gap:15px;
+
+  margin-top:14px;
+}
+
+.work-row{
+  display:grid;
+
+  grid-template-columns:
+    128px
+    1fr
+    24px;
+
+  align-items:center;
+
+  gap:9px;
+}
+
+.work-row-name{
+  font-size:11px;
+
+  color:#5f7792;
+}
+
+.work-row-track{
+  height:7px;
+
+  overflow:hidden;
+
+  border-radius:10px;
+
+  background:#e6edf5;
+}
+
+.work-row-bar{
+  height:100%;
+
+  border-radius:10px;
+
+  background:
+    linear-gradient(
+      90deg,
+      #709bd0,
+      #d49ab5
+    );
+}
+
+.work-row-count{
+  text-align:right;
+
+  font-size:13px;
+  font-weight:800;
+
+  color:#31577f;
+}
+
+.work-status-note{
+  margin-top:18px;
+
+  padding:10px 12px;
+
+  border-radius:14px;
+
+  background:rgba(255,255,255,.68);
+
+  font-size:10px;
+  line-height:1.4;
+
+  color:#68819c;
+}
+
+
+/* ТЕЛЕФОН */
+
+@media(max-width:420px){
+
+  .work-status-card{
+    height:240px;
+  }
+
+  .work-row{
+    grid-template-columns:
+      112px
+      1fr
+      22px;
+  }
+
+  .work-total-number{
+    font-size:54px;
+  }
+
+}
 </style>
 </head>
 
@@ -1294,8 +1580,164 @@ YOUR NEXT OBSESSION IS HERE
 
 
 <main>
+         
+<!-- ========================================
+     ЧТО СЕЙЧАС В РАБОТЕ
+======================================== -->
+
+<div class="work-status-wrap">
+
+  <div
+    class="work-status-card"
+    id="workStatusCard"
+  >
 
 
+    <!-- ЛИЦЕВАЯ СТОРОНА -->
+
+    <div class="work-status-side">
+
+      <div class="work-status-label">
+        ✦ ЗА КУЛИСАМИ
+      </div>
+
+      <h2 class="work-status-title">
+        Что сейчас в работе?
+      </h2>
+
+      <div class="work-status-subtitle">
+        Немного закулисья NOCTURNE BOOKS:
+        книги на разных этапах подготовки.
+      </div>
+
+
+      <div class="work-total">
+
+        <div class="work-total-number">
+          5
+        </div>
+
+        <div class="work-total-text">
+          книг сейчас в работе
+        </div>
+
+      </div>
+
+
+      <div class="work-status-hint">
+        Нажми на карточку, чтобы посмотреть подробнее →
+      </div>
+
+    </div>
+
+
+
+    <!-- ОБРАТНАЯ СТОРОНА -->
+
+    <div class="work-status-side work-status-back">
+
+      <div class="work-status-label">
+        ✦ ЭТАПЫ
+      </div>
+
+      <h3 class="work-back-title">
+        За кулисами
+      </h3>
+
+      <div class="work-back-subtitle">
+        Вот чем мы сейчас заняты:
+      </div>
+
+
+      <div class="work-status-list">
+
+
+        <!-- ПЕРЕВОД -->
+
+        <div class="work-row">
+
+          <div class="work-row-name">
+            В процессе перевода
+          </div>
+
+          <div class="work-row-track">
+
+            <div
+              class="work-row-bar"
+              style="width:100%"
+            ></div>
+
+          </div>
+
+          <div class="work-row-count">
+            3
+          </div>
+
+        </div>
+
+
+        <!-- РЕДАКТУРА -->
+
+        <div class="work-row">
+
+          <div class="work-row-name">
+            Редактура
+          </div>
+
+          <div class="work-row-track">
+
+            <div
+              class="work-row-bar"
+              style="width:34%"
+            ></div>
+
+          </div>
+
+          <div class="work-row-count">
+            1
+          </div>
+
+        </div>
+
+
+        <!-- ГОТОВИТСЯ К РЕЛИЗУ -->
+
+        <div class="work-row">
+
+          <div class="work-row-name">
+            Готовится к релизу
+          </div>
+
+          <div class="work-row-track">
+
+            <div
+              class="work-row-bar"
+              style="width:34%"
+            ></div>
+
+          </div>
+
+          <div class="work-row-count">
+            1
+          </div>
+
+        </div>
+
+
+      </div>
+
+
+      <div class="work-status-note">
+        Всего в работе — 5 книг. Статусы обновляются по мере продвижения работы.
+      </div>
+
+    </div>
+
+
+  </div>
+
+</div>
+  
 <a
 class="search"
 href="https://tvorchestvolana-alt.github.io/nocturne-books/catalog.html"
@@ -2634,6 +3076,29 @@ document.addEventListener(
   }
 );
 
+/* ========================================
+   ПЕРЕВОРОТ КАРТОЧКИ "В РАБОТЕ"
+======================================== */
+
+const workStatusCard =
+document.getElementById(
+  "workStatusCard"
+);
+
+if(workStatusCard){
+
+  workStatusCard.addEventListener(
+    "click",
+    function(){
+
+      workStatusCard.classList.toggle(
+        "flipped"
+      );
+
+    }
+  );
+
+      }
 </script>
 
 <script src="theme.js"></script>
