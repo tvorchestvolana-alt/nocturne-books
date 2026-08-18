@@ -52,6 +52,7 @@ body{
     linear-gradient(180deg,#fffafd,#fbf5f9 45%,#f4f8fc);
 
   background-attachment:fixed;
+
   transition:.2s;
 }
 
@@ -132,11 +133,13 @@ main{
 .name{
   font-size:23px;
   font-weight:800;
+
   margin-bottom:5px;
 }
 
 .caption{
   font-size:12px;
+
   color:var(--muted);
 }
 
@@ -154,13 +157,18 @@ main{
   border-radius:14px;
 
   font-weight:bold;
+
   font-size:12px;
 }
 
 .stats{
   display:grid;
-  grid-template-columns:repeat(3,1fr);
+
+  grid-template-columns:
+    repeat(3,1fr);
+
   gap:10px;
+
   margin-top:18px;
 }
 
@@ -182,26 +190,36 @@ main{
 .stat-number{
   font-size:23px;
   font-weight:800;
+
   color:var(--blue-dark);
 }
 
 .stat-label{
   font-size:10px;
+
   color:var(--muted);
+
   margin-top:5px;
 }
 
 .section-title{
-  margin:28px 4px 12px;
+  margin:
+    28px
+    4px
+    12px;
+
   font-size:14px;
+
   font-weight:800;
 }
 
 .reading-card{
   display:flex;
+
   gap:14px;
 
   background:var(--card);
+
   backdrop-filter:blur(8px);
 
   padding:14px;
@@ -209,6 +227,7 @@ main{
   border-radius:20px;
 
   text-decoration:none;
+
   color:inherit;
 
   box-shadow:
@@ -218,40 +237,54 @@ main{
 
 .cover{
   width:90px;
+
   flex-shrink:0;
 }
 
 .cover img{
   width:100%;
+
   aspect-ratio:2/3;
+
   object-fit:cover;
+
   border-radius:12px;
+
   display:block;
 }
 
 .reading-info{
   flex:1;
+
   min-width:0;
 }
 
 .reading-info h2{
   font-size:17px;
-  margin:5px 0 4px;
+
+  margin:
+    5px
+    0
+    4px;
 }
 
 .author{
   color:var(--muted);
+
   font-size:12px;
 }
 
 .series{
   font-size:11px;
+
   color:var(--muted);
+
   margin-top:5px;
 }
 
 .progress-text{
   font-size:12px;
+
   margin-top:14px;
 }
 
@@ -269,6 +302,7 @@ main{
 
 .progress-bar{
   height:100%;
+
   width:0%;
 
   background:
@@ -287,6 +321,7 @@ main{
   color:var(--blue-dark);
 
   font-size:11px;
+
   font-weight:bold;
 }
 
@@ -308,12 +343,15 @@ main{
   padding:13px 16px;
 
   display:flex;
+
   align-items:center;
+
   justify-content:space-between;
 
   gap:10px;
 
-  border-bottom:1px solid var(--border);
+  border-bottom:
+    1px solid var(--border);
 }
 
 .setting:last-child{
@@ -322,7 +360,9 @@ main{
 
 .setting-left{
   display:flex;
+
   align-items:center;
+
   gap:12px;
 }
 
@@ -335,12 +375,15 @@ main{
   background:var(--light-blue);
 
   display:flex;
+
   align-items:center;
+
   justify-content:center;
 }
 
 .setting-title{
   font-size:13px;
+
   font-weight:bold;
 }
 
@@ -353,41 +396,55 @@ main{
 }
 
 .theme-button{
-  border:1px solid var(--border);
+  border:
+    1px solid var(--border);
 
   background:var(--light-blue);
 
   color:var(--blue-dark);
 
-  padding:8px 11px;
+  padding:
+    8px
+    11px;
 
   border-radius:11px;
 }
 
 .setting-link{
   text-decoration:none;
+
   color:var(--blue-dark);
+
   font-size:22px;
 }
 
 .version{
   text-align:center;
+
   color:var(--muted);
+
   font-size:10px;
+
   margin-top:24px;
 }
 
+
+/* МОДАЛКА */
+
 .modal{
   position:fixed;
+
   inset:0;
 
   z-index:1000000;
 
-  background:rgba(17,34,52,.38);
+  background:
+    rgba(17,34,52,.38);
 
   display:none;
 
   align-items:center;
+
   justify-content:center;
 
   padding:20px;
@@ -399,6 +456,7 @@ main{
 
 .modal-card{
   width:100%;
+
   max-width:420px;
 
   background:var(--card);
@@ -409,14 +467,19 @@ main{
 }
 
 .modal-card h2{
-  margin:0 0 16px;
+  margin:
+    0
+    0
+    16px;
+
   font-size:18px;
 }
 
 .name-input{
   width:100%;
 
-  border:1px solid var(--border);
+  border:
+    1px solid var(--border);
 
   background:white;
 
@@ -429,27 +492,39 @@ main{
 
 .modal-actions{
   display:flex;
+
   gap:9px;
+
   margin-top:14px;
 }
 
 .modal-actions button{
   flex:1;
+
   padding:12px;
+
   border-radius:12px;
+
   font-weight:bold;
 }
 
 .save{
   border:0;
+
   background:#6f9bd0;
+
   color:white;
 }
 
 .cancel{
-  border:1px solid var(--border);
+  border:
+    1px solid var(--border);
+
   background:white;
 }
+
+
+/* НИЖНЕЕ МЕНЮ */
 
 nav{
   position:fixed;
@@ -459,17 +534,25 @@ nav{
   bottom:0;
 
   display:flex;
+
   justify-content:space-around;
 
-  background:rgba(255,255,255,.95);
-  backdrop-filter:blur(12px);
+  background:
+    rgba(255,255,255,.95);
 
-  border-top:1px solid var(--border);
+  backdrop-filter:
+    blur(12px);
+
+  border-top:
+    1px solid var(--border);
 
   padding:
     9px
     3px
-    calc(13px + env(safe-area-inset-bottom));
+    calc(
+      13px +
+      env(safe-area-inset-bottom)
+    );
 
   z-index:999999;
 }
@@ -480,14 +563,19 @@ body.dark nav{
 
 .nav-item{
   width:20%;
+
   min-height:54px;
 
   display:flex;
+
   flex-direction:column;
+
   align-items:center;
+
   justify-content:center;
 
   text-decoration:none;
+
   text-align:center;
 
   color:#8ca0b8;
@@ -497,7 +585,9 @@ body.dark nav{
 
 .nav-icon{
   display:block;
+
   font-size:21px;
+
   margin-bottom:4px;
 }
 
@@ -510,19 +600,32 @@ body.dark nav{
 
 <body>
 
+
 <header>
-<h1>Профиль</h1>
+
+<h1>
+Профиль
+</h1>
+
 </header>
+
 
 <main>
 
+
 <div class="profile-card">
 
-<div class="avatar" id="avatar">
+<div
+class="avatar"
+id="avatar"
+>
 N
 </div>
 
-<div class="name" id="readerName">
+<div
+class="name"
+id="readerName"
+>
 Читатель
 </div>
 
@@ -530,18 +633,27 @@ N
 NOCTURNE BOOKS
 </div>
 
-<button class="edit-name" id="editName">
+<button
+class="edit-name"
+id="editName"
+>
 ✎ ИЗМЕНИТЬ ИМЯ
 </button>
 
 </div>
 
 
+<!-- СТАТИСТИКА -->
+
 <div class="stats">
+
 
 <div class="stat">
 
-<div class="stat-number" id="booksCount">
+<div
+class="stat-number"
+id="booksCount"
+>
 0
 </div>
 
@@ -554,7 +666,10 @@ NOCTURNE BOOKS
 
 <div class="stat">
 
-<div class="stat-number" id="quotesCount">
+<div
+class="stat-number"
+id="quotesCount"
+>
 0
 </div>
 
@@ -567,7 +682,10 @@ NOCTURNE BOOKS
 
 <div class="stat">
 
-<div class="stat-number" id="finishedCount">
+<div
+class="stat-number"
+id="finishedCount"
+>
 0
 </div>
 
@@ -577,8 +695,11 @@ NOCTURNE BOOKS
 
 </div>
 
+
 </div>
 
+
+<!-- СЕЙЧАС ЧИТАЮ -->
 
 <div class="section-title">
 СЕЙЧАС ЧИТАЮ
@@ -591,6 +712,7 @@ id="currentReadingCard"
 href="#"
 >
 
+
 <div class="cover">
 
 <img
@@ -601,9 +723,12 @@ alt=""
 
 </div>
 
+
 <div class="reading-info">
 
-<h2 id="currentTitle"></h2>
+<h2
+id="currentTitle"
+></h2>
 
 <div
 class="author"
@@ -622,6 +747,7 @@ id="progressText"
 Ещё не начато
 </div>
 
+
 <div class="progress">
 
 <div
@@ -630,6 +756,7 @@ id="progressBar"
 ></div>
 
 </div>
+
 
 <div
 class="continue"
@@ -643,12 +770,15 @@ id="continueText"
 </a>
 
 
+<!-- НАСТРОЙКИ -->
+
 <div class="section-title">
 НАСТРОЙКИ
 </div>
 
 
 <div class="settings">
+
 
 <div class="setting">
 
@@ -745,6 +875,7 @@ href="https://tvorchestvolana-alt.github.io/nocturne-books/bookmarks.html"
 
 </div>
 
+
 </div>
 
 
@@ -752,10 +883,16 @@ href="https://tvorchestvolana-alt.github.io/nocturne-books/bookmarks.html"
 NOCTURNE BOOKS · версия 1.0
 </div>
 
+
 </main>
 
 
-<div class="modal" id="nameModal">
+<!-- ИЗМЕНЕНИЕ ИМЕНИ -->
+
+<div
+class="modal"
+id="nameModal"
+>
 
 <div class="modal-card">
 
@@ -771,13 +908,20 @@ maxlength="30"
 placeholder="Введите имя"
 >
 
+
 <div class="modal-actions">
 
-<button class="cancel" id="cancelName">
+<button
+class="cancel"
+id="cancelName"
+>
 Отмена
 </button>
 
-<button class="save" id="saveName">
+<button
+class="save"
+id="saveName"
+>
 Сохранить
 </button>
 
@@ -788,34 +932,46 @@ placeholder="Введите имя"
 </div>
 
 
+<!-- НИЖНЕЕ МЕНЮ -->
+
 <nav>
 
-<a class="nav-item"
-href="https://tvorchestvolana-alt.github.io/nocturne-books/index.html">
+<a
+class="nav-item"
+href="https://tvorchestvolana-alt.github.io/nocturne-books/index.html"
+>
 <span class="nav-icon">⌂</span>
 Главная
 </a>
 
-<a class="nav-item"
-href="https://tvorchestvolana-alt.github.io/nocturne-books/catalog.html">
+<a
+class="nav-item"
+href="https://tvorchestvolana-alt.github.io/nocturne-books/catalog.html"
+>
 <span class="nav-icon">⌕</span>
 Каталог
 </a>
 
-<a class="nav-item"
-href="https://tvorchestvolana-alt.github.io/nocturne-books/library.html">
+<a
+class="nav-item"
+href="https://tvorchestvolana-alt.github.io/nocturne-books/library.html"
+>
 <span class="nav-icon">♡</span>
 Библиотека
 </a>
 
-<a class="nav-item"
-href="https://tvorchestvolana-alt.github.io/nocturne-books/bookmarks.html">
+<a
+class="nav-item"
+href="https://tvorchestvolana-alt.github.io/nocturne-books/bookmarks.html"
+>
 <span class="nav-icon">❝</span>
 Цитаты
 </a>
 
-<a class="nav-item active"
-href="https://tvorchestvolana-alt.github.io/nocturne-books/profile.html">
+<a
+class="nav-item active"
+href="https://tvorchestvolana-alt.github.io/nocturne-books/profile.html"
+>
 <span class="nav-icon">♙</span>
 Профиль
 </a>
@@ -832,7 +988,12 @@ const THEME_KEY =
 "nocturne-profile-theme";
 
 
+/* ========================================
+   ВСЕ КНИГИ
+======================================== */
+
 const BOOKS = {
+
 
   "cold-baby":{
 
@@ -924,17 +1085,54 @@ const BOOKS = {
 
     quotesKey:
     "nocturne-say-im-wrong-quotes"
+  },
+
+
+  "cold-as-ice":{
+
+    title:
+    "Холодный как лёд",
+
+    author:
+    "Лауреа Мэттьюз",
+
+    series:
+    "Дикие Волки · Книга #1",
+
+    cover:
+    "file_00000000d8e471f49bd1726c3042938f.png",
+
+    reader:
+    "https://tvorchestvolana-alt.github.io/nocturne-books/reader-cold-as-ice.html",
+
+    libraryKey:
+    "nocturne-cold-as-ice-library",
+
+    progressKey:
+    "nocturne-cold-as-ice-progress",
+
+    positionKey:
+    "nocturne-cold-as-ice-position",
+
+    quotesKey:
+    "nocturne-cold-as-ice-quotes"
   }
 
 };
 
+
+/* ========================================
+   ПОЛУЧИТЬ МАССИВ
+======================================== */
 
 function getArray(key){
 
   try{
 
     return JSON.parse(
-      localStorage.getItem(key)
+      localStorage.getItem(
+        key
+      )
     ) || [];
 
   }catch(e){
@@ -944,11 +1142,34 @@ function getArray(key){
 }
 
 
+/* ========================================
+   РЕЗЕРВНАЯ ПОСЛЕДНЯЯ КНИГА
+======================================== */
+
 function getFallbackBook(){
+
+  /*
+  Ищем любую реально начатую книгу.
+  Сначала более новые.
+  */
 
   if(
     localStorage.getItem(
-      BOOKS["say-im-wrong"].positionKey
+      BOOKS[
+        "cold-as-ice"
+      ].positionKey
+    )
+  ){
+
+    return "cold-as-ice";
+  }
+
+
+  if(
+    localStorage.getItem(
+      BOOKS[
+        "say-im-wrong"
+      ].positionKey
     )
   ){
 
@@ -958,7 +1179,9 @@ function getFallbackBook(){
 
   if(
     localStorage.getItem(
-      BOOKS["fire-and-ice"].positionKey
+      BOOKS[
+        "fire-and-ice"
+      ].positionKey
     )
   ){
 
@@ -970,7 +1193,12 @@ function getFallbackBook(){
 }
 
 
+/* ========================================
+   ЗАГРУЗКА ПРОФИЛЯ
+======================================== */
+
 function loadProfile(){
+
 
   /* ИМЯ */
 
@@ -999,7 +1227,9 @@ function loadProfile(){
   .toUpperCase() || "N";
 
 
-  /* СТАТИСТИКА */
+  /* ======================================
+     СТАТИСТИКА
+  ====================================== */
 
   let libraryCount =
   0;
@@ -1011,9 +1241,14 @@ function loadProfile(){
   0;
 
 
-  Object.values(BOOKS)
+  Object.values(
+    BOOKS
+  )
   .forEach(
   book=>{
+
+
+    /* БИБЛИОТЕКА */
 
     if(
       localStorage.getItem(
@@ -1025,11 +1260,15 @@ function loadProfile(){
     }
 
 
+    /* ЦИТАТЫ */
+
     quoteCount +=
     getArray(
       book.quotesKey
     ).length;
 
+
+    /* ПРОЧИТАНО */
 
     const progress =
     Number(
@@ -1039,7 +1278,9 @@ function loadProfile(){
     ) || 0;
 
 
-    if(progress >= 100){
+    if(
+      progress >= 100
+    ){
 
       finishedCount++;
     }
@@ -1071,7 +1312,9 @@ function loadProfile(){
   finishedCount;
 
 
-  /* ПОСЛЕДНЯЯ КНИГА */
+  /* ======================================
+     ПОСЛЕДНЯЯ КНИГА
+  ====================================== */
 
   let lastBook =
   localStorage.getItem(
@@ -1079,7 +1322,11 @@ function loadProfile(){
   );
 
 
-  if(!BOOKS[lastBook]){
+  if(
+    !BOOKS[
+      lastBook
+    ]
+  ){
 
     lastBook =
     getFallbackBook();
@@ -1087,7 +1334,9 @@ function loadProfile(){
 
 
   const book =
-  BOOKS[lastBook];
+  BOOKS[
+    lastBook
+  ];
 
 
   const progress =
@@ -1160,10 +1409,15 @@ function loadProfile(){
   Math.min(
     progress,
     100
-  ) + "%";
+  ) +
+  "%";
 
 
-  if(progress >= 100){
+  /* СОСТОЯНИЕ ЧТЕНИЯ */
+
+  if(
+    progress >= 100
+  ){
 
     document
     .getElementById(
@@ -1180,7 +1434,9 @@ function loadProfile(){
     .textContent =
     "Открыть книгу →";
 
-  }else if(position){
+  }else if(
+    position
+  ){
 
     document
     .getElementById(
@@ -1220,7 +1476,9 @@ function loadProfile(){
 }
 
 
-/* ИЗМЕНЕНИЕ ИМЕНИ */
+/* ========================================
+   ИЗМЕНЕНИЕ ИМЕНИ
+======================================== */
 
 const modal =
 document.getElementById(
@@ -1245,9 +1503,13 @@ document
     NAME_KEY
   ) || "";
 
-  modal.classList.add(
+
+  modal
+  .classList
+  .add(
     "open"
   );
+
 
   input.focus();
 };
@@ -1260,7 +1522,9 @@ document
 .onclick =
 ()=>{
 
-  modal.classList.remove(
+  modal
+  .classList
+  .remove(
     "open"
   );
 };
@@ -1286,7 +1550,9 @@ document
   }
 
 
-  modal.classList.remove(
+  modal
+  .classList
+  .remove(
     "open"
   );
 
@@ -1299,7 +1565,10 @@ input.addEventListener(
   "keydown",
   event=>{
 
-    if(event.key === "Enter"){
+    if(
+      event.key ===
+      "Enter"
+    ){
 
       document
       .getElementById(
@@ -1312,7 +1581,9 @@ input.addEventListener(
 );
 
 
-/* ТЕМА */
+/* ========================================
+   ТЕМА
+======================================== */
 
 function applyTheme(){
 
@@ -1366,13 +1637,20 @@ document
 };
 
 
+/* КЛИК ПО ФОНУ МОДАЛКИ */
+
 modal.addEventListener(
   "click",
   event=>{
 
-    if(event.target === modal){
+    if(
+      event.target ===
+      modal
+    ){
 
-      modal.classList.remove(
+      modal
+      .classList
+      .remove(
         "open"
       );
     }
@@ -1380,6 +1658,10 @@ modal.addEventListener(
   }
 );
 
+
+/* ========================================
+   ЗАПУСК
+======================================== */
 
 applyTheme();
 
@@ -1394,4 +1676,4 @@ window.addEventListener(
 </script>
 
 </body>
-</html>
+  </html>
