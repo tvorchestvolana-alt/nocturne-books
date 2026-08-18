@@ -7,6 +7,7 @@
 <title>Каталог — NOCTURNE BOOKS</title>
 
 <style>
+
 *{
   box-sizing:border-box;
 }
@@ -27,14 +28,21 @@ body{
   background-attachment:fixed;
 }
 
+
+/* ШАПКА */
+
 header{
   padding:24px 18px 14px;
+
   background:rgba(255,255,255,.72);
+
   backdrop-filter:blur(12px);
+
   border-bottom:1px solid rgba(220,221,233,.85);
 
   position:sticky;
   top:0;
+
   z-index:10;
 }
 
@@ -42,6 +50,7 @@ header{
   display:flex;
   align-items:center;
   justify-content:space-between;
+
   margin-bottom:18px;
 }
 
@@ -56,9 +65,14 @@ header{
   font-size:22px;
 }
 
+
+/* ПОИСК */
+
 .search{
   width:100%;
+
   border:1px solid rgba(216,225,237,.9);
+
   background:rgba(255,255,255,.88);
 
   padding:15px 16px;
@@ -70,11 +84,22 @@ header{
   outline:none;
 }
 
+
+/* ФИЛЬТРЫ */
+
 .filters{
   display:flex;
   gap:8px;
+
   overflow-x:auto;
+
   padding:14px 0 4px;
+
+  scrollbar-width:none;
+}
+
+.filters::-webkit-scrollbar{
+  display:none;
 }
 
 .filter{
@@ -89,6 +114,8 @@ header{
   border-radius:20px;
 
   white-space:nowrap;
+
+  flex-shrink:0;
 }
 
 .filter.active{
@@ -104,8 +131,11 @@ header{
   border-color:transparent;
 }
 
+
+/* КОНТЕНТ */
+
 main{
-  padding:20px 16px;
+  padding:20px 14px;
 
   max-width:700px;
 
@@ -120,19 +150,27 @@ main{
   margin-bottom:15px;
 }
 
+
+/* СЕТКА 3 КНИГИ */
+
 .books{
   display:grid;
 
   grid-template-columns:
-    repeat(2,1fr);
+    repeat(3,minmax(0,1fr));
 
-  gap:24px 16px;
+  gap:22px 10px;
 }
 
 .book{
   text-decoration:none;
   color:inherit;
+
+  min-width:0;
 }
+
+
+/* ОБЛОЖКА */
 
 .cover-wrap{
   position:relative;
@@ -145,23 +183,51 @@ main{
 
   object-fit:cover;
 
-  border-radius:17px;
+  border-radius:13px;
 
   display:block;
 
   box-shadow:
-    0 9px 24px rgba(42,70,105,.13),
-    0 4px 16px rgba(217,154,184,.08);
+    0 8px 20px rgba(42,70,105,.13),
+    0 4px 13px rgba(217,154,184,.08);
 }
+
+
+/* НОМЕР СЕРИИ */
+
+.series-number{
+  position:absolute;
+
+  left:7px;
+  top:7px;
+
+  background:rgba(255,255,255,.94);
+
+  color:#52779e;
+
+  border-radius:10px;
+
+  padding:5px 6px;
+
+  font-size:8px;
+
+  font-weight:bold;
+
+  box-shadow:
+    0 3px 8px rgba(40,63,90,.08);
+}
+
+
+/* СЕРДЕЧКО */
 
 .heart{
   position:absolute;
 
-  right:10px;
-  top:10px;
+  right:7px;
+  top:7px;
 
-  width:36px;
-  height:36px;
+  width:29px;
+  height:29px;
 
   background:rgba(255,255,255,.94);
 
@@ -171,81 +237,47 @@ main{
   align-items:center;
   justify-content:center;
 
-  font-size:20px;
+  font-size:16px;
 
   color:#31577f;
+
+  box-shadow:
+    0 3px 8px rgba(40,63,90,.08);
 }
 
-.series-number{
-  position:absolute;
 
-  left:10px;
-  top:10px;
-
-  background:rgba(255,255,255,.94);
-
-  color:#52779e;
-
-  border-radius:12px;
-
-  padding:6px 8px;
-
-  font-size:10px;
-
-  font-weight:bold;
-}
+/* ИНФОРМАЦИЯ */
 
 .book h3{
-  font-size:15px;
+  font-size:12px;
 
-  margin:
-    10px
-    0
-    4px;
+  margin:8px 0 4px;
 
-  line-height:1.2;
+  line-height:1.25;
+
+  overflow-wrap:anywhere;
 }
 
 .author{
-  font-size:12px;
+  font-size:10px;
 
   color:#8192a7;
 
-  margin-bottom:5px;
+  margin-bottom:4px;
+
+  line-height:1.25;
 }
 
 .series{
-  font-size:11px;
+  font-size:9px;
 
   color:#6f89a5;
 
-  margin-bottom:8px;
+  line-height:1.3;
 }
 
-.tropes{
-  display:flex;
 
-  flex-wrap:wrap;
-
-  gap:5px;
-}
-
-.trope{
-  font-size:10px;
-
-  padding:5px 8px;
-
-  border-radius:13px;
-
-  background:
-    linear-gradient(
-      135deg,
-      #eaf2fb,
-      #f8eaf1
-    );
-
-  color:#52779e;
-}
+/* ПУСТОЙ ПОИСК */
 
 .empty{
   display:none;
@@ -273,23 +305,16 @@ nav{
 
   justify-content:space-around;
 
-  background:
-    rgba(255,255,255,.95);
+  background:rgba(255,255,255,.95);
 
-  backdrop-filter:
-    blur(12px);
+  backdrop-filter:blur(12px);
 
-  border-top:
-    1px solid
-    #e0e8f1;
+  border-top:1px solid #e0e8f1;
 
   padding:
     9px
     3px
-    calc(
-      13px +
-      env(safe-area-inset-bottom)
-    );
+    calc(13px + env(safe-area-inset-bottom));
 
   z-index:999999;
 }
@@ -300,15 +325,11 @@ nav{
   min-height:54px;
 
   display:flex;
-
   flex-direction:column;
-
   align-items:center;
-
   justify-content:center;
 
   text-decoration:none;
-
   text-align:center;
 
   color:#8ca0b8;
@@ -324,6 +345,47 @@ nav{
 
 .nav-item.active{
   color:#5285c3;
+}
+
+
+/* ОЧЕНЬ УЗКИЕ ЭКРАНЫ */
+
+@media(max-width:340px){
+
+  main{
+    padding-left:10px;
+    padding-right:10px;
+  }
+
+  .books{
+    gap:
+      18px
+      7px;
+  }
+
+  .book h3{
+    font-size:11px;
+  }
+
+  .author{
+    font-size:9px;
+  }
+
+  .series{
+    font-size:8px;
+  }
+
+  .heart{
+    width:26px;
+    height:26px;
+    font-size:14px;
+  }
+
+  .series-number{
+    font-size:7px;
+    padding:4px 5px;
+  }
+
 }
 
 </style>
@@ -545,24 +607,7 @@ alt="Перемены на лету"
 </div>
 
 <div class="series">
-Точное попадание · Книга #1
-</div>
-
-
-<div class="tropes">
-
-<span class="trope">
-🏒 Хоккейный роман
-</span>
-
-<span class="trope">
-👨‍👦 Отец-одиночка
-</span>
-
-<span class="trope">
-💕 Брат лучшей подруги
-</span>
-
+Точное попадание · #1
 </div>
 
 </a>
@@ -629,24 +674,7 @@ alt="Холодный как лёд"
 </div>
 
 <div class="series">
-Дикие Волки · Книга #1
-</div>
-
-
-<div class="tropes">
-
-<span class="trope">
-🏒 Спортивный роман
-</span>
-
-<span class="trope">
-💜 Хоккеист & фигуристка
-</span>
-
-<span class="trope">
-☀️ Ворчун & солнышко
-</span>
-
+Дикие Волки · #1
 </div>
 
 </a>
@@ -707,24 +735,7 @@ alt="Скажи, что я ошибаюсь"
 </div>
 
 <div class="series">
-Невидимая нить · Книга #1
-</div>
-
-
-<div class="tropes">
-
-<span class="trope">
-🎓 Студенческий роман
-</span>
-
-<span class="trope">
-🔥 От неприязни до любви
-</span>
-
-<span class="trope">
-💙 Он влюбляется первым
-</span>
-
+Невидимая нить · #1
 </div>
 
 </a>
@@ -784,24 +795,7 @@ alt="Огонь и лёд"
 </div>
 
 <div class="series">
-Бостонские Рыси · Книга #2
-</div>
-
-
-<div class="tropes">
-
-<span class="trope">
-🏒 Хоккей
-</span>
-
-<span class="trope">
-🎭 Фальшивые отношения
-</span>
-
-<span class="trope">
-☀️ Ворчун & солнышко
-</span>
-
+Бостонские Рыси · #2
 </div>
 
 </a>
@@ -859,24 +853,7 @@ alt="Холодная малышка"
 </div>
 
 <div class="series">
-Бостонские Рыси · Книга #1
-</div>
-
-
-<div class="tropes">
-
-<span class="trope">
-🏒 Хоккей
-</span>
-
-<span class="trope">
-💙 Он влюбляется первым
-</span>
-
-<span class="trope">
-🌙 Медленное развитие
-</span>
-
+Бостонские Рыси · #1
 </div>
 
 </a>
@@ -895,9 +872,7 @@ id="empty"
 </main>
 
 
-<!-- =========================
-     НИЖНЕЕ МЕНЮ
-========================= -->
+<!-- НИЖНЕЕ МЕНЮ -->
 
 <nav>
 
@@ -999,9 +974,7 @@ let activeFilter =
 "all";
 
 
-/* =========================
-   НОРМАЛИЗАЦИЯ ТЕКСТА
-========================= */
+/* НОРМАЛИЗАЦИЯ */
 
 function normalize(text){
 
@@ -1014,9 +987,7 @@ function normalize(text){
 }
 
 
-/* =========================
-   КНИГА / КНИГИ / КНИГ
-========================= */
+/* КНИГА / КНИГИ / КНИГ */
 
 function bookWord(number){
 
@@ -1053,9 +1024,7 @@ function bookWord(number){
 }
 
 
-/* =========================
-   ПОИСК + ФИЛЬТРЫ
-========================= */
+/* ПОИСК + ФИЛЬТР */
 
 function applyFilters(){
 
@@ -1182,4 +1151,4 @@ applyFilters();
 </script>
 
 </body>
-</html>
+  </html>
