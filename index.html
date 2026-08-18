@@ -7,6 +7,7 @@
 <title>NOCTURNE BOOKS</title>
 
 <style>
+
 *{
   box-sizing:border-box;
 }
@@ -58,6 +59,7 @@ body::after{
   color:rgba(111,155,208,.17);
   pointer-events:none;
 }
+
 
 /* ШАПКА */
 
@@ -136,24 +138,18 @@ header{
 main{
   max-width:700px;
   margin:auto;
-
-  padding:
-    18px
-    16px
-    30px;
+  padding:18px 16px 30px;
 }
 
 .search{
   display:flex;
   align-items:center;
-
   min-height:56px;
 
   background:
     rgba(255,255,255,.88);
 
-  backdrop-filter:
-    blur(8px);
+  backdrop-filter:blur(8px);
 
   border:
     1px solid
@@ -161,9 +157,7 @@ main{
 
   border-radius:18px;
 
-  padding:
-    13px
-    16px;
+  padding:13px 16px;
 
   text-decoration:none;
 
@@ -180,11 +174,7 @@ main{
   display:flex;
   align-items:center;
   gap:12px;
-
-  margin:
-    26px
-    0
-    14px;
+  margin:26px 0 14px;
 }
 
 .section-title h2{
@@ -216,15 +206,13 @@ main{
   background:
     rgba(255,255,255,.92);
 
-  backdrop-filter:
-    blur(8px);
+  backdrop-filter:blur(8px);
 
   padding:14px;
 
   border-radius:22px;
 
   display:flex;
-
   gap:14px;
 
   box-shadow:
@@ -253,11 +241,7 @@ main{
 }
 
 .current-info h3{
-  margin:
-    4px
-    0
-    5px;
-
+  margin:4px 0 5px;
   font-size:18px;
 }
 
@@ -276,16 +260,11 @@ main{
   display:flex;
   flex-wrap:wrap;
   gap:5px;
-
-  margin:
-    11px
-    0;
+  margin:11px 0;
 }
 
 .trope{
-  padding:
-    5px
-    8px;
+  padding:5px 8px;
 
   background:
     linear-gradient(
@@ -295,6 +274,7 @@ main{
     );
 
   border-radius:14px;
+
   font-size:9px;
   color:#52759a;
 }
@@ -306,16 +286,9 @@ main{
 
 .progress{
   height:6px;
-
-  margin:
-    7px
-    0
-    11px;
-
+  margin:7px 0 11px;
   background:#e7edf4;
-
   border-radius:10px;
-
   overflow:hidden;
 }
 
@@ -333,7 +306,6 @@ main{
 
 .read-button{
   display:block;
-
   padding:11px;
 
   background:
@@ -344,27 +316,19 @@ main{
     );
 
   color:white;
-
   text-decoration:none;
-
   text-align:center;
-
   border-radius:12px;
-
   font-size:12px;
   font-weight:bold;
 }
 
 
-/* ========================================
-   СТОИТ ПРОЧИТАТЬ
-======================================== */
+/* СТОИТ ПРОЧИТАТЬ */
 
 .featured-card{
   position:relative;
-
   overflow:hidden;
-
   min-height:370px;
 
   padding:
@@ -387,9 +351,6 @@ main{
     0 5px 20px rgba(219,151,184,.08);
 }
 
-
-/* БОЛЬШИЕ ЦВЕТНЫЕ ПЯТНА */
-
 .featured-blob{
   position:absolute;
   border-radius:50%;
@@ -400,7 +361,6 @@ main{
 .featured-blob.pink{
   width:230px;
   height:230px;
-
   left:-65px;
   top:35px;
 
@@ -416,7 +376,6 @@ main{
 .featured-blob.blue{
   width:240px;
   height:240px;
-
   right:-75px;
   top:65px;
 
@@ -429,18 +388,12 @@ main{
     );
 }
 
-
-/* ДЕКОРАТИВНАЯ ЗОНА С ОБЛОЖКОЙ */
-
 .featured-art{
   position:relative;
-
   min-height:235px;
 
   display:flex;
-
   align-items:center;
-
   justify-content:center;
 
   margin-bottom:10px;
@@ -498,9 +451,7 @@ main{
 }
 
 .hockey-stick.left{
-  transform:
-    rotate(-38deg);
-
+  transform:rotate(-38deg);
   left:31%;
   top:17px;
 }
@@ -511,9 +462,7 @@ main{
 }
 
 .hockey-stick.right{
-  transform:
-    rotate(38deg);
-
+  transform:rotate(38deg);
   right:31%;
   top:14px;
 
@@ -567,46 +516,35 @@ main{
 .puck.one{
   left:15%;
   bottom:42px;
-
   transform:rotate(-9deg);
 }
 
 .puck.two{
   right:14%;
   top:55px;
-
   width:27px;
   height:12px;
-
   opacity:.76;
-
   transform:rotate(14deg);
 }
 
 .puck.three{
   right:19%;
   bottom:18px;
-
   width:22px;
   height:10px;
-
   opacity:.55;
-
   transform:rotate(-5deg);
 }
 
 
-/* МАЛЕНЬКИЕ ИСКРЫ */
+/* ИСКРЫ */
 
 .feature-star{
   position:absolute;
-
   color:#d092b1;
-
   font-size:19px;
-
   opacity:.72;
-
   z-index:3;
 }
 
@@ -618,14 +556,12 @@ main{
 .feature-star.s2{
   left:19%;
   top:79px;
-
   color:#7ea6d1;
 }
 
 .feature-star.s3{
   right:16%;
   bottom:59px;
-
   font-size:13px;
 }
 
@@ -634,13 +570,9 @@ main{
 
 .featured-cover{
   position:relative;
-
   z-index:5;
-
   width:145px;
-
-  transform:
-    rotate(-2deg);
+  transform:rotate(-2deg);
 
   filter:
     drop-shadow(
@@ -651,78 +583,56 @@ main{
 
 .featured-cover img{
   display:block;
-
   width:100%;
-
   aspect-ratio:2/3;
-
   object-fit:cover;
-
   border-radius:16px;
 }
 
 
-/* ТЕКСТ БЛОКА */
+/* ТЕКСТ РЕКОМЕНДАЦИИ */
 
 .featured-content{
   position:relative;
-
   z-index:6;
-
   text-align:center;
 }
 
 .featured-kicker{
   font-size:10px;
-
   letter-spacing:1.8px;
-
   color:#7991ad;
-
   text-transform:uppercase;
 }
 
 .featured-title{
-  margin:
-    6px
-    0
-    4px;
+  margin:6px 0 4px;
 
   font-family:
     Georgia,
     serif;
 
   font-size:24px;
-
   font-weight:800;
-
   color:#294b70;
 }
 
 .featured-author{
   color:#8698ac;
-
   font-size:12px;
-
   margin-bottom:10px;
 }
 
 .featured-tags{
   display:flex;
-
   justify-content:center;
-
   flex-wrap:wrap;
-
   gap:6px;
-
   margin-bottom:15px;
 }
 
 .featured-tag{
-  padding:
-    6px
-    9px;
+  padding:6px 9px;
 
   background:
     rgba(255,255,255,.72);
@@ -734,7 +644,6 @@ main{
   border-radius:15px;
 
   color:#5f7d9c;
-
   font-size:10px;
 }
 
@@ -759,7 +668,6 @@ main{
   border-radius:14px;
 
   font-size:11px;
-
   font-weight:bold;
 
   box-shadow:
@@ -772,11 +680,8 @@ main{
 
 .hockey-marquee{
   position:relative;
-
   overflow:hidden;
-
   margin-top:10px;
-
   border-radius:14px;
 
   background:
@@ -795,7 +700,6 @@ main{
 
 .hockey-marquee-track{
   display:flex;
-
   width:max-content;
 
   animation:
@@ -807,47 +711,33 @@ main{
 
 .hockey-marquee-group{
   display:flex;
-
   align-items:center;
-
   flex-shrink:0;
 }
 
 .hockey-marquee-item{
-  padding:
-    10px
-    11px;
-
+  padding:10px 11px;
   color:white;
-
   white-space:nowrap;
-
   font-size:10px;
-
   font-weight:800;
-
   letter-spacing:1.5px;
 }
 
 .hockey-marquee-star{
-  color:
-    rgba(255,255,255,.75);
-
+  color:rgba(255,255,255,.75);
   font-size:10px;
-
   flex-shrink:0;
 }
 
 @keyframes hockeyScroll{
 
   from{
-    transform:
-      translateX(0);
+    transform:translateX(0);
   }
 
   to{
-    transform:
-      translateX(-50%);
+    transform:translateX(-50%);
   }
 }
 
@@ -862,21 +752,17 @@ main{
 
 .book-card{
   display:flex;
-
   gap:14px;
-
   padding:14px;
 
   background:
     rgba(255,255,255,.92);
 
-  backdrop-filter:
-    blur(8px);
+  backdrop-filter:blur(8px);
 
   border-radius:20px;
 
   text-decoration:none;
-
   color:inherit;
 
   box-shadow:
@@ -893,13 +779,9 @@ main{
 
 .book-cover img{
   width:100%;
-
   aspect-ratio:2/3;
-
   object-fit:cover;
-
   border-radius:12px;
-
   display:block;
 }
 
@@ -907,18 +789,12 @@ main{
   flex:1;
 
   display:flex;
-
   flex-direction:column;
-
   justify-content:center;
 }
 
 .book-info h3{
-  margin:
-    0
-    0
-    5px;
-
+  margin:0 0 5px;
   font-size:17px;
 }
 
@@ -933,9 +809,7 @@ main{
 }
 
 .pill{
-  padding:
-    6px
-    9px;
+  padding:6px 9px;
 
   background:
     linear-gradient(
@@ -947,7 +821,6 @@ main{
   border-radius:14px;
 
   font-size:10px;
-
   color:#52779e;
 }
 
@@ -969,7 +842,6 @@ main{
   border-radius:21px;
 
   text-decoration:none;
-
   color:inherit;
 
   margin-bottom:14px;
@@ -981,11 +853,8 @@ main{
 
 .series-top{
   display:flex;
-
   justify-content:space-between;
-
   gap:12px;
-
   align-items:center;
 }
 
@@ -1004,15 +873,12 @@ main{
   border-radius:13px;
 
   font-size:10px;
-
   color:#6683a1;
 }
 
 .series-description{
   margin-top:7px;
-
   font-size:12px;
-
   color:#71869f;
 }
 
@@ -1022,11 +888,8 @@ main{
 
 .series-book{
   display:flex;
-
   align-items:center;
-
   gap:12px;
-
   margin-top:10px;
 }
 
@@ -1063,13 +926,11 @@ main{
     );
 
   text-align:center;
-
   text-decoration:none;
 
   border-radius:14px;
 
   color:#527da9;
-
   font-weight:bold;
 }
 
@@ -1084,7 +945,6 @@ nav{
   bottom:0;
 
   display:flex;
-
   justify-content:space-around;
 
   background:
@@ -1110,19 +970,14 @@ nav{
 
 .nav-item{
   width:20%;
-
   min-height:54px;
 
   display:flex;
-
   flex-direction:column;
-
   align-items:center;
-
   justify-content:center;
 
   text-align:center;
-
   text-decoration:none;
 
   color:#8ca0b8;
@@ -1132,9 +987,7 @@ nav{
 
 .nav-icon{
   display:block;
-
   font-size:21px;
-
   margin-bottom:4px;
 }
 
@@ -1142,8 +995,6 @@ nav{
   color:#5285c3;
 }
 
-
-/* ДЛЯ ЛЮДЕЙ, КОТОРЫЕ ОТКЛЮЧИЛИ АНИМАЦИИ */
 
 @media (
   prefers-reduced-motion:
@@ -1163,6 +1014,7 @@ nav{
 </head>
 
 <body>
+
 
 <header>
 
@@ -1196,6 +1048,7 @@ YOUR NEXT OBSESSION IS HERE
 
 
 <main>
+
 
 <a
 class="search"
@@ -1259,6 +1112,7 @@ class="progress-info"
 id="progressInfo"
 ></div>
 
+
 <div class="progress">
 
 <div
@@ -1267,6 +1121,7 @@ id="progressBar"
 ></div>
 
 </div>
+
 
 <a
 class="read-button"
@@ -1283,9 +1138,7 @@ href="#"
 </div>
 
 
-<!-- ======================================
-СТОИТ ПРОЧИТАТЬ
-====================================== -->
+<!-- СТОИТ ПРОЧИТАТЬ -->
 
 <div class="section-title">
 
@@ -1301,17 +1154,23 @@ href="#"
 <div class="featured-card">
 
 <div class="featured-blob pink"></div>
+
 <div class="featured-blob blue"></div>
 
 
 <div class="featured-art">
 
 <div class="hockey-stick left"></div>
+
 <div class="hockey-stick right"></div>
 
+
 <div class="puck one"></div>
+
 <div class="puck two"></div>
+
 <div class="puck three"></div>
+
 
 <div class="feature-star s1">
 ✦
@@ -1422,8 +1281,6 @@ HOCKEY ROMANCE
 </div>
 
 
-<!-- ДУБЛЬ ДЛЯ БЕСШОВНОГО ДВИЖЕНИЯ -->
-
 <div
 class="hockey-marquee-group"
 aria-hidden="true"
@@ -1483,6 +1340,54 @@ HOCKEY ROMANCE
 
 
 <div class="new-books">
+
+
+<!-- ХОЛОДНЫЙ КАК ЛЁД -->
+
+<a
+class="book-card"
+href="https://tvorchestvolana-alt.github.io/nocturne-books/cold-as-ice.html"
+>
+
+<div class="book-cover">
+
+<img
+src="file_00000000d8e471f49bd1726c3042938f.png"
+alt="Холодный как лёд"
+>
+
+</div>
+
+
+<div class="book-info">
+
+<h3>
+Холодный как лёд
+</h3>
+
+<div class="author">
+Лауреа Мэттьюз
+</div>
+
+<div class="pills">
+
+<span class="pill">
+🏒 Спортивный роман
+</span>
+
+<span class="pill">
+💜 Хоккеист & фигуристка
+</span>
+
+<span class="pill">
+Дикие Волки · #1
+</span>
+
+</div>
+
+</div>
+
+</a>
 
 
 <!-- СКАЖИ, ЧТО Я ОШИБАЮСЬ -->
@@ -1641,6 +1546,59 @@ alt="Холодная малышка"
 </div>
 
 
+<!-- ДИКИЕ ВОЛКИ -->
+
+<a
+class="series-card"
+href="https://tvorchestvolana-alt.github.io/nocturne-books/cold-as-ice.html"
+>
+
+<div class="series-top">
+
+<div class="series-title">
+Дикие Волки
+</div>
+
+<div class="series-count">
+1 книга
+</div>
+
+</div>
+
+
+<div class="series-description">
+Спортивные романы · Лауреа Мэттьюз
+</div>
+
+
+<div class="series-books">
+
+<div class="series-book">
+
+<img
+src="file_00000000d8e471f49bd1726c3042938f.png"
+alt="Холодный как лёд"
+>
+
+<div>
+
+<div class="series-book-name">
+Холодный как лёд
+</div>
+
+<div class="series-book-number">
+Книга #1
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</a>
+
+
 <!-- БОСТОНСКИЕ РЫСИ -->
 
 <a
@@ -1659,6 +1617,7 @@ href="https://tvorchestvolana-alt.github.io/nocturne-books/catalog.html"
 </div>
 
 </div>
+
 
 <div class="series-description">
 Хоккейные романы · Карли Робин
@@ -1734,6 +1693,7 @@ href="https://tvorchestvolana-alt.github.io/nocturne-books/say-im-wrong.html"
 
 </div>
 
+
 <div class="series-description">
 Студенческий роман · Оден Хантер
 </div>
@@ -1776,6 +1736,8 @@ href="https://tvorchestvolana-alt.github.io/nocturne-books/catalog.html"
 
 </main>
 
+
+<!-- НИЖНЕЕ МЕНЮ -->
 
 <nav>
 
@@ -1913,10 +1875,42 @@ const BOOKS = {
       "🎓 Студенческий роман",
       "🔥 От неприязни до любви"
     ]
+  },
+
+
+  "cold-as-ice":{
+
+    title:
+    "Холодный как лёд",
+
+    author:
+    "Лауреа Мэттьюз",
+
+    series:
+    "Дикие Волки · Книга #1",
+
+    cover:
+    "file_00000000d8e471f49bd1726c3042938f.png",
+
+    reader:
+    "https://tvorchestvolana-alt.github.io/nocturne-books/reader-cold-as-ice.html",
+
+    progressKey:
+    "nocturne-cold-as-ice-progress",
+
+    positionKey:
+    "nocturne-cold-as-ice-position",
+
+    tropes:[
+      "🏒 Спортивный роман",
+      "💜 Хоккеист & фигуристка"
+    ]
   }
 
 };
 
+
+/* СКРЫТЬ ПРОДОЛЖЕНИЕ */
 
 function hideContinueReading(){
 
@@ -1928,6 +1922,8 @@ function hideContinueReading(){
   "none";
 }
 
+
+/* ПОКАЗАТЬ ПОСЛЕДНЮЮ КНИГУ */
 
 function showContinueReading(
   book
@@ -2064,6 +2060,8 @@ function showContinueReading(
 }
 
 
+/* ОПРЕДЕЛЯЕМ ПОСЛЕДНЮЮ КНИГУ */
+
 function renderContinueReading(){
 
   const lastBookId =
@@ -2109,6 +2107,11 @@ function renderContinueReading(){
 
 renderContinueReading();
 
+
+/*
+ПРИ ВОЗВРАЩЕНИИ ИЗ ЧИТАЛКИ
+ОБНОВЛЯЕМ ПОСЛЕДНЮЮ КНИГУ
+*/
 
 window.addEventListener(
   "pageshow",
