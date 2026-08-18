@@ -69,9 +69,7 @@ main{
   width:190px;
   max-width:60%;
   border-radius:18px;
-  box-shadow:
-    0 12px 28px rgba(43,73,108,.17),
-    0 5px 18px rgba(218,156,185,.10);
+  box-shadow:0 12px 28px rgba(43,73,108,.17);
   display:block;
   margin:0 auto 22px;
 }
@@ -128,7 +126,21 @@ h1{
   margin-bottom:10px;
 }
 
-.download,
+.download{
+  display:block;
+  width:100%;
+  border:1px solid #aac2dc;
+  background:rgba(255,255,255,.88);
+  color:#5279a4;
+  padding:14px;
+  border-radius:15px;
+  font-weight:bold;
+  font-size:14px;
+  text-decoration:none;
+  text-align:center;
+  margin-bottom:10px;
+}
+
 .library{
   display:block;
   width:100%;
@@ -140,15 +152,13 @@ h1{
   font-weight:bold;
   font-size:14px;
   text-align:center;
-  margin-bottom:10px;
-}
-
-.download{
-  text-decoration:none;
+  cursor:pointer;
 }
 
 .library.active{
   background:linear-gradient(135deg,#edf4fb,#f8eaf1);
+  border-color:#6f9bd0;
+  color:#31577f;
 }
 
 .section{
@@ -157,9 +167,7 @@ h1{
   border-radius:20px;
   padding:18px;
   margin-top:18px;
-  box-shadow:
-    0 7px 20px rgba(38,69,105,.05),
-    0 4px 16px rgba(218,157,185,.05);
+  box-shadow:0 7px 20px rgba(38,69,105,.05);
 }
 
 .section h2{
@@ -188,10 +196,29 @@ h1{
   font-size:12px;
 }
 
+.series-list{
+  display:flex;
+  flex-direction:column;
+  gap:14px;
+}
+
 .series-card{
   display:flex;
   gap:14px;
   align-items:center;
+  text-decoration:none;
+  color:inherit;
+  padding:10px;
+  border-radius:15px;
+}
+
+.series-card.current-book{
+  background:linear-gradient(135deg,rgba(231,241,252,.95),rgba(249,229,239,.92));
+  border:1px solid rgba(191,210,232,.7);
+}
+
+.series-card.link{
+  background:linear-gradient(135deg,rgba(237,244,251,.72),rgba(249,236,243,.72));
 }
 
 .series-cover{
@@ -211,7 +238,8 @@ h1{
   margin:4px 0;
 }
 
-.current{
+.current,
+.open-book{
   font-size:11px;
   color:#6f9bd0;
 }
@@ -238,13 +266,11 @@ nav{
   align-items:center;
   justify-content:center;
   text-decoration:none;
-  text-align:center;
   color:#8ca0b8;
   font-size:10px;
 }
 
 .nav-icon{
-  display:block;
   font-size:21px;
   margin-bottom:4px;
 }
@@ -254,20 +280,9 @@ nav{
 <body>
 
 <header>
-
-<a
-class="back"
-href="https://tvorchestvolana-alt.github.io/nocturne-books/catalog.html"
->
-←
-</a>
-
-<div class="header-title">
-NOCTURNE BOOKS
-</div>
-
+<a class="back" href="https://tvorchestvolana-alt.github.io/nocturne-books/catalog.html">←</a>
+<div class="header-title">NOCTURNE BOOKS</div>
 <div class="menu">⋯</div>
-
 </header>
 
 <main>
@@ -291,15 +306,14 @@ alt="Холодная малышка"
 </div>
 
 <div class="status">
-
 <span>🏒 Хоккейный роман</span>
 <span>📖 EPUB</span>
 <span>№1 в серии</span>
-
 </div>
 
 <a
 class="read"
+id="readButton"
 href="https://tvorchestvolana-alt.github.io/nocturne-books/reader.html"
 >
 📖 ЧИТАТЬ
@@ -307,13 +321,16 @@ href="https://tvorchestvolana-alt.github.io/nocturne-books/reader.html"
 
 <a
 class="download"
-href="https://tvorchestvolana-alt.github.io/nocturne-books/Холодная малышка.epub"
+href="https://tvorchestvolana-alt.github.io/nocturne-books/%D0%A5%D0%BE%D0%BB%D0%BE%D0%B4%D0%BD%D0%B0%D1%8F%20%D0%BC%D0%B0%D0%BB%D1%8B%D1%88%D0%BA%D0%B0.epub"
 download
 >
 ⬇️ СКАЧАТЬ EPUB
 </a>
 
-<button class="library" id="libraryButton">
+<button
+class="library"
+id="libraryButton"
+>
 ♡ ДОБАВИТЬ В БИБЛИОТЕКУ
 </button>
 
@@ -356,7 +373,9 @@ download
 
 <h2>СЕРИЯ «БОСТОНСКИЕ РЫСИ»</h2>
 
-<div class="series-card">
+<div class="series-list">
+
+<div class="series-card current-book">
 
 <img
 class="series-cover"
@@ -365,20 +384,31 @@ alt="Холодная малышка"
 >
 
 <div>
-
-<div class="series-number">
-КНИГА #1
-</div>
-
-<div class="series-name">
-Холодная малышка
-</div>
-
-<div class="current">
-Вы здесь
+<div class="series-number">КНИГА #1</div>
+<div class="series-name">Холодная малышка</div>
+<div class="current">Вы здесь</div>
 </div>
 
 </div>
+
+<a
+class="series-card link"
+href="https://tvorchestvolana-alt.github.io/nocturne-books/fire-and-ice.html"
+>
+
+<img
+class="series-cover"
+src="file_00000000b06c72468c564d5370a34844.png"
+alt="Огонь и лёд"
+>
+
+<div>
+<div class="series-number">КНИГА #2</div>
+<div class="series-name">Огонь и лёд</div>
+<div class="open-book">Перейти к книге →</div>
+</div>
+
+</a>
 
 </div>
 
@@ -417,54 +447,88 @@ alt="Холодная малышка"
 
 <script>
 
-const LIBRARY_KEY=
+const LIBRARY_KEY =
 "nocturne-cold-baby-library";
 
-const button=
+const POSITION_KEY =
+"nocturne-cold-baby-position";
+
+const PROGRESS_KEY =
+"nocturne-cold-baby-progress";
+
+const readButton =
+document.getElementById("readButton");
+
+const libraryButton =
 document.getElementById("libraryButton");
 
-function update(){
+function updateReadButton(){
 
-const value=
-localStorage.getItem(LIBRARY_KEY);
+  const position =
+  localStorage.getItem(POSITION_KEY);
 
-if(value==="yes"){
+  const progress =
+  Number(
+    localStorage.getItem(PROGRESS_KEY)
+  ) || 0;
 
-button.textContent=
-"✓ В БИБЛИОТЕКЕ";
+  if(progress >= 100){
 
-button.classList.add("active");
+    readButton.textContent =
+    "📖 ОТКРЫТЬ КНИГУ";
 
-}else{
+  }else if(position){
 
-button.textContent=
-"♡ ДОБАВИТЬ В БИБЛИОТЕКУ";
+    readButton.textContent =
+    "📖 ПРОДОЛЖИТЬ ЧТЕНИЕ";
 
-button.classList.remove("active");
+  }else{
+
+    readButton.textContent =
+    "📖 ЧИТАТЬ";
+  }
 }
 
+function updateLibraryButton(){
+
+  const inLibrary =
+  localStorage.getItem(LIBRARY_KEY);
+
+  if(inLibrary === "yes"){
+
+    libraryButton.textContent =
+    "✓ В БИБЛИОТЕКЕ";
+
+    libraryButton.classList.add("active");
+
+  }else{
+
+    libraryButton.textContent =
+    "♡ ДОБАВИТЬ В БИБЛИОТЕКУ";
+
+    libraryButton.classList.remove("active");
+  }
 }
 
-button.onclick=()=>{
+libraryButton.onclick=()=>{
 
-if(localStorage.getItem(LIBRARY_KEY)==="yes"){
+  if(localStorage.getItem(LIBRARY_KEY)==="yes"){
 
-localStorage.removeItem(LIBRARY_KEY);
+    localStorage.removeItem(LIBRARY_KEY);
 
-}else{
+  }else{
 
-localStorage.setItem(
-LIBRARY_KEY,
-"yes"
-);
+    localStorage.setItem(
+      LIBRARY_KEY,
+      "yes"
+    );
+  }
 
-}
-
-update();
-
+  updateLibraryButton();
 };
 
-update();
+updateReadButton();
+updateLibraryButton();
 
 </script>
 
