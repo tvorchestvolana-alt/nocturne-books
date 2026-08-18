@@ -25,43 +25,15 @@ body{
   padding-bottom:125px;
 
   background:
-    radial-gradient(
-      circle at 5% 12%,
-      rgba(244,190,211,.38) 0%,
-      transparent 25%
-    ),
-    radial-gradient(
-      circle at 95% 30%,
-      rgba(187,211,238,.26) 0%,
-      transparent 27%
-    ),
-    radial-gradient(
-      circle at 10% 60%,
-      rgba(247,202,220,.30) 0%,
-      transparent 29%
-    ),
-    radial-gradient(
-      circle at 90% 78%,
-      rgba(222,197,226,.25) 0%,
-      transparent 27%
-    ),
-    radial-gradient(
-      circle at 30% 95%,
-      rgba(190,216,239,.20) 0%,
-      transparent 25%
-    ),
-    linear-gradient(
-      180deg,
-      #fffafd 0%,
-      #fbf5f9 40%,
-      #f7f7fc 72%,
-      #f4f8fc 100%
-    );
+    radial-gradient(circle at 5% 12%,rgba(244,190,211,.38) 0%,transparent 25%),
+    radial-gradient(circle at 95% 30%,rgba(187,211,238,.26) 0%,transparent 27%),
+    radial-gradient(circle at 10% 60%,rgba(247,202,220,.30) 0%,transparent 29%),
+    radial-gradient(circle at 90% 78%,rgba(222,197,226,.25) 0%,transparent 27%),
+    radial-gradient(circle at 30% 95%,rgba(190,216,239,.20) 0%,transparent 25%),
+    linear-gradient(180deg,#fffafd 0%,#fbf5f9 40%,#f7f7fc 72%,#f4f8fc 100%);
 
   background-attachment:fixed;
 }
-
-/* ДЕКОР НА ФОНЕ */
 
 body::before{
   content:"✦";
@@ -95,16 +67,8 @@ header{
   text-align:center;
 
   background:
-    radial-gradient(
-      circle at 10% 20%,
-      rgba(246,196,215,.30),
-      transparent 35%
-    ),
-    radial-gradient(
-      circle at 90% 75%,
-      rgba(188,214,239,.22),
-      transparent 38%
-    ),
+    radial-gradient(circle at 10% 20%,rgba(246,196,215,.30),transparent 35%),
+    radial-gradient(circle at 90% 75%,rgba(188,214,239,.22),transparent 38%),
     rgba(255,255,255,.48);
 
   border-bottom:1px solid rgba(215,220,232,.72);
@@ -152,8 +116,6 @@ header::after{
   color:#6086b0;
 }
 
-/* ПРИВЕТСТВИЕ */
-
 .welcome{
   max-width:520px;
   margin:25px auto 0;
@@ -176,7 +138,7 @@ header::after{
   color:#7b8fa6;
 }
 
-/* ОСНОВНАЯ ЧАСТЬ */
+/* КОНТЕНТ */
 
 main{
   position:relative;
@@ -185,30 +147,6 @@ main{
   margin:auto;
   padding:18px 16px 30px;
 }
-
-/* ЕЩЁ НЕСКОЛЬКО ЕДВА ЗАМЕТНЫХ ЭЛЕМЕНТОВ */
-
-main::before{
-  content:"♡";
-  position:absolute;
-  top:350px;
-  left:5px;
-  font-size:22px;
-  color:rgba(218,156,184,.16);
-  pointer-events:none;
-}
-
-main::after{
-  content:"✦";
-  position:absolute;
-  top:680px;
-  right:8px;
-  font-size:18px;
-  color:rgba(112,155,208,.16);
-  pointer-events:none;
-}
-
-/* ПОИСК */
 
 .search{
   display:flex;
@@ -231,8 +169,6 @@ main::after{
     0 7px 22px rgba(78,96,126,.06),
     0 2px 10px rgba(222,166,191,.06);
 }
-
-/* ЗАГОЛОВКИ */
 
 .section-title{
   display:flex;
@@ -319,11 +255,7 @@ main::after{
 
 .trope{
   padding:5px 8px;
-  background:linear-gradient(
-    135deg,
-    #eef4fb,
-    #f9edf3
-  );
+  background:linear-gradient(135deg,#eef4fb,#f9edf3);
   color:#52759a;
   border-radius:14px;
   font-size:9px;
@@ -346,11 +278,7 @@ main::after{
 .progress-bar{
   width:0%;
   height:100%;
-  background:linear-gradient(
-    90deg,
-    #6d9bd0,
-    #d49ab5
-  );
+  background:linear-gradient(90deg,#6d9bd0,#d49ab5);
 }
 
 .read-button{
@@ -358,11 +286,7 @@ main::after{
   width:100%;
   padding:11px 8px;
 
-  background:linear-gradient(
-    135deg,
-    #709bd0,
-    #83a8d2
-  );
+  background:linear-gradient(135deg,#709bd0,#83a8d2);
 
   color:#fff;
   border-radius:12px;
@@ -374,7 +298,13 @@ main::after{
   box-shadow:0 5px 12px rgba(91,137,190,.18);
 }
 
-/* КНИГА */
+/* НОВИНКИ */
+
+.new-books{
+  display:flex;
+  flex-direction:column;
+  gap:14px;
+}
 
 .book-card{
   display:flex;
@@ -444,7 +374,7 @@ main::after{
   font-size:10px;
 }
 
-/* СЕРИИ */
+/* СЕРИЯ */
 
 .series-card{
   display:block;
@@ -491,8 +421,14 @@ main::after{
   font-size:12px;
 }
 
-.series-book{
+.series-books{
   margin-top:14px;
+  display:flex;
+  flex-direction:column;
+  gap:10px;
+}
+
+.series-book{
   display:flex;
   align-items:center;
   gap:12px;
@@ -521,11 +457,7 @@ main::after{
   margin-top:20px;
   padding:13px;
 
-  background:linear-gradient(
-    135deg,
-    #eaf2fb,
-    #f8eaf1
-  );
+  background:linear-gradient(135deg,#eaf2fb,#f8eaf1);
 
   color:#527da9;
   border-radius:14px;
@@ -577,11 +509,6 @@ nav{
 
   color:#8ca0b8;
   font-size:10px;
-
-  position:relative;
-  z-index:1000000;
-
-  touch-action:manipulation;
 }
 
 .nav-icon{
@@ -638,6 +565,7 @@ href="https://tvorchestvolana-alt.github.io/nocturne-books/catalog.html"
 🔍&nbsp; Найти книгу, автора, серию или троп...
 </a>
 
+
 <div class="section-title">
 
 <h2 id="readingTitle">
@@ -647,6 +575,7 @@ href="https://tvorchestvolana-alt.github.io/nocturne-books/catalog.html"
 <span></span>
 
 </div>
+
 
 <div class="current-card">
 
@@ -658,6 +587,7 @@ alt="Холодная малышка"
 >
 
 </div>
+
 
 <div class="current-info">
 
@@ -673,6 +603,7 @@ alt="Холодная малышка"
 Бостонские Рыси · Книга #1
 </div>
 
+
 <div class="tropes">
 
 <span class="trope">
@@ -685,12 +616,14 @@ alt="Холодная малышка"
 
 </div>
 
+
 <div
 class="progress-info"
 id="progressInfo"
 >
 Ещё не начато
 </div>
+
 
 <div class="progress">
 
@@ -700,6 +633,7 @@ id="progressBar"
 ></div>
 
 </div>
+
 
 <a
 class="read-button"
@@ -713,6 +647,7 @@ href="https://tvorchestvolana-alt.github.io/nocturne-books/reader.html"
 
 </div>
 
+
 <div class="section-title">
 
 <h2>
@@ -722,6 +657,58 @@ href="https://tvorchestvolana-alt.github.io/nocturne-books/reader.html"
 <span></span>
 
 </div>
+
+
+<div class="new-books">
+
+<!-- ОГОНЬ И ЛЁД -->
+
+<a
+class="book-card"
+href="https://tvorchestvolana-alt.github.io/nocturne-books/fire-and-ice.html"
+>
+
+<div class="book-cover">
+
+<img
+src="file_00000000b06c72468c564d5370a34844.png"
+alt="Огонь и лёд"
+>
+
+</div>
+
+<div class="book-info">
+
+<h3>
+Огонь и лёд
+</h3>
+
+<div class="author">
+Карли Робин
+</div>
+
+<div class="pills">
+
+<span class="pill">
+🏒 Хоккейный роман
+</span>
+
+<span class="pill">
+🎭 Фальшивые отношения
+</span>
+
+<span class="pill">
+Бостонские Рыси · #2
+</span>
+
+</div>
+
+</div>
+
+</a>
+
+
+<!-- ХОЛОДНАЯ МАЛЫШКА -->
 
 <a
 class="book-card"
@@ -754,6 +741,10 @@ alt="Холодная малышка"
 </span>
 
 <span class="pill">
+💙 Он влюбляется первым
+</span>
+
+<span class="pill">
 Бостонские Рыси · #1
 </span>
 
@@ -762,6 +753,9 @@ alt="Холодная малышка"
 </div>
 
 </a>
+
+</div>
+
 
 <div class="section-title">
 
@@ -773,9 +767,10 @@ alt="Холодная малышка"
 
 </div>
 
+
 <a
 class="series-card"
-href="https://tvorchestvolana-alt.github.io/nocturne-books/cold-baby.html"
+href="https://tvorchestvolana-alt.github.io/nocturne-books/catalog.html"
 >
 
 <div class="series-top">
@@ -785,7 +780,7 @@ href="https://tvorchestvolana-alt.github.io/nocturne-books/cold-baby.html"
 </div>
 
 <div class="series-count">
-1 книга
+2 книги
 </div>
 
 </div>
@@ -793,6 +788,8 @@ href="https://tvorchestvolana-alt.github.io/nocturne-books/cold-baby.html"
 <div class="series-description">
 Хоккейные романы · Карли Робин
 </div>
+
+<div class="series-books">
 
 <div class="series-book">
 
@@ -815,7 +812,32 @@ alt="Холодная малышка"
 
 </div>
 
+
+<div class="series-book">
+
+<img
+src="file_00000000b06c72468c564d5370a34844.png"
+alt="Огонь и лёд"
+>
+
+<div>
+
+<div class="series-book-name">
+Огонь и лёд
+</div>
+
+<div class="series-book-number">
+Книга #2
+</div>
+
+</div>
+
+</div>
+
+</div>
+
 </a>
+
 
 <a
 class="catalog-link"
@@ -825,6 +847,7 @@ href="https://tvorchestvolana-alt.github.io/nocturne-books/catalog.html"
 </a>
 
 </main>
+
 
 <nav>
 
@@ -870,7 +893,17 @@ href="https://tvorchestvolana-alt.github.io/nocturne-books/profile.html"
 
 </nav>
 
+
 <script>
+
+/*
+Пока блок "Продолжить чтение" работает
+с первой книгой, как и раньше.
+Когда подключим читалку второй книги,
+сделаем его динамическим:
+он будет показывать ту книгу,
+которую пользователь читал последней.
+*/
 
 const POSITION_KEY =
 "nocturne-cold-baby-position";
@@ -879,24 +912,37 @@ const PROGRESS_KEY =
 "nocturne-cold-baby-progress";
 
 const readingTitle =
-document.getElementById("readingTitle");
+document.getElementById(
+"readingTitle"
+);
 
 const progressInfo =
-document.getElementById("progressInfo");
+document.getElementById(
+"progressInfo"
+);
 
 const progressBar =
-document.getElementById("progressBar");
+document.getElementById(
+"progressBar"
+);
 
 const readButton =
-document.getElementById("readButton");
+document.getElementById(
+"readButton"
+);
 
 const savedPosition =
-localStorage.getItem(POSITION_KEY);
+localStorage.getItem(
+POSITION_KEY
+);
 
 const savedProgress =
 Number(
-  localStorage.getItem(PROGRESS_KEY)
+localStorage.getItem(
+PROGRESS_KEY
+)
 ) || 0;
+
 
 if(savedPosition){
 
@@ -947,4 +993,4 @@ if(savedPosition){
 </script>
 
 </body>
-  </html>
+</html>
