@@ -995,6 +995,37 @@ const THEME_KEY =
 const BOOKS = {
 
 
+  "changes-on-the-fly":{
+
+    title:
+    "Перемены на лету",
+
+    author:
+    "Марен Мур",
+
+    series:
+    "Точное попадание · Книга #1",
+
+    cover:
+    "1782309759197.png",
+
+    reader:
+    "https://tvorchestvolana-alt.github.io/nocturne-books/reader-changes-on-the-fly.html",
+
+    libraryKey:
+    "nocturne-changes-on-the-fly-library",
+
+    progressKey:
+    "nocturne-changes-on-the-fly-progress",
+
+    positionKey:
+    "nocturne-changes-on-the-fly-position",
+
+    quotesKey:
+    "nocturne-changes-on-the-fly-quotes"
+  },
+
+
   "cold-baby":{
 
     title:
@@ -1152,6 +1183,18 @@ function getFallbackBook(){
   Ищем любую реально начатую книгу.
   Сначала более новые.
   */
+
+  if(
+    localStorage.getItem(
+      BOOKS[
+        "changes-on-the-fly"
+      ].positionKey
+    )
+  ){
+
+    return "changes-on-the-fly";
+  }
+
 
   if(
     localStorage.getItem(
