@@ -1,0 +1,1345 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+
+<title>Перемены на лету — NOCTURNE BOOKS</title>
+
+<style>
+*{
+  box-sizing:border-box;
+}
+
+html,
+body{
+  margin:0;
+  padding:0;
+  width:100%;
+}
+
+body{
+  font-family:Arial,sans-serif;
+  color:#173052;
+  padding-bottom:110px;
+
+  background:
+    radial-gradient(circle at 5% 12%,rgba(244,190,211,.38),transparent 25%),
+    radial-gradient(circle at 95% 30%,rgba(187,211,238,.26),transparent 27%),
+    radial-gradient(circle at 10% 65%,rgba(247,202,220,.30),transparent 29%),
+    radial-gradient(circle at 90% 85%,rgba(222,197,226,.25),transparent 27%),
+    linear-gradient(180deg,#fffafd,#fbf5f9 45%,#f4f8fc);
+
+  background-attachment:fixed;
+}
+
+body::before{
+  content:"✦";
+  position:fixed;
+  top:200px;
+  left:12px;
+  font-size:20px;
+  color:rgba(207,145,174,.18);
+  pointer-events:none;
+}
+
+body::after{
+  content:"☾";
+  position:fixed;
+  top:520px;
+  right:13px;
+  font-size:27px;
+  color:rgba(111,155,208,.15);
+  pointer-events:none;
+}
+
+
+/* =========================
+   ШАПКА
+========================= */
+
+header{
+  height:64px;
+
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+
+  padding:0 18px;
+
+  background:rgba(255,255,255,.78);
+  backdrop-filter:blur(12px);
+
+  border-bottom:1px solid #e1e9f2;
+
+  position:sticky;
+  top:0;
+
+  z-index:20;
+}
+
+.back{
+  width:40px;
+
+  font-size:28px;
+
+  color:#31577f;
+
+  text-decoration:none;
+}
+
+.header-title{
+  font-weight:700;
+  font-size:15px;
+}
+
+.menu{
+  width:40px;
+
+  text-align:right;
+
+  font-size:24px;
+
+  color:#31577f;
+}
+
+
+/* =========================
+   ОСНОВНОЙ КОНТЕНТ
+========================= */
+
+main{
+  max-width:700px;
+
+  margin:auto;
+
+  padding:24px 18px;
+}
+
+.hero{
+  text-align:center;
+}
+
+
+/* ОБЛОЖКА */
+
+.cover{
+  width:190px;
+
+  max-width:60%;
+
+  border-radius:18px;
+
+  box-shadow:
+    0 12px 28px rgba(43,73,108,.17),
+    0 5px 18px rgba(218,156,185,.10);
+
+  display:block;
+
+  margin:
+    0
+    auto
+    22px;
+}
+
+
+/* СЕРИЯ */
+
+.series{
+  display:inline-block;
+
+  background:
+    linear-gradient(
+      135deg,
+      #eaf2fb,
+      #f9eaf1
+    );
+
+  color:#52779e;
+
+  border-radius:20px;
+
+  padding:
+    7px
+    12px;
+
+  font-size:12px;
+
+  margin-bottom:12px;
+}
+
+
+/* НАЗВАНИЕ */
+
+h1{
+  font-size:28px;
+
+  line-height:1.15;
+
+  margin:
+    4px
+    0
+    6px;
+}
+
+.author{
+  font-size:16px;
+
+  color:#758aa4;
+
+  margin-bottom:18px;
+}
+
+
+/* МЕТКИ */
+
+.status{
+  display:flex;
+
+  justify-content:center;
+
+  flex-wrap:wrap;
+
+  gap:8px;
+
+  margin-bottom:22px;
+}
+
+.status span{
+  background:
+    rgba(255,255,255,.88);
+
+  border:
+    1px solid
+    #dfe7f1;
+
+  padding:
+    7px
+    10px;
+
+  border-radius:15px;
+
+  font-size:11px;
+
+  color:#56728f;
+}
+
+
+/* =========================
+   КНОПКИ
+========================= */
+
+.read{
+  display:block;
+
+  width:100%;
+
+  background:
+    linear-gradient(
+      135deg,
+      #6f9bd0,
+      #83a8d2
+    );
+
+  color:white;
+
+  padding:15px;
+
+  border-radius:15px;
+
+  font-weight:bold;
+
+  font-size:15px;
+
+  text-decoration:none;
+
+  text-align:center;
+
+  margin-bottom:10px;
+}
+
+.download{
+  display:block;
+
+  width:100%;
+
+  border:
+    1px solid
+    #aac2dc;
+
+  background:
+    rgba(255,255,255,.88);
+
+  color:#5279a4;
+
+  padding:14px;
+
+  border-radius:15px;
+
+  font-weight:bold;
+
+  font-size:14px;
+
+  text-decoration:none;
+
+  text-align:center;
+
+  margin-bottom:10px;
+}
+
+.library{
+  display:block;
+
+  width:100%;
+
+  border:
+    1px solid
+    #aac2dc;
+
+  background:
+    rgba(255,255,255,.88);
+
+  color:#5279a4;
+
+  padding:14px;
+
+  border-radius:15px;
+
+  font-weight:bold;
+
+  font-size:14px;
+
+  text-align:center;
+
+  cursor:pointer;
+}
+
+.library.active{
+  background:
+    linear-gradient(
+      135deg,
+      #edf4fb,
+      #f8eaf1
+    );
+
+  border-color:#6f9bd0;
+
+  color:#31577f;
+}
+
+
+/* =========================
+   ПРОГРЕСС
+========================= */
+
+.reading-progress{
+  display:none;
+
+  margin-top:14px;
+
+  padding:14px;
+
+  background:
+    rgba(255,255,255,.86);
+
+  border-radius:16px;
+
+  text-align:left;
+}
+
+.reading-progress.show{
+  display:block;
+}
+
+.progress-top{
+  display:flex;
+
+  justify-content:space-between;
+
+  align-items:center;
+
+  margin-bottom:8px;
+
+  font-size:11px;
+
+  color:#71869f;
+}
+
+.progress{
+  width:100%;
+
+  height:6px;
+
+  background:#e5edf5;
+
+  border-radius:10px;
+
+  overflow:hidden;
+}
+
+.progress-bar{
+  width:0%;
+
+  height:100%;
+
+  background:
+    linear-gradient(
+      90deg,
+      #6f9bd0,
+      #d49ab5
+    );
+}
+
+
+/* =========================
+   СЕКЦИИ
+========================= */
+
+.section{
+  background:
+    rgba(255,255,255,.92);
+
+  backdrop-filter:
+    blur(8px);
+
+  border-radius:20px;
+
+  padding:18px;
+
+  margin-top:18px;
+
+  box-shadow:
+    0 7px 20px rgba(38,69,105,.05),
+    0 4px 16px rgba(218,157,185,.05);
+}
+
+.section h2{
+  margin:
+    0
+    0
+    14px;
+
+  font-size:15px;
+}
+
+
+/* =========================
+   АННОТАЦИЯ
+========================= */
+
+.annotation{
+  font-size:14px;
+
+  line-height:1.65;
+
+  color:#31465f;
+
+  white-space:pre-line;
+}
+
+
+/* =========================
+   ТРОПЫ
+========================= */
+
+.tropes{
+  display:flex;
+
+  flex-wrap:wrap;
+
+  gap:8px;
+}
+
+.trope{
+  background:
+    linear-gradient(
+      135deg,
+      #edf4fb,
+      #faebf2
+    );
+
+  color:#52779e;
+
+  border-radius:18px;
+
+  padding:
+    8px
+    11px;
+
+  font-size:12px;
+}
+
+
+/* =========================
+   СЕРИЯ
+========================= */
+
+.series-list{
+  display:flex;
+
+  flex-direction:column;
+
+  gap:14px;
+}
+
+.series-card{
+  display:flex;
+
+  gap:14px;
+
+  align-items:center;
+
+  padding:10px;
+
+  border-radius:15px;
+
+  text-decoration:none;
+
+  color:inherit;
+}
+
+.series-card.current-book{
+  background:
+    linear-gradient(
+      135deg,
+      rgba(231,241,252,.95),
+      rgba(249,229,239,.92)
+    );
+
+  border:
+    1px solid
+    rgba(191,210,232,.7);
+}
+
+.series-cover{
+  width:65px;
+
+  height:98px;
+
+  border-radius:10px;
+
+  object-fit:cover;
+
+  flex-shrink:0;
+}
+
+.series-info{
+  flex:1;
+}
+
+.series-number{
+  font-size:11px;
+
+  color:#7390ae;
+
+  margin-bottom:3px;
+}
+
+.series-name{
+  font-weight:bold;
+
+  margin-bottom:4px;
+}
+
+.current{
+  font-size:11px;
+
+  color:#6f9bd0;
+}
+
+
+/* =========================
+   УВЕДОМЛЕНИЕ
+========================= */
+
+.toast{
+  position:fixed;
+
+  left:50%;
+
+  bottom:92px;
+
+  transform:
+    translateX(-50%)
+    translateY(25px);
+
+  width:max-content;
+
+  max-width:
+    calc(100% - 32px);
+
+  background:
+    rgba(38,55,76,.96);
+
+  color:white;
+
+  padding:
+    13px
+    17px;
+
+  border-radius:15px;
+
+  font-size:12px;
+
+  font-weight:bold;
+
+  text-align:center;
+
+  box-shadow:
+    0 12px 30px
+    rgba(30,48,68,.22);
+
+  opacity:0;
+
+  visibility:hidden;
+
+  pointer-events:none;
+
+  transition:
+    opacity .25s ease,
+    transform .25s ease,
+    visibility .25s;
+
+  z-index:9999999;
+}
+
+.toast.show{
+  opacity:1;
+
+  visibility:visible;
+
+  transform:
+    translateX(-50%)
+    translateY(0);
+}
+
+.toast.success{
+  background:
+    linear-gradient(
+      135deg,
+      rgba(97,137,184,.97),
+      rgba(198,131,162,.97)
+    );
+}
+
+
+/* =========================
+   НИЖНЕЕ МЕНЮ
+========================= */
+
+nav{
+  position:fixed;
+
+  left:0;
+  right:0;
+  bottom:0;
+
+  display:flex;
+
+  justify-content:space-around;
+
+  background:
+    rgba(255,255,255,.95);
+
+  backdrop-filter:
+    blur(12px);
+
+  border-top:
+    1px solid
+    #e0e8f1;
+
+  padding:
+    9px
+    3px
+    calc(
+      13px +
+      env(safe-area-inset-bottom)
+    );
+
+  z-index:999999;
+}
+
+.nav-item{
+  width:20%;
+
+  min-height:54px;
+
+  display:flex;
+
+  flex-direction:column;
+
+  align-items:center;
+
+  justify-content:center;
+
+  text-align:center;
+
+  text-decoration:none;
+
+  color:#8ca0b8;
+
+  font-size:10px;
+}
+
+.nav-icon{
+  display:block;
+
+  font-size:21px;
+
+  margin-bottom:4px;
+}
+
+</style>
+</head>
+
+
+<body>
+
+
+<header>
+
+<a
+class="back"
+href="https://tvorchestvolana-alt.github.io/nocturne-books/catalog.html"
+>
+←
+</a>
+
+<div class="header-title">
+NOCTURNE BOOKS
+</div>
+
+<div class="menu">
+⋯
+</div>
+
+</header>
+
+
+<main>
+
+
+<!-- =========================
+     КНИГА
+========================= -->
+
+<div class="hero">
+
+<img
+class="cover"
+src="1782309759197.png"
+alt="Перемены на лету — Марен Мур"
+>
+
+
+<div class="series">
+Точное попадание · Книга #1
+</div>
+
+
+<h1>
+Перемены на лету
+</h1>
+
+
+<div class="author">
+Марен Мур
+</div>
+
+
+<div class="status">
+
+<span>
+🏒 Хоккейный роман
+</span>
+
+<span>
+📖 EPUB
+</span>
+
+<span>
+№1 в серии
+</span>
+
+</div>
+
+
+<a
+class="read"
+id="readButton"
+href="https://tvorchestvolana-alt.github.io/nocturne-books/reader-changes-on-the-fly.html"
+>
+📖 ЧИТАТЬ
+</a>
+
+
+<a
+class="download"
+href="Перемены%20нa%20лeту.epub"
+download="Перемены на лету — Марен Мур.epub"
+>
+⬇️ СКАЧАТЬ EPUB
+</a>
+
+
+<button
+class="library"
+id="libraryButton"
+>
+♡ ДОБАВИТЬ В БИБЛИОТЕКУ
+</button>
+
+
+<div
+class="reading-progress"
+id="readingProgress"
+>
+
+<div class="progress-top">
+
+<span>
+Прогресс чтения
+</span>
+
+<strong
+id="progressText"
+>
+0%
+</strong>
+
+</div>
+
+<div class="progress">
+
+<div
+class="progress-bar"
+id="progressBar"
+></div>
+
+</div>
+
+</div>
+
+</div>
+
+
+<!-- =========================
+     АННОТАЦИЯ
+========================= -->
+
+<div class="section">
+
+<h2>
+АННОТАЦИЯ
+</h2>
+
+<div class="annotation">Представь, что ты влюблена в брата своей лучшей подруги.
+
+А потом... годами хранишь это в секрете.
+
+Невероятно обаятельный, заядлый бабник и суперзвезда хоккея... Рид Дэвидсон — тот самый соседский парень, который владел моим сердцем, сколько я себя помню.
+
+Он был типичным плохим парнем, а я — всего лишь застенчивой подругой его сестры.
+
+Но когда привычный мир Рида внезапно переворачивается с ног на голову и он получает опеку над своим племянником, я оказываюсь единственной, кто может помочь.
+
+Мне не следовало соглашаться на совместные поездки с ними, но Рид совершенно не подходил на роль отца-одиночки, и я знала, что ему нужна помощь. Я пыталась скрыть свои чувства к нему, но мы вдвоем, самый милый малыш на планете и долгий хоккейный сезон стали идеальным рецептом для катастрофы.
+
+Рид привык получать абсолютно все, что хотел, и на этот раз... он захотел меня.
+
+Вот только теперь ставки стали еще выше, и на кону стоит мое сердце.</div>
+
+</div>
+
+
+<!-- =========================
+     ТРОПЫ
+========================= -->
+
+<div class="section">
+
+<h2>
+ТРОПЫ
+</h2>
+
+
+<div class="tropes">
+
+<span class="trope">
+🏒 Хоккейный роман
+</span>
+
+<span class="trope">
+👨‍👦 Отец-одиночка (опекун)
+</span>
+
+<span class="trope">
+💕 Брат лучшей подруги
+</span>
+
+<span class="trope">
+💗 От друзей к влюблённым
+</span>
+
+<span class="trope">
+🏠 Вынужденная близость
+</span>
+
+<span class="trope">
+😏 Изменившийся плейбой
+</span>
+
+<span class="trope">
+💸 Бедная девушка & богатый парень
+</span>
+
+</div>
+
+</div>
+
+
+<!-- =========================
+     СЕРИЯ
+========================= -->
+
+<div class="section">
+
+<h2>
+СЕРИЯ «ТОЧНОЕ ПОПАДАНИЕ»
+</h2>
+
+
+<div class="series-list">
+
+
+<div class="series-card current-book">
+
+<img
+class="series-cover"
+src="1782309759197.png"
+alt="Перемены на лету"
+>
+
+
+<div class="series-info">
+
+<div class="series-number">
+КНИГА #1
+</div>
+
+<div class="series-name">
+Перемены на лету
+</div>
+
+<div class="current">
+Вы здесь
+</div>
+
+</div>
+
+</div>
+
+
+</div>
+
+</div>
+
+
+</main>
+
+
+<!-- =========================
+     УВЕДОМЛЕНИЕ
+========================= -->
+
+<div
+class="toast"
+id="toast"
+></div>
+
+
+<!-- =========================
+     НИЖНЕЕ МЕНЮ
+========================= -->
+
+<nav>
+
+<a
+class="nav-item"
+href="https://tvorchestvolana-alt.github.io/nocturne-books/index.html"
+>
+<span class="nav-icon">
+⌂
+</span>
+Главная
+</a>
+
+
+<a
+class="nav-item"
+href="https://tvorchestvolana-alt.github.io/nocturne-books/catalog.html"
+>
+<span class="nav-icon">
+⌕
+</span>
+Каталог
+</a>
+
+
+<a
+class="nav-item"
+href="https://tvorchestvolana-alt.github.io/nocturne-books/library.html"
+>
+<span class="nav-icon">
+♡
+</span>
+Библиотека
+</a>
+
+
+<a
+class="nav-item"
+href="https://tvorchestvolana-alt.github.io/nocturne-books/bookmarks.html"
+>
+<span class="nav-icon">
+❝
+</span>
+Цитаты
+</a>
+
+
+<a
+class="nav-item"
+href="https://tvorchestvolana-alt.github.io/nocturne-books/profile.html"
+>
+<span class="nav-icon">
+♙
+</span>
+Профиль
+</a>
+
+</nav>
+
+
+<script>
+
+/* =========================
+   КЛЮЧИ КНИГИ
+========================= */
+
+const LIBRARY_KEY =
+"nocturne-changes-on-the-fly-library";
+
+const POSITION_KEY =
+"nocturne-changes-on-the-fly-position";
+
+const PROGRESS_KEY =
+"nocturne-changes-on-the-fly-progress";
+
+
+/* =========================
+   ЭЛЕМЕНТЫ
+========================= */
+
+const libraryButton =
+document.getElementById(
+  "libraryButton"
+);
+
+const readButton =
+document.getElementById(
+  "readButton"
+);
+
+const readingProgress =
+document.getElementById(
+  "readingProgress"
+);
+
+const progressText =
+document.getElementById(
+  "progressText"
+);
+
+const progressBar =
+document.getElementById(
+  "progressBar"
+);
+
+const toast =
+document.getElementById(
+  "toast"
+);
+
+
+let toastTimer;
+
+
+/* =========================
+   УВЕДОМЛЕНИЯ
+========================= */
+
+function showToast(
+  text,
+  success = false
+){
+
+  clearTimeout(
+    toastTimer
+  );
+
+
+  toast.textContent =
+  text;
+
+
+  toast.classList.remove(
+    "success"
+  );
+
+
+  if(success){
+
+    toast.classList.add(
+      "success"
+    );
+  }
+
+
+  toast.classList.remove(
+    "show"
+  );
+
+
+  void toast.offsetWidth;
+
+
+  toast.classList.add(
+    "show"
+  );
+
+
+  toastTimer =
+  setTimeout(
+    ()=>{
+
+      toast.classList.remove(
+        "show"
+      );
+
+    },
+    2500
+  );
+}
+
+
+/* =========================
+   КНОПКА ЧТЕНИЯ
+========================= */
+
+function updateReadButton(){
+
+  const position =
+  localStorage.getItem(
+    POSITION_KEY
+  );
+
+
+  const progress =
+  Number(
+    localStorage.getItem(
+      PROGRESS_KEY
+    )
+  ) || 0;
+
+
+  if(progress >= 100){
+
+    readButton.textContent =
+    "📖 ОТКРЫТЬ КНИГУ";
+
+  }else if(position){
+
+    readButton.textContent =
+    "📖 ПРОДОЛЖИТЬ ЧТЕНИЕ";
+
+  }else{
+
+    readButton.textContent =
+    "📖 ЧИТАТЬ";
+  }
+}
+
+
+/* =========================
+   ПРОГРЕСС
+========================= */
+
+function updateProgress(){
+
+  const position =
+  localStorage.getItem(
+    POSITION_KEY
+  );
+
+
+  const progress =
+  Math.min(
+    Number(
+      localStorage.getItem(
+        PROGRESS_KEY
+      )
+    ) || 0,
+    100
+  );
+
+
+  /*
+  Пока человек не начал читать,
+  прогресс вообще не показываем.
+  */
+
+  if(!position){
+
+    readingProgress
+    .classList
+    .remove(
+      "show"
+    );
+
+    return;
+  }
+
+
+  readingProgress
+  .classList
+  .add(
+    "show"
+  );
+
+
+  progressText.textContent =
+  progress >= 100
+  ? "Прочитано ✓"
+  : progress + "%";
+
+
+  progressBar.style.width =
+  progress + "%";
+}
+
+
+/* =========================
+   БИБЛИОТЕКА
+========================= */
+
+function updateLibraryButton(){
+
+  const inLibrary =
+  localStorage.getItem(
+    LIBRARY_KEY
+  );
+
+
+  if(inLibrary === "yes"){
+
+    libraryButton.textContent =
+    "✓ В БИБЛИОТЕКЕ";
+
+
+    libraryButton
+    .classList
+    .add(
+      "active"
+    );
+
+  }else{
+
+    libraryButton.textContent =
+    "♡ ДОБАВИТЬ В БИБЛИОТЕКУ";
+
+
+    libraryButton
+    .classList
+    .remove(
+      "active"
+    );
+  }
+}
+
+
+libraryButton.addEventListener(
+"click",
+()=>{
+
+  const inLibrary =
+  localStorage.getItem(
+    LIBRARY_KEY
+  );
+
+
+  if(inLibrary === "yes"){
+
+    localStorage.removeItem(
+      LIBRARY_KEY
+    );
+
+
+    showToast(
+      "Книга удалена из библиотеки"
+    );
+
+  }else{
+
+    localStorage.setItem(
+      LIBRARY_KEY,
+      "yes"
+    );
+
+
+    showToast(
+      "✓ Книга добавлена в библиотеку",
+      true
+    );
+  }
+
+
+  updateLibraryButton();
+
+});
+
+
+/* =========================
+   ОБНОВЛЕНИЕ СТРАНИЦЫ
+========================= */
+
+function updateBookPage(){
+
+  updateReadButton();
+
+  updateProgress();
+
+  updateLibraryButton();
+}
+
+
+updateBookPage();
+
+
+/*
+Когда возвращаемся из читалки назад,
+обновляем прогресс и кнопку.
+*/
+
+window.addEventListener(
+"pageshow",
+()=>{
+
+  updateBookPage();
+
+});
+
+</script>
+
+</body>
+  </html>
