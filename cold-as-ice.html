@@ -1,0 +1,902 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+
+<title>Холодный как лёд — NOCTURNE BOOKS</title>
+
+<style>
+*{
+  box-sizing:border-box;
+}
+
+body{
+  margin:0;
+  font-family:Arial,sans-serif;
+  color:#173052;
+  padding-bottom:110px;
+
+  background:
+    radial-gradient(circle at 5% 12%,rgba(244,190,211,.38),transparent 25%),
+    radial-gradient(circle at 95% 30%,rgba(187,211,238,.26),transparent 27%),
+    radial-gradient(circle at 10% 65%,rgba(247,202,220,.30),transparent 29%),
+    radial-gradient(circle at 90% 85%,rgba(222,197,226,.25),transparent 27%),
+    linear-gradient(180deg,#fffafd,#fbf5f9 45%,#f4f8fc);
+
+  background-attachment:fixed;
+}
+
+body::before{
+  content:"✦";
+  position:fixed;
+  top:210px;
+  left:12px;
+  font-size:20px;
+  color:rgba(207,145,174,.18);
+  pointer-events:none;
+}
+
+body::after{
+  content:"❄";
+  position:fixed;
+  top:520px;
+  right:13px;
+  font-size:23px;
+  color:rgba(111,155,208,.15);
+  pointer-events:none;
+}
+
+header{
+  height:64px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:0 18px;
+
+  background:rgba(255,255,255,.78);
+  backdrop-filter:blur(12px);
+
+  border-bottom:1px solid #e1e9f2;
+
+  position:sticky;
+  top:0;
+  z-index:20;
+}
+
+.back{
+  font-size:28px;
+  color:#31577f;
+  text-decoration:none;
+}
+
+.header-title{
+  font-weight:700;
+  font-size:15px;
+}
+
+.menu{
+  font-size:24px;
+  color:#31577f;
+}
+
+main{
+  max-width:700px;
+  margin:auto;
+  padding:24px 18px;
+}
+
+.hero{
+  text-align:center;
+}
+
+.cover{
+  width:190px;
+  max-width:60%;
+
+  border-radius:18px;
+
+  box-shadow:
+    0 12px 28px rgba(43,73,108,.17),
+    0 5px 18px rgba(218,156,185,.10);
+
+  display:block;
+
+  margin:0 auto 22px;
+}
+
+.series{
+  display:inline-block;
+
+  background:linear-gradient(
+    135deg,
+    #eaf2fb,
+    #f9eaf1
+  );
+
+  color:#52779e;
+
+  border-radius:20px;
+
+  padding:7px 12px;
+
+  font-size:12px;
+
+  margin-bottom:12px;
+}
+
+h1{
+  font-size:28px;
+  line-height:1.15;
+  margin:4px 0 6px;
+}
+
+.author{
+  font-size:16px;
+  color:#758aa4;
+  margin-bottom:18px;
+}
+
+.status{
+  display:flex;
+  justify-content:center;
+  flex-wrap:wrap;
+  gap:8px;
+  margin-bottom:22px;
+}
+
+.status span{
+  background:rgba(255,255,255,.88);
+
+  border:1px solid #dfe7f1;
+
+  padding:7px 10px;
+
+  border-radius:15px;
+
+  font-size:11px;
+
+  color:#56728f;
+}
+
+.read{
+  display:block;
+  width:100%;
+
+  background:linear-gradient(
+    135deg,
+    #6f9bd0,
+    #83a8d2
+  );
+
+  color:white;
+
+  padding:15px;
+
+  border-radius:15px;
+
+  font-weight:bold;
+  font-size:15px;
+
+  text-decoration:none;
+  text-align:center;
+
+  margin-bottom:10px;
+}
+
+.download{
+  display:block;
+  width:100%;
+
+  border:1px solid #aac2dc;
+
+  background:rgba(255,255,255,.88);
+
+  color:#5279a4;
+
+  padding:14px;
+
+  border-radius:15px;
+
+  font-weight:bold;
+  font-size:14px;
+
+  text-decoration:none;
+  text-align:center;
+
+  margin-bottom:10px;
+}
+
+.library{
+  display:block;
+  width:100%;
+
+  border:1px solid #aac2dc;
+
+  background:rgba(255,255,255,.88);
+
+  color:#5279a4;
+
+  padding:14px;
+
+  border-radius:15px;
+
+  font-weight:bold;
+  font-size:14px;
+
+  text-align:center;
+
+  cursor:pointer;
+}
+
+.library.active{
+  background:linear-gradient(
+    135deg,
+    #edf4fb,
+    #f8eaf1
+  );
+
+  border-color:#6f9bd0;
+
+  color:#31577f;
+}
+
+.section{
+  background:rgba(255,255,255,.92);
+
+  backdrop-filter:blur(8px);
+
+  border-radius:20px;
+
+  padding:18px;
+
+  margin-top:18px;
+
+  box-shadow:
+    0 7px 20px rgba(38,69,105,.05),
+    0 4px 16px rgba(218,157,185,.05);
+}
+
+.section h2{
+  margin:0 0 14px;
+  font-size:15px;
+}
+
+.annotation{
+  font-size:14px;
+
+  line-height:1.65;
+
+  color:#31465f;
+
+  white-space:pre-line;
+}
+
+.tropes{
+  display:flex;
+  flex-wrap:wrap;
+  gap:8px;
+}
+
+.trope{
+  background:linear-gradient(
+    135deg,
+    #edf4fb,
+    #faebf2
+  );
+
+  color:#52779e;
+
+  border-radius:18px;
+
+  padding:8px 11px;
+
+  font-size:12px;
+}
+
+.series-card{
+  display:flex;
+  gap:14px;
+
+  align-items:center;
+
+  padding:10px;
+
+  border-radius:15px;
+
+  background:linear-gradient(
+    135deg,
+    rgba(231,241,252,.95),
+    rgba(249,229,239,.92)
+  );
+
+  border:1px solid rgba(191,210,232,.7);
+}
+
+.series-cover{
+  width:65px;
+  height:98px;
+
+  border-radius:10px;
+
+  object-fit:cover;
+
+  flex-shrink:0;
+}
+
+.series-number{
+  font-size:11px;
+  color:#7390ae;
+}
+
+.series-name{
+  font-weight:bold;
+
+  margin:4px 0;
+}
+
+.current{
+  font-size:11px;
+
+  color:#6f9bd0;
+}
+
+
+/* УВЕДОМЛЕНИЕ */
+
+.toast{
+  position:fixed;
+
+  left:50%;
+  bottom:92px;
+
+  transform:
+    translateX(-50%)
+    translateY(25px);
+
+  width:max-content;
+
+  max-width:calc(100% - 32px);
+
+  background:rgba(38,55,76,.96);
+
+  color:white;
+
+  padding:13px 17px;
+
+  border-radius:15px;
+
+  font-size:12px;
+  font-weight:bold;
+
+  text-align:center;
+
+  box-shadow:
+    0 12px 30px rgba(30,48,68,.22);
+
+  opacity:0;
+
+  pointer-events:none;
+
+  transition:
+    opacity .25s ease,
+    transform .25s ease;
+
+  z-index:9999999;
+}
+
+.toast.show{
+  opacity:1;
+
+  transform:
+    translateX(-50%)
+    translateY(0);
+}
+
+.toast.success{
+  background:linear-gradient(
+    135deg,
+    rgba(97,137,184,.97),
+    rgba(198,131,162,.97)
+  );
+}
+
+
+/* НИЖНЕЕ МЕНЮ */
+
+nav{
+  position:fixed;
+
+  left:0;
+  right:0;
+  bottom:0;
+
+  display:flex;
+  justify-content:space-around;
+
+  background:rgba(255,255,255,.95);
+  backdrop-filter:blur(12px);
+
+  border-top:1px solid #e0e8f1;
+
+  padding:
+    9px
+    3px
+    calc(13px + env(safe-area-inset-bottom));
+
+  z-index:999999;
+}
+
+.nav-item{
+  width:20%;
+  min-height:54px;
+
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+
+  text-decoration:none;
+
+  color:#8ca0b8;
+
+  font-size:10px;
+}
+
+.nav-icon{
+  font-size:21px;
+  margin-bottom:4px;
+}
+
+</style>
+</head>
+
+<body>
+
+<header>
+
+<a
+class="back"
+href="https://tvorchestvolana-alt.github.io/nocturne-books/catalog.html"
+>
+←
+</a>
+
+<div class="header-title">
+NOCTURNE BOOKS
+</div>
+
+<div class="menu">
+⋯
+</div>
+
+</header>
+
+
+<main>
+
+<div class="hero">
+
+<img
+class="cover"
+src="file_00000000d8e471f49bd1726c3042938f.png"
+alt="Холодный как лёд — Лауреа Мэттьюз"
+>
+
+<div class="series">
+Дикие Волки · Книга #1
+</div>
+
+<h1>
+Холодный как лёд
+</h1>
+
+<div class="author">
+Лауреа Мэттьюз
+</div>
+
+<div class="status">
+
+<span>🏒 Спортивный роман</span>
+
+<span>📖 EPUB</span>
+
+<span>№1 в серии</span>
+
+</div>
+
+
+<a
+class="read"
+id="readButton"
+href="https://tvorchestvolana-alt.github.io/nocturne-books/reader-cold-as-ice.html"
+>
+📖 ЧИТАТЬ
+</a>
+
+
+<a
+class="download"
+href="https://tvorchestvolana-alt.github.io/nocturne-books/%D0%A5%D0%BE%D0%BB%D0%BE%D0%B4%D0%BD%D1%8B%D0%B9%20%D0%BA%D0%B0%D0%BA%20%D0%BB%D1%91%D0%B4.epub"
+download="Холодный как лёд — Лауреа Мэттьюз.epub"
+>
+⬇️ СКАЧАТЬ EPUB
+</a>
+
+
+<button
+class="library"
+id="libraryButton"
+>
+♡ ДОБАВИТЬ В БИБЛИОТЕКУ
+</button>
+
+</div>
+
+
+<div class="section">
+
+<h2>
+АННОТАЦИЯ
+</h2>
+
+<div class="annotation">Год назад Алондра Браун навсегда ушла из фигурного катания. С тех пор каждый её день — это попытка собрать воедино осколки той личности, которой она была когда-то.
+
+После одной импульсивной ночи Алондра оказывается в ловушке собственной лжи. Она притворяется репетитором очаровательного незнакомца, с которым целовалась накануне, — и только теперь осознаёт, что перед ней Джек Шульц, звёздный хоккеист из команды её отца.
+
+Избегать Джека становится невозможно. Он умоляет Алондру воплотить их ложь в жизнь, признавшись, что без её помощи он не пройдёт аттестацию и потеряет право выходить на лёд. Разрываясь между страхом снова обжечься и влечением к капитану команды, Алондра с удивлением обнаруживает, что за маской плейбоя, не верящего в любовь, скрывается нечто гораздо большее.
+
+Грань их странной дружбы стирается, пока Джек и Алондра отчаянно борются с притяжением. Но как бы они ни старались это отрицать, сердце всегда жаждет именно того, что под запретом.</div>
+
+</div>
+
+
+<div class="section">
+
+<h2>
+ТРОПЫ
+</h2>
+
+<div class="tropes">
+
+<span class="trope">
+🏒 Спортивный роман
+</span>
+
+<span class="trope">
+💜 Хоккеист & фигуристка
+</span>
+
+<span class="trope">
+🧲 Противоположности притягиваются
+</span>
+
+<span class="trope">
+📚 Она — его репетитор и дочь тренера
+</span>
+
+<span class="trope">
+💔 Он не верит в любовь
+</span>
+
+<span class="trope">
+☀️ Ворчун & солнышко
+</span>
+
+<span class="trope">
+💬 Словесные перепалки
+</span>
+
+<span class="trope">
+🔥 Друзья с привилегиями
+</span>
+
+<span class="trope">
+💙 Он влюбляется первым
+</span>
+
+<span class="trope">
+🏡 Обретенная семья
+</span>
+
+<span class="trope">
+🫶 Заботливый главный герой
+</span>
+
+<span class="trope">
+✨ Уверенная и дерзкая главная героиня
+</span>
+
+</div>
+
+</div>
+
+
+<div class="section">
+
+<h2>
+СЕРИЯ «ДИКИЕ ВОЛКИ»
+</h2>
+
+<div class="series-card">
+
+<img
+class="series-cover"
+src="file_00000000d8e471f49bd1726c3042938f.png"
+alt="Холодный как лёд"
+>
+
+<div>
+
+<div class="series-number">
+КНИГА #1
+</div>
+
+<div class="series-name">
+Холодный как лёд
+</div>
+
+<div class="current">
+Вы здесь
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</main>
+
+
+<div
+class="toast"
+id="toast"
+></div>
+
+
+<nav>
+
+<a
+class="nav-item"
+href="https://tvorchestvolana-alt.github.io/nocturne-books/index.html"
+>
+<span class="nav-icon">⌂</span>
+Главная
+</a>
+
+<a
+class="nav-item"
+href="https://tvorchestvolana-alt.github.io/nocturne-books/catalog.html"
+>
+<span class="nav-icon">⌕</span>
+Каталог
+</a>
+
+<a
+class="nav-item"
+href="https://tvorchestvolana-alt.github.io/nocturne-books/library.html"
+>
+<span class="nav-icon">♡</span>
+Библиотека
+</a>
+
+<a
+class="nav-item"
+href="https://tvorchestvolana-alt.github.io/nocturne-books/bookmarks.html"
+>
+<span class="nav-icon">❝</span>
+Цитаты
+</a>
+
+<a
+class="nav-item"
+href="https://tvorchestvolana-alt.github.io/nocturne-books/profile.html"
+>
+<span class="nav-icon">♙</span>
+Профиль
+</a>
+
+</nav>
+
+
+<script>
+
+const LIBRARY_KEY =
+"nocturne-cold-as-ice-library";
+
+const POSITION_KEY =
+"nocturne-cold-as-ice-position";
+
+const PROGRESS_KEY =
+"nocturne-cold-as-ice-progress";
+
+
+const libraryButton =
+document.getElementById(
+  "libraryButton"
+);
+
+const readButton =
+document.getElementById(
+  "readButton"
+);
+
+const toast =
+document.getElementById(
+  "toast"
+);
+
+
+let toastTimer;
+
+
+/* УВЕДОМЛЕНИЯ */
+
+function showToast(
+  text,
+  success = false
+){
+
+  clearTimeout(
+    toastTimer
+  );
+
+
+  toast.textContent =
+  text;
+
+
+  toast.classList.remove(
+    "success"
+  );
+
+
+  if(success){
+
+    toast.classList.add(
+      "success"
+    );
+  }
+
+
+  toast.classList.add(
+    "show"
+  );
+
+
+  toastTimer =
+  setTimeout(
+    ()=>{
+
+      toast.classList.remove(
+        "show"
+      );
+
+    },
+    2500
+  );
+}
+
+
+/* КНОПКА ЧТЕНИЯ */
+
+function updateReadButton(){
+
+  const position =
+  localStorage.getItem(
+    POSITION_KEY
+  );
+
+
+  const progress =
+  Number(
+    localStorage.getItem(
+      PROGRESS_KEY
+    )
+  ) || 0;
+
+
+  if(progress >= 100){
+
+    readButton.textContent =
+    "📖 ОТКРЫТЬ КНИГУ";
+
+  }else if(position){
+
+    readButton.textContent =
+    "📖 ПРОДОЛЖИТЬ ЧТЕНИЕ";
+
+  }else{
+
+    readButton.textContent =
+    "📖 ЧИТАТЬ";
+  }
+}
+
+
+/* БИБЛИОТЕКА */
+
+function updateLibraryButton(){
+
+  const inLibrary =
+  localStorage.getItem(
+    LIBRARY_KEY
+  );
+
+
+  if(inLibrary === "yes"){
+
+    libraryButton.textContent =
+    "✓ В БИБЛИОТЕКЕ";
+
+
+    libraryButton
+    .classList
+    .add(
+      "active"
+    );
+
+  }else{
+
+    libraryButton.textContent =
+    "♡ ДОБАВИТЬ В БИБЛИОТЕКУ";
+
+
+    libraryButton
+    .classList
+    .remove(
+      "active"
+    );
+  }
+}
+
+
+libraryButton.addEventListener(
+"click",
+()=>{
+
+  const inLibrary =
+  localStorage.getItem(
+    LIBRARY_KEY
+  );
+
+
+  if(inLibrary === "yes"){
+
+    localStorage.removeItem(
+      LIBRARY_KEY
+    );
+
+
+    showToast(
+      "Книга удалена из библиотеки"
+    );
+
+  }else{
+
+    localStorage.setItem(
+      LIBRARY_KEY,
+      "yes"
+    );
+
+
+    showToast(
+      "✓ Книга добавлена в библиотеку",
+      true
+    );
+  }
+
+
+  updateLibraryButton();
+
+});
+
+
+updateReadButton();
+updateLibraryButton();
+
+</script>
+
+</body>
+  </html>
