@@ -7,7 +7,6 @@
 <title>Каталог — NOCTURNE BOOKS</title>
 
 <style>
-
 *{
   box-sizing:border-box;
 }
@@ -28,21 +27,15 @@ body{
   background-attachment:fixed;
 }
 
-
 /* ШАПКА */
 
 header{
   padding:24px 18px 14px;
-
   background:rgba(255,255,255,.72);
-
   backdrop-filter:blur(12px);
-
   border-bottom:1px solid rgba(220,221,233,.85);
-
   position:sticky;
   top:0;
-
   z-index:10;
 }
 
@@ -50,7 +43,6 @@ header{
   display:flex;
   align-items:center;
   justify-content:space-between;
-
   margin-bottom:18px;
 }
 
@@ -65,36 +57,25 @@ header{
   font-size:22px;
 }
 
-
 /* ПОИСК */
 
 .search{
   width:100%;
-
   border:1px solid rgba(216,225,237,.9);
-
   background:rgba(255,255,255,.88);
-
   padding:15px 16px;
-
   border-radius:17px;
-
   font-size:15px;
-
   outline:none;
 }
-
 
 /* ФИЛЬТРЫ */
 
 .filters{
   display:flex;
   gap:8px;
-
   overflow-x:auto;
-
   padding:14px 0 4px;
-
   scrollbar-width:none;
 }
 
@@ -104,73 +85,51 @@ header{
 
 .filter{
   border:1px solid rgba(211,224,237,.9);
-
   background:rgba(255,255,255,.88);
-
   color:#31577f;
-
   padding:9px 14px;
-
   border-radius:20px;
-
   white-space:nowrap;
-
-  flex-shrink:0;
+  font-size:13px;
 }
 
 .filter.active{
-  background:
-    linear-gradient(
-      135deg,
-      #709bd0,
-      #d49ab5
-    );
-
+  background:linear-gradient(
+    135deg,
+    #709bd0,
+    #d49ab5
+  );
   color:white;
-
   border-color:transparent;
 }
 
-
-/* КОНТЕНТ */
+/* ОСНОВНАЯ ЧАСТЬ */
 
 main{
-  padding:20px 14px;
-
+  padding:20px 16px;
   max-width:700px;
-
   margin:auto;
 }
 
 .count{
   font-size:12px;
-
   color:#7d90a7;
-
   margin-bottom:15px;
 }
 
-
-/* СЕТКА 3 КНИГИ */
+/* 3 КНИГИ В РЯД */
 
 .books{
   display:grid;
-
-  grid-template-columns:
-    repeat(3,minmax(0,1fr));
-
-  gap:22px 10px;
+  grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:24px 12px;
 }
 
 .book{
   text-decoration:none;
   color:inherit;
-
   min-width:0;
 }
-
-
-/* ОБЛОЖКА */
 
 .cover-wrap{
   position:relative;
@@ -178,135 +137,142 @@ main{
 
 .cover{
   width:100%;
-
   aspect-ratio:2/3;
-
   object-fit:cover;
-
-  border-radius:13px;
-
+  border-radius:15px;
   display:block;
 
   box-shadow:
-    0 8px 20px rgba(42,70,105,.13),
-    0 4px 13px rgba(217,154,184,.08);
+    0 9px 24px rgba(42,70,105,.13),
+    0 4px 16px rgba(217,154,184,.08);
 }
-
-
-/* НОМЕР СЕРИИ */
-
-.series-number{
-  position:absolute;
-
-  left:7px;
-  top:7px;
-
-  background:rgba(255,255,255,.94);
-
-  color:#52779e;
-
-  border-radius:10px;
-
-  padding:5px 6px;
-
-  font-size:8px;
-
-  font-weight:bold;
-
-  box-shadow:
-    0 3px 8px rgba(40,63,90,.08);
-}
-
 
 /* СЕРДЕЧКО */
 
 .heart{
   position:absolute;
-
   right:7px;
   top:7px;
 
-  width:29px;
-  height:29px;
+  width:34px;
+  height:34px;
 
-  background:rgba(255,255,255,.94);
+  border:0;
+  padding:0;
 
+  background:rgba(255,255,255,.95);
   border-radius:50%;
 
   display:flex;
   align-items:center;
   justify-content:center;
 
-  font-size:16px;
+  font-size:21px;
+  line-height:1;
 
-  color:#31577f;
+  color:#52779e;
 
-  box-shadow:
-    0 3px 8px rgba(40,63,90,.08);
+  cursor:pointer;
+
+  box-shadow:0 3px 10px rgba(23,48,82,.12);
+
+  z-index:5;
 }
 
+.heart.saved{
+  color:#d48faa;
+}
 
-/* ИНФОРМАЦИЯ */
+/* НАЗВАНИЕ */
 
 .book h3{
-  font-size:12px;
-
-  margin:8px 0 4px;
-
+  font-size:14px;
+  margin:9px 0 4px;
   line-height:1.25;
-
-  overflow-wrap:anywhere;
+  word-break:normal;
 }
 
 .author{
-  font-size:10px;
-
+  font-size:11px;
   color:#8192a7;
-
   margin-bottom:4px;
-
-  line-height:1.25;
 }
 
 .series{
-  font-size:9px;
-
+  font-size:10px;
   color:#6f89a5;
-
-  line-height:1.3;
+  line-height:1.25;
 }
-
 
 /* ПУСТОЙ ПОИСК */
 
 .empty{
   display:none;
-
   grid-column:1/-1;
-
   text-align:center;
-
   padding:60px 10px;
-
   color:#8192a7;
 }
 
+/* УВЕДОМЛЕНИЕ */
+
+.toast{
+  position:fixed;
+
+  left:50%;
+  bottom:100px;
+
+  transform:
+    translateX(-50%)
+    translateY(20px);
+
+  background:rgba(23,48,82,.96);
+
+  color:white;
+
+  padding:12px 18px;
+
+  border-radius:14px;
+
+  font-size:13px;
+  font-weight:bold;
+
+  white-space:nowrap;
+
+  opacity:0;
+  pointer-events:none;
+
+  transition:
+    opacity .2s ease,
+    transform .2s ease;
+
+  z-index:9999999;
+
+  box-shadow:
+    0 8px 25px
+    rgba(23,48,82,.20);
+}
+
+.toast.show{
+  opacity:1;
+
+  transform:
+    translateX(-50%)
+    translateY(0);
+}
 
 /* НИЖНЕЕ МЕНЮ */
 
 nav{
   position:fixed;
-
   left:0;
   right:0;
   bottom:0;
 
   display:flex;
-
   justify-content:space-around;
 
   background:rgba(255,255,255,.95);
-
   backdrop-filter:blur(12px);
 
   border-top:1px solid #e0e8f1;
@@ -321,7 +287,6 @@ nav{
 
 .nav-item{
   width:20%;
-
   min-height:54px;
 
   display:flex;
@@ -338,8 +303,8 @@ nav{
 }
 
 .nav-icon{
+  display:block;
   font-size:21px;
-
   margin-bottom:4px;
 }
 
@@ -347,56 +312,12 @@ nav{
   color:#5285c3;
 }
 
-
-/* ОЧЕНЬ УЗКИЕ ЭКРАНЫ */
-
-@media(max-width:340px){
-
-  main{
-    padding-left:10px;
-    padding-right:10px;
-  }
-
-  .books{
-    gap:
-      18px
-      7px;
-  }
-
-  .book h3{
-    font-size:11px;
-  }
-
-  .author{
-    font-size:9px;
-  }
-
-  .series{
-    font-size:8px;
-  }
-
-  .heart{
-    width:26px;
-    height:26px;
-    font-size:14px;
-  }
-
-  .series-number{
-    font-size:7px;
-    padding:4px 5px;
-  }
-
-}
-
 </style>
 </head>
 
-
 <body>
 
-
 <header>
-
 
 <div class="topbar">
 
@@ -415,7 +336,6 @@ href="https://tvorchestvolana-alt.github.io/nocturne-books/index.html"
 
 </div>
 
-
 <input
 id="search"
 class="search"
@@ -423,9 +343,7 @@ type="text"
 placeholder="🔍 Найти книгу, автора, серию или троп..."
 >
 
-
 <div class="filters">
-
 
 <button
 class="filter active"
@@ -434,14 +352,12 @@ data-filter="all"
 Все
 </button>
 
-
 <button
 class="filter"
 data-filter="хоккей"
 >
 Хоккей
 </button>
-
 
 <button
 class="filter"
@@ -450,14 +366,12 @@ data-filter="спортивный роман"
 Спортивный роман
 </button>
 
-
 <button
 class="filter"
 data-filter="студенческий роман"
 >
 Студенческий роман
 </button>
-
 
 <button
 class="filter"
@@ -466,14 +380,12 @@ data-filter="он влюбляется первым"
 Он влюбляется первым
 </button>
 
-
 <button
 class="filter"
 data-filter="от неприязни до любви"
 >
 От неприязни до любви
 </button>
-
 
 <button
 class="filter"
@@ -482,14 +394,12 @@ data-filter="фальшивые отношения"
 Фальшивые отношения
 </button>
 
-
 <button
 class="filter"
 data-filter="ворчун солнышко"
 >
 Ворчун & солнышко
 </button>
-
 
 <button
 class="filter"
@@ -498,14 +408,12 @@ data-filter="от друзей к влюбленным"
 От друзей к влюблённым
 </button>
 
-
 <button
 class="filter"
 data-filter="бостонские рыси"
 >
 Бостонские Рыси
 </button>
-
 
 <button
 class="filter"
@@ -514,14 +422,12 @@ data-filter="невидимая нить"
 Невидимая нить
 </button>
 
-
 <button
 class="filter"
 data-filter="дикие волки"
 >
 Дикие Волки
 </button>
-
 
 <button
 class="filter"
@@ -530,14 +436,11 @@ data-filter="точное попадание"
 Точное попадание
 </button>
 
-
 </div>
 
 </header>
 
-
 <main>
-
 
 <div
 class="count"
@@ -546,17 +449,17 @@ id="count"
 5 книг
 </div>
 
-
 <div class="books">
 
 
-<!-- =========================
+<!-- ========================================
      ПЕРЕМЕНЫ НА ЛЕТУ
-========================= -->
+======================================== -->
 
 <a
 class="book"
 href="https://tvorchestvolana-alt.github.io/nocturne-books/changes-on-the-fly.html"
+
 data-search="
 перемены на лету
 марен мур
@@ -564,18 +467,12 @@ data-search="
 хоккей
 хоккейный роман
 отец одиночка
-отец-одиночка
 опекун
-отец одиночка опекун
 брат лучшей подруги
 от друзей к влюбленным
-от друзей к влюблённым
 вынужденная близость
 изменившийся плейбой
-плейбой
 бедная девушка богатый парень
-бедная девушка
-богатый парень
 "
 >
 
@@ -587,16 +484,16 @@ src="1782309759197.png"
 alt="Перемены на лету"
 >
 
-<div class="series-number">
-#1
-</div>
-
-<div class="heart">
+<button
+class="heart"
+type="button"
+data-library-key="nocturne-changes-on-the-fly-library"
+onclick="toggleLibrary(event,this)"
+>
 ♡
-</div>
+</button>
 
 </div>
-
 
 <h3>
 Перемены на лету
@@ -613,13 +510,14 @@ alt="Перемены на лету"
 </a>
 
 
-<!-- =========================
+<!-- ========================================
      ХОЛОДНЫЙ КАК ЛЁД
-========================= -->
+======================================== -->
 
 <a
 class="book"
 href="https://tvorchestvolana-alt.github.io/nocturne-books/cold-as-ice.html"
+
 data-search="
 холодный как лёд
 холодный как лед
@@ -629,20 +527,14 @@ data-search="
 хоккей
 хоккеист
 фигуристка
-хоккеист фигуристка
 противоположности притягиваются
 она его репетитор
-репетитор
 дочь тренера
 он не верит в любовь
 ворчун солнышко
-словесные перепалки
 друзья с привилегиями
 он влюбляется первым
 обретенная семья
-заботливый главный герой
-уверенная главная героиня
-дерзкая главная героиня
 "
 >
 
@@ -654,16 +546,16 @@ src="file_00000000d8e471f49bd1726c3042938f.png"
 alt="Холодный как лёд"
 >
 
-<div class="series-number">
-#1
-</div>
-
-<div class="heart">
+<button
+class="heart"
+type="button"
+data-library-key="nocturne-cold-as-ice-library"
+onclick="toggleLibrary(event,this)"
+>
 ♡
-</div>
+</button>
 
 </div>
-
 
 <h3>
 Холодный как лёд
@@ -680,13 +572,14 @@ alt="Холодный как лёд"
 </a>
 
 
-<!-- =========================
+<!-- ========================================
      СКАЖИ, ЧТО Я ОШИБАЮСЬ
-========================= -->
+======================================== -->
 
 <a
 class="book"
 href="https://tvorchestvolana-alt.github.io/nocturne-books/say-im-wrong.html"
+
 data-search="
 скажи что я ошибаюсь
 скажи, что я ошибаюсь
@@ -697,11 +590,8 @@ data-search="
 звездный хоккеист
 бывшая балерина
 дочь тренера
-стервозная главная героиня
 от неприязни до любви
-золотой ретривер главный герой
 он влюбляется первым
-он влюбляется первым и сильно
 словесные перепалки
 обретенная семья
 "
@@ -715,16 +605,16 @@ src="file_00000000c9647243901fea32c2b541fb.png"
 alt="Скажи, что я ошибаюсь"
 >
 
-<div class="series-number">
-#1
-</div>
-
-<div class="heart">
+<button
+class="heart"
+type="button"
+data-library-key="nocturne-say-im-wrong-library"
+onclick="toggleLibrary(event,this)"
+>
 ♡
-</div>
+</button>
 
 </div>
-
 
 <h3>
 Скажи, что я ошибаюсь
@@ -741,13 +631,14 @@ alt="Скажи, что я ошибаюсь"
 </a>
 
 
-<!-- =========================
+<!-- ========================================
      ОГОНЬ И ЛЁД
-========================= -->
+======================================== -->
 
 <a
 class="book"
 href="https://tvorchestvolana-alt.github.io/nocturne-books/fire-and-ice.html"
+
 data-search="
 огонь и лёд
 огонь и лед
@@ -775,16 +666,16 @@ src="file_00000000b06c72468c564d5370a34844.png"
 alt="Огонь и лёд"
 >
 
-<div class="series-number">
-#2
-</div>
-
-<div class="heart">
+<button
+class="heart"
+type="button"
+data-library-key="nocturne-fire-and-ice-library"
+onclick="toggleLibrary(event,this)"
+>
 ♡
-</div>
+</button>
 
 </div>
-
 
 <h3>
 Огонь и лёд
@@ -801,13 +692,14 @@ alt="Огонь и лёд"
 </a>
 
 
-<!-- =========================
+<!-- ========================================
      ХОЛОДНАЯ МАЛЫШКА
-========================= -->
+======================================== -->
 
 <a
 class="book"
 href="https://tvorchestvolana-alt.github.io/nocturne-books/cold-baby.html"
+
 data-search="
 холодная малышка
 карли робин
@@ -833,16 +725,16 @@ src="file_00000000751c724682f122426a67d42d.png"
 alt="Холодная малышка"
 >
 
-<div class="series-number">
-#1
-</div>
-
-<div class="heart">
+<button
+class="heart"
+type="button"
+data-library-key="nocturne-cold-baby-library"
+onclick="toggleLibrary(event,this)"
+>
 ♡
-</div>
+</button>
 
 </div>
-
 
 <h3>
 Холодная малышка
@@ -866,146 +758,122 @@ id="empty"
 Ничего не найдено
 </div>
 
-
 </div>
 
 </main>
 
 
-<!-- НИЖНЕЕ МЕНЮ -->
+<!-- УВЕДОМЛЕНИЕ -->
+
+<div
+class="toast"
+id="toast"
+>
+Добавлено в библиотеку
+</div>
+
+
+<!-- ========================================
+     НИЖНЕЕ МЕНЮ
+======================================== -->
 
 <nav>
-
 
 <a
 class="nav-item"
 href="https://tvorchestvolana-alt.github.io/nocturne-books/index.html"
 >
-<span class="nav-icon">
-⌂
-</span>
+<span class="nav-icon">⌂</span>
 Главная
 </a>
-
 
 <a
 class="nav-item active"
 href="https://tvorchestvolana-alt.github.io/nocturne-books/catalog.html"
 >
-<span class="nav-icon">
-⌕
-</span>
+<span class="nav-icon">⌕</span>
 Каталог
 </a>
-
 
 <a
 class="nav-item"
 href="https://tvorchestvolana-alt.github.io/nocturne-books/library.html"
 >
-<span class="nav-icon">
-♡
-</span>
+<span class="nav-icon">♡</span>
 Библиотека
 </a>
-
 
 <a
 class="nav-item"
 href="https://tvorchestvolana-alt.github.io/nocturne-books/bookmarks.html"
 >
-<span class="nav-icon">
-❝
-</span>
+<span class="nav-icon">❝</span>
 Цитаты
 </a>
-
 
 <a
 class="nav-item"
 href="https://tvorchestvolana-alt.github.io/nocturne-books/profile.html"
 >
-<span class="nav-icon">
-♙
-</span>
+<span class="nav-icon">♙</span>
 Профиль
 </a>
-
 
 </nav>
 
 
 <script>
 
+/* ========================================
+   ПОИСК И ФИЛЬТРЫ
+======================================== */
 
 const search =
-document.getElementById(
-  "search"
-);
-
+document.getElementById("search");
 
 const books =
 [
-  ...document.querySelectorAll(
-    ".book"
-  )
+  ...document.querySelectorAll(".book")
 ];
 
-
 const filters =
-document.querySelectorAll(
-  ".filter"
-);
-
+document.querySelectorAll(".filter");
 
 const empty =
-document.getElementById(
-  "empty"
-);
-
+document.getElementById("empty");
 
 const count =
-document.getElementById(
-  "count"
-);
-
+document.getElementById("count");
 
 let activeFilter =
 "all";
 
 
-/* НОРМАЛИЗАЦИЯ */
-
 function normalize(text){
 
   return text
-  .toLowerCase()
-  .replace(/ё/g,"е")
-  .replace(/[,&]/g," ")
-  .replace(/\s+/g," ")
-  .trim();
+    .toLowerCase()
+    .replace(/ё/g,"е")
+    .replace(/[,&]/g," ")
+    .replace(/\s+/g," ")
+    .trim();
 }
 
-
-/* КНИГА / КНИГИ / КНИГ */
 
 function bookWord(number){
 
   const mod10 =
-  number % 10;
+    number % 10;
 
   const mod100 =
-  number % 100;
-
+    number % 100;
 
   if(
     mod10 === 1 &&
     mod100 !== 11
   ){
-
     return "книга";
   }
-
 
   if(
     mod10 >= 2 &&
@@ -1015,57 +883,38 @@ function bookWord(number){
       mod100 > 14
     )
   ){
-
     return "книги";
   }
-
 
   return "книг";
 }
 
 
-/* ПОИСК + ФИЛЬТР */
-
 function applyFilters(){
 
   const query =
-  normalize(
-    search.value
-  );
-
+    normalize(search.value);
 
   const filter =
-  normalize(
-    activeFilter
-  );
-
+    normalize(activeFilter);
 
   let visible =
-  0;
+    0;
 
-
-  books.forEach(
-  book=>{
+  books.forEach(book=>{
 
     const data =
-    normalize(
-      book.dataset.search
-    );
-
+      normalize(
+        book.dataset.search
+      );
 
     const matchesSearch =
-    query === "" ||
-    data.includes(
-      query
-    );
-
+      query === "" ||
+      data.includes(query);
 
     const matchesFilter =
-    activeFilter === "all" ||
-    data.includes(
-      filter
-    );
-
+      activeFilter === "all" ||
+      data.includes(filter);
 
     if(
       matchesSearch &&
@@ -1073,36 +922,31 @@ function applyFilters(){
     ){
 
       book.style.display =
-      "block";
+        "block";
 
       visible++;
 
     }else{
 
       book.style.display =
-      "none";
+        "none";
     }
 
   });
 
 
   empty.style.display =
-  visible === 0
-  ? "block"
-  : "none";
+    visible === 0
+    ? "block"
+    : "none";
 
 
   count.textContent =
-  visible +
-  " " +
-  bookWord(
-    visible
-  );
-
+    visible +
+    " " +
+    bookWord(visible);
 }
 
-
-/* ПОИСК */
 
 search.addEventListener(
   "input",
@@ -1110,43 +954,194 @@ search.addEventListener(
 );
 
 
-/* ФИЛЬТРЫ */
-
-filters.forEach(
-button=>{
+filters.forEach(button=>{
 
   button.addEventListener(
-  "click",
-  ()=>{
+    "click",
+    ()=>{
 
-    filters.forEach(
-      item =>
-      item.classList.remove(
+      filters.forEach(item=>{
+        item.classList.remove(
+          "active"
+        );
+      });
+
+      button.classList.add(
         "active"
-      )
-    );
+      );
 
+      activeFilter =
+        button.dataset.filter;
 
-    button.classList.add(
-      "active"
-    );
-
-
-    activeFilter =
-    button.dataset.filter;
-
-
-    applyFilters();
-
-  });
+      applyFilters();
+    }
+  );
 
 });
 
 
-/* ЗАПУСК */
+/* ========================================
+   УВЕДОМЛЕНИЕ
+======================================== */
+
+let toastTimer;
+
+function showToast(text){
+
+  const toast =
+    document.getElementById(
+      "toast"
+    );
+
+  toast.textContent =
+    text;
+
+  toast.classList.add(
+    "show"
+  );
+
+  clearTimeout(
+    toastTimer
+  );
+
+  toastTimer =
+    setTimeout(
+      ()=>{
+        toast.classList.remove(
+          "show"
+        );
+      },
+      1800
+    );
+}
+
+
+/* ========================================
+   ДОБАВЛЕНИЕ В БИБЛИОТЕКУ
+======================================== */
+
+function toggleLibrary(
+  event,
+  button
+){
+
+  /* НЕ ОТКРЫВАЕМ СТРАНИЦУ КНИГИ */
+
+  event.preventDefault();
+  event.stopPropagation();
+
+
+  const key =
+    button.dataset.libraryKey;
+
+
+  const saved =
+    localStorage.getItem(key)
+    === "yes";
+
+
+  /* ЕСЛИ УЖЕ ЕСТЬ — УДАЛЯЕМ */
+
+  if(saved){
+
+    localStorage.removeItem(
+      key
+    );
+
+    button.textContent =
+      "♡";
+
+    button.classList.remove(
+      "saved"
+    );
+
+    showToast(
+      "Удалено из библиотеки"
+    );
+
+  }
+
+  /* ЕСЛИ НЕТ — ДОБАВЛЯЕМ */
+
+  else{
+
+    localStorage.setItem(
+      key,
+      "yes"
+    );
+
+    button.textContent =
+      "♥";
+
+    button.classList.add(
+      "saved"
+    );
+
+    showToast(
+      "Добавлено в библиотеку"
+    );
+  }
+}
+
+
+/* ========================================
+   ВОССТАНАВЛИВАЕМ СОСТОЯНИЕ СЕРДЕЧЕК
+======================================== */
+
+function loadHearts(){
+
+  const hearts =
+    document.querySelectorAll(
+      ".heart"
+    );
+
+
+  hearts.forEach(button=>{
+
+    const key =
+      button.dataset.libraryKey;
+
+    const saved =
+      localStorage.getItem(key)
+      === "yes";
+
+
+    if(saved){
+
+      button.textContent =
+        "♥";
+
+      button.classList.add(
+        "saved"
+      );
+
+    }else{
+
+      button.textContent =
+        "♡";
+
+      button.classList.remove(
+        "saved"
+      );
+    }
+
+  });
+}
+
+
+/* ========================================
+   ЗАПУСК
+======================================== */
 
 applyFilters();
 
+loadHearts();
+
+
+window.addEventListener(
+  "pageshow",
+  loadHearts
+);
 
 </script>
 
