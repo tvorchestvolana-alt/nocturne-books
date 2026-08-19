@@ -1542,6 +1542,216 @@ nav{
   }
 
 }
+  /* ========================================
+   КНИГИ В ПЕРЕВОДЕ ВНУТРИ СЕРИЙ
+======================================== */
+
+.series-book-upcoming{
+    position: relative;
+    display: flex;
+    gap: 16px;
+    align-items: flex-start;
+
+    margin-top: 16px;
+    padding: 16px;
+
+    border-radius: 22px;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(255,255,255,.92),
+            rgba(248,234,241,.88) 55%,
+            rgba(234,242,251,.92)
+        );
+
+    border: 1px solid rgba(180,120,160,.12);
+
+    box-shadow:
+        0 8px 24px rgba(155,95,135,.08);
+}
+
+
+/* ОБЛОЖКА */
+
+.series-book-upcoming img{
+    width: 92px;
+    aspect-ratio: 2 / 3;
+
+    object-fit: cover;
+
+    border-radius: 14px;
+
+    flex-shrink: 0;
+
+    box-shadow:
+        0 7px 18px rgba(55,80,110,.13);
+}
+
+
+/* ПРАВАЯ ЧАСТЬ */
+
+.series-book-upcoming-info{
+    flex: 1;
+    min-width: 0;
+}
+
+
+/* НОМЕР КНИГИ */
+
+.series-book-upcoming-number{
+    margin-bottom: 5px;
+
+    font-size: 12px;
+    font-weight: 700;
+
+    color: #7894ad;
+
+    letter-spacing: .04em;
+}
+
+
+/* НАЗВАНИЕ */
+
+.series-book-upcoming-name{
+    margin-bottom: 5px;
+
+    font-size: 18px;
+    line-height: 1.2;
+
+    font-weight: 800;
+
+    color: #a74670;
+}
+
+
+/* АВТОР */
+
+.series-book-upcoming-author{
+    margin-bottom: 10px;
+
+    font-size: 13px;
+
+    color: #8193a5;
+}
+
+
+/* СТАТУС */
+
+.series-book-upcoming-status{
+    display: inline-flex;
+    align-items: center;
+
+    margin-bottom: 10px;
+
+    padding: 5px 10px;
+
+    border-radius: 999px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #d58bb0,
+            #82a9d3
+        );
+
+    color: white;
+
+    font-size: 11px;
+    font-weight: 800;
+
+    letter-spacing: .06em;
+    text-transform: uppercase;
+}
+
+
+/* ДАТА */
+
+.series-book-upcoming-date{
+    margin-bottom: 10px;
+
+    font-size: 13px;
+    font-weight: 800;
+
+    color: #31577f;
+}
+
+
+/* ТРОПЫ */
+
+.series-book-upcoming-tropes{
+    display: flex;
+    flex-wrap: wrap;
+
+    gap: 6px;
+}
+
+
+.series-book-upcoming-trope{
+    padding: 5px 8px;
+
+    border-radius: 999px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #f8eaf1,
+            #eaf2fb
+        );
+
+    color: #8c5b75;
+
+    font-size: 10px;
+    line-height: 1.25;
+}
+
+
+/* НЕБОЛЬШАЯ МЕТКА В ПРАВОМ ВЕРХНЕМ УГУ */
+
+.series-book-upcoming::after{
+    content: "✦";
+
+    position: absolute;
+
+    top: 12px;
+    right: 14px;
+
+    color: #d8a1bd;
+
+    font-size: 14px;
+}
+
+
+/* МОБИЛЬНАЯ ВЕРСИЯ */
+
+@media (max-width: 480px){
+
+    .series-book-upcoming{
+        gap: 13px;
+        padding: 14px;
+        border-radius: 20px;
+    }
+
+    .series-book-upcoming img{
+        width: 82px;
+    }
+
+    .series-book-upcoming-name{
+        font-size: 16px;
+    }
+
+    .series-book-upcoming-author{
+        font-size: 12px;
+    }
+
+    .series-book-upcoming-date{
+        font-size: 12px;
+    }
+
+    .series-book-upcoming-trope{
+        font-size: 9px;
+    }
+}
 </style>
 </head>
 
@@ -2231,254 +2441,290 @@ alt="Перемены на лету"
 
 </div>
   
- <!-- СЕРИИ -->
+<!-- СЕРИИ -->
 
 <div class="section-title">
-
-<h2>
-СЕРИИ
-</h2>
-
-<span></span>
-
+  <h2>СЕРИИ</h2>
+  <span></span>
 </div>
 
 
+<!-- ======================================== -->
 <!-- ТОЧНОЕ ПОПАДАНИЕ -->
+<!-- ======================================== -->
 
-<a
-class="series-card"
-href="https://tvorchestvolana-alt.github.io/nocturne-books/changes-on-the-fly.html"
->
+<div class="series-card">
 
-<div class="series-top">
+  <div class="series-top">
+    <div class="series-title">Точное попадание</div>
+    <div class="series-count">1 книга</div>
+  </div>
 
-<div class="series-title">
-Точное попадание
-</div>
+  <div class="series-description">
+    Хоккейные романы · Марен Мур
+  </div>
 
-<div class="series-count">
-1 книга
-</div>
+  <div class="series-books">
 
-</div>
+    <div class="series-book">
+      <img
+        src="1782309759197.png"
+        alt="Перемены на лету"
+      >
 
+      <div>
+        <div class="series-book-name">
+          Перемены на лету
+        </div>
 
-<div class="series-description">
-Хоккейные романы · Марен Мур
-</div>
+        <div class="series-book-number">
+          Книга #1
+        </div>
+      </div>
+    </div>
 
-
-<div class="series-books">
-
-<div class="series-book">
-
-<img
-src="1782309759197.png"
-alt="Перемены на лету"
->
-
-<div>
-
-<div class="series-book-name">
-Перемены на лету
-</div>
-
-<div class="series-book-number">
-Книга #1
-</div>
+  </div>
 
 </div>
 
-</div>
 
-</div>
-
-</a>
-
-
+<!-- ======================================== -->
 <!-- ДИКИЕ ВОЛКИ -->
+<!-- ======================================== -->
 
-<a
-class="series-card"
-href="https://tvorchestvolana-alt.github.io/nocturne-books/cold-as-ice.html"
->
+<div class="series-card">
 
-<div class="series-top">
+  <div class="series-top">
+    <div class="series-title">Дикие Волки</div>
+    <div class="series-count">2 книги</div>
+  </div>
 
-<div class="series-title">
-Дикие Волки
+  <div class="series-description">
+    Спортивные романы · Лауреа Мэттьюз
+  </div>
+
+  <div class="series-books">
+
+    <!-- КНИГА 1 -->
+
+    <div class="series-book">
+      <img
+        src="file_00000000d8e471f49bd1726c3042938f.png"
+        alt="Холодный как лёд"
+      >
+
+      <div>
+        <div class="series-book-name">
+          Холодный как лёд
+        </div>
+
+        <div class="series-book-number">
+          Книга #1
+        </div>
+      </div>
+    </div>
+
+
+    <!-- КНИГА 2 — ОЖИДАЕТСЯ -->
+
+    <div class="series-book upcoming-book">
+      <img
+        src="1787129307651.png"
+        alt="Сладкая как грех"
+      >
+
+      <div class="series-book-info">
+
+        <div class="series-book-name">
+          Сладкая как грех
+        </div>
+
+        <div class="series-book-number">
+          Книга #2
+        </div>
+
+        <div class="upcoming-status">
+          ОЖИДАЕТСЯ · 20 НОЯБРЯ
+        </div>
+
+        <div class="upcoming-tropes">
+          Хоккейный роман · Фальшивые отношения ·
+          Ворчун &amp; солнышко · Лучший друг брата
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+
 </div>
 
-<div class="series-count">
-1 книга
-</div>
 
-</div>
-
-
-<div class="series-description">
-Спортивные романы · Лауреа Мэттьюз
-</div>
-
-
-<div class="series-books">
-
-<div class="series-book">
-
-<img
-src="file_00000000d8e471f49bd1726c3042938f.png"
-alt="Холодный как лёд"
->
-
-<div>
-
-<div class="series-book-name">
-Холодный как лёд
-</div>
-
-<div class="series-book-number">
-Книга #1
-</div>
-
-</div>
-
-</div>
-
-</div>
-
-</a>
-
-
+<!-- ======================================== -->
 <!-- БОСТОНСКИЕ РЫСИ -->
+<!-- ======================================== -->
 
-<a
-class="series-card"
-href="https://tvorchestvolana-alt.github.io/nocturne-books/catalog.html"
->
+<div class="series-card">
 
-<div class="series-top">
+  <div class="series-top">
+    <div class="series-title">Бостонские Рыси</div>
+    <div class="series-count">3 книги</div>
+  </div>
 
-<div class="series-title">
-Бостонские Рыси
+  <div class="series-description">
+    Хоккейные романы · Карли Робин
+  </div>
+
+  <div class="series-books">
+
+    <!-- КНИГА 1 -->
+
+    <div class="series-book">
+      <img
+        src="file_00000000751c724682f122426a67d42d.png"
+        alt="Холодная малышка"
+      >
+
+      <div>
+        <div class="series-book-name">
+          Холодная малышка
+        </div>
+
+        <div class="series-book-number">
+          Книга #1
+        </div>
+      </div>
+    </div>
+
+
+    <!-- КНИГА 2 -->
+
+    <div class="series-book">
+      <img
+        src="file_00000000b06c72468c564d5370a34844.png"
+        alt="Огонь и лёд"
+      >
+
+      <div>
+        <div class="series-book-name">
+          Огонь и лёд
+        </div>
+
+        <div class="series-book-number">
+          Книга #2
+        </div>
+      </div>
+    </div>
+
+
+    <!-- КНИГА 3 — ОЖИДАЕТСЯ -->
+
+    <div class="series-book upcoming-book">
+      <img
+        src="1787129351706.png"
+        alt="Ледяной контроль"
+      >
+
+      <div class="series-book-info">
+
+        <div class="series-book-name">
+          Ледяной контроль
+        </div>
+
+        <div class="series-book-number">
+          Книга #3
+        </div>
+
+        <div class="upcoming-status">
+          ОЖИДАЕТСЯ · 10 НОЯБРЯ
+        </div>
+
+        <div class="upcoming-tropes">
+          Хоккейный роман · Лучший друг брата ·
+          Вынужденные соседи · Изменившийся плейбой
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+
 </div>
 
-<div class="series-count">
-2 книги
-</div>
 
-</div>
-
-
-<div class="series-description">
-Хоккейные романы · Карли Робин
-</div>
-
-
-<div class="series-books">
-
-
-<div class="series-book">
-
-<img
-src="file_00000000751c724682f122426a67d42d.png"
-alt="Холодная малышка"
->
-
-<div>
-
-<div class="series-book-name">
-Холодная малышка
-</div>
-
-<div class="series-book-number">
-Книга #1
-</div>
-
-</div>
-
-</div>
-
-
-<div class="series-book">
-
-<img
-src="file_00000000b06c72468c564d5370a34844.png"
-alt="Огонь и лёд"
->
-
-<div>
-
-<div class="series-book-name">
-Огонь и лёд
-</div>
-
-<div class="series-book-number">
-Книга #2
-</div>
-
-</div>
-
-</div>
-
-
-</div>
-
-</a>
-
-
+<!-- ======================================== -->
 <!-- НЕВИДИМАЯ НИТЬ -->
+<!-- ======================================== -->
 
-<a
-class="series-card"
-href="https://tvorchestvolana-alt.github.io/nocturne-books/say-im-wrong.html"
->
+<div class="series-card">
 
-<div class="series-top">
+  <div class="series-top">
+    <div class="series-title">Невидимая нить</div>
+    <div class="series-count">2 книги</div>
+  </div>
 
-<div class="series-title">
-Невидимая нить
-</div>
+  <div class="series-description">
+    Студенческие романы · Оден Хантер
+  </div>
 
-<div class="series-count">
-1 книга
-</div>
+  <div class="series-books">
 
-</div>
+    <!-- КНИГА 1 -->
+
+    <div class="series-book">
+      <img
+        src="file_00000000c9647243901fea32c2b541fb.png"
+        alt="Скажи, что я ошибаюсь"
+      >
+
+      <div>
+        <div class="series-book-name">
+          Скажи, что я ошибаюсь
+        </div>
+
+        <div class="series-book-number">
+          Книга #1
+        </div>
+      </div>
+    </div>
 
 
-<div class="series-description">
-Студенческий роман · Оден Хантер
-</div>
+    <!-- КНИГА 2 — ОЖИДАЕТСЯ -->
 
+    <div class="series-book upcoming-book">
+      <img
+        src="file_00000000dadc824394d47c4fac0d6391.png"
+        alt="Не будь незнакомцем"
+      >
 
-<div class="series-books">
+      <div class="series-book-info">
 
-<div class="series-book">
+        <div class="series-book-name">
+          Не будь незнакомцем
+        </div>
 
-<img
-src="file_00000000c9647243901fea32c2b541fb.png"
-alt="Скажи, что я ошибаюсь"
->
+        <div class="series-book-number">
+          Книга #2
+        </div>
 
-<div>
+        <div class="upcoming-status">
+          ОЖИДАЕТСЯ · 18 СЕНТЯБРЯ
+        </div>
 
-<div class="series-book-name">
-Скажи, что я ошибаюсь
-</div>
+        <div class="upcoming-tropes">
+          Летний роман ·
+          Главная героиня — пловчиха второго дивизиона ·
+          «Никто не должен знать» ·
+          Неопытный главный герой ·
+          От друзей к влюблённым
+        </div>
 
-<div class="series-book-number">
-Книга #1
-</div>
+      </div>
+    </div>
 
-</div>
+  </div>
 
-</div>
-
-</div>
-
-</a>
-
+  </div>
 
 <a
 class="catalog-link"
