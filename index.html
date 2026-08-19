@@ -1670,6 +1670,120 @@ nav{
 .upcoming-status{
   margin-top:7px;
 }
+  /* =========================================
+   ФИНАЛЬНЫЙ ФИКС КАРТОЧЕК СЕРИЙ
+========================================= */
+
+.series-books{
+  display:flex !important;
+  flex-direction:column !important;
+  gap:14px !important;
+}
+
+.series-book{
+  display:flex !important;
+  align-items:center !important;
+  gap:14px !important;
+
+  width:100% !important;
+  min-height:96px !important;
+
+  margin:0 !important;
+  padding:0 !important;
+
+  position:relative !important;
+}
+
+/* ВСЕ ОБЛОЖКИ ОДИНАКОВЫЕ */
+
+.series-book img{
+  width:64px !important;
+  height:96px !important;
+
+  object-fit:cover !important;
+
+  flex:0 0 64px !important;
+
+  border-radius:8px !important;
+
+  margin:0 !important;
+  padding:0 !important;
+
+  position:static !important;
+  transform:none !important;
+}
+
+/* ТЕКСТ СПРАВА */
+
+.series-book > div,
+.series-book-info{
+  flex:1 !important;
+  min-width:0 !important;
+
+  margin:0 !important;
+}
+
+/* НАЗВАНИЕ */
+
+.series-book-name{
+  margin:0 0 4px !important;
+
+  font-family:Arial,sans-serif !important;
+  font-size:13px !important;
+  line-height:1.25 !important;
+  font-weight:700 !important;
+}
+
+/* НОМЕР КНИГИ */
+
+.series-book-number{
+  margin:0 !important;
+
+  font-family:Arial,sans-serif !important;
+  font-size:10px !important;
+  line-height:1.3 !important;
+}
+
+/* ОЖИДАЕТСЯ */
+
+.upcoming-status{
+  display:inline-flex !important;
+  align-items:center !important;
+
+  width:max-content !important;
+
+  margin-top:6px !important;
+  padding:5px 9px !important;
+
+  border-radius:999px !important;
+
+  background:
+    linear-gradient(
+      135deg,
+      #f6d9e7,
+      #e1ebfa
+    ) !important;
+
+  color:#776681 !important;
+
+  font-family:Arial,sans-serif !important;
+  font-size:9px !important;
+  line-height:1 !important;
+  font-weight:700 !important;
+
+  white-space:nowrap !important;
+}
+
+/* БУДУЩАЯ КНИГА НЕ ИМЕЕТ ОТДЕЛЬНОЙ БОЛЬШОЙ КАРТОЧКИ */
+
+.series-book.upcoming-book{
+  background:transparent !important;
+  border:0 !important;
+  box-shadow:none !important;
+
+  padding:0 !important;
+  margin:0 !important;
+}
 </style>
 </head>
 
