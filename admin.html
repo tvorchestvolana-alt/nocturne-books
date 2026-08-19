@@ -531,6 +531,37 @@ select:focus{
   display:block;
 }
 
+  /* ГДЕ ПОКАЗЫВАТЬ КНИГУ */
+
+.placement-box{
+  display:flex;
+  flex-direction:column;
+  gap:9px;
+  margin-top:7px;
+  margin-bottom:12px;
+  padding:13px;
+  border:1px solid #dfe7f1;
+  border-radius:15px;
+  background:linear-gradient(135deg,#fbfdff,#fff7fb);
+}
+
+.placement-option{
+  display:flex;
+  align-items:center;
+  gap:9px;
+  font-size:12px;
+  color:#526d89;
+}
+
+.placement-option input{
+  width:17px;
+  height:17px;
+}
+
+.home-placement{
+  margin-top:10px;
+}
+
 </style>
 </head>
 
@@ -723,6 +754,83 @@ placeholder="1"
 Если книга не входит в серию — оставьте эти поля пустыми.
 </div>
 
+  <!-- ГДЕ ПОКАЗЫВАТЬ КНИГУ -->
+
+<div class="form-group">
+
+  <label>
+    Где показывать книгу
+  </label>
+
+  <div class="placement-box">
+
+    <label class="placement-option">
+      <input
+        type="checkbox"
+        id="showInLibrary"
+        checked
+      >
+      <span>
+        Добавить в библиотеку
+      </span>
+    </label>
+
+    <label class="placement-option">
+      <input
+        type="checkbox"
+        id="showOnHome"
+      >
+      <span>
+        Показать на главной
+      </span>
+    </label>
+
+    <label class="placement-option">
+      <input
+        type="checkbox"
+        id="showInSeries"
+      >
+      <span>
+        Показывать в серии
+      </span>
+    </label>
+
+  </div>
+
+
+  <div
+    class="home-placement"
+    id="homePlacement"
+    style="display:none;"
+  >
+
+    <label>
+      Где именно на главной
+    </label>
+
+    <select id="homeSection">
+
+      <option value="">
+        Выберите блок
+      </option>
+
+      <option value="new">
+        Новинки
+      </option>
+
+      <option value="featured">
+        Стоит прочитать
+      </option>
+
+      <option value="announcement">
+        Анонсы
+      </option>
+
+    </select>
+
+  </div>
+
+</div>
 
 <label>
 Аннотация
@@ -2081,6 +2189,31 @@ function escapeHtml(text) {
 
 loadBooks();
 
+  const showOnHome =
+document.getElementById(
+  "showOnHome"
+);
+
+const homePlacement =
+document.getElementById(
+  "homePlacement"
+);
+
+if(showOnHome && homePlacement){
+
+  showOnHome.addEventListener(
+    "change",
+    function(){
+
+      homePlacement.style.display =
+        showOnHome.checked
+        ? "block"
+        : "none";
+
+    }
+  );
+
+}
 </script>
 
 </body>
