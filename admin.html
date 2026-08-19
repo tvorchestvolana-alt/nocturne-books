@@ -1355,9 +1355,9 @@ async()=>{
 
       series_number: seriesNumber,
 
-show_library: document.getElementById("showLibrary").checked,
-show_home: document.getElementById("showHome").checked,
-show_series: document.getElementById("showSeries").checked
+show_library: document.getElementById("showInLibrary").checked,
+show_home: document.getElementById("showOnHome").checked,
+show_series: document.getElementById("showInSeries").checked
 };
 
 
@@ -1908,7 +1908,18 @@ function startEdit(id){
   .value =
   book.series_number || "";
 
+document.getElementById("showInLibrary").checked =
+  Number(book.show_library) !== 0;
 
+document.getElementById("showOnHome").checked =
+  Number(book.show_home) === 1;
+
+document.getElementById("showInSeries").checked =
+  Number(book.show_series) === 1;
+
+document.getElementById("homePlacement").style.display =
+  Number(book.show_home) === 1 ? "block" : "none";
+  
   document
   .getElementById(
     "description"
@@ -1999,6 +2010,11 @@ function resetForm() {
   editingBookUrl =
     "";
 
+document.getElementById("showInLibrary").checked = true;
+document.getElementById("showOnHome").checked = false;
+document.getElementById("showInSeries").checked = false;
+document.getElementById("homePlacement").style.display = "none";
+  
   document
     .getElementById(
       "title"
