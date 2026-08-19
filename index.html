@@ -1543,82 +1543,86 @@ nav{
 
 }
   /* =========================================
-   КНИГИ В ПЕРЕВОДЕ ВНУТРИ СЕРИЙ
+   ОЖИДАЕМЫЕ КНИГИ В СЕРИЯХ
 ========================================= */
 
+/* Будущая книга выглядит как обычная книга */
+
 .series-book.upcoming-book{
-  position: relative;
+  position:relative;
+
+  padding:0;
+  margin:0;
+
+  background:transparent;
+  border:0;
+  box-shadow:none;
 }
 
-/* Обложка — такая же, как у остальных книг */
-.series-book.upcoming-book img{
-  width: 64px;
-  aspect-ratio: 2 / 3;
-  object-fit: cover;
-  border-radius: 8px;
-  flex-shrink: 0;
-}
 
-/* Информация о книге */
+/* НЕ ПЕРЕОПРЕДЕЛЯЕМ название и номер книги —
+   они используют обычные стили series-book */
+
 .series-book.upcoming-book .series-book-info{
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  min-width: 0;
+  min-width:0;
 }
 
-/* Название — такое же, как у обычных книг */
-.series-book.upcoming-book .series-book-name{
-  font-family: inherit;
-  font-size: inherit;
-  font-weight: 700;
+
+/* ОЖИДАЕТСЯ + ДАТА */
+
+.upcoming-status{
+  display:inline-flex;
+  align-items:center;
+
+  width:max-content;
+
+  margin-top:6px;
+
+  padding:5px 9px;
+
+  border-radius:999px;
+
+  background:
+    linear-gradient(
+      135deg,
+      #f6d9e7,
+      #e1ebfa
+    );
+
+  color:#7b6681;
+
+  font-family:Arial,sans-serif;
+
+  font-size:9px;
+  line-height:1;
+
+  font-weight:700;
+
+  letter-spacing:.2px;
 }
 
-/* Номер книги */
-.series-book.upcoming-book .series-book-number{
-  font-family: inherit;
+
+/* Обложка — ровно как у остальных */
+
+.series-book.upcoming-book img{
+  flex-shrink:0;
 }
 
-/* Пометка В ПЕРЕВОДЕ */
-.series-book-upcoming-date{
-  display: inline-block;
-  width: fit-content;
 
-  margin-top: 5px;
-  padding: 4px 9px;
+/* Телефон */
 
-  border-radius: 999px;
+@media(max-width:480px){
 
-  background: linear-gradient(
-    90deg,
-    #f6d9e7,
-    #e5e9fb
-  );
+  .upcoming-status{
+    margin-top:5px;
 
-  color: #9b5277;
+    padding:5px 8px;
 
-  font-family: inherit;
-  font-size: 10px;
-  font-weight: 700;
-  line-height: 1.2;
-
-  letter-spacing: .3px;
-  text-transform: uppercase;
-}
-
-/* Мобильная версия */
-@media (max-width: 480px){
-
-  .series-book.upcoming-book img{
-    width: 64px;
+    font-size:9px;
   }
 
-  .series-book-upcoming-date{
-    font-size: 9px;
-    padding: 4px 8px;
-  }
-
-  }
+}
+  
 
 }
 </style>
