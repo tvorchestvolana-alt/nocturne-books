@@ -837,11 +837,19 @@ placeholder="1"
 </label>
 
 <textarea
-id="description"
+id=""
 placeholder="Вставьте аннотацию книги..."
 ></textarea>
 
+  <label>
+Тропы
+</label>
 
+<textarea
+id="tropes"
+placeholder="Каждый троп с новой строки. Можно использовать эмодзи."
+></textarea>
+  
 <label>
 Обложка
 </label>
@@ -1217,20 +1225,26 @@ async()=>{
 
   const description =
   document
-  .getElementById(
-    "description"
-  )
-  .value
-  .trim();
+    .getElementById(
+      "description"
+    )
+    .value
+    .trim();
 
-
-  const coverFile =
+const tropes =
   document
-  .getElementById(
-    "coverFile"
-  )
-  .files[0];
+    .getElementById(
+      "tropes"
+    )
+    .value
+    .trim();
 
+const coverFile =
+  document
+    .getElementById(
+      "coverFile"
+    )
+    .files[0];
 
   const bookFile =
   document
@@ -1344,6 +1358,8 @@ async()=>{
       description:
       description,
 
+      tropes: tropes,
+      
       cover_url:
       coverUrl,
 
@@ -1907,7 +1923,13 @@ function startEdit(id){
   )
   .value =
   book.series_number || "";
+  
+  document.getElementById("description").value =
+  book.description || "";
 
+document.getElementById("tropes").value =
+  book.tropes || "";
+  
 document.getElementById("showInLibrary").checked =
   Number(book.show_library) !== 0;
 
@@ -1922,10 +1944,10 @@ document.getElementById("homePlacement").style.display =
   
   document
   .getElementById(
-    "description"
+    ""
   )
   .value =
-  book.description || "";
+  book. || "";
 
 
   document
@@ -2009,7 +2031,8 @@ function resetForm() {
 
   editingBookUrl =
     "";
-
+  
+document.getElementById("tropes").value = "";
 document.getElementById("showInLibrary").checked = true;
 document.getElementById("showOnHome").checked = false;
 document.getElementById("showInSeries").checked = false;
@@ -2052,7 +2075,7 @@ document.getElementById("homePlacement").style.display = "none";
 
   document
     .getElementById(
-      "description"
+      ""
     )
     .value =
     "";
